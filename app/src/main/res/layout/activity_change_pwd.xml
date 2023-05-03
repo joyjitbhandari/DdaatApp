@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/screen_bg">
+
+    <!--Toolbar-->
+    <LinearLayout
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="1dp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="@dimen/_10dp"
+        android:layout_marginEnd="@dimen/_10dp"
+        android:layout_marginTop="@dimen/_20dp">
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+            android:background="@color/float_transparent"
+            app:icon="@drawable/ic_back_arraow"
+            app:iconTint="@color/light_grey"
+            app:iconSize="30dp"
+            android:padding="8dp"/>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/txt_change_pwd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:fontFamily="@font/dm_sans_bold700"
+        android:textAppearance="@style/heading"
+        android:text="@string/change_password"
+        android:textAlignment="center"
+        app:layout_constraintStart_toStartOf="@id/new_pwd_card"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+    <View
+        android:id="@+id/view_blue"
+        android:layout_width="@dimen/_50dp"
+        android:layout_height="@dimen/_2dp"
+        android:layout_marginTop="5dp"
+        android:background="#46CBE9"
+        app:layout_constraintStart_toStartOf="@id/txt_change_pwd"
+        app:layout_constraintTop_toBottomOf="@id/txt_change_pwd" />
+
+    <TextView
+        android:id="@+id/txt_forgot"
+        android:layout_width="282dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_15dp"
+        android:paddingVertical="5dp"
+        android:fontFamily="@font/dm_sans_medium_500"
+        android:text="@string/forgot_your"
+        android:textColor="@color/light_grey"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="@+id/txt_change_pwd"
+        app:layout_constraintTop_toBottomOf="@+id/txt_change_pwd" />
+
+
+    <!--New Password-->
+    <TextView
+        android:id="@+id/txt_new_pwd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_30dp"
+        android:fontFamily="@font/dm_sans_medium_500"
+        android:text="@string/new_password"
+        android:layout_marginStart="@dimen/_20dp"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="@+id/new_pwd_card"
+        app:layout_constraintTop_toBottomOf="@id/txt_forgot" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/new_pwd_card"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginHorizontal="@dimen/_30dp"
+        android:layout_marginTop="5dp"
+        android:adjustViewBounds="true"
+        android:background="@drawable/round_25_black_bg"
+        android:focusable="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txt_new_pwd">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_new_pwd"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/_25dp"
+            android:layout_marginEnd="@dimen/_25dp"
+            android:background="@android:color/transparent"
+            android:focusable="true"
+            android:fontFamily="@font/dm_sans_regular_400"
+            android:hint="@string/enter_new_password"
+            android:inputType="textEmailAddress"
+            android:textColor="@color/white"
+            android:textColorHint="@color/light_grey"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="@+id/new_pwd_card"
+            app:layout_constraintStart_toStartOf="@id/new_pwd_card"
+            app:layout_constraintTop_toTopOf="@id/new_pwd_card" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <!--Confirm Password-->
+    <TextView
+        android:id="@+id/txt_cnf_pwd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_15dp"
+        android:fontFamily="@font/dm_sans_bold700"
+        android:text="@string/confirm_password"
+        android:layout_marginStart="@dimen/_20dp"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="@+id/cnf_pwd_card"
+        app:layout_constraintTop_toBottomOf="@id/new_pwd_card" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cnf_pwd_card"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginHorizontal="@dimen/_30dp"
+        android:layout_marginTop="5dp"
+        android:adjustViewBounds="true"
+        android:background="@drawable/round_25_black_bg"
+        android:focusable="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txt_cnf_pwd">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_cnf_pwd"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/_25dp"
+            android:layout_marginEnd="@dimen/_25dp"
+            android:background="@android:color/transparent"
+            android:focusable="true"
+            android:fontFamily="@font/dm_sans_regular_400"
+            android:hint="@string/enter_confirm_password"
+            android:inputType="textVisiblePassword"
+            android:textColor="@color/white"
+            android:textColorHint="@color/light_grey"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="@+id/cnf_pwd_card"
+            app:layout_constraintStart_toStartOf="@id/cnf_pwd_card"
+            app:layout_constraintTop_toTopOf="@id/cnf_pwd_card" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+<!--set Password Button-->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_set_pwd"
+        style="@style/MyTextButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onClick"
+        android:layout_marginTop="@dimen/_30dp"
+        android:layout_marginStart="@dimen/_20dp"
+        android:layout_marginEnd="@dimen/_20dp"
+        android:paddingVertical="@dimen/_16dp"
+        android:text="@string/set_new_password"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cnf_pwd_card"
+        app:layout_constraintVertical_bias="0.172" />
+</androidx.constraintlayout.widget.ConstraintLayout>

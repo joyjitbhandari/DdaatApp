@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.DdaatApp"
+        tools:targetApi="31">
+        <activity
+            android:name=".activity.notification.NotificationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CoursesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".StreamsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SessionsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".VideoLibraryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.signup.ProfileCreatedActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.subscription.BuySubscriptionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.subscription.SubscriptionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.signup.InterestActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.signup.CompleteProfile"
+            android:exported="false" />
+        <activity
+            android:name=".activity.signup.SignUpActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.forgot.ChangePwdActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.otpvrify.OtpVerifyActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.forgot.ForgotActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.splash.OnBoardingActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.splash.SplashActivity"
+            android:exported="true">
+
+        </activity>
+        <activity
+            android:name=".LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".HomeActivity"
+            android:exported="false" />
+    </application>
+
+</manifest>

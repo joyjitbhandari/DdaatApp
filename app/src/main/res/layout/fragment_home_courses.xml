@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.HomeCoursesFragment"
+    android:background="@color/screen_bg">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+<!--Course Survey-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/btn_take_survey"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginHorizontal="@dimen/_25dp"
+            android:paddingVertical="@dimen/_15dp"
+            android:paddingHorizontal="@dimen/_20dp"
+            android:background="@drawable/round_25_black_stroke_shape">
+
+            <ImageView
+                android:id="@+id/right_arrow"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@color/float_transparent"
+                android:src="@drawable/ic_right_arrow"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.988"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.49" />
+
+            <TextView
+                android:id="@+id/txt_videoDesc"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/float_transparent"
+                android:fontFamily="@font/dm_sans_bold700"
+                android:letterSpacing="0.02"
+                android:maxLines="3"
+                android:paddingEnd="@dimen/_25dp"
+                android:text="@string/take_behavi"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/right_arrow"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+<!--Course recycler-->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/courseRecycler"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:paddingHorizontal="25dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_take_survey"
+            tools:listitem="@layout/video_library_list_item"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

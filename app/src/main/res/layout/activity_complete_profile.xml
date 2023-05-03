@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.signup.CompleteProfile"
+    android:background="@color/screen_bg">
+
+<!--Tool_bar-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="1dp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="@dimen/_10dp"
+        android:layout_marginEnd="@dimen/_10dp"
+        android:layout_marginTop="@dimen/_20dp">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_back"
+            style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:background="@color/float_transparent"
+            android:padding="8dp"
+            android:onClick="onClick"
+            app:icon="@drawable/ic_back_arraow"
+            app:iconSize="30dp"
+            app:iconTint="@color/light_grey"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/complete_profile"
+            android:fontFamily="@font/dm_sans_medium_500"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/txt_choose_avatar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/dm_sans_medium_500"
+        android:text="@string/choose_avatar"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:layout_margin="@dimen/_20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"/>
+
+<!--Avatar List-->
+<!--    <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/txt_choose_avatar">-->
+<!--        -->
+<!--    </androidx.constraintlayout.widget.ConstraintLayout>-->
+    <LinearLayout
+        android:id="@+id/avatar_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_choose_avatar"
+        android:layout_margin="@dimen/_20dp">
+
+        <ImageView
+            android:id="@+id/avatar1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/avatar1"
+            android:layout_marginEnd="@dimen/_10dp"
+            android:layout_weight="1"/>
+        <ImageView
+            android:id="@+id/avatar2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/avatar2"
+            android:layout_marginEnd="@dimen/_10dp"
+            android:layout_weight="1"/>
+        <ImageView
+            android:id="@+id/avatar3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/avatar3"
+            android:layout_marginEnd="@dimen/_10dp"
+            android:layout_weight="1"/>
+        <ImageView
+            android:id="@+id/avatar4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/avatar4"
+            android:layout_weight="1"/>
+    </LinearLayout>
+
+<!--Inputs-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/avatar_list"
+        android:layout_marginTop="@dimen/_20dp">
+<!--User Name-->
+        <TextView
+            android:id="@+id/txt_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_20dp"
+            android:fontFamily="@font/dm_sans_medium_500"
+            android:text="@string/user_name"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="@id/et_user_name"
+            app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_user_name"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="@dimen/_30dp"
+                android:layout_marginEnd="@dimen/_30dp"
+                android:paddingStart="@dimen/_25dp"
+                android:paddingEnd="@dimen/_25dp"
+                android:layout_marginTop="5dp"
+                android:adjustViewBounds="true"
+                android:background="@drawable/round_25_black_bg"
+                android:focusable="true"
+                android:fontFamily="@font/dm_sans_regular_400"
+                android:hint="@string/enter_user_name"
+                android:inputType="textCapSentences"
+                android:textColor="@color/white"
+                android:textColorHint="@color/light_grey"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txt_name"/>
+
+<!--Birth Year-->
+        <TextView
+            android:id="@+id/txt_birth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_20dp"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/dm_sans_medium_500"
+            android:text="@string/birth_year"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="@id/et_birth_year"
+            app:layout_constraintTop_toBottomOf="@id/et_user_name"/>
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_birth_year"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="@dimen/_30dp"
+            android:layout_marginEnd="@dimen/_30dp"
+            android:paddingStart="@dimen/_20dp"
+            android:paddingEnd="@dimen/_20dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/round_25_black_bg"
+            android:clickable="false"
+            android:cursorVisible="false"
+            android:fontFamily="@font/dm_sans_regular_400"
+            android:hint="@string/enter_birth_year"
+            android:focusableInTouchMode="false"
+            android:textColor="@color/white"
+            android:textColorHint="@color/light_grey"
+            android:textSize="15sp"
+            android:onClick="onClick"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txt_birth"/>
+<!--Gender-->
+        <TextView
+            android:id="@+id/txt_gender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_20dp"
+            android:layout_marginTop="@dimen/_15dp"
+            android:fontFamily="@font/dm_sans_medium_500"
+            android:text="@string/gender"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="@id/select_gender"
+            app:layout_constraintTop_toBottomOf="@id/et_birth_year"/>
+
+        <TextView
+            android:id="@+id/select_gender"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="@dimen/_30dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="@dimen/_30dp"
+            android:background="@drawable/round_25_black_bg"
+            android:focusable="true"
+            android:gravity="center_vertical"
+            android:focusableInTouchMode="false"
+            android:inputType="none"
+            android:paddingStart="@dimen/_25dp"
+            android:paddingEnd="@dimen/_15dp"
+            android:clickable="false"
+            android:cursorVisible="false"
+            android:onClick="onClick"
+            android:text="@string/select"
+            android:drawableEnd="@drawable/ic_drop_down_arrow"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txt_gender" />
+
+
+        <!--Next Button-->
+
+<!--        <Spinner-->
+<!--            android:id="@+id/gender_spinner"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:background="@drawable/round_25_black_bg"-->
+<!--            android:elevation="@dimen/_20dp"-->
+<!--            android:layout_marginHorizontal="@dimen/_30dp"-->
+<!--            android:visibility="gone"-->
+<!--            app:layout_constraintEnd_toEndOf="@+id/select_gender"-->
+<!--            app:layout_constraintHorizontal_bias="0.0"-->
+<!--            app:layout_constraintStart_toStartOf="@+id/select_gender"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/select_gender"-->
+<!--            tools:listitem="@layout/dialog_gender_picker_">-->
+
+<!--        </Spinner>-->
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_next"
+            style="@style/MyTextButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_20dp"
+            android:layout_marginEnd="@dimen/_20dp"
+            android:layout_marginTop="30dp"
+            android:fontFamily="@font/dm_sans_medium_500"
+            android:gravity="center"
+            android:onClick="onClick"
+            android:paddingVertical="@dimen/_16dp"
+            android:text="@string/next"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/select_gender" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

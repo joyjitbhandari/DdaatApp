@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:id="@+id/group_item1">
+        <item
+            android:id="@+id/drawerProfile"
+            android:title="My Profile"
+            android:icon="@drawable/ic_profile" />
+        <item
+            android:id="@+id/drawerSubscription"
+            android:title="Subscription"
+            android:icon="@drawable/ic_subscription" />
+
+        <item
+            android:id="@+id/drawerMyNotes"
+            android:title="My Notes"
+            android:icon="@drawable/ic_mynotes"/>
+        <item
+            android:id="@+id/drawerMySuperpower"
+            android:title="My Superpower"
+            android:icon="@drawable/ic_superpower"/>
+
+        <item
+            android:id="@+id/drawerMyPurchases"
+            android:title="My Purchases"
+            android:icon="@drawable/ic_purchase"/>
+
+        <item
+            android:id="@+id/drawerReview"
+            android:title="Review And Rating"
+            android:icon="@drawable/ic_review"/>
+
+        <item
+            android:id="@+id/drawerPayment"
+            android:title="Payment And Billing "
+            android:icon="@drawable/ic_payment"/>
+
+        <item
+            android:id="@+id/drawerNotification"
+            android:title="Notification"
+            android:icon="@drawable/ic_nav_notification"/>
+
+        <item
+            android:id="@+id/drawerTechSupport"
+            android:title="Tech Support"
+            android:icon="@drawable/ic_techsupport"/>
+    </group>
+
+    <group android:id="@+id/group_item2">
+        <item
+            android:id="@+id/drawerChangePwd"
+            android:title="Change Password" />
+        <item
+            android:id="@+id/drawerFeedback"
+            android:title="Feedback" />
+        <item
+            android:id="@+id/drawerAbout"
+            android:title="About DDAAT" />
+        <item
+            android:id="@+id/drawerLogOut"
+            android:title="Logout" />
+    </group>
+</menu>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/float_transparent">
+
+    <View
+        android:id="@+id/dialog_card"
+        android:layout_width="327dp"
+        android:layout_height="260dp"
+        android:background="@drawable/dialog_black_stroke_card_shape"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_40dp"
+        android:fontFamily="@font/dm_sans_bold700"
+        android:text="@string/type_other_gender"
+        android:textColor="@color/white"
+        android:textSize="22sp"
+        app:layout_constraintEnd_toEndOf="@+id/dialog_card"
+        app:layout_constraintStart_toStartOf="@+id/dialog_card"
+        app:layout_constraintTop_toTopOf="@+id/dialog_card" />
+
+
+<!--Type gender-->
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/et_type_gender"
+        android:layout_width="267dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="@dimen/_20dp"
+        android:background="@drawable/round_25_black_bg"
+        android:backgroundTint="#3B4354"
+        android:hint="Type Here"
+        android:paddingStart="@dimen/_20dp"
+        android:paddingEnd="@dimen/_20dp"
+        android:textColorHint="@color/light_grey"
+        app:layout_constraintEnd_toEndOf="@+id/dialog_card"
+        app:layout_constraintStart_toStartOf="@+id/dialog_card"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+<!--Add Button-->
+    <com.google.android.material.button.MaterialButton
+        style="@style/MyTextButtonStyle"
+        android:id="@+id/btn_Add"
+        android:layout_width="267dp"
+        android:layout_height="56dp"
+        app:layout_constraintEnd_toEndOf="@+id/dialog_card"
+        app:layout_constraintStart_toStartOf="@+id/dialog_card"
+        app:layout_constraintTop_toBottomOf="@+id/et_type_gender"
+        android:focusable="true"
+        android:text="Add"
+        android:layout_marginTop="@dimen/_20dp" />
+
+<!--cut Button-->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_cut"
+        style="@style/Widget.Material3.Button.IconButton.Filled"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/float_transparent"
+        app:icon="@drawable/ic_cut"
+        app:iconSize="16dp"
+        app:iconTint="@color/white"
+        android:layout_margin="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/dialog_card" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

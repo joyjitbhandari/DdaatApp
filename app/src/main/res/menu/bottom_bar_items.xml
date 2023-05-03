@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_video_library"
+        android:icon="@drawable/ic_video_library"
+        android:title="@string/video_library" />
+    <item
+        android:id="@+id/nav_sessions"
+        android:icon="@drawable/ic_sessions"
+        android:title="@string/sessions"/>
+    <item
+        android:id="@+id/nav_home"
+        android:icon="@drawable/ic_home"
+        android:title="@string/home" />
+    <item
+        android:id="@+id/nav_streams"
+        android:icon="@drawable/ic_stream"
+        android:title="@string/streams"/>
+    <item
+        android:id="@+id/nav_courses"
+        android:icon="@drawable/ic_courses"
+        android:title="@string/courses"/>
+
+</menu>

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.splash.OnBoardingActivity"
+    android:background="#0D111C">
+
+<!--Image-->
+    <ImageView
+        android:id="@+id/onboarding_image"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/onboarding_img_1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:scaleType="fitXY"
+        android:elevation="8dp"/>
+
+
+<!--Skip Button-->
+    <TextView
+        android:id="@+id/btn_skip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/skip"
+        android:onClick="onClick"
+        android:textSize="16sp"
+        android:padding="@dimen/_10dp"
+        android:letterSpacing="0.02"
+        android:textColor="@color/blue_bg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="@dimen/_35dp"
+        android:layout_marginEnd="@dimen/_25dp"
+        android:elevation="16dp"/>
+
+<!--Card-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/onboarding_card"
+        android:layout_width="327dp"
+        android:layout_height="260dp"
+        android:background="@drawable/dialog_black_stroke_card_shape"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginBottom="@dimen/_50dp"
+        android:elevation="16dp">
+
+        <TextView
+            android:id="@+id/card_title"
+            android:layout_width="250dp"
+            android:layout_height="40dp"
+            android:gravity="top"
+            android:lineSpacingExtra="-2sp"
+            android:layout_marginTop="54dp"
+            android:text="@string/splash_title"
+            android:letterSpacing="0.02"
+            android:textSize="32sp"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="@+id/onboarding_card"
+            app:layout_constraintStart_toStartOf="@+id/onboarding_card"
+            app:layout_constraintTop_toTopOf="@+id/onboarding_card"
+            android:fontFamily="@font/dm_sans_bold700"
+            android:elevation="20dp"/>
+
+        <TextView
+            android:id="@+id/card_desc"
+            android:layout_width="282dp"
+            android:textSize="14sp"
+            android:letterSpacing="0.02"
+            android:textColor="@color/light_grey"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal|top"
+            android:lineSpacingExtra="2sp"
+            android:text="@string/splash_desc"
+            android:maxLines="3"
+            android:fontFamily="@font/dm_sans_regular_400"
+            android:translationY="-0.89sp"
+            android:layout_marginTop="18dp"
+            app:layout_constraintEnd_toEndOf="@+id/onboarding_card"
+            app:layout_constraintStart_toStartOf="@+id/onboarding_card"
+            app:layout_constraintTop_toBottomOf="@+id/card_title"
+            android:elevation="@dimen/_20dp"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_next"
+            style="@style/Widget.Material3.Button.IconButton.Filled"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_margin="8dp"
+            android:backgroundTint="@color/blue_bg"
+            app:icon="@drawable/ic_right_arrow"
+            app:iconSize="@dimen/_30dp"
+            app:iconTint="@color/white"
+            app:iconPadding="@dimen/_10dp"
+            android:onClick="onClick"
+            app:layout_constraintBottom_toBottomOf="@id/onboarding_card"
+            app:layout_constraintEnd_toEndOf="@id/onboarding_card"
+            app:layout_constraintStart_toStartOf="@id/onboarding_card"
+            app:layout_constraintTop_toBottomOf="@+id/card_desc" />
+
+<!--Progress bar-->
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:id="@+id/progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:progress="33"
+            app:indicatorColor="@color/blue_bg"
+            app:indicatorSize="62dp"
+            app:layout_constraintBottom_toBottomOf="@+id/btn_next"
+            app:layout_constraintEnd_toEndOf="@+id/btn_next"
+            app:layout_constraintStart_toStartOf="@+id/btn_next"
+            app:layout_constraintTop_toTopOf="@+id/btn_next"
+            app:trackColor="@color/blue_shado"
+            app:trackThickness="3dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
