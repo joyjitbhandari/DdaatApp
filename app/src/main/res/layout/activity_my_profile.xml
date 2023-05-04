@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.profile.MyProfile"
+    android:background="@color/screen_bg">
+    <!--Tool_bar-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="@dimen/_20dp"
+        android:layout_marginHorizontal="@dimen/_10dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_back"
+            style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:background="@color/float_transparent"
+            android:onClick="onClick"
+            android:padding="8dp"
+            app:icon="@drawable/ic_back_arraow"
+            app:iconSize="30dp"
+            app:iconTint="@color/light_grey"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/toolTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:fontFamily="@font/dm_sans_medium_500"
+            android:gravity="center"
+            android:text="@string/my_profile"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+<!--Scroll View-->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        android:scrollbars="none">
+
+<!--Profile Photo and Image-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/profile_card">
+            <!--Photo-->
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profilePhoto"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@drawable/user_profile_image"
+                android:layout_marginTop="@dimen/_40dp"
+                app:layout_constraintEnd_toEndOf="@+id/profile_card"
+                app:layout_constraintStart_toStartOf="@+id/profile_card"
+                app:layout_constraintTop_toTopOf="@+id/profile_card" />
+
+            <!--Name-->
+            <TextView
+                android:id="@+id/profile_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="25dp"
+                android:background="@color/float_transparent"
+                android:fontFamily="@font/dm_sans_bold700"
+                android:text="@string/profile_name"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:layout_marginTop="@dimen/_15dp"
+                app:layout_constraintEnd_toEndOf="@+id/profile_card"
+                app:layout_constraintStart_toStartOf="@+id/profile_card"
+                app:layout_constraintTop_toBottomOf="@+id/profilePhoto" />
+
+<!--Categories-->
+            <TextView
+                android:id="@+id/txt_categories"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/dm_sans_medium_500"
+                android:text="Categories"
+                android:textAlignment="center"
+                android:textColor="#FFFFFF"
+                android:layout_marginTop="@dimen/_40dp"
+                android:layout_marginHorizontal="@dimen/_25dp"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/profile_name" />
+
+<!--Edit Text button-->
+            <TextView
+                android:id="@+id/btn_editCategory"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_25dp"
+                android:fontFamily="@font/dm_sans_medium_500"
+                android:text="Edit"
+                android:onClick="onClick"
+                android:textAlignment="center"
+                android:textColor="@color/blue_bg"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@+id/txt_categories"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/txt_categories" />
+
+<!-- chip group-->
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/select_one_chip_group"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:chipSpacingHorizontal="@dimen/_10dp"
+                android:layout_marginTop="@dimen/_15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_categories"
+                android:clickable="false">
+
+                <com.google.android.material.chip.Chip
+                    android:layout_width="wrap_content"
+                    android:layout_height="55dp"
+                    android:checked="true"
+                    android:text="How to use app"
+                    android:textColor="@color/black"
+                    android:backgroundTint="@color/blue_bg"
+                    app:chipEndPadding="@dimen/_10dp"
+                    app:chipStartPadding="@dimen/_10dp" />
+
+                <com.google.android.material.chip.Chip
+                    android:layout_width="wrap_content"
+                    android:layout_height="55dp"
+                    android:text="Adulthood how to"
+                    android:backgroundTint="@color/blue_bg"
+                    android:textColor="@color/black"
+                    app:chipEndPadding="@dimen/_10dp"
+                    app:chipStartPadding="@dimen/_10dp" />
+                <com.google.android.material.chip.Chip
+                    android:layout_width="wrap_content"
+                    android:layout_height="55dp"
+                    android:checked="true"
+                    android:text="How to use app"
+                    android:textColor="@color/black"
+                    android:backgroundTint="@color/blue_bg"
+                    app:chipEndPadding="@dimen/_10dp"
+                    app:chipStartPadding="@dimen/_10dp" />
+
+                <com.google.android.material.chip.Chip
+                    android:layout_width="wrap_content"
+                    android:layout_height="55dp"
+                    android:textColor="@color/black"
+                    android:text="Adulthood how to"
+                    android:backgroundTint="@color/blue_bg"
+                    app:chipEndPadding="@dimen/_10dp"
+                    app:chipStartPadding="@dimen/_10dp" />
+
+            </com.google.android.material.chip.ChipGroup>
+
+<!--BirthDate-->
+            <TextView
+                android:id="@+id/txt_birthYear"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/round_25_black_bg"
+                android:fontFamily="@font/dm_sans_regular_400"
+                android:text="1994"
+                android:layout_marginTop="@dimen/_30dp"
+                android:paddingStart="@dimen/_25dp"
+                android:paddingEnd="@dimen/_25dp"
+                android:gravity="center_vertical"
+                android:layout_marginHorizontal="@dimen/_25dp"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/select_one_chip_group"/>
+<!--Gender-->
+            <TextView
+                android:id="@+id/txt_gender"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/round_25_black_bg"
+                android:fontFamily="@font/dm_sans_regular_400"
+                android:text="Male"
+                android:layout_marginTop="@dimen/_15dp"
+                android:paddingStart="@dimen/_25dp"
+                android:paddingEnd="@dimen/_25dp"
+                android:gravity="center_vertical"
+                android:layout_marginHorizontal="@dimen/_25dp"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_birthYear"/>
+
+<!--Edit Profile button-->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_editProfile"
+                style="@style/MyTextButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_20dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="@dimen/_20dp"
+                android:fontFamily="@font/dm_sans_medium_500"
+                android:gravity="center"
+                android:onClick="onClick"
+                android:paddingVertical="@dimen/_16dp"
+                android:text="Edit Profile"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_gender" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

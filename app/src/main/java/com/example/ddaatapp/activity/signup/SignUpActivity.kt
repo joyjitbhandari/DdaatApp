@@ -17,11 +17,11 @@ class SignUpActivity : AppCompatActivity() , View.OnClickListener {
 
     override fun onClick(view: View?) {
         when(view){
-            binding.signupBtn->{
-                val operationFlow = "NEW_USER"
+            binding.signupBtn->{val operationFlow = "SIGN_UP"
                 val intent = Intent(this, OtpVerifyActivity::class.java)
                 intent.putExtra("operation",operationFlow)
                 startActivity(intent)
+
             }
         }
 

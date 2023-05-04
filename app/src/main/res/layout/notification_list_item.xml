@@ -1,8 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
     android:background="@color/screen_bg">
+
+    <View
+        android:id="@+id/notification_card"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@drawable/round_25_black_stroke_shape"
+        android:clickable="true"
+        android:layout_marginTop="@dimen/_15dp"
+        android:layout_marginHorizontal="@dimen/_25dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+<!--Notification Image-->
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/notify_image"
+        android:layout_width="60dp"
+        android:layout_height="@dimen/_60dp"
+        android:src="@drawable/user_profile_image"
+        app:layout_constraintBottom_toBottomOf="@+id/notification_card"
+        app:layout_constraintEnd_toEndOf="@+id/notification_card"
+        app:layout_constraintHorizontal_bias="0.045"
+        app:layout_constraintStart_toStartOf="@+id/notification_card"
+        app:layout_constraintTop_toTopOf="@+id/notification_card"
+        app:layout_constraintVertical_bias="0.475" />
+
+<!--Notification Content-->
+
+    <TextView
+        android:id="@+id/notify_content"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginHorizontal="@dimen/_25dp"
+        android:maxLines="2"
+        android:textSize="14sp"
+        android:fontFamily="@font/dm_sans_medium_500"
+        android:text="content"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/notification_card"
+        app:layout_constraintEnd_toEndOf="@+id/notification_card"
+        app:layout_constraintHorizontal_bias="0.36"
+        app:layout_constraintStart_toEndOf="@+id/notify_image"
+        app:layout_constraintTop_toTopOf="@+id/notification_card"
+        app:layout_constraintVertical_bias="0.316" />
+
+<!--Notification Time-->
+    <TextView
+        android:id="@+id/notify_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:text="Time"
+        android:textSize="10sp"
+        android:textColor="@color/light_grey"
+        app:layout_constraintBottom_toBottomOf="@+id/notification_card"
+        app:layout_constraintEnd_toEndOf="@+id/notification_card"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/notify_content"
+        app:layout_constraintTop_toBottomOf="@+id/notify_content" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

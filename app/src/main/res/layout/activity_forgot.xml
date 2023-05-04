@@ -11,7 +11,7 @@
     <LinearLayout
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="@dimen/_40dp"
         android:orientation="horizontal"
         tools:layout_editor_absoluteX="1dp"
         tools:layout_editor_absoluteY="1dp"
@@ -27,8 +27,8 @@
             android:background="@color/float_transparent"
             app:icon="@drawable/ic_back_arraow"
             app:iconTint="@color/light_grey"
-            app:iconSize="30dp"
-            android:padding="8dp"/>
+            app:iconSize="@dimen/_30dp"
+            android:padding="@dimen/_8dp"/>
     </LinearLayout>
 
 <!--Text Forgot Password-->

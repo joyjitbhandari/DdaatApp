@@ -4,7 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
-import com.example.ddaatapp.HomeActivity
+import com.example.ddaatapp.subscriptionScreen.HomeActivity
 import com.example.ddaatapp.R
 
 class ProfileCreatedActivity : AppCompatActivity() {

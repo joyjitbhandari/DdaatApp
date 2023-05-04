@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/screen_bg"
-    tools:context=".HomeActivity">
+    tools:context=".subscriptionScreen.HomeActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -357,7 +357,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/txt_my_notes"
-                    tools:listitem="@layout/my_notes_item_" />
+                    tools:listitem="@layout/my_notes_item" />
 
                 <!--Articles-->
                 <TextView
@@ -404,7 +404,7 @@
                     app:layout_constraintHorizontal_bias="1.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/txt_article"
-                    tools:listitem="@layout/article_and_blog_items" />
+                    tools:listitem="@layout/article_and_blog_item" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>

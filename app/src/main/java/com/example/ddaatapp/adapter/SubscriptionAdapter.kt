@@ -1,14 +1,11 @@
 package com.example.ddaatapp.adapter
 
 import android.content.Context
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
-import androidx.core.content.ContextCompat.startActivity
 import com.example.ddaatapp.R
-import com.example.ddaatapp.activity.subscription.BuySubscriptionActivity
 import com.example.ddaatapp.databinding.SubscriptionCardItemBinding
 import com.example.ddaatapp.datamodel.SubscriptionModel
 

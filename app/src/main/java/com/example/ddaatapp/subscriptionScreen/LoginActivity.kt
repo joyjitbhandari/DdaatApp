@@ -1,9 +1,10 @@
-package com.example.ddaatapp
+package com.example.ddaatapp.subscriptionScreen
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import com.example.ddaatapp.R
 import com.example.ddaatapp.activity.forgot.ForgotActivity
 import com.example.ddaatapp.databinding.ActivityLoginBinding
 import com.example.ddaatapp.activity.signup.SignUpActivity

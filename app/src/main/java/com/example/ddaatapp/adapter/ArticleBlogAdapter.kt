@@ -5,14 +5,14 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ddaatapp.R
-import com.example.ddaatapp.databinding.ArticleAndBlogItemsBinding
+import com.example.ddaatapp.databinding.ArticleAndBlogItemBinding
 import com.example.ddaatapp.databinding.VideoLibraryListItemBinding
 import com.example.ddaatapp.datamodel.ArticleDataModel
 import com.example.ddaatapp.datamodel.VideoLibraryDataModel
 
 class ArticleBlogAdapter(val articleList: ArrayList<ArticleDataModel>) :
     RecyclerView.Adapter<ArticleBlogAdapter.ViewHolder>() {
-    class ViewHolder(var binding:ArticleAndBlogItemsBinding ): RecyclerView.ViewHolder(binding.root) {
+    class ViewHolder(var binding:ArticleAndBlogItemBinding ): RecyclerView.ViewHolder(binding.root) {
         fun bind(articleDataModel: ArticleDataModel){
             binding.articleCardBgImage.setImageResource(articleDataModel.drawable)
             binding.txtArticleName.text = articleDataModel.articleName
@@ -24,7 +24,7 @@ class ArticleBlogAdapter(val articleList: ArrayList<ArticleDataModel>) :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
-           ArticleAndBlogItemsBinding.inflate(
+            ArticleAndBlogItemBinding.inflate(
             LayoutInflater.from(parent.context), parent, false))
     }
 

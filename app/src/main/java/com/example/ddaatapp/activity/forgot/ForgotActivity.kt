@@ -18,8 +18,9 @@ class ForgotActivity : AppCompatActivity() , View.OnClickListener {
     override fun onClick(view: View?) {
        when(view){
            binding.btnSetNewPwd->{
-               val operationFlow = "FORGOT_PWD"
+               val operationFlow = "FORGOT"
                val intent = Intent(this, OtpVerifyActivity::class.java)
+               intent.putExtra("operation",operationFlow)
                startActivity(intent)
            }
        }

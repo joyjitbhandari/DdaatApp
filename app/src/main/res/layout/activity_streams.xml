@@ -5,7 +5,7 @@
     android:id="@+id/drawerLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".StreamsActivity"
+    tools:context=".subscriptionScreen.StreamsActivity"
     android:background="@color/screen_bg">
 
 
@@ -87,7 +87,7 @@
 
 
 
-    <!--ForDrawerNavigation-->
+    <!--DrawerNavigation-->
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/navigationDrawerView"
         android:layout_width="match_parent"
@@ -98,5 +98,10 @@
         app:headerLayout="@layout/nav_header"
         android:layout_marginEnd="-65dp"
         app:menu="@menu/nav_drawer_menu"
-        app:itemTextColor="@color/white"/>
+        app:itemTextColor="@color/white"
+        app:itemIconSize="@dimen/_40dp"
+        app:itemIconPadding="@dimen/_15dp"
+        app:itemHorizontalPadding="@dimen/_25dp"
+        app:itemVerticalPadding="@dimen/_10dp"
+        android:scrollbars="none"/>
 </androidx.drawerlayout.widget.DrawerLayout>

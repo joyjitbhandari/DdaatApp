@@ -6,13 +6,14 @@ import android.view.MenuItem
 import com.google.android.material.navigation.NavigationView
 
 
-class MyDrawerNavigationItemSelectedListener(val context: Context) : NavigationView.OnNavigationItemSelectedListener {
+class MyDrawerNavigationItemSelectedListener(var context:Context) : NavigationView.OnNavigationItemSelectedListener {
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         // Handle navigation view item clicks here
         val id: Int = item.getItemId()
         when(id){
             R.id.drawerProfile->{
+//                startActivity(Intent(context, MyProfile::class.java))
                 return true
             }
             R.id.drawerMyNotes->{

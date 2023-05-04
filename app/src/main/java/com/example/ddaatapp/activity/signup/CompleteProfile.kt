@@ -22,18 +22,34 @@ import java.util.*
 class CompleteProfile : AppCompatActivity(), View.OnClickListener {
     private lateinit var binding: ActivityCompleteProfileBinding
 
+    private lateinit var operationFlow: String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityCompleteProfileBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
+//   Checking the operation flow
+        operationFlow = intent.getStringExtra("operation").toString()
+        if (operationFlow == "EDIT") {
+            binding.btnNext.text = "Save"
+        }
     }
 
     override fun onClick(view: View?) {
         when (view) {
             binding.btnNext -> {
-                val intent = Intent(this, InterestActivity::class.java)
-                startActivity(intent)
+                when (operationFlow) {
+                    "EDIT" -> {
+                        onBackPressed()
+                    }
+                    "SIGN_UP" -> {
+                        val operationFlow = "SIGN_UP"
+                        val intent = Intent(this, InterestActivity::class.java)
+                        intent.putExtra("operation", operationFlow)
+                        startActivity(intent)
+                    }
+                }
             }
 
             binding.btnBack -> {
@@ -94,7 +110,7 @@ class CompleteProfile : AppCompatActivity(), View.OnClickListener {
                 binding.selectGender.text = genderBinding.checkMale.text
                 genderBinding.checkFemale.isChecked = false
                 genderBinding.checkOther.isChecked = false
-            }else{
+            } else {
                 binding.selectGender.text = R.string.select.toString()
             }
         }

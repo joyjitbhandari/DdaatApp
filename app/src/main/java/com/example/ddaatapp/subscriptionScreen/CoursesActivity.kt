@@ -1,4 +1,4 @@
-package com.example.ddaatapp
+package com.example.ddaatapp.subscriptionScreen
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -7,21 +7,19 @@ import android.view.View
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
+import com.example.ddaatapp.R
 import com.example.ddaatapp.commonClass.MyDrawerNavigationItemSelectedListener
-import com.example.ddaatapp.databinding.ActivityStreamsBinding
+import com.example.ddaatapp.databinding.ActivityCoursesBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
-class StreamsActivity : AppCompatActivity() , View.OnClickListener {
-
-    private lateinit var binding: ActivityStreamsBinding
-
+class CoursesActivity : AppCompatActivity(), View.OnClickListener  {
+    lateinit var binding : ActivityCoursesBinding
     private lateinit var drawerLayout: DrawerLayout
     private lateinit var toggle: ActionBarDrawerToggle
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityStreamsBinding.inflate(layoutInflater)
+        binding = ActivityCoursesBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
 
 
         //Setting up drawer Menu
@@ -35,11 +33,11 @@ class StreamsActivity : AppCompatActivity() , View.OnClickListener {
         binding.navigationDrawerView.setNavigationItemSelectedListener(listener)
 
 
-        // Bottom nav bar
-        binding.bottomBar.selectedItemId  = R.id.nav_streams
+        //Bottom nav bar
+        binding.bottomBar.selectedItemId  = R.id.nav_courses
         binding.bottomBar.setOnNavigationItemSelectedListener(BottomNavigationView.OnNavigationItemSelectedListener { item ->
             when (item.itemId) {
-                R.id.nav_video_library-> {
+                R.id.nav_video_library -> {
                     startActivity(Intent(applicationContext, VideoLibraryActivity::class.java))
                     finish()
                     overridePendingTransition(0, 0)
@@ -57,17 +55,16 @@ class StreamsActivity : AppCompatActivity() , View.OnClickListener {
                     overridePendingTransition(0, 0)
                     return@OnNavigationItemSelectedListener true
                 }
-                R.id.nav_streams -> return@OnNavigationItemSelectedListener true
-                R.id.nav_courses -> {
-                    startActivity(Intent(applicationContext, CoursesActivity::class.java))
+                R.id.nav_streams -> {
+                    startActivity(Intent(applicationContext, StreamsActivity::class.java))
                     finish()
                     overridePendingTransition(0, 0)
                     return@OnNavigationItemSelectedListener true
                 }
+                R.id.nav_courses -> return@OnNavigationItemSelectedListener true
             }
             false
         })
-
     }
 
     override fun onClick(view: View?) {
@@ -84,4 +81,6 @@ class StreamsActivity : AppCompatActivity() , View.OnClickListener {
         }
         else super.onBackPressed()
     }
+
+
 }

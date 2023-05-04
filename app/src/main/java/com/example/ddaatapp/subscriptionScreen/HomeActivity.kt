@@ -1,4 +1,4 @@
-package com.example.ddaatapp
+package com.example.ddaatapp.subscriptionScreen
 
 import android.app.Dialog
 import android.content.Intent
@@ -7,27 +7,30 @@ import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.*
 import android.widget.Button
-import android.widget.TextView
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
+import com.example.ddaatapp.R
+import com.example.ddaatapp.activity.aboutDdaat.AboutActivity
+import com.example.ddaatapp.activity.forgot.ChangePwdActivity
 import com.example.ddaatapp.activity.notification.NotificationActivity
+import com.example.ddaatapp.activity.profile.MyProfile
 import com.example.ddaatapp.adapter.ArticleBlogAdapter
 import com.example.ddaatapp.adapter.MyNotesAdapter
 import com.example.ddaatapp.commonClass.HorizontalSpacingItemDecoration
-import com.example.ddaatapp.commonClass.MyDrawerNavigationItemSelectedListener
 import com.example.ddaatapp.databinding.ActivityHomeBinding
 import com.example.ddaatapp.databinding.DialogApplyFilterBinding
 import com.example.ddaatapp.datamodel.ArticleDataModel
 import com.example.ddaatapp.datamodel.MyNotesModel
 import com.example.ddaatapp.fragment.*
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.navigation.NavigationView
 
 
 @Suppress("DEPRECATION")
-class HomeActivity : AppCompatActivity(), View.OnClickListener {
+class HomeActivity : AppCompatActivity(), View.OnClickListener, NavigationView.OnNavigationItemSelectedListener {
 
     private lateinit var binding: ActivityHomeBinding
     private lateinit var drawerLayout: DrawerLayout
@@ -47,10 +50,11 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
         toggle.syncState()
         supportActionBar?.setDisplayUseLogoEnabled(true)
 
+        binding.navigationDrawerView.setNavigationItemSelectedListener(this)
 
         //for navigation drawer item click listener
-        val listener = MyDrawerNavigationItemSelectedListener(this)
-        binding.navigationDrawerView.setNavigationItemSelectedListener(listener)
+//        val listener = MyDrawerNavigationItemSelectedListener(this)
+//        binding.navigationDrawerView.setNavigationItemSelectedListener(listener)
 
 
 //        val headerView: View =
@@ -79,6 +83,7 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
                     finish()
                     overridePendingTransition(0, 0)
                     return@OnNavigationItemSelectedListener true
+
                 }
                 R.id.nav_home -> return@OnNavigationItemSelectedListener true
                 R.id.nav_streams -> {
@@ -142,18 +147,18 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
         val chipGroup = binding.selectOneChipGroup
        chipGroup.setOnCheckedChangeListener { group, checkedId ->
            when(checkedId){
-               R.id.btn_video_library->{
+               R.id.btn_video_library ->{
                    inflateFragment(HomeVideoLibraryFragment.newInstance())
                }
-               R.id.btn_streams->{
+               R.id.btn_streams ->{
                    inflateFragment(HomeStreamsFragment.newInstance())
 
                }
-               R.id.btn_up_sessions->{
+               R.id.btn_up_sessions ->{
                    inflateFragment(HomeSessionsFragment.newInstance())
 
                }
-               R.id.btn_courses->{
+               R.id.btn_courses ->{
                    inflateFragment(HomeCoursesFragment.newInstance())
 
                }
@@ -261,6 +266,29 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
             binding.drawerLayout.close()
         }
         else super.onBackPressed()
+    }
+
+    override fun onNavigationItemSelected(item: MenuItem): Boolean {
+        // Handle navigation view item clicks here
+        val id: Int = item.getItemId()
+        when(id){
+            R.id.drawerProfile ->{
+                startActivity(Intent(this, MyProfile::class.java))
+                return true
+            }
+            R.id.drawerChangePwd ->{
+                val operationFlow = "UPDATE"
+                val intent = Intent(this,ChangePwdActivity::class.java)
+                intent.putExtra("operation",operationFlow)
+                startActivity(intent)
+                return true
+            }
+            R.id.drawerAbout->{
+                startActivity(Intent(this, AboutActivity::class.java))
+                return true
+            }
+        }
+        return false
     }
 
 

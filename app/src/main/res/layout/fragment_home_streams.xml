@@ -62,50 +62,56 @@
             app:layout_constraintTop_toTopOf="@+id/btn_selectGenres" />
 
 <!--Select Genres Button-->
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <TextView
             android:id="@+id/btn_selectGenres"
             android:layout_width="wrap_content"
-            android:layout_height="40dp"
+            android:layout_height="45dp"
             android:paddingHorizontal="@dimen/_10dp"
             android:layout_marginTop="@dimen/_10dp"
             android:layout_marginEnd="@dimen/_15dp"
             android:background="@drawable/round_25_black_stroke_shape"
+            android:clickable="true"
+            android:text="Select Genres"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:drawablePadding="@dimen/_3dp"
+            android:drawableStart="@drawable/ic_select_genres"
+            android:drawableEnd="@drawable/ic_right_arrow"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/horizontalScrollView"
-            android:onClick="onClick">
+            app:layout_constraintTop_toBottomOf="@id/horizontalScrollView" />
 
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_select_genres"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+<!--            <ImageView-->
+<!--                android:id="@+id/imageView"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:src="@drawable/ic_select_genres"-->
+<!--                app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toTopOf="parent" />-->
 
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/_10dp"
-                android:text="Select Genres"
-                android:textColor="@color/white"
-                android:textSize="14sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/imageView2"
-                app:layout_constraintStart_toEndOf="@+id/imageView"
-                app:layout_constraintTop_toTopOf="parent" />
+<!--            <TextView-->
+<!--                android:id="@+id/textView2"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginStart="@dimen/_10dp"-->
+<!--                android:text="Select Genres"-->
+<!--                android:textColor="@color/white"-->
+<!--                android:textSize="14sp"-->
+<!--                app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                app:layout_constraintEnd_toStartOf="@+id/imageView2"-->
+<!--                app:layout_constraintStart_toEndOf="@+id/imageView"-->
+<!--                app:layout_constraintTop_toTopOf="parent" />-->
 
-            <ImageView
-                android:id="@+id/imageView2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_right_arrow"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+<!--            <ImageView-->
+<!--                android:id="@+id/imageView2"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:src="@drawable/ic_right_arrow"-->
+<!--                app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintTop_toTopOf="parent" />-->
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+<!--        </Button>-->
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/ddaatStationRecycler"

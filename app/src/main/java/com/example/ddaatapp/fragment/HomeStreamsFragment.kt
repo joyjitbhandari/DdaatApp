@@ -1,19 +1,26 @@
 package com.example.ddaatapp.fragment
 
+import android.app.Dialog
+import android.content.Context
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.util.Log
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.fragment.app.Fragment
 import com.example.ddaatapp.R
 import com.example.ddaatapp.adapter.VideoLibraryAdapter
+import com.example.ddaatapp.databinding.DialogSelectGenresBinding
 import com.example.ddaatapp.databinding.FragmentHomeStreamsBinding
 import com.example.ddaatapp.databinding.InterestChoiceChipItemBinding
 import com.example.ddaatapp.datamodel.VideoLibraryDataModel
 import com.google.android.material.chip.Chip
 
-class HomeStreamsFragment : Fragment() {
-
+class HomeStreamsFragment : Fragment()  {
     private lateinit var binding: FragmentHomeStreamsBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,10 +59,16 @@ class HomeStreamsFragment : Fragment() {
             VideoLibraryDataModel(R.drawable.video_sample_image2,"Podcast Title","Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been",null),
             VideoLibraryDataModel(R.drawable.video_sample_image3,"Podcast Title","Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been",null),
         )
-
         val podcastRecycler = binding.podcastStationRecycler
         val podcastAdapter = VideoLibraryAdapter(podcastList,2)
        podcastRecycler.adapter = podcastAdapter
+
+
+        //Select Genres button
+        binding.btnSelectGenres.setOnClickListener {
+            showSelectGenresDialog()
+        }
+
     }
 
     companion object {
@@ -89,5 +102,26 @@ class HomeStreamsFragment : Fragment() {
         val padding2 = resources.getDimension(R.dimen._18dp).toInt()
         chip.setPadding(padding1, padding2, padding1, padding2)
         return chip
+    }
+
+
+
+    private fun showSelectGenresDialog() {
+        val dialog = Dialog(requireContext())
+        val dialogBinding = DialogSelectGenresBinding.inflate(layoutInflater)
+        dialog.setContentView(dialogBinding.root)
+
+        dialog.window?.apply {
+                setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+                setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+                setGravity(Gravity.CENTER)
+                dialog.show()
+
+
+                dialogBinding.btnCancel.setOnClickListener {
+                    dialog.dismiss()
+
+                }
+            }
     }
 }

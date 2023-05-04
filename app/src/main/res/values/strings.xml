@@ -60,6 +60,7 @@
     <string name="see_all_thi">See all things that we offer you</string>
     <string name="lorem_ipsum_article">Lorem Ipsum is simply dummy text</string>
 
+    <!--Gender item Stringarray-->
     <string-array name="genderItems">
         <item>Male</item>
         <item>Female</item>
@@ -87,6 +88,10 @@
     <string name="upcoming_sessions">Upcoming Sessions</string>
     <string name="podcast_station">Podcast Station</string>
     <string name="ddaat_station">Ddaat Station</string>
+    <string name="apply">Apply</string>
+    <string name="r_amp_b"><![CDATA[R & B]]></string>
+    <string name="my_profile">My Profile</string>
+    <string name="profile_name">Joh451</string>
 
 
 </resources>

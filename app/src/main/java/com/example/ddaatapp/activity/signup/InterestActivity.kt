@@ -13,13 +13,20 @@ import com.google.android.material.chip.Chip
 
 class InterestActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var binding: ActivityInterestBinding
+    private lateinit var operationFlow: String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityInterestBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+// setup chips for categories list
         setupChip()
 
+        //   Checking the operation flow
+        operationFlow = intent.getStringExtra("operation").toString()
+        if (operationFlow == "EDIT"){
+            binding.btnNext.text = "Save"
+            binding.toolTitle.text = "Edit Category"
+        }
     }
 
     private fun setupChip() {
@@ -57,8 +64,15 @@ class InterestActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(view: View?) {
         when (view) {
             binding.btnNext -> {
-                val intent = Intent(this, SubscriptionActivity::class.java)
-                startActivity(intent)
+               when(operationFlow){
+                   "EDIT"->{
+                       onBackPressed()
+                   }
+                   "SIGN_UP"->{
+                       val intent = Intent(this, SubscriptionActivity::class.java)
+                       startActivity(intent)
+                   }
+                }
             }
             binding.btnBack -> {
                 onBackPressed()
