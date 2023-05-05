@@ -1,7 +1,8 @@
 package com.example.ddaatapp.datamodel
 
-data class VideoLibraryDataModel(
+data class MyPurchaseDataModel(
     val drawable: Int,
     val name:String,
-    val desc: String
+    val desc: String,
+    val isCourseFree:Boolean?,
 )

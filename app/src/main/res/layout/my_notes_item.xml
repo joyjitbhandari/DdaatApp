@@ -4,7 +4,9 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
 
+<!--Item View1 for card-->
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/myNotes_card_item"
         android:layout_width="200dp"
         android:layout_height="123dp"
         android:background="@drawable/round_25_black_stroke_shape"
@@ -12,7 +14,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:padding="@dimen/_15dp">
+        android:padding="@dimen/_15dp"
+        android:visibility="gone">
 
         <TextView
             android:id="@+id/txt_note_title"
@@ -47,30 +50,109 @@
 
         <ImageView
             android:id="@+id/date_imageView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_time_date"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:src="@drawable/ic_alarm"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.0" />
+            app:layout_constraintVertical_bias="1.0"
+            app:tint="@color/yellow" />
 
         <TextView
             android:id="@+id/txt_date"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
-            android:layout_marginHorizontal="15dp"
+            android:layout_marginHorizontal="5dp"
             android:background="@color/float_transparent"
             android:fontFamily="@font/dm_sans_regular_400"
             android:text="15 Dec  2021"
+            android:gravity="center"
             android:textColor="@color/light_grey"
             android:textSize="10sp"
             app:layout_constraintBottom_toBottomOf="@+id/date_imageView"
             app:layout_constraintStart_toEndOf="@+id/date_imageView"
             app:layout_constraintTop_toTopOf="@+id/date_imageView" />
 
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+<!--Item View2 for activity-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/myNotes_activity_item"
+        android:layout_width="327dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="@dimen/_15dp"
+        android:background="@drawable/round_25_black_stroke_shape"
+        android:padding="@dimen/_15dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+        <TextView
+            android:id="@+id/txt_note_title_item2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/float_transparent"
+            android:fontFamily="@font/dm_sans_bold700"
+            android:text="Note Title"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toStartOf="@+id/date_imageView_item2"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txt_note_content_item2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginVertical="8dp"
+            android:layout_marginTop="@dimen/_15dp"
+            android:background="@color/float_transparent"
+            android:fontFamily="@font/dm_sans_regular_400"
+            android:maxLines="3"
+            android:text="@string/lorem_ipsum"
+            android:textColor="@color/light_grey"
+            android:textSize="10sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_note_title_item2" />
+
+        <ImageView
+            android:id="@+id/date_imageView_item2"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:src="@drawable/ic_alarm"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.749"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            app:tint="@color/yellow" />
+
+        <TextView
+            android:id="@+id/txt_date_item2"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="5dp"
+            android:background="@color/float_transparent"
+            android:fontFamily="@font/dm_sans_regular_400"
+            android:gravity="center"
+            android:text="15 Dec  2021"
+            android:textColor="@color/light_grey"
+            android:textSize="10sp"
+            app:layout_constraintBottom_toBottomOf="@+id/date_imageView_item2"
+            app:layout_constraintStart_toEndOf="@+id/date_imageView_item2"
+            app:layout_constraintTop_toTopOf="@+id/date_imageView_item2" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.profile.MyProfile"
+    tools:context=".activity.profile.MyProfileActivity"
     android:background="@color/screen_bg">
     <!--Tool_bar-->
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -67,10 +67,11 @@
             android:layout_height="wrap_content"
             android:id="@+id/profile_card">
             <!--Photo-->
-            <de.hdodenhof.circleimageview.CircleImageView
+            <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/profilePhoto"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
+                app:shapeAppearance="@style/MyProfileImageShape"
                 android:src="@drawable/user_profile_image"
                 android:layout_marginTop="@dimen/_40dp"
                 app:layout_constraintEnd_toEndOf="@+id/profile_card"
@@ -140,6 +141,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="55dp"
                     android:checked="true"
+                    app:chipCornerRadius="@dimen/_25dp"
+                    app:chipStrokeWidth="0dp"
                     android:text="How to use app"
                     android:textColor="@color/black"
                     android:backgroundTint="@color/blue_bg"
@@ -150,6 +153,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="55dp"
                     android:text="Adulthood how to"
+                    app:chipCornerRadius="@dimen/_25dp"
+                    app:chipStrokeWidth="0dp"
                     android:backgroundTint="@color/blue_bg"
                     android:textColor="@color/black"
                     app:chipEndPadding="@dimen/_10dp"
@@ -159,6 +164,8 @@
                     android:layout_height="55dp"
                     android:checked="true"
                     android:text="How to use app"
+                    app:chipCornerRadius="@dimen/_25dp"
+                    app:chipStrokeWidth="0dp"
                     android:textColor="@color/black"
                     android:backgroundTint="@color/blue_bg"
                     app:chipEndPadding="@dimen/_10dp"
@@ -169,6 +176,8 @@
                     android:layout_height="55dp"
                     android:textColor="@color/black"
                     android:text="Adulthood how to"
+                    app:chipCornerRadius="@dimen/_25dp"
+                    app:chipStrokeWidth="0dp"
                     android:backgroundTint="@color/blue_bg"
                     app:chipEndPadding="@dimen/_10dp"
                     app:chipStartPadding="@dimen/_10dp" />

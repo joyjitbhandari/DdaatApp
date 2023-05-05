@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.feedback.FeedBackActivity"
+    android:background="@color/screen_bg">
+
+    <!--Tool bar-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginHorizontal="@dimen/_10dp"
+        android:layout_marginTop="@dimen/_20dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_back"
+            style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:background="@color/float_transparent"
+            android:padding="8dp"
+            app:icon="@drawable/ic_back_arraow"
+            app:iconSize="30dp"
+            app:iconTint="@color/light_grey"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/toolTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:fontFamily="@font/dm_sans_medium_500"
+            android:gravity="center"
+            android:text="@string/feedback"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+<!--ScrollView-->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:scrollbars="none"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/txtRateUs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_20dp"
+                android:layout_marginTop="@dimen/_25dp"
+                android:fontFamily="@font/dm_sans_medium_500"
+                android:text="Rate Us"
+                android:textAlignment="center"
+                android:textColor="#FFFFFF"
+                android:textSize="@dimen/_18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            <!--Emojis-->
+            <LinearLayout
+                android:id="@+id/emojis"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_marginTop="@dimen/_15dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtRateUs">
+
+            </LinearLayout>
+            <!--Text View-->
+            <TextView
+                android:id="@+id/txtTellUs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_20dp"
+                android:layout_marginTop="@dimen/_15dp"
+                android:fontFamily="@font/dm_sans_medium_500"
+                android:text="Tell us what can be Improve"
+                android:textAlignment="center"
+                android:textColor="#FFFFFF"
+                android:textSize="@dimen/_18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/emojis" />
+            <!--ChoiceChip-->
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/select_feedbackChipGroup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10dp"
+                app:chipSpacingHorizontal="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtTellUs">
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/btn_video_library"
+                    style="@style/MyChoiceChipStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="55dp"
+                    android:checked="true"
+                    android:text="@string/overall_service"
+                    app:chipEndPadding="@dimen/_15dp"
+                    app:chipStartPadding="@dimen/_15dp"
+                    app:chipStrokeWidth="@dimen/_1dp" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/btn_up_sessions"
+                    style="@style/MyChoiceChipStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="55dp"
+                    android:text="@string/customer_service"
+                    app:chipEndPadding="@dimen/_15dp"
+                    app:chipStartPadding="@dimen/_15dp"
+                    app:chipStrokeWidth="@dimen/_1dp" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/btn_streams"
+                    style="@style/MyChoiceChipStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="55dp"
+                    android:text="@string/user_experience"
+                    app:chipEndPadding="@dimen/_15dp"
+                    app:chipStartPadding="@dimen/_15dp"
+                    app:chipStrokeWidth="@dimen/_1dp" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/btn_courses"
+                    style="@style/MyChoiceChipStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="55dp"
+                    android:text="@string/educational_tips"
+                    app:chipEndPadding="@dimen/_15dp"
+                    app:chipStartPadding="@dimen/_15dp"
+                    app:chipStrokeWidth="@dimen/_1dp" />
+            </com.google.android.material.chip.ChipGroup>
+
+            <!--Edit text-->
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etFeedback"
+                android:layout_width="match_parent"
+                android:layout_height="217dp"
+                android:layout_marginHorizontal="25dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/round_25_black_stroke_shape"
+                android:gravity="top|left"
+                android:inputType="textCapSentences"
+                android:hint="@string/type_your_feedback"
+                android:padding="15dp"
+                android:textColor="@color/white"
+                android:textColorHint="@color/light_grey"
+                android:textSize="@dimen/_15sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/select_feedbackChipGroup" />
+
+            <!--Submit button-->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_next"
+                style="@style/MyTextButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_30dp"
+                android:layout_marginBottom="60dp"
+                android:layout_marginStart="@dimen/_20dp"
+                android:layout_marginEnd="@dimen/_20dp"
+                android:fontFamily="@font/dm_sans_medium_500"
+                android:gravity="center"
+                android:onClick="onClick"
+                android:paddingVertical="@dimen/_16dp"
+                android:text="@string/submit"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/etFeedback" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

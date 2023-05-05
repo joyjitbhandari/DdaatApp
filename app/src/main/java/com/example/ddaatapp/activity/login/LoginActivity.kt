@@ -1,4 +1,4 @@
-package com.example.ddaatapp.subscriptionScreen
+package com.example.ddaatapp.activity.login
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -8,6 +8,7 @@ import com.example.ddaatapp.R
 import com.example.ddaatapp.activity.forgot.ForgotActivity
 import com.example.ddaatapp.databinding.ActivityLoginBinding
 import com.example.ddaatapp.activity.signup.SignUpActivity
+import com.example.ddaatapp.subscriptionScreen.HomeActivity
 
 class LoginActivity : AppCompatActivity(), View.OnClickListener {
 

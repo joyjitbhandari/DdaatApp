@@ -13,24 +13,21 @@ import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import com.example.ddaatapp.R
-import com.example.ddaatapp.activity.aboutDdaat.AboutActivity
-import com.example.ddaatapp.activity.forgot.ChangePwdActivity
 import com.example.ddaatapp.activity.notification.NotificationActivity
-import com.example.ddaatapp.activity.profile.MyProfile
 import com.example.ddaatapp.adapter.ArticleBlogAdapter
 import com.example.ddaatapp.adapter.MyNotesAdapter
 import com.example.ddaatapp.commonClass.HorizontalSpacingItemDecoration
+import com.example.ddaatapp.commonClass.MyDrawerNavigationItemSelectedListener
 import com.example.ddaatapp.databinding.ActivityHomeBinding
 import com.example.ddaatapp.databinding.DialogApplyFilterBinding
 import com.example.ddaatapp.datamodel.ArticleDataModel
 import com.example.ddaatapp.datamodel.MyNotesModel
 import com.example.ddaatapp.fragment.*
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.android.material.navigation.NavigationView
 
 
 @Suppress("DEPRECATION")
-class HomeActivity : AppCompatActivity(), View.OnClickListener, NavigationView.OnNavigationItemSelectedListener {
+class HomeActivity : AppCompatActivity(), View.OnClickListener {
 
     private lateinit var binding: ActivityHomeBinding
     private lateinit var drawerLayout: DrawerLayout
@@ -50,20 +47,21 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener, NavigationView.O
         toggle.syncState()
         supportActionBar?.setDisplayUseLogoEnabled(true)
 
-        binding.navigationDrawerView.setNavigationItemSelectedListener(this)
+        //binding.navigationDrawerView.setNavigationItemSelectedListener(this)
 
         //for navigation drawer item click listener
-//        val listener = MyDrawerNavigationItemSelectedListener(this)
-//        binding.navigationDrawerView.setNavigationItemSelectedListener(listener)
+
+        val listener = MyDrawerNavigationItemSelectedListener(this)
+        binding.navigationDrawerView.setNavigationItemSelectedListener(listener)
 
 
-//        val headerView: View =
-//            LayoutInflater.from(this).inflate(R.layout.nav_header, drawerLayout, false)
-//        val headerName = headerView.findViewById<TextView>(R.id.nav_header_name)
-//        val headerEmail = headerView.findViewById<TextView>(R.id.nav_header_email)
-//        val cancelButton = headerView.findViewById<Button>(R.id.btn_drawer_cancel)
-//        cancelButton.setOnClickListener{
-//        }
+        val headerView: View =
+            LayoutInflater.from(this).inflate(R.layout.nav_header, drawerLayout, false)
+        val cancelButton = headerView.findViewById<Button>(R.id.btn_drawer_cancel)
+        cancelButton.setOnClickListener{
+            drawerLayout.close()
+        }
+
 
 
 
@@ -130,7 +128,7 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener, NavigationView.O
         )
         //adapter setting for myNotes
         val myNotesRecyclerView = binding.myNotesRecyclerView
-        val noteAdapter = MyNotesAdapter(noteList)
+        val noteAdapter = MyNotesAdapter(noteList,false,this)
         myNotesRecyclerView.adapter = noteAdapter
         //MyNotes item Decoration
         val noteSpacing = resources.getDimensionPixelSize(R.dimen._15dp)
@@ -268,28 +266,7 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener, NavigationView.O
         else super.onBackPressed()
     }
 
-    override fun onNavigationItemSelected(item: MenuItem): Boolean {
-        // Handle navigation view item clicks here
-        val id: Int = item.getItemId()
-        when(id){
-            R.id.drawerProfile ->{
-                startActivity(Intent(this, MyProfile::class.java))
-                return true
-            }
-            R.id.drawerChangePwd ->{
-                val operationFlow = "UPDATE"
-                val intent = Intent(this,ChangePwdActivity::class.java)
-                intent.putExtra("operation",operationFlow)
-                startActivity(intent)
-                return true
-            }
-            R.id.drawerAbout->{
-                startActivity(Intent(this, AboutActivity::class.java))
-                return true
-            }
-        }
-        return false
-    }
+
 
 
 }

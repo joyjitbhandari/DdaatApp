@@ -12,10 +12,28 @@
         android:theme="@style/Theme.DdaatApp"
         tools:targetApi="31">
         <activity
+            android:name=".activity.feedback.FeedBackActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.myPurchase.MyPurchaseActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.myNotes.ShowNotesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.myNotes.MyNotesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.aboutDdaat.PrivacyActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.aboutDdaat.TearmsActivity"
+            android:exported="false" />
+        <activity
             android:name=".activity.aboutDdaat.AboutActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.profile.MyProfile"
+            android:name=".activity.profile.MyProfileActivity"
             android:exported="false" />
         <activity
             android:name=".activity.notification.NotificationActivity"
@@ -72,7 +90,7 @@
             android:name=".activity.splash.SplashActivity"
             android:exported="true" />
         <activity
-            android:name=".subscriptionScreen.LoginActivity"
+            android:name=".activity.login.LoginActivity"
             android:exported="false" />
         <activity
             android:name=".subscriptionScreen.HomeActivity"

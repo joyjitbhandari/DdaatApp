@@ -111,12 +111,12 @@
     <!--cancel Button-->
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_cancel"
-        style="@style/Widget.Material3.Button.IconButton.Filled"
+        style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/float_transparent"
-        app:icon="@drawable/ic_cut"
-        app:iconSize="16dp"
+        app:icon="@drawable/ic_close"
+        app:iconSize="@dimen/_25dp"
         app:iconTint="@color/white"
         android:layout_margin="8dp"
         app:layout_constraintEnd_toEndOf="@id/dialog_card"

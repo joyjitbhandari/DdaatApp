@@ -8,7 +8,7 @@ import com.example.ddaatapp.activity.signup.CompleteProfile
 import com.example.ddaatapp.activity.signup.InterestActivity
 import com.example.ddaatapp.databinding.ActivityMyProfileBinding
 
-class MyProfile : AppCompatActivity() , View.OnClickListener {
+class MyProfileActivity : AppCompatActivity() , View.OnClickListener {
     lateinit var binding : ActivityMyProfileBinding
     private val operationFlow = "EDIT"
     override fun onCreate(savedInstanceState: Bundle?) {

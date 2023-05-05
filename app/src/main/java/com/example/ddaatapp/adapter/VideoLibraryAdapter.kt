@@ -17,21 +17,6 @@ class VideoLibraryAdapter(val videoList: ArrayList<VideoLibraryDataModel>, priva
             binding.txtVideoName.text = videoLibraryDataModel.name
             binding.txtVideoDesc.text = videoLibraryDataModel.desc
 
-
-            //Checking its free or paid
-           val isCourseFree = videoLibraryDataModel.isCourseFree
-            if (isCourseFree==true){
-                binding.freePaidTag.visibility = View.VISIBLE
-                binding.freePaidTag.text = "Free"
-                binding.freePaidTag.setBackgroundResource(R.drawable.round_5dp_green_bg)
-            }else if (isCourseFree==false){
-                binding.freePaidTag.visibility = View.VISIBLE
-                binding.freePaidTag.text = "Paid"
-                binding.freePaidTag.setBackgroundResource(R.drawable.round_5dp_yellow_bg)
-            }else{
-                binding.freePaidTag.visibility = View.GONE
-            }
-
         }
     }
 

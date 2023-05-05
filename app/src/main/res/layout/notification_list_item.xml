@@ -19,10 +19,11 @@
         app:layout_constraintTop_toTopOf="parent" />
 
 <!--Notification Image-->
-    <de.hdodenhof.circleimageview.CircleImageView
+    <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/notify_image"
         android:layout_width="60dp"
         android:layout_height="@dimen/_60dp"
+        app:shapeAppearance="@style/MyProfileImageShape"
         android:src="@drawable/user_profile_image"
         app:layout_constraintBottom_toBottomOf="@+id/notification_card"
         app:layout_constraintEnd_toEndOf="@+id/notification_card"

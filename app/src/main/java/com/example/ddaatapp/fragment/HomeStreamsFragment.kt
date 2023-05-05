@@ -45,8 +45,8 @@ class HomeStreamsFragment : Fragment()  {
 
         //DdaatStation setup
         val videoList = arrayListOf<VideoLibraryDataModel>(
-            VideoLibraryDataModel(R.drawable.video_sample_image,"Stream Title","Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been",null),
-            VideoLibraryDataModel(R.drawable.video_sample_image2,"Stream Title","Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been",null),
+            VideoLibraryDataModel(R.drawable.video_sample_image,"Stream Title","Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"),
+            VideoLibraryDataModel(R.drawable.video_sample_image2,"Stream Title","Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"),
         )
 
         val ddaatRecycler = binding.ddaatStationRecycler
@@ -55,9 +55,9 @@ class HomeStreamsFragment : Fragment()  {
 
         //Podcast Station Setup
         val podcastList = arrayListOf<VideoLibraryDataModel>(
-            VideoLibraryDataModel(R.drawable.video_sample_image,"Podcast Title","Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been",null),
-            VideoLibraryDataModel(R.drawable.video_sample_image2,"Podcast Title","Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been",null),
-            VideoLibraryDataModel(R.drawable.video_sample_image3,"Podcast Title","Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been",null),
+            VideoLibraryDataModel(R.drawable.video_sample_image,"Podcast Title","Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"),
+            VideoLibraryDataModel(R.drawable.video_sample_image2,"Podcast Title","Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"),
+            VideoLibraryDataModel(R.drawable.video_sample_image3,"Podcast Title","Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"),
         )
         val podcastRecycler = binding.podcastStationRecycler
         val podcastAdapter = VideoLibraryAdapter(podcastList,2)

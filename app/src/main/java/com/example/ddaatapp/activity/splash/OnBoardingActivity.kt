@@ -4,7 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import com.example.ddaatapp.subscriptionScreen.LoginActivity
+import com.example.ddaatapp.activity.login.LoginActivity
 import com.example.ddaatapp.R
 import com.example.ddaatapp.databinding.ActivityOnBoardingBinding
 

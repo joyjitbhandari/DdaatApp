@@ -39,13 +39,13 @@ class HomeVideoLibraryFragment : Fragment() {
 
 //video list
         val videoList = arrayListOf<VideoLibraryDataModel>(
-            VideoLibraryDataModel(R.drawable.video_sample_image,"Video Name","Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been",null),
-            VideoLibraryDataModel(R.drawable.video_sample_image2,"Video Name","Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been",null),
-            VideoLibraryDataModel(R.drawable.video_sample_image3,"Video Name","Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been",null),
-            VideoLibraryDataModel(R.drawable.video_sample_image,"Video Name","Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been",null),
-            VideoLibraryDataModel(R.drawable.video_sample_image3,"Video Name","Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been",null),
-            VideoLibraryDataModel(R.drawable.video_sample_image,"Video Name","Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been",null),
-            VideoLibraryDataModel(R.drawable.video_sample_image,"Video Name","Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been",null),
+            VideoLibraryDataModel(R.drawable.video_sample_image,"Video Name","Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"),
+            VideoLibraryDataModel(R.drawable.video_sample_image2,"Video Name","Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"),
+            VideoLibraryDataModel(R.drawable.video_sample_image3,"Video Name","Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"),
+            VideoLibraryDataModel(R.drawable.video_sample_image,"Video Name","Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"),
+            VideoLibraryDataModel(R.drawable.video_sample_image3,"Video Name","Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"),
+            VideoLibraryDataModel(R.drawable.video_sample_image,"Video Name","Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"),
+            VideoLibraryDataModel(R.drawable.video_sample_image,"Video Name","Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"),
             )
 
         val videoRecyclerView = binding.videoRecyclerView

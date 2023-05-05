@@ -54,7 +54,11 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:scrollbars="none"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/toolbar">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -97,7 +101,7 @@
                 android:layout_marginTop="@dimen/_15dp"
                 android:fontFamily="@font/dm_sans_regular_400"
                 android:lineHeight="20dp"
-                android:text="Lorem Ipsum is Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+                android:text="@string/about_content"
                 android:textColor="@color/light_grey"
                 android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -105,22 +109,151 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/txtHeading" />
 
-            <TextView
-                android:id="@+id/txtSummary2"
-                android:layout_width="0dp"
+            <!--Terms and conditions-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/_20dp"
-                android:layout_marginTop="@dimen/_15dp"
-                android:fontFamily="@font/dm_sans_regular_400"
-                android:lineHeight="20dp"
-                android:text="Lorem Ipsum is Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, "
-                android:textColor="@color/light_grey"
-                android:textSize="14sp"
+                android:layout_marginTop="@dimen/_40dp"
+                android:paddingTop="@dimen/_40dp"
+                android:paddingBottom="80dp"
+                android:background="@color/black"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txtSummary1" />
+                app:layout_constraintTop_toBottomOf="@id/txtSummary1">
+                <!--Term and condition-->
+                <TextView
+                    android:id="@+id/txt_termAndCondition"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_20dp"
+                    android:padding="@dimen/_5dp"
+                    android:fontFamily="@font/dm_sans_medium_500"
+                    android:onClick="onClick"
+                    android:text="@string/term_and_condition"
+                    android:textColor="@color/light_grey"
+                    android:textSize="@dimen/_14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+                <!--Privacy policy-->
+                <TextView
+                    android:id="@+id/txt_privacyPolicy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_20dp"
+                    android:layout_marginTop="@dimen/_20dp"
+                    android:padding="@dimen/_5dp"
+                    android:fontFamily="@font/dm_sans_medium_500"
+                    android:onClick="onClick"
+                    android:text="@string/privacy_policy"
+                    android:textColor="@color/light_grey"
+                    android:textSize="@dimen/_14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/txt_termAndCondition" />
 
+                <!--Contact with us-->
+                <TextView
+                    android:id="@+id/txt_contactUs"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_20dp"
+                    android:layout_marginTop="@dimen/_40dp"
+                    android:fontFamily="@font/dm_sans_medium_500"
+                    android:text="Contact With Us"
+                    android:textColor="#FFFFFF"
+                    android:textSize="@dimen/_16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/txt_privacyPolicy" />
+<!--contact buttons-->
+                <LinearLayout
+                    android:id="@+id/contactUsButtonCard"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginTop="@dimen/_5dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_contactUs">
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnWebsite"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+                        app:icon="@drawable/ic_captive_portal"
+                        />
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnMail"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+                        app:icon="@drawable/ic_mail"
+                        />
+                </LinearLayout>
+<!--Divider-->
+                <View
+                    android:id="@+id/dividerView"
+                    android:layout_width="150dp"
+                    android:layout_height="@dimen/_2dp"
+                    android:layout_marginTop="@dimen/_25dp"
+                    android:background="@color/blue_bg"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/contactUsButtonCard" />
+
+                <!--Folllow us-->
+                <TextView
+                    android:id="@+id/txt_followUs"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_20dp"
+                    android:layout_marginTop="@dimen/_25dp"
+                    android:fontFamily="@font/dm_sans_medium_500"
+                    android:text="Follow Us"
+                    android:textColor="@color/light_grey"
+                    android:textSize="@dimen/_16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/dividerView" />
+<!--Follow us buttons-->
+                <LinearLayout
+                    android:id="@+id/followUsButtonCard"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginTop="@dimen/_5dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_followUs">
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnFacebook"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+                        app:icon="@drawable/ic_facebook"
+                        />
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnInstagram"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+                        app:icon="@drawable/instagram"
+                        />
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnTwitter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+                        app:icon="@drawable/twitter"
+                        />
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnYoutube"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+                        app:icon="@drawable/youtube"
+                        />
+                </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

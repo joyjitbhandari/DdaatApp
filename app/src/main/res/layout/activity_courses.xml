@@ -72,7 +72,6 @@
             android:layout_width="match_parent"
             android:layout_height="82dp"
             android:background="@drawable/bottom_nav_black_shape"
-            android:padding="@dimen/_10dp"
             app:itemIconTint="@color/bottom_nav_item_colors"
             app:itemTextColor="@color/bottom_nav_item_colors"
             app:labelVisibilityMode="labeled"

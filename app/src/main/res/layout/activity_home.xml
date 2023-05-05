@@ -195,19 +195,21 @@
 
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/btn_motivation_cancel"
-                        style="@style/Widget.Material3.Button.IconButton.Filled"
+                        style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@color/float_transparent"
-                        app:icon="@drawable/ic_cut"
-                        app:iconTint="@color/white"
                         android:onClick="onClick"
+                        app:icon="@drawable/ic_close"
+                        app:iconSize="@dimen/_25dp"
+                        app:iconTint="@color/white"
+                        android:layout_margin="4dp"
                         app:layout_constraintBottom_toBottomOf="@+id/txt_heading"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.466"
+                        app:layout_constraintHorizontal_bias="1.0"
                         app:layout_constraintStart_toEndOf="@+id/txt_heading"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.307" />
+                        app:layout_constraintVertical_bias="0.0" />
 
                     <TextView
                         android:id="@+id/txt_heading"
@@ -415,7 +417,6 @@
             android:layout_width="0dp"
             android:layout_height="82dp"
             android:background="@drawable/bottom_nav_black_shape"
-            android:padding="@dimen/_10dp"
             app:itemIconTint="@color/bottom_nav_item_colors"
             app:itemTextColor="@color/bottom_nav_item_colors"
             app:labelVisibilityMode="labeled"

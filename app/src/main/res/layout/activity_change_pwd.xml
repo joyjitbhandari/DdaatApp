@@ -206,7 +206,7 @@
             android:background="@drawable/round_25_black_bg"
             android:focusable="true"
             android:fontFamily="@font/dm_sans_regular_400"
-            android:hint="@string/enter_new_password"
+            android:hint="@string/enter_confirm_password"
             android:inputType="textCapWords"
             android:paddingHorizontal="@dimen/_25dp"
             android:textColor="@color/white"
