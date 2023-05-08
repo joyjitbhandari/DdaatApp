@@ -13,10 +13,14 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.ddaatapp.R
+import com.example.ddaatapp.adapter.StreamsAdapter
 import com.example.ddaatapp.adapter.VideoLibraryAdapter
+import com.example.ddaatapp.commonClass.LinearListSpacingItemDecoration
+import com.example.ddaatapp.commonClass.ShowDialog
 import com.example.ddaatapp.databinding.DialogSelectGenresBinding
 import com.example.ddaatapp.databinding.FragmentHomeStreamsBinding
 import com.example.ddaatapp.databinding.InterestChoiceChipItemBinding
+import com.example.ddaatapp.datamodel.StreamsDataModel
 import com.example.ddaatapp.datamodel.VideoLibraryDataModel
 import com.google.android.material.chip.Chip
 
@@ -44,29 +48,38 @@ class HomeStreamsFragment : Fragment()  {
         setupChip()
 
         //DdaatStation setup
-        val videoList = arrayListOf<VideoLibraryDataModel>(
-            VideoLibraryDataModel(R.drawable.video_sample_image,"Stream Title","Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"),
-            VideoLibraryDataModel(R.drawable.video_sample_image2,"Stream Title","Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"),
+        val videoList = arrayListOf<StreamsDataModel>(
+            StreamsDataModel(R.drawable.video_sample_image,"Stream Title","Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"),
+            StreamsDataModel(R.drawable.video_sample_image2,"Stream Title","Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"),
         )
 
-        val ddaatRecycler = binding.ddaatStationRecycler
-        val videoAdapter = VideoLibraryAdapter(videoList,2)
-        ddaatRecycler.adapter = videoAdapter
+        val ddaatStationRecycler = binding.ddaatStationRecycler
+        val videoAdapter = StreamsAdapter(videoList,2)
+        ddaatStationRecycler.adapter = videoAdapter
+        //List item Decoration
+        val stationSpacing = resources.getDimensionPixelSize(R.dimen._15dp)
+        ddaatStationRecycler.addItemDecoration(LinearListSpacingItemDecoration(stationSpacing))
+
+
+
+
 
         //Podcast Station Setup
-        val podcastList = arrayListOf<VideoLibraryDataModel>(
-            VideoLibraryDataModel(R.drawable.video_sample_image,"Podcast Title","Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"),
-            VideoLibraryDataModel(R.drawable.video_sample_image2,"Podcast Title","Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"),
-            VideoLibraryDataModel(R.drawable.video_sample_image3,"Podcast Title","Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"),
+        val podcastList = arrayListOf<StreamsDataModel>(
+            StreamsDataModel(R.drawable.video_sample_image,"Podcast Title","Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"),
+            StreamsDataModel(R.drawable.video_sample_image2,"Podcast Title","Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"),
+            StreamsDataModel(R.drawable.video_sample_image3,"Podcast Title","Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"),
         )
         val podcastRecycler = binding.podcastStationRecycler
-        val podcastAdapter = VideoLibraryAdapter(podcastList,2)
-       podcastRecycler.adapter = podcastAdapter
-
+        val podcastAdapter = StreamsAdapter(podcastList,2)
+        podcastRecycler.adapter = podcastAdapter
+        //List item Decoration
+        val spacing = resources.getDimensionPixelSize(R.dimen._15dp)
+        podcastRecycler.addItemDecoration(LinearListSpacingItemDecoration(spacing))
 
         //Select Genres button
         binding.btnSelectGenres.setOnClickListener {
-            showSelectGenresDialog()
+            ShowDialog(requireContext()).showSelectGenresDialog()
         }
 
     }
@@ -102,26 +115,5 @@ class HomeStreamsFragment : Fragment()  {
         val padding2 = resources.getDimension(R.dimen._18dp).toInt()
         chip.setPadding(padding1, padding2, padding1, padding2)
         return chip
-    }
-
-
-
-    private fun showSelectGenresDialog() {
-        val dialog = Dialog(requireContext())
-        val dialogBinding = DialogSelectGenresBinding.inflate(layoutInflater)
-        dialog.setContentView(dialogBinding.root)
-
-        dialog.window?.apply {
-                setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
-                setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-                setGravity(Gravity.CENTER)
-                dialog.show()
-
-
-                dialogBinding.btnCancel.setOnClickListener {
-                    dialog.dismiss()
-
-                }
-            }
     }
 }

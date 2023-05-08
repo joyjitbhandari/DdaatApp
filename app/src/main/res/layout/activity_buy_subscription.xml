@@ -28,7 +28,7 @@
             android:background="@color/float_transparent"
             android:onClick="onClick"
             android:padding="@dimen/_8dp"
-            app:icon="@drawable/ic_back_arraow"
+            app:icon="@drawable/ic_back_arrow"
             app:iconSize="@dimen/_30dp"
             app:iconTint="@color/light_grey"
             app:layout_constraintBottom_toBottomOf="parent"

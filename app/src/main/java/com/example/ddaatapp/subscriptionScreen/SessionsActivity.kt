@@ -8,7 +8,10 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.example.ddaatapp.R
+import com.example.ddaatapp.activity.notification.NotificationActivity
+import com.example.ddaatapp.activity.showVideoContent.MyFavoriteActivity
 import com.example.ddaatapp.commonClass.MyDrawerNavigationItemSelectedListener
+import com.example.ddaatapp.commonClass.ShowDialog
 import com.example.ddaatapp.databinding.ActivitySessionsBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
@@ -70,6 +73,15 @@ class SessionsActivity : AppCompatActivity(), View.OnClickListener{
         when(view){
             binding.btnDrawerMenu->{
                 drawerLayout.openDrawer(GravityCompat.START)
+            }
+            binding.btnNotification->{
+                startActivity(Intent(this, NotificationActivity::class.java))
+            }
+            binding.btnHelp->{
+                ShowDialog(this).showHelpDialog()
+            }
+            binding.btnMyFavorite->{
+                startActivity(Intent(this, MyFavoriteActivity::class.java))
             }
         }
     }

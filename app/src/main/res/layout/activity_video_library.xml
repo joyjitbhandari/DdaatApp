@@ -5,15 +5,15 @@
     android:id="@+id/drawerLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".subscriptionScreen.VideoLibraryActivity"
-    android:background="@color/screen_bg">
+    android:background="@color/screen_bg"
+    tools:context=".subscriptionScreen.VideoLibraryActivity">
 
 
-<!--For Activity layout-->
+    <!--For Activity layout-->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-<!--ToolBar-->
+        <!--ToolBar-->
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
@@ -25,14 +25,18 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <ImageButton
+            <com.google.android.material.button.MaterialButton
+                style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
                 android:id="@+id/btn_drawer_menu"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:onClick="onClick"
                 android:layout_marginStart="@dimen/_5dp"
-                android:background="@color/float_transparent"
-                android:src="@drawable/ic_drawer_menu"
+                android:backgroundTint="@android:color/transparent"
+                android:onClick="onClick"
+                app:iconGravity="textStart"
+                app:iconSize="30dp"
+                app:icon="@drawable/ic_drawer_menu"
+                app:iconTint="@color/white"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -48,42 +52,204 @@
                 app:layout_constraintStart_toEndOf="@+id/btn_drawer_menu"
                 app:layout_constraintTop_toTopOf="parent" />
 
+            <!--Help Button-->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_help"
+                style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:background="@color/float_transparent"
+                android:onClick="onClick"
+                app:icon="@drawable/ic_help"
+                app:iconSize="30dp"
+                app:iconGravity="textStart"
+                app:iconTint="@color/light_grey"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/btn_notification"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!--Notification Button-->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_notification"
                 style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
-                android:layout_width="wrap_content"
+                android:layout_width="40dp"
                 android:layout_height="wrap_content"
                 android:background="@color/float_transparent"
                 android:onClick="onClick"
                 android:padding="8dp"
                 app:icon="@drawable/ic_notification"
                 app:iconSize="30dp"
+                app:iconGravity="textStart"
                 app:iconTint="@color/light_grey"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-<!---->
+<!--Scroll View-->
+        <ScrollView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scrollbars="none"
+            app:layout_constraintBottom_toTopOf="@+id/bottom_bar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-    <!--BOTTOM NAVIGATION BAR-->
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottom_bar"
-        android:layout_width="match_parent"
-        android:layout_height="82dp"
-        android:background="@drawable/bottom_nav_black_shape"
-        app:itemIconTint="@color/bottom_nav_item_colors"
-        app:itemTextColor="@color/bottom_nav_item_colors"
-        app:labelVisibilityMode="labeled"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
-        app:menu="@menu/bottom_bar_items" />
+                <!--Choice Chip group-->
+                <HorizontalScrollView
+                    android:id="@+id/horizontalScrollView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_15dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent">
+
+                        <com.google.android.material.chip.ChipGroup
+                            android:id="@+id/choiceChipGroup"
+                            android:layout_width="wrap_content"
+                            android:layout_height="55dp"
+                            android:layout_marginHorizontal="@dimen/_25dp"
+                            app:singleLine="true" />
+                    </LinearLayout>
+                </HorizontalScrollView>
+
+                <!--search box-->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/search_card"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView">
+
+                    <SearchView
+                        android:id="@+id/SearchView"
+                        style="@style/MySearchViewStyle"
+                        android:layout_width="0dp"
+                        android:layout_height="50dp"
+                        android:layout_marginEnd="@dimen/_10dp"
+                        android:iconifiedByDefault="false"
+                        android:onClick="onClick"
+                        android:queryHint="Search"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/btn_filter"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_filter"
+                        android:layout_width="63dp"
+                        android:layout_height="60dp"
+                        android:backgroundTint="@color/black_bg"
+                        android:onClick="onClick"
+                        app:icon="@drawable/ic_filter"
+                        app:iconTint="@color/white"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <!--Wish and favorites Buttons-->
+                <LinearLayout
+                    android:id="@+id/buttonsCard"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_25dp"
+                    android:layout_marginStart="@dimen/_20dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="20dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/search_card">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_MyWatchList"
+                        style="@style/Widget.Material3.Button.TextButton"
+                        android:layout_width="150dp"
+                        android:layout_height="45dp"
+                        android:backgroundTint="@color/yellow"
+                        android:onClick="onClick"
+                        android:text="@string/my_watch_list"
+                        android:textColor="@color/black"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_MyFavorite"
+                        style="@style/Widget.Material3.Button.TextButton"
+                        android:layout_width="150dp"
+                        android:layout_height="45dp"
+                        android:layout_marginStart="@dimen/_15dp"
+                        android:backgroundTint="@color/green"
+                        android:onClick="onClick"
+                        android:text="@string/my_favorites"
+                        android:textColor="@color/black"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </LinearLayout>
+
+                <!--Text Top Videos-->
+                <TextView
+                    android:id="@+id/txt_topVideos"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_25dp"
+                    android:text="Top Videos"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/dm_sans_bold700"
+                    android:textSize="@dimen/_18sp"
+                    android:layout_marginHorizontal="@dimen/_25dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/buttonsCard"/>
+
+            <!--List View-->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/topVideoRecycler"
+                    android:layout_width="match_parent"
+                    android:layout_height="630dp"
+                    android:layout_marginTop="@dimen/_5dp"
+                    tools:listitem="@layout/video_library_list_item"
+                    android:layout_marginHorizontal="@dimen/_25dp"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_topVideos"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+        <!--BOTTOM NAVIGATION BAR-->
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottom_bar"
+            android:layout_width="match_parent"
+            android:layout_height="82dp"
+            android:elevation="@dimen/_5dp"
+            android:background="@drawable/bottom_nav_black_shape"
+            app:itemIconTint="@color/bottom_nav_item_colors"
+            app:itemTextColor="@color/bottom_nav_item_colors"
+            app:labelVisibilityMode="labeled"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0"
+            app:menu="@menu/bottom_bar_items" />
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 
 
     <!--DrawerNavigation-->
@@ -92,15 +258,15 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="start"
+        android:layout_marginEnd="-65dp"
         android:background="@color/screen_bg"
         android:fitsSystemWindows="true"
+        android:scrollbars="none"
         app:headerLayout="@layout/nav_header"
-        android:layout_marginEnd="-65dp"
-        app:menu="@menu/nav_drawer_menu"
-        app:itemTextColor="@color/white"
-        app:itemIconSize="@dimen/_40dp"
-        app:itemIconPadding="@dimen/_15dp"
         app:itemHorizontalPadding="@dimen/_25dp"
+        app:itemIconPadding="@dimen/_15dp"
+        app:itemIconSize="@dimen/_40dp"
+        app:itemTextColor="@color/white"
         app:itemVerticalPadding="@dimen/_10dp"
-        android:scrollbars="none"/>
+        app:menu="@menu/nav_drawer_menu" />
 </androidx.drawerlayout.widget.DrawerLayout>

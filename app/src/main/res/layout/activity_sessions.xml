@@ -25,14 +25,18 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <ImageButton
+            <com.google.android.material.button.MaterialButton
+                style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
                 android:id="@+id/btn_drawer_menu"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:onClick="onClick"
                 android:layout_marginStart="@dimen/_5dp"
-                android:background="@color/float_transparent"
-                android:src="@drawable/ic_drawer_menu"
+                android:backgroundTint="@android:color/transparent"
+                android:onClick="onClick"
+                app:iconGravity="textStart"
+                app:iconSize="30dp"
+                app:icon="@drawable/ic_drawer_menu"
+                app:iconTint="@color/white"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -48,21 +52,54 @@
                 app:layout_constraintStart_toEndOf="@+id/btn_drawer_menu"
                 app:layout_constraintTop_toTopOf="parent" />
 
+            <!--Help Button-->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_help"
+                style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:background="@color/float_transparent"
+                android:onClick="onClick"
+                app:icon="@drawable/ic_help"
+                app:iconSize="30dp"
+                app:iconGravity="textStart"
+                app:iconTint="@color/light_grey"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/btn_MyFavorite"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!--Favorite Button-->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_MyFavorite"
+                style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:background="@color/float_transparent"
+                android:onClick="onClick"
+                app:icon="@drawable/ic_outline_favorite"
+                app:iconSize="30dp"
+                app:iconGravity="textStart"
+                app:iconTint="@color/light_grey"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/btn_notification"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!--Notification Button-->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_notification"
                 style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
-                android:layout_width="wrap_content"
+                android:layout_width="40dp"
                 android:layout_height="wrap_content"
                 android:background="@color/float_transparent"
                 android:onClick="onClick"
                 android:padding="8dp"
                 app:icon="@drawable/ic_notification"
                 app:iconSize="30dp"
+                app:iconGravity="textStart"
                 app:iconTint="@color/light_grey"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
-
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
@@ -71,6 +108,7 @@
             android:id="@+id/bottom_bar"
             android:layout_width="match_parent"
             android:layout_height="82dp"
+            android:elevation="@dimen/_5dp"
             android:background="@drawable/bottom_nav_black_shape"
             app:itemIconTint="@color/bottom_nav_item_colors"
             app:itemTextColor="@color/bottom_nav_item_colors"

@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.showVideoContent.ShowVideoContentActivity"
+    android:background="@color/screen_bg">
+
+    <!--Tool bar-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginHorizontal="@dimen/_10dp"
+        android:layout_marginTop="@dimen/_20dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+<!--back button-->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_back"
+            style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:background="@color/float_transparent"
+            android:padding="8dp"
+            app:icon="@drawable/ic_back_arrow"
+            app:iconSize="30dp"
+            android:onClick="onClick"
+            app:iconTint="@color/light_grey"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+<!--Share Button-->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnShare"
+            style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:background="@color/float_transparent"
+            android:padding="8dp"
+            app:icon="@drawable/ic_share"
+            app:iconSize="30dp"
+            app:iconTint="@color/light_grey"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!--Scroll View-->
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scrollbars="none"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_bar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+<!--Thumbnail-->
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/videoThumbnail"
+                android:layout_width="327dp"
+                android:layout_height="246dp"
+                app:shapeAppearance="@style/MyVideoImageShape"
+                android:src="@drawable/play_video_sample"
+                android:layout_marginTop="@dimen/_15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+<!--Content Info Card-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/contentInfoCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/videoThumbnail">
+                <!--Text Content Name-->
+                <TextView
+                    android:id="@+id/txt_ContentName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_20dp"
+                    android:layout_marginHorizontal="@dimen/_25dp"
+                    android:fontFamily="@font/dm_sans_bold700"
+                    android:text="Video Name"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <!--Favorite Button-->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_AddFav"
+                    style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginEnd="@dimen/_25dp"
+                    app:icon="@drawable/ic_favorite"
+                    app:iconGravity="textStart"
+                    app:iconSize="@dimen/_20dp"
+                    app:iconTint="#FB2900"
+                    app:layout_constraintBottom_toBottomOf="@+id/txt_ContentName"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/txt_ContentName" />
+
+                <!--Shoring Button-->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_sort"
+                    style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:backgroundTint="@android:color/transparent"
+                    app:icon="@drawable/ic_grid_view"
+                    app:iconGravity="textStart"
+                    app:iconTint="@color/light_grey"
+                    app:layout_constraintBottom_toBottomOf="@+id/txt_ContentName"
+                    app:layout_constraintEnd_toStartOf="@+id/btn_AddFav"
+                    app:layout_constraintTop_toTopOf="@+id/txt_ContentName" />
+<!--Content Desc-->
+                <TextView
+                    android:id="@+id/txt_ContentDesc"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_25dp"
+                    android:layout_marginTop="@dimen/_10dp"
+                    android:fontFamily="@font/dm_sans_bold700"
+                    android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum is simply dummy text of the printing and typesetting industry"
+                    android:textColor="@color/light_grey"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/txt_ContentName" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+<!--Related Video card-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/relatedVideoCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/_25dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/contentInfoCard">
+
+                <!--Text Related Video-->
+                <TextView
+                    android:id="@+id/txt_relatedVideo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/dm_sans_bold700"
+                    android:text="Related Video"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+        <!--Related list view-->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/relatedVideoRecycler"
+                    android:layout_width="match_parent"
+                    android:layout_height="500dp"
+                    android:layout_marginTop="@dimen/_15dp"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/txt_relatedVideo"
+                    tools:listitem="@layout/video_library_list_item" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+<!--comment section-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/commentsCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/_25dp"
+                android:paddingHorizontal="@dimen/_25dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/relatedVideoCard">
+
+                <!--Text Comments-->
+                <TextView
+                    android:id="@+id/txt_comments"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/dm_sans_bold700"
+                    android:text="Comments"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+<!--Comments View-->
+                <View
+                    android:id="@+id/commentsView"
+                    android:layout_width="0dp"
+                    android:layout_height="362dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/round_25_black_stroke_shape"
+                    app:layout_constraintTop_toBottomOf="@id/txt_comments"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"/>
+<!--Type Comment-->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/typeCommentCard"
+                    android:layout_width="0dp"
+                    android:layout_marginTop="@dimen/_15dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/commentsView"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:background="@drawable/round_25_black_stroke_shape">
+<!--Emoji button-->
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnEmoji"
+                        style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0"
+                        android:background="@color/float_transparent"
+                        app:icon="@drawable/ic_sentiment_satisfied"
+                        app:iconSize="25dp"
+                        app:iconTint="@color/light_grey"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+<!--Edit Text-->
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_typeComment"
+                        android:layout_width="0dp"
+                        android:layout_height="50dp"
+                        android:background="@drawable/round_25_black_bg"
+                        android:focusable="true"
+                        android:fontFamily="@font/dm_sans_regular_400"
+                        android:hint="@string/type_your_message"
+                        android:inputType="textEmailAddress"
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/light_grey"
+                        android:textSize="15sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/btnAttachFile"
+                        app:layout_constraintStart_toEndOf="@+id/btnEmoji"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+<!--Attach File-->
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnAttachFile"
+                        style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+                        android:layout_width="40dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0"
+                        android:background="@color/float_transparent"
+                        app:icon="@drawable/ic_attach_file"
+                        app:iconSize="25dp"
+                        app:iconGravity="textStart"
+                        app:iconTint="@color/light_grey"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/btnSend"
+                        app:layout_constraintTop_toTopOf="parent" />
+<!--Send Button-->
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnSend"
+                        style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+                        android:layout_width="42dp"
+                        android:layout_height="42dp"
+                        android:layout_weight="0"
+                        android:backgroundTint="@color/blue_bg"
+                        app:icon="@drawable/ic_send"
+                        app:iconSize="25dp"
+                        app:iconGravity="textStart"
+                        android:layout_marginEnd="@dimen/_5dp"
+                        app:iconTint="@color/light_grey"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+
+
+<!--Bottom View-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/bottom_bar"
+            android:layout_width="match_parent"
+            android:layout_height="82dp"
+            android:background="@drawable/bottom_nav_black_shape"
+            android:elevation="@dimen/_5dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0">
+
+        <!--Show Content Button-->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_playContent"
+            style="@style/Widget.Material3.Button.TextButton"
+            android:layout_width="280dp"
+            android:layout_height="55dp"
+            android:backgroundTint="@color/blue_bg"
+            android:text="Start Video"
+            android:onClick="onClick"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+<!--Start Video Button-->
+</androidx.constraintlayout.widget.ConstraintLayout>

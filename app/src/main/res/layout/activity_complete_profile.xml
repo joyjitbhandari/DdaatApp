@@ -29,7 +29,7 @@
             android:background="@color/float_transparent"
             android:padding="8dp"
             android:onClick="onClick"
-            app:icon="@drawable/ic_back_arraow"
+            app:icon="@drawable/ic_back_arrow"
             app:iconSize="30dp"
             app:iconTint="@color/light_grey"
             app:layout_constraintBottom_toBottomOf="parent"

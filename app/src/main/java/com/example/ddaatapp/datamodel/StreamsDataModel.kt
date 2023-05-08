@@ -1,8 +1,7 @@
 package com.example.ddaatapp.datamodel
 
-data class MyPurchaseDataModel(
+data class StreamsDataModel(
     val drawable: Int,
     val name:String,
-    val desc: String,
-    val isCourseFree:Boolean?,
+    val desc: String
 )

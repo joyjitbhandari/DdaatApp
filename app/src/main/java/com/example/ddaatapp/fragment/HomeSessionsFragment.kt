@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.ddaatapp.R
 import com.example.ddaatapp.adapter.UpcomingSessionAdapter
+import com.example.ddaatapp.commonClass.LinearListSpacingItemDecoration
 import com.example.ddaatapp.databinding.FragmentHomeSessionsBinding
 import com.example.ddaatapp.datamodel.UpcomingSessionDataModel
 
@@ -42,6 +43,7 @@ class HomeSessionsFragment : Fragment() {
         val sessionRecyclerView = binding.sessionsRecycler
         val sessionAdapter = UpcomingSessionAdapter(upcommingSessionList,6)
         sessionRecyclerView.adapter = sessionAdapter
+
 
 
     }

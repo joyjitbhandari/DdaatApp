@@ -8,9 +8,18 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.example.ddaatapp.R
+import com.example.ddaatapp.activity.notification.NotificationActivity
+import com.example.ddaatapp.activity.showVideoContent.MyFavoriteActivity
+import com.example.ddaatapp.activity.showVideoContent.MyWatchlistActivity
+import com.example.ddaatapp.adapter.VideoLibraryAdapter
+import com.example.ddaatapp.commonClass.LinearListSpacingItemDecoration
 import com.example.ddaatapp.commonClass.MyDrawerNavigationItemSelectedListener
+import com.example.ddaatapp.commonClass.ShowDialog
 import com.example.ddaatapp.databinding.ActivityVideoLibraryBinding
+import com.example.ddaatapp.databinding.InterestChoiceChipItemBinding
+import com.example.ddaatapp.datamodel.VideoLibraryDataModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.chip.Chip
 
 class VideoLibraryActivity : AppCompatActivity() , View.OnClickListener  {
     lateinit var binding: ActivityVideoLibraryBinding
@@ -68,12 +77,76 @@ class VideoLibraryActivity : AppCompatActivity() , View.OnClickListener  {
             false
         })
 
+        //Setup chips in chipGroup view
+        setupChip()
+
+
+        // Setting top videos in recycler
+        //video list
+        val videoList = arrayListOf<VideoLibraryDataModel>(
+            VideoLibraryDataModel(R.drawable.video_sample_image,"Video Name","Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"),
+            VideoLibraryDataModel(R.drawable.video_sample_image2,"Video Name","Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"),
+            VideoLibraryDataModel(R.drawable.video_sample_image3,"Video Name","Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"),
+            VideoLibraryDataModel(R.drawable.video_sample_image,"Video Name","Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"),
+            VideoLibraryDataModel(R.drawable.video_sample_image3,"Video Name","Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"),
+            VideoLibraryDataModel(R.drawable.video_sample_image,"Video Name","Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"),
+            VideoLibraryDataModel(R.drawable.video_sample_image,"Video Name","Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"),
+        )
+
+        val topVideoRecyclerView= binding.topVideoRecycler
+        val adapter = VideoLibraryAdapter(videoList,5,this)
+        topVideoRecyclerView.adapter = adapter
+        //List item Decoration
+        val spacing = resources.getDimensionPixelSize(R.dimen._15dp)
+        topVideoRecyclerView.addItemDecoration(LinearListSpacingItemDecoration(spacing))
+    }
+
+    private fun setupChip() {
+        val interestList =
+            arrayListOf(
+                "Need Motivation",
+                "Fitness",
+                "Business",
+                "Job",
+                "Relationship",
+                "Feeling Lonely",
+                "Careers")
+        for (name in interestList) {
+            val chip = createChip(name)
+            binding.choiceChipGroup.addView(chip)
+        }
+    }
+
+    private fun createChip(label: String): Chip {
+        val chip = InterestChoiceChipItemBinding.inflate(layoutInflater).root
+        chip.text = label
+
+        //setting padding
+        val padding1 = resources.getDimension(R.dimen._20dp).toInt()
+        val padding2 = resources.getDimension(R.dimen._18dp).toInt()
+        chip.setPadding(padding1, padding2, padding1, padding2)
+        return chip
     }
 
     override fun onClick(view: View?) {
         when(view){
             binding.btnDrawerMenu->{
                 drawerLayout.openDrawer(GravityCompat.START)
+            }
+            binding.btnNotification->{
+                startActivity(Intent(this, NotificationActivity::class.java))
+            }
+            binding.btnHelp->{
+                ShowDialog(this).showHelpDialog()
+            }
+            binding.btnFilter->{
+                ShowDialog(this).showFilterDialog()
+            }
+            binding.btnMyWatchList->{
+                startActivity(Intent(this,MyWatchlistActivity::class.java))
+            }
+            binding.btnMyFavorite->{
+                startActivity(Intent(this,MyFavoriteActivity::class.java))
             }
         }
     }

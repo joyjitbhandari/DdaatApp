@@ -1,19 +1,17 @@
 package com.example.ddaatapp.adapter
 
-import android.provider.ContactsContract.CommonDataKinds.Note
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ddaatapp.R
 import com.example.ddaatapp.databinding.VideoLibraryListItemBinding
-import com.example.ddaatapp.datamodel.MyPurchaseDataModel
-import com.example.ddaatapp.datamodel.VideoLibraryDataModel
+import com.example.ddaatapp.datamodel.MyPurchaseCourseDataModel
 
-class MyPurchaseAdapter(val videoList: ArrayList<MyPurchaseDataModel>, private val itemCount:Int) :
-    RecyclerView.Adapter<MyPurchaseAdapter.ViewHolder>() {
+class MyPurchaseCourseAdapter(val videoList: ArrayList<MyPurchaseCourseDataModel>, private val itemCount:Int) :
+    RecyclerView.Adapter<MyPurchaseCourseAdapter.ViewHolder>() {
     class ViewHolder(var binding:VideoLibraryListItemBinding ): RecyclerView.ViewHolder(binding.root) {
-        fun bind(myPurchaseDataModel: MyPurchaseDataModel){
+        fun bind(myPurchaseDataModel: MyPurchaseCourseDataModel){
             binding.videoImage.setImageResource(myPurchaseDataModel.drawable)
             binding.txtVideoName.text = myPurchaseDataModel.name
             binding.txtVideoDesc.text = myPurchaseDataModel.desc

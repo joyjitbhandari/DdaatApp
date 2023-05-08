@@ -16,4 +16,5 @@
     <color name="stroke_color">#3B4354</color>
     <color name="green">#00D770</color>
     <color name="yellow">#FFAD00</color>
+    <color name="black_stroke">#3B4354</color>
 </resources>

@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.ddaatapp.R
 import com.example.ddaatapp.adapter.VideoLibraryAdapter
+import com.example.ddaatapp.commonClass.LinearListSpacingItemDecoration
 import com.example.ddaatapp.databinding.FragmentHomeVideoLibraryBinding
 import com.example.ddaatapp.databinding.InterestChoiceChipItemBinding
 import com.example.ddaatapp.datamodel.VideoLibraryDataModel
@@ -49,11 +50,12 @@ class HomeVideoLibraryFragment : Fragment() {
             )
 
         val videoRecyclerView = binding.videoRecyclerView
-        val adapter = VideoLibraryAdapter(videoList,5)
+        val adapter = VideoLibraryAdapter(videoList,5,requireContext())
         videoRecyclerView.adapter = adapter
-
+        //List item Decoration
+        val spacing = resources.getDimensionPixelSize(R.dimen._15dp)
+        videoRecyclerView.addItemDecoration(LinearListSpacingItemDecoration(spacing))
     }
-
     companion object {
         fun newInstance() = HomeVideoLibraryFragment()
     }

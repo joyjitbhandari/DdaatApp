@@ -4,7 +4,7 @@ import android.graphics.Rect
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 
-class HorizontalSpacingItemDecoration(
+class HorizontalListSpacingItemDecoration(
     private val spacing: Int,
 ) : RecyclerView.ItemDecoration() {
 

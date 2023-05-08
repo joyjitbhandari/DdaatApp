@@ -122,6 +122,12 @@
     <string name="user_experience">User Experience</string>
     <string name="customer_service">Customer Service</string>
     <string name="overall_service">Overall Service</string>
+    <string name="my_watchlist">My Watchlist</string>
+    <string name="related_video">Related Video</string>
+    <string name="session">Session</string>
+    <string name="my_favorites">My Favorites</string>
+    <string name="my_watch_list">My Watch List</string>
+    <string name="type_your_message">Type your message...</string>
 
 
 </resources>

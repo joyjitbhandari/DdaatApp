@@ -1,21 +1,34 @@
 package com.example.ddaatapp.adapter
 
+import android.content.Context
+import android.content.Intent
 import android.provider.ContactsContract.CommonDataKinds.Note
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ddaatapp.R
+import com.example.ddaatapp.activity.showVideoContent.ShowVideoContentActivity
 import com.example.ddaatapp.databinding.VideoLibraryListItemBinding
 import com.example.ddaatapp.datamodel.VideoLibraryDataModel
 
-class VideoLibraryAdapter(val videoList: ArrayList<VideoLibraryDataModel>, private val itemCount:Int) :
+class VideoLibraryAdapter(val videoList: ArrayList<VideoLibraryDataModel>, private val itemCount:Int,var context: Context) :
     RecyclerView.Adapter<VideoLibraryAdapter.ViewHolder>() {
     class ViewHolder(var binding:VideoLibraryListItemBinding ): RecyclerView.ViewHolder(binding.root) {
-        fun bind(videoLibraryDataModel: VideoLibraryDataModel){
+        fun bind(videoLibraryDataModel: VideoLibraryDataModel, mContext:AppCompatActivity, context: Context){
             binding.videoImage.setImageResource(videoLibraryDataModel.drawable)
             binding.txtVideoName.text = videoLibraryDataModel.name
             binding.txtVideoDesc.text = videoLibraryDataModel.desc
+
+
+            binding.root.setOnClickListener {
+                val operationFlow = "VIDEO"
+                val intent = Intent(context,ShowVideoContentActivity::class.java)
+                intent.putExtra("operation",operationFlow)
+                mContext.startActivity(intent)
+            }
+
 
         }
     }
@@ -32,6 +45,6 @@ class VideoLibraryAdapter(val videoList: ArrayList<VideoLibraryDataModel>, priva
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-       holder.bind(videoList[position])
+       holder.bind(videoList[position],context as AppCompatActivity, context)
     }
 }

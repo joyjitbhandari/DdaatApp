@@ -1,9 +1,6 @@
 package com.example.ddaatapp.subscriptionScreen
 
-import android.app.Dialog
 import android.content.Intent
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.*
 import android.widget.Button
@@ -14,12 +11,13 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import com.example.ddaatapp.R
 import com.example.ddaatapp.activity.notification.NotificationActivity
+import com.example.ddaatapp.activity.showVideoContent.MyFavoriteActivity
 import com.example.ddaatapp.adapter.ArticleBlogAdapter
 import com.example.ddaatapp.adapter.MyNotesAdapter
-import com.example.ddaatapp.commonClass.HorizontalSpacingItemDecoration
+import com.example.ddaatapp.commonClass.HorizontalListSpacingItemDecoration
 import com.example.ddaatapp.commonClass.MyDrawerNavigationItemSelectedListener
+import com.example.ddaatapp.commonClass.ShowDialog
 import com.example.ddaatapp.databinding.ActivityHomeBinding
-import com.example.ddaatapp.databinding.DialogApplyFilterBinding
 import com.example.ddaatapp.datamodel.ArticleDataModel
 import com.example.ddaatapp.datamodel.MyNotesModel
 import com.example.ddaatapp.fragment.*
@@ -40,17 +38,14 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-//Setting up drawer Menu
+        //Setting up drawer Menu
         drawerLayout = binding.drawerLayout
         toggle = ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close)
         drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
         supportActionBar?.setDisplayUseLogoEnabled(true)
 
-        //binding.navigationDrawerView.setNavigationItemSelectedListener(this)
-
         //for navigation drawer item click listener
-
         val listener = MyDrawerNavigationItemSelectedListener(this)
         binding.navigationDrawerView.setNavigationItemSelectedListener(listener)
 
@@ -132,7 +127,7 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
         myNotesRecyclerView.adapter = noteAdapter
         //MyNotes item Decoration
         val noteSpacing = resources.getDimensionPixelSize(R.dimen._15dp)
-        myNotesRecyclerView.addItemDecoration(HorizontalSpacingItemDecoration(noteSpacing))
+        myNotesRecyclerView.addItemDecoration(HorizontalListSpacingItemDecoration(noteSpacing))
 
 
 
@@ -177,7 +172,7 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
 
         //Article item Decoration
         val articleSpacing = resources.getDimensionPixelSize(R.dimen._15dp)
-        articleRecyclerView.addItemDecoration(HorizontalSpacingItemDecoration(articleSpacing))
+        articleRecyclerView.addItemDecoration(HorizontalListSpacingItemDecoration(articleSpacing))
 
 
 }
@@ -190,49 +185,11 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
     }
 
 
-    private fun showHelpDialog() {
-        val dialog = Dialog(this)
-        dialog.setContentView(R.layout.dialog_help_box)
-
-        dialog.window?.apply {
-            setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
-            setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-            setGravity(Gravity.CENTER)
-            dialog.show()
-
-            val cancel = dialog.findViewById<Button>(R.id.btn_cancel)
-
-            cancel.setOnClickListener {
-                dialog.dismiss()
-            }
-        }
-    }
-
-
-
-    private fun showFilterDialog() {
-        val dialog = Dialog(this)
-        val dialogBinding = DialogApplyFilterBinding.inflate(layoutInflater)
-        dialog.setContentView(dialogBinding.root)
-
-        dialog.window?.apply {
-            setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
-            setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-            setGravity(Gravity.CENTER)
-            dialog.show()
-
-            val cancel = dialog.findViewById<Button>(R.id.btn_cancel)
-
-            cancel.setOnClickListener {
-                dialog.dismiss()
-            }
-        }
-    }
 
     override fun onClick(view: View?) {
         when(view){
             binding.btnHelp->{
-                showHelpDialog()
+                ShowDialog(this).showHelpDialog()
             }
 
             binding.btnDrawerMenu->{
@@ -248,11 +205,16 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
             }
 
             binding.btnFilter->{
-                showFilterDialog()
+               ShowDialog(this).showFilterDialog()
+
             }
 
             binding.btnMotivationCancel->{
                 binding.motivationCard.visibility = View.GONE
+            }
+
+            binding.btnMyFavorite->{
+                startActivity(Intent(this, MyFavoriteActivity::class.java))
             }
 
 
@@ -265,8 +227,5 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
         }
         else super.onBackPressed()
     }
-
-
-
 
 }

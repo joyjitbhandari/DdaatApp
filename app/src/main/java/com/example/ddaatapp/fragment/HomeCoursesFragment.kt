@@ -6,11 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.ddaatapp.R
-import com.example.ddaatapp.adapter.MyPurchaseAdapter
-import com.example.ddaatapp.adapter.VideoLibraryAdapter
+import com.example.ddaatapp.adapter.MyPurchaseCourseAdapter
+import com.example.ddaatapp.commonClass.LinearListSpacingItemDecoration
 import com.example.ddaatapp.databinding.FragmentHomeCoursesBinding
-import com.example.ddaatapp.datamodel.MyPurchaseDataModel
-import com.example.ddaatapp.datamodel.VideoLibraryDataModel
+import com.example.ddaatapp.datamodel.MyPurchaseCourseDataModel
 
 class HomeCoursesFragment : Fragment() {
 
@@ -33,17 +32,20 @@ class HomeCoursesFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         //setup course list
-        val  purchaseList = arrayListOf<MyPurchaseDataModel>(
-            MyPurchaseDataModel(R.drawable.video_sample_image,"Course Name","Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been",true),
-            MyPurchaseDataModel(R.drawable.video_sample_image2,"Course Name","Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been",false),
-            MyPurchaseDataModel(R.drawable.video_sample_image3,"Course Name","Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been",true),
-            MyPurchaseDataModel(R.drawable.video_sample_image3,"Course Name","Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been",true),
-            MyPurchaseDataModel(R.drawable.video_sample_image3,"Podcast Title","Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been",false)
+        val  purchaseList = arrayListOf<MyPurchaseCourseDataModel>(
+            MyPurchaseCourseDataModel(R.drawable.video_sample_image,"Course Name","Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been",true),
+            MyPurchaseCourseDataModel(R.drawable.video_sample_image2,"Course Name","Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been",false),
+            MyPurchaseCourseDataModel(R.drawable.video_sample_image3,"Course Name","Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been",true),
+            MyPurchaseCourseDataModel(R.drawable.video_sample_image3,"Course Name","Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been",true),
+            MyPurchaseCourseDataModel(R.drawable.video_sample_image3,"Podcast Title","Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been",false)
         )
 
         val courseRecycler = binding.courseRecycler
-        val courseAdapter = MyPurchaseAdapter(purchaseList,5)
+        val courseAdapter = MyPurchaseCourseAdapter(purchaseList,5)
         courseRecycler.adapter = courseAdapter
+        //List item Decoration
+        val spacing = resources.getDimensionPixelSize(R.dimen._15dp)
+        courseRecycler.addItemDecoration(LinearListSpacingItemDecoration(spacing))
     }
 
 

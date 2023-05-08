@@ -27,7 +27,7 @@
             android:layout_weight="0"
             android:background="@color/float_transparent"
             android:padding="8dp"
-            app:icon="@drawable/ic_back_arraow"
+            app:icon="@drawable/ic_back_arrow"
             app:iconSize="30dp"
             app:iconTint="@color/light_grey"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -81,18 +81,45 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
             <!--Emojis-->
-            <LinearLayout
-                android:id="@+id/emojis"
-                android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:layout_marginTop="@dimen/_15dp"
-                android:orientation="horizontal"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txtRateUs">
-
-            </LinearLayout>
             <!--Text View-->
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/select_emoji"
+                android:layout_width="wrap_content"
+                android:layout_height="70dp"
+                app:chipSpacingHorizontal="@dimen/_10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.381"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txtRateUs"
+                app:singleLine="true"
+                app:singleSelection="true">
+
+                <com.google.android.material.chip.Chip
+                    android:layout_width="60dp"
+                    android:layout_height="70dp"
+                    android:checked="true"
+                    app:chipBackgroundColor="@color/choice_chip_background_color"
+                    app:chipEndPadding="@dimen/_15dp"
+                    app:chipIcon="@drawable/user_profile_image"
+                    app:chipIconSize="@dimen/_40dp"
+                    app:chipStartPadding="@dimen/_15dp"
+                    app:chipStrokeWidth="@dimen/_0dp"
+                    app:iconEndPadding="10dp"
+                    app:shapeAppearance="@style/MyProfileImageShape" />
+
+                <!--                <com.google.android.material.button.MaterialButton-->
+                <!--                    style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"-->
+                <!--                    android:layout_width="70dp"-->
+                <!--                    android:layout_height="70dp"-->
+                <!--                    android:layout_marginStart="@dimen/_10dp"-->
+                <!--                    app:icon="@drawable/user_profile_image"-->
+                <!--                    android:backgroundTint="@color/choice_chip_background_color"-->
+                <!--                    app:iconGravity="textStart"-->
+                <!--                    app:iconSize="40dp"-->
+                <!--                    android:padding="15dp"/>-->
+
+            </com.google.android.material.chip.ChipGroup>
+
             <TextView
                 android:id="@+id/txtTellUs"
                 android:layout_width="wrap_content"
@@ -107,7 +134,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/emojis" />
+                app:layout_constraintTop_toBottomOf="@+id/select_emoji" />
             <!--ChoiceChip-->
             <com.google.android.material.chip.ChipGroup
                 android:id="@+id/select_feedbackChipGroup"
@@ -192,7 +219,6 @@
                 android:layout_marginEnd="@dimen/_20dp"
                 android:fontFamily="@font/dm_sans_medium_500"
                 android:gravity="center"
-                android:onClick="onClick"
                 android:paddingVertical="@dimen/_16dp"
                 android:text="@string/submit"
                 app:layout_constraintBottom_toBottomOf="parent"

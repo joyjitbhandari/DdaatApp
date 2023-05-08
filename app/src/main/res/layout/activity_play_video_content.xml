@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.showVideoContent.PlayVideoContentActivity"
+    android:background="@color/screen_bg">
+
+    <!--Tool bar-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginHorizontal="@dimen/_10dp"
+        android:layout_marginTop="@dimen/_20dp"
+        android:elevation="@dimen/_5dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <!--back button-->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_back"
+            style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:background="@color/float_transparent"
+            android:padding="8dp"
+            app:icon="@drawable/ic_back_arrow"
+            app:iconSize="30dp"
+            app:iconTint="@color/light_grey"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <!--Share Button-->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnShare"
+            style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:background="@color/float_transparent"
+            android:padding="8dp"
+            app:icon="@drawable/ic_share"
+            app:iconSize="30dp"
+            app:iconTint="@color/light_grey"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!--Scroll View-->
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scrollbars="none"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <!--Thumbnail-->
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/videoThumbnail"
+                android:layout_width="327dp"
+                android:layout_height="246dp"
+                android:layout_marginTop="@dimen/_15dp"
+                android:src="@drawable/play_video_sample"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:shapeAppearance="@style/MyVideoImageShape" />
+
+            <!--Video Controller-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/videoController"
+                android:layout_width="match_parent"
+                android:layout_height="102dp"
+                android:background="@drawable/round_25_black_stroke_shape"
+                android:layout_marginHorizontal="@dimen/_25dp"
+                android:layout_marginTop="@dimen/_15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/videoThumbnail">
+
+                <ProgressBar
+                    android:id="@+id/progress"
+                    style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:progress="50"
+                    android:layout_marginTop="@dimen/_15dp"
+                    android:layout_marginHorizontal="@dimen/_25dp"
+                    android:pointerIcon="alias"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_playPause"
+                    style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:backgroundTint="@android:color/transparent"
+                    app:icon="@drawable/ic_pause"
+                    app:iconTint="@color/blue_bg"
+                    app:iconSize="@dimen/_50dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/progress" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_SkipNext"
+                    style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:backgroundTint="@android:color/transparent"
+                    app:icon="@drawable/ic_skip_next"
+                    app:iconSize="@dimen/_30dp"
+                    app:iconTint="@color/blue_bg"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/btn_playPause"
+                    app:layout_constraintTop_toBottomOf="@+id/progress" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_SkipPrevious"
+                    style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:backgroundTint="@android:color/transparent"
+                    app:icon="@drawable/ic_skip_previous"
+                    app:iconSize="@dimen/_30dp"
+                    app:iconTint="@color/blue_bg"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/btn_playPause"
+                    app:layout_constraintTop_toBottomOf="@+id/progress" />
+
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text=""-->
+<!--                    app:layout_constraintEnd_toStartOf="@+id/btn_SkipPrevious"-->
+<!--                    app:layout_constraintStart_toStartOf="@+id/progress"-->
+<!--                    app:layout_constraintTop_toBottomOf="@+id/progress" />-->
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!--Content Info Card-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/contentInfoCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/videoController">
+                <!--Text Content Name-->
+                <TextView
+                    android:id="@+id/txt_ContentName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_25dp"
+                    android:layout_marginTop="@dimen/_20dp"
+                    android:fontFamily="@font/dm_sans_bold700"
+                    android:text="Video Name"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <!--Favorite Button-->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_AddFav"
+                    style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginEnd="@dimen/_25dp"
+                    app:icon="@drawable/ic_favorite"
+                    app:iconGravity="textStart"
+                    app:iconSize="@dimen/_20dp"
+                    app:iconTint="#FB2900"
+                    app:layout_constraintBottom_toBottomOf="@+id/txt_ContentName"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/txt_ContentName" />
+
+                <!--Shoring Button-->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_sort"
+                    style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:backgroundTint="@android:color/transparent"
+                    app:icon="@drawable/ic_grid_view"
+                    app:iconGravity="textStart"
+                    app:iconTint="@color/light_grey"
+                    app:layout_constraintBottom_toBottomOf="@+id/txt_ContentName"
+                    app:layout_constraintEnd_toStartOf="@+id/btn_AddFav"
+                    app:layout_constraintTop_toTopOf="@+id/txt_ContentName" />
+                <!--Content Desc-->
+                <TextView
+                    android:id="@+id/txt_ContentDesc"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_25dp"
+                    android:layout_marginTop="@dimen/_10dp"
+                    android:fontFamily="@font/dm_sans_bold700"
+                    android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum is simply dummy text of the printing and typesetting industry"
+                    android:textColor="@color/light_grey"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/txt_ContentName" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!--Video Sessions-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/videoSession"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_15dp"
+                android:layout_marginHorizontal="@dimen/_25dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/contentInfoCard">
+
+                <!--Text Related Video-->
+                <TextView
+                    android:id="@+id/txt_Session"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/dm_sans_bold700"
+                    android:text="@string/session"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!--Related Video card-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/_25dp"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/videoSession">
+
+                <!--Text Related Video-->
+                <TextView
+                    android:id="@+id/txt_relatedVideo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/dm_sans_bold700"
+                    android:text="Related Video"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/relatedVideoRecycler"
+                    android:layout_width="match_parent"
+                    android:layout_height="500dp"
+                    android:layout_marginTop="@dimen/_15dp"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/txt_relatedVideo"
+                    tools:listitem="@layout/video_library_list_item" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

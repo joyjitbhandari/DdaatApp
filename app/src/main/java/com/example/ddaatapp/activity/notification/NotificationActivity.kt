@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.ddaatapp.R
 import com.example.ddaatapp.adapter.NotificationAdapter
+import com.example.ddaatapp.commonClass.LinearListSpacingItemDecoration
 import com.example.ddaatapp.databinding.ActivityNotificationBinding
 import com.example.ddaatapp.datamodel.NotificationDataModel
 
@@ -36,7 +37,9 @@ class NotificationActivity : AppCompatActivity() {
         val notificationRecycler = binding.notificationRecycler
         val notifyAdapter = NotificationAdapter(notficationList)
         notificationRecycler.adapter = notifyAdapter
-
+        //List item Decoration
+        val spacing = resources.getDimensionPixelSize(R.dimen._15dp)
+        notificationRecycler.addItemDecoration(LinearListSpacingItemDecoration(spacing))
 
 
 

@@ -11,8 +11,6 @@
         android:layout_height="100dp"
         android:background="@drawable/round_25_black_stroke_shape"
         android:clickable="true"
-        android:layout_marginTop="@dimen/_15dp"
-        android:layout_marginHorizontal="@dimen/_25dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
