@@ -4,16 +4,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".fragment.HomeSessionsFragment"
-    android:background="@color/screen_bg">
+    tools:context=".fragment.PastSessionFragment">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/sessionsRecycler"
+        android:id="@+id/pastSessionRecycler"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         app:spanCount="2"
-        tools:listitem="@layout/upcommoing_sessions_list_item"
+        tools:listitem="@layout/past_sessions_list_item"
         android:paddingHorizontal="@dimen/_15dp"/>
 
 </FrameLayout>

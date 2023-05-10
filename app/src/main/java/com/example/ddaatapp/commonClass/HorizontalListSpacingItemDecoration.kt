@@ -24,13 +24,13 @@ class HorizontalListSpacingItemDecoration(
 
         // If it's the first item, don't add top spacing
         if (position == 0) {
-            outRect.left = 90
+            outRect.left = 60
         }
 
         // If it's the last item, don't add bottom spacing
         if (position == itemCount - 1) {
             outRect.left = spacing
-            outRect.right = 90
+            outRect.right = 60
         }
     }
 

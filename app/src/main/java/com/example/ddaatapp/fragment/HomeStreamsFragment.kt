@@ -54,7 +54,7 @@ class HomeStreamsFragment : Fragment()  {
         )
 
         val ddaatStationRecycler = binding.ddaatStationRecycler
-        val videoAdapter = StreamsAdapter(videoList,2)
+        val videoAdapter = StreamsAdapter(videoList,2,false,requireContext())
         ddaatStationRecycler.adapter = videoAdapter
         //List item Decoration
         val stationSpacing = resources.getDimensionPixelSize(R.dimen._15dp)
@@ -71,7 +71,7 @@ class HomeStreamsFragment : Fragment()  {
             StreamsDataModel(R.drawable.video_sample_image3,"Podcast Title","Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"),
         )
         val podcastRecycler = binding.podcastStationRecycler
-        val podcastAdapter = StreamsAdapter(podcastList,2)
+        val podcastAdapter = StreamsAdapter(podcastList,2,true,requireContext())
         podcastRecycler.adapter = podcastAdapter
         //List item Decoration
         val spacing = resources.getDimensionPixelSize(R.dimen._15dp)

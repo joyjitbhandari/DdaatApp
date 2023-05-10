@@ -20,7 +20,7 @@ class ChangePwdActivity : AppCompatActivity(), View.OnClickListener {
             binding.toolTitle.visibility = View.VISIBLE
             binding.changePwdTextCard.visibility = View.GONE
             binding.oldPasswordCard.visibility = View.VISIBLE
-            binding.btnSetPwd.text = operationFlow
+            binding.btnSetPwd.text = "Update"
         }
     }
 

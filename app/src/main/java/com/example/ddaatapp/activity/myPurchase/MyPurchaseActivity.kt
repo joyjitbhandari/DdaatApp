@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.ddaatapp.R
 import com.example.ddaatapp.adapter.MyPurchaseCourseAdapter
+import com.example.ddaatapp.commonClass.LinearListSpacingItemDecoration
 import com.example.ddaatapp.databinding.ActivityMyPurchaseBinding
 import com.example.ddaatapp.datamodel.MyPurchaseCourseDataModel
 
@@ -30,6 +31,9 @@ class MyPurchaseActivity : AppCompatActivity() {
         val myPurchaseRecycler = binding.myPurchaseRecyclerView
         val mypurchaseAdapter = MyPurchaseCourseAdapter(purchaseList,purchaseList.size)
         myPurchaseRecycler.adapter =  mypurchaseAdapter
+        val spacing = resources.getDimensionPixelSize(R.dimen._15dp)
+        myPurchaseRecycler.addItemDecoration(LinearListSpacingItemDecoration(spacing))
+
 
 
 

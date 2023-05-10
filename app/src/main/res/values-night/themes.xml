@@ -17,6 +17,7 @@
         <item name="android:windowActionBar">false</item>
         <item name="android:windowNoTitle">true</item>
     </style>
+
     <!--For text button-->
     <style name="MyTextButtonStyle" parent="@style/Widget.Material3.Button.TextButton.Dialog">
         <item name="android:textColor">@color/black</item>
@@ -53,13 +54,21 @@
     </style>
 
     <!--My Image shapes  -->
+    <!--Round Video Thumbnail-->
     <style name="MyVideoImageShape" parent="ShapeAppearance.MaterialComponents">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">15%</item>
     </style>
-
+    <!--Circle Profile-->
     <style name="MyProfileImageShape" parent="ShapeAppearance.MaterialComponents">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">50%</item>
     </style>
+    <!--SemiCircle Session-->
+    <style name="MySessionsImageShape" parent="ShapeAppearance.MaterialComponents">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopLeft">15%</item>
+        <item name="cornerSizeTopRight">15%</item>
+    </style>
+
 </resources>

@@ -19,6 +19,7 @@ import com.example.ddaatapp.databinding.ActivityVideoLibraryBinding
 import com.example.ddaatapp.databinding.InterestChoiceChipItemBinding
 import com.example.ddaatapp.datamodel.VideoLibraryDataModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.button.MaterialButton
 import com.google.android.material.chip.Chip
 
 class VideoLibraryActivity : AppCompatActivity() , View.OnClickListener  {
@@ -41,6 +42,11 @@ class VideoLibraryActivity : AppCompatActivity() , View.OnClickListener  {
         //for navigation drawer item click listener
         val listener = MyDrawerNavigationItemSelectedListener(this)
         binding.navigationDrawerView.setNavigationItemSelectedListener(listener)
+
+        //Setting header cancel button
+        binding.navigationDrawerView.getHeaderView(0).findViewById<MaterialButton>(R.id.btn_drawer_cancel).setOnClickListener {
+            drawerLayout.close()
+        }
 
 
         // Bottom Nav bar

@@ -29,6 +29,7 @@
             android:layout_weight="0"
             android:background="@color/float_transparent"
             android:padding="8dp"
+            android:onClick="onClick"
             app:icon="@drawable/ic_back_arrow"
             app:iconSize="30dp"
             app:iconTint="@color/light_grey"
@@ -221,16 +222,16 @@
 
             <!--Video Sessions-->
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/videoSession"
+                android:id="@+id/videoSessionCard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_15dp"
-                android:layout_marginHorizontal="@dimen/_25dp"
+                android:paddingHorizontal="@dimen/_25dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/contentInfoCard">
 
-                <!--Text Related Video-->
+                <!--Text Video Session-->
                 <TextView
                     android:id="@+id/txt_Session"
                     android:layout_width="wrap_content"
@@ -242,6 +243,19 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
+<!--Video session recycler-->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/sessionVideoRecycler"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_15dp"
+                    android:paddingBottom="@dimen/_25dp"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/txt_Session"
+                    tools:listitem="@layout/video_play_session_list_item" />
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <!--Related Video card-->
@@ -252,7 +266,7 @@
                 android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/videoSession">
+                app:layout_constraintTop_toBottomOf="@+id/videoSessionCard">
 
                 <!--Text Related Video-->
                 <TextView
@@ -265,8 +279,7 @@
                     android:textSize="18sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
-
-
+<!--Related video recycler-->
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/relatedVideoRecycler"
                     android:layout_width="match_parent"

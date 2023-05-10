@@ -266,7 +266,7 @@
                         android:layout_height="wrap_content"
                         android:background="@color/float_transparent"
                         android:fontFamily="@font/dm_sans_bold700"
-                        android:text="@string/ddaat_station"
+                        android:text="@string/podcast_station"
                         android:textColor="@color/white"
                         android:textSize="18sp"
                         app:layout_constraintStart_toStartOf="parent"

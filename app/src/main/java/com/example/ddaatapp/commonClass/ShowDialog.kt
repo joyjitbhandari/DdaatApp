@@ -70,4 +70,23 @@ class ShowDialog(var context: Context) {
             }
         }
     }
+
+    //Write Note Dialog
+
+    fun showWriteNoteDialog() {
+        val dialog = Dialog(context)
+        dialog.setContentView(R.layout.dialog_write_note)
+
+        dialog.window?.apply {
+            setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+            setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+            setGravity(Gravity.CENTER)
+            dialog.show()
+
+            val cancel = dialog.findViewById<Button>(R.id.btn_cancel)
+            cancel.setOnClickListener {
+                dialog.dismiss()
+            }
+        }
+    }
 }

@@ -17,4 +17,6 @@
     <color name="green">#00D770</color>
     <color name="yellow">#FFAD00</color>
     <color name="black_stroke">#3B4354</color>
+    <color name="live_bg">#2E1D1D</color>
+    <color name="red">#FF0000</color>
 </resources>

@@ -60,12 +60,13 @@
     <string name="see_all_thi">See all things that we offer you</string>
     <string name="lorem_ipsum_article">Lorem Ipsum is simply dummy text</string>
 
-    <!--Gender item Stringarray-->
+    <!--Gender item stringArray-->
     <string-array name="genderItems">
         <item>Male</item>
         <item>Female</item>
         <item>Other</item>
     </string-array>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="doler">$</string>
@@ -94,6 +95,34 @@
     <string name="profile_name">Joh451</string>
     <string name="term_and_condition"><![CDATA[Terms & Condition]]></string>
     <string name="privacy_policy">Privacy Policy</string>
+    <string name="past_sub_purchase">Past Sub Purchase</string>
+    <string name="are_you_sure_you_want_n_logout">Are you sure you want \n Logout</string>
+    <string name="feedback">Feedback</string>
+    <string name="submit">Submit</string>
+    <string name="type_your_feedback">Type your feedback</string>
+    <string name="educational_tips">Educational Tips</string>
+    <string name="user_experience">User Experience</string>
+    <string name="customer_service">Customer Service</string>
+    <string name="overall_service">Overall Service</string>
+    <string name="my_watchlist">My Watchlist</string>
+    <string name="related_video">Related Video</string>
+    <string name="session">Session</string>
+    <string name="my_favorites">My Favorites</string>
+    <string name="my_watch_list">My Watch List</string>
+    <string name="type_your_message">Type your message...</string>
+    <string name="start_video">Start Video</string>
+    <string name="request_session">Request Session</string>
+    <string name="select_time">Select Time</string>
+    <string name="add_date_and_time">Add Date and Time</string>
+    <string name="type_here">Type here</string>
+    <string name="reason">Reason</string>
+    <string name="mobile_number">Mobile Number</string>
+    <string name="email">Email</string>
+    <string name="waiting_area">Waiting Area</string>
+    <string name="join_session">Join Session</string>
+    <string name="description">Description</string>
+    <string name="note_title">Note Title</string>
+    <string name="session_start_in">Session start in</string>
 
     <string name="note_content">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic type.\n
         Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic type.\n
@@ -113,21 +142,15 @@
         Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic type.\n
         Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic type.
     </string>
-    <string name="past_sub_purchase">Past Sub Purchase</string>
-    <string name="are_you_sure_you_want_n_logout">Are you sure you want \n Logout</string>
-    <string name="feedback">Feedback</string>
-    <string name="submit">Submit</string>
-    <string name="type_your_feedback">Type your feedback</string>
-    <string name="educational_tips">Educational Tips</string>
-    <string name="user_experience">User Experience</string>
-    <string name="customer_service">Customer Service</string>
-    <string name="overall_service">Overall Service</string>
-    <string name="my_watchlist">My Watchlist</string>
-    <string name="related_video">Related Video</string>
-    <string name="session">Session</string>
-    <string name="my_favorites">My Favorites</string>
-    <string name="my_watch_list">My Watch List</string>
-    <string name="type_your_message">Type your message...</string>
+
+    <string name="rules">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s \n Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s \n Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s
+    </string>
+
+    <string name="how_to_use_app">* Lorem Ipsum is simply dummy text of the printing and typesetting industry.\n
+        * Lorem Ipsum is simply dummy text of the printing and typesetting industry.\n
+        * Lorem Ipsum is simply dummy text of the printing and typesetting industry. </string>
+    <string name="write_notes">Write Notes</string>
+    <string name="session_feedback">Session Feedback</string>
 
 
 </resources>

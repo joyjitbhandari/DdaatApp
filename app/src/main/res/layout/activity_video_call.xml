@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.session.VideoCallActivity"
+    android:background="@color/screen_bg">
+    <!--Tool Bar-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginHorizontal="@dimen/_10dp"
+        android:layout_marginTop="@dimen/_20dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_back"
+            style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:background="@color/float_transparent"
+            android:onClick="onClick"
+            android:padding="8dp"
+            app:icon="@drawable/ic_back_arrow"
+            app:iconSize="30dp"
+            app:iconTint="@color/light_grey"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+<!--Video View-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:paddingVertical="@dimen/_15dp"
+        android:paddingHorizontal="@dimen/_25dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_bar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+<!--Incoming view -->
+        <com.google.android.material.imageview.ShapeableImageView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+
+            android:src="@drawable/video_call_incoming"
+            android:scaleType="fitXY"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!--Outgoing view -->
+        <com.google.android.material.imageview.ShapeableImageView
+            android:layout_width="120dp"
+            android:layout_height="160dp"
+            android:elevation="@dimen/_5dp"
+            android:src="@drawable/video_call_outgoing"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.945"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.962"
+            app:shapeAppearance="@style/MyVideoImageShape" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+    <!--Bottom View-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/bottom_bar"
+        android:layout_width="match_parent"
+        android:layout_height="82dp"
+        android:background="@drawable/bottom_nav_black_shape"
+        android:elevation="@dimen/_5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+        <!--Call end Button-->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_callEnd"
+            style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#FF0000"
+            android:onClick="onClick"
+            android:textSize="17sp"
+            app:icon="@drawable/ic_call_end"
+            app:iconSize="@dimen/_40dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!--Notes Button-->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_note"
+            style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:backgroundTint="@color/blue_bg"
+            android:onClick="onClick"
+            android:textSize="17sp"
+            android:layout_marginStart="@dimen/_10dp"
+            app:icon="@drawable/ic_description"
+            app:iconSize="@dimen/_30dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/btn_callEnd"
+            app:layout_constraintTop_toTopOf="parent" />
+<!--Chat Button-->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_chat"
+            style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:backgroundTint="@color/blue_bg"
+            android:onClick="onClick"
+            android:textSize="17sp"
+            android:layout_marginStart="@dimen/_10dp"
+            app:icon="@drawable/ic_chat"
+            app:iconSize="@dimen/_30dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/btn_note"
+            app:layout_constraintTop_toTopOf="parent" />
+<!--Video button-->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_videoCam"
+            style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:backgroundTint="@color/blue_bg"
+            android:onClick="onClick"
+            android:layout_marginEnd="@dimen/_10dp"
+            android:textSize="17sp"
+            app:icon="@drawable/ic_videocam"
+            app:iconSize="@dimen/_30dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btn_callEnd"
+            app:layout_constraintTop_toTopOf="parent"/>
+<!--Mic Button-->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_mic"
+            style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:backgroundTint="@color/blue_bg"
+            android:onClick="onClick"
+            android:layout_marginEnd="@dimen/_10dp"
+            android:textSize="17sp"
+            app:icon="@drawable/ic_mic"
+            app:iconSize="@dimen/_30dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btn_videoCam"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

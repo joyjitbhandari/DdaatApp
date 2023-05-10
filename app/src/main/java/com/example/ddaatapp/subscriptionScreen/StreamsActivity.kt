@@ -18,6 +18,7 @@ import com.example.ddaatapp.databinding.ActivityStreamsBinding
 import com.example.ddaatapp.databinding.InterestChoiceChipItemBinding
 import com.example.ddaatapp.datamodel.StreamsDataModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.button.MaterialButton
 import com.google.android.material.chip.Chip
 
 class StreamsActivity : AppCompatActivity() , View.OnClickListener {
@@ -43,6 +44,10 @@ class StreamsActivity : AppCompatActivity() , View.OnClickListener {
         val listener = MyDrawerNavigationItemSelectedListener(this)
         binding.navigationDrawerView.setNavigationItemSelectedListener(listener)
 
+        //Setting header cancel button
+        binding.navigationDrawerView.getHeaderView(0).findViewById<MaterialButton>(R.id.btn_drawer_cancel).setOnClickListener {
+            drawerLayout.close()
+        }
 
         // Bottom nav bar
         binding.bottomBar.selectedItemId  = R.id.nav_streams
@@ -82,13 +87,13 @@ class StreamsActivity : AppCompatActivity() , View.OnClickListener {
         setupChip()
 
         //DdaatStation setup
-        val videoList = arrayListOf<StreamsDataModel>(
+        val streamList = arrayListOf<StreamsDataModel>(
             StreamsDataModel(R.drawable.video_sample_image,"Stream Title","Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"),
             StreamsDataModel(R.drawable.video_sample_image2,"Stream Title","Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"),
         )
 
         val ddaatStationRecycler = binding.ddaatStationRecycler
-        val videoAdapter = StreamsAdapter(videoList,2)
+        val videoAdapter = StreamsAdapter(streamList,streamList.size,false,this)
         ddaatStationRecycler.adapter = videoAdapter
         //List item Decoration
         val stationSpacing = resources.getDimensionPixelSize(R.dimen._15dp)
@@ -102,7 +107,7 @@ class StreamsActivity : AppCompatActivity() , View.OnClickListener {
             StreamsDataModel(R.drawable.video_sample_image3,"Podcast Title","Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"),
         )
         val podcastRecycler = binding.podcastStationRecycler
-        val podcastAdapter = StreamsAdapter(podcastList,2)
+        val podcastAdapter = StreamsAdapter(podcastList,podcastList.size,true,this)
         podcastRecycler.adapter = podcastAdapter
         //List item Decoration
         val spacing = resources.getDimensionPixelSize(R.dimen._15dp)

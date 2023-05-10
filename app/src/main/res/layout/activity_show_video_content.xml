@@ -311,14 +311,12 @@
         <!--Show Content Button-->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_playContent"
-            style="@style/Widget.Material3.Button.TextButton"
             android:layout_width="280dp"
             android:layout_height="55dp"
-            android:backgroundTint="@color/blue_bg"
-            android:text="Start Video"
+            style="@style/MyTextButtonStyle"
+            android:text="@string/start_video"
             android:onClick="onClick"
-            android:textColor="@color/black"
-            android:textSize="18sp"
+            android:textSize="17sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

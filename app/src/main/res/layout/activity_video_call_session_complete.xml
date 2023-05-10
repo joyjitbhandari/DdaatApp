@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/screen_bg">
+
+    <!--Image-->
+    <ImageView
+        android:id="@+id/img_done"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/done_sticker"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.084" />
+
+
+<!--Done-->
+    <TextView
+        android:id="@+id/txt_done"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_20dp"
+        android:fontFamily="@font/dm_sans_bold700"
+        android:gravity="center"
+        android:letterSpacing="0.02"
+        android:text="@string/profile_created_successfully"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/img_done" />
+
+<!--Description-->
+    <TextView
+        android:id="@+id/txt_desc"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_15dp"
+        android:fontFamily="@font/dm_sans_regular_400"
+        android:gravity="center"
+        android:letterSpacing="0.02"
+        android:text="Lorem Ipsum is simply dummy text of\n the printing and typesetting industry. "
+        android:textColor="#FFFFFF"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txt_done" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_submit"
+        style="@style/Widget.Material3.Button.TextButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_25dp"
+        android:layout_marginBottom="@dimen/_30dp"
+        android:paddingVertical="@dimen/_15dp"
+        android:backgroundTint="@color/blue_bg"
+        android:onClick="onClick"
+        android:text="@string/submit"
+        android:textColor="@color/black"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+<!--User feedback taking card-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/takingFeedbackCard"
+        android:layout_width="320dp"
+        android:layout_height="320dp"
+        android:layout_margin="@dimen/_25dp"
+        android:background="@drawable/round_25_black_stroke_shape"
+        app:layout_constraintBottom_toTopOf="@+id/btn_submit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_desc">
+
+        <View
+            android:id="@+id/headerCard"
+            android:layout_width="match_parent"
+            android:layout_height="130dp"
+            android:background="@drawable/bottom_nav_black_shape"
+            android:backgroundTint="@color/blue_bg"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+<!--Mentor Image-->
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/mentorImage"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            app:shapeAppearance="@style/MyProfileImageShape"
+            android:scaleType="fitXY"
+            android:src="@drawable/video_session_img2"
+            app:layout_constraintBottom_toBottomOf="@+id/headerCard"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.278"
+            app:layout_constraintStart_toStartOf="@+id/headerCard"
+            app:layout_constraintTop_toTopOf="@+id/headerCard" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginHorizontal="@dimen/_15dp"
+            app:layout_constraintBottom_toBottomOf="@+id/headerCard"
+            app:layout_constraintEnd_toEndOf="@+id/headerCard"
+            app:layout_constraintStart_toEndOf="@+id/mentorImage"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <!--Text Mentor Name-->
+            <TextView
+                android:id="@+id/txt_mentorName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/dm_sans_bold700"
+                android:text="Ellie Olsen"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+            <!--Video Session-->
+            <TextView
+                android:id="@+id/txt_videoSession"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10dp"
+                android:fontFamily="@font/dm_sans_regular_400"
+                android:text="Video Session"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+        </LinearLayout>
+        <!--Session feedback Heading-->
+        <TextView
+            android:id="@+id/txt_sessionFeedbackHeading"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/float_transparent"
+            android:fontFamily="@font/dm_sans_medium_500"
+            android:text="@string/session_feedback"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:layout_marginHorizontal="@dimen/_25dp"
+            android:layout_marginTop="@dimen/_15dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/headerCard" />
+
+        <!--Rating stars-->
+        <LinearLayout
+            android:id="@+id/ratingCard"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_25dp"
+            android:layout_marginTop="@dimen/_5dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_sessionFeedbackHeading">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/rate1Star"
+                style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:backgroundTint="@android:color/transparent"
+                app:icon="@drawable/ic_star"
+                app:iconGravity="textStart"
+                app:iconSize="@dimen/_25dp"
+                app:iconTint="@color/yellow" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/rate2Star"
+                style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:backgroundTint="@android:color/transparent"
+                app:icon="@drawable/ic_star"
+                app:iconGravity="textStart"
+                app:iconSize="@dimen/_25dp"
+                app:iconTint="@color/yellow" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/rate3Star"
+                style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:backgroundTint="@android:color/transparent"
+                app:icon="@drawable/ic_star"
+                app:iconGravity="textStart"
+                app:iconSize="@dimen/_25dp"
+                app:iconTint="@color/yellow" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/rate4Star"
+                style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:backgroundTint="@android:color/transparent"
+                app:icon="@drawable/ic_star"
+                app:iconGravity="textStart"
+                app:iconSize="@dimen/_25dp"
+                app:iconTint="@color/yellow" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/rate5Star"
+                style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:backgroundTint="@android:color/transparent"
+                app:icon="@drawable/ic_star"
+                app:iconGravity="textStart"
+                app:iconSize="@dimen/_25dp"
+                app:iconTint="@color/light_grey" />
+        </LinearLayout>
+
+<!--Something About session Heading-->
+        <TextView
+            android:id="@+id/txt_aboutSessionHeading"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_25dp"
+            android:background="@color/float_transparent"
+            android:fontFamily="@font/dm_sans_medium_500"
+            android:text="@string/session_feedback"
+            android:textColor="@color/white"
+            android:layout_marginTop="@dimen/_20dp"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ratingCard" />
+
+<!--Something About session Body-->
+
+        <TextView
+            android:id="@+id/txt_aboutSessionBody"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_25dp"
+            android:layout_marginTop="@dimen/_5dp"
+            android:background="@color/float_transparent"
+            android:fontFamily="@font/dm_sans_regular_400"
+            android:text="@string/lorem_ipsum"
+            android:textColor="@color/light_grey"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_aboutSessionHeading" />
+<!--Divider view-->
+        <View
+            android:id="@+id/dividerView"
+            android:layout_width="@dimen/_0dp"
+            android:layout_height="@dimen/_2dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginHorizontal="@dimen/_25dp"
+            android:background="@color/black_stroke"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txt_aboutSessionBody" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

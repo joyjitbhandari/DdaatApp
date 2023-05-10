@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/screen_bg"
+    tools:context=".activity.session.RequestSessionActivity">
+<!--Tool Bar-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginHorizontal="@dimen/_10dp"
+        android:layout_marginTop="@dimen/_20dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_back"
+            style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:background="@color/float_transparent"
+            android:onClick="onClick"
+            android:padding="8dp"
+            app:icon="@drawable/ic_back_arrow"
+            app:iconSize="30dp"
+            app:iconTint="@color/light_grey"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/toolTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:fontFamily="@font/dm_sans_medium_500"
+            android:gravity="center"
+            android:text="@string/request_session"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+<!--Scroll View-->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:scrollbars="none"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="@dimen/_25dp">
+
+            <TextView
+                android:id="@+id/txt_wantSession"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:background="@color/float_transparent"
+                android:fontFamily="@font/dm_sans_medium_500"
+                android:text="Want Session By"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/selectSession"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/round_25_black_bg"
+                android:focusable="true"
+                android:focusableInTouchMode="false"
+                android:inputType="none"
+                android:paddingStart="@dimen/_25dp"
+                android:paddingEnd="@dimen/_15dp"
+                android:clickable="false"
+                android:cursorVisible="false"
+                android:onClick="onClick"
+                android:text="@string/select"
+                android:drawableEnd="@drawable/ic_drop_down_arrow"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txt_wantSession"/>
+<!--Select Category-->
+            <TextView
+                android:id="@+id/txt_selectCategory"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:background="@color/float_transparent"
+                android:fontFamily="@font/dm_sans_medium_500"
+                android:text="Select Category"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/selectSession" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/btn_selectCategory"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/round_25_black_bg"
+                android:focusable="true"
+                android:focusableInTouchMode="false"
+                android:inputType="none"
+                android:paddingStart="@dimen/_25dp"
+                android:paddingEnd="@dimen/_15dp"
+                android:clickable="false"
+                android:cursorVisible="false"
+                android:onClick="onClick"
+                android:text="Select here"
+                android:drawableEnd="@drawable/ic_drop_down_arrow"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txt_selectCategory" />
+
+<!--Edit Text Name-->
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_name"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:paddingHorizontal="@dimen/_25dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/round_25_black_bg"
+                android:focusable="true"
+                android:fontFamily="@font/dm_sans_regular_400"
+                android:hint="@string/name"
+                android:inputType="textCapWords"
+                android:textColor="@color/white"
+                android:textColorHint="@color/light_grey"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btn_selectCategory" />
+
+<!--Email-->
+            <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_email"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:paddingHorizontal="@dimen/_25dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/round_25_black_bg"
+            android:focusable="true"
+            android:fontFamily="@font/dm_sans_regular_400"
+            android:hint="@string/email"
+            android:inputType="textEmailAddress"
+            android:textColor="@color/white"
+            android:textColorHint="@color/light_grey"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/et_name" />
+
+<!--Mobile Number-->
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_mobile"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:paddingHorizontal="@dimen/_25dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/round_25_black_bg"
+                android:focusable="true"
+                android:fontFamily="@font/dm_sans_regular_400"
+                android:hint="@string/mobile_number"
+                android:maxLength="10"
+                android:inputType="number"
+                android:textColor="@color/white"
+                android:textColorHint="@color/light_grey"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/et_email" />
+
+<!--Reason-->
+            <TextView
+                android:id="@+id/txt_reason"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:background="@color/float_transparent"
+                android:fontFamily="@font/dm_sans_medium_500"
+                android:text="@string/reason"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/et_mobile" />
+<!--Reason Edit Text-->
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_reason"
+                android:layout_width="match_parent"
+                android:layout_height="160dp"
+                android:paddingHorizontal="@dimen/_25dp"
+                android:paddingVertical="@dimen/_15dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/round_25_black_bg"
+                android:focusable="true"
+                android:fontFamily="@font/dm_sans_regular_400"
+                android:hint="@string/type_here"
+                android:gravity="top"
+                android:inputType="textCapSentences"
+                android:textColor="@color/white"
+                android:textColorHint="@color/light_grey"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txt_reason"/>
+
+<!--Select Time-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/addDateTimeCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/et_reason">
+<!--Text-->
+                <TextView
+                    android:id="@+id/txt_selectTime"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@color/float_transparent"
+                    android:fontFamily="@font/dm_sans_medium_500"
+                    android:text="@string/select_time"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/addTimeRecycler"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="@dimen/_15dp"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_selectTime"/>
+
+                <com.google.android.material.button.MaterialButton
+                    style="@style/Widget.Material3.Button.TextButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    app:strokeWidth="1dp"
+                    android:layout_marginTop="15dp"
+                    android:text="@string/add_date_and_time"
+                    app:icon="@drawable/ic_add"
+                    app:iconGravity="textStart"
+                    app:strokeColor="@color/blue_bg"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/addTimeRecycler"
+                    app:layout_constraintTop_toBottomOf="@id/addTimeRecycler" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+<!--Submit button-->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSubmit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_25dp"
+                android:onClick="onClick"
+                android:paddingVertical="@dimen/_15dp"
+                android:text="@string/submit"
+                android:textColor="@color/black_bg"
+                android:textSize="@dimen/_17sp"
+                android:layout_marginBottom="@dimen/_100dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/addDateTimeCard" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

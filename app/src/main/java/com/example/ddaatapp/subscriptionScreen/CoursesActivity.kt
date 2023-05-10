@@ -14,6 +14,7 @@ import com.example.ddaatapp.commonClass.MyDrawerNavigationItemSelectedListener
 import com.example.ddaatapp.commonClass.ShowDialog
 import com.example.ddaatapp.databinding.ActivityCoursesBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.button.MaterialButton
 
 class CoursesActivity : AppCompatActivity(), View.OnClickListener  {
     lateinit var binding : ActivityCoursesBinding
@@ -34,6 +35,11 @@ class CoursesActivity : AppCompatActivity(), View.OnClickListener  {
         //for navigation drawer item click listener
         val listener = MyDrawerNavigationItemSelectedListener(this)
         binding.navigationDrawerView.setNavigationItemSelectedListener(listener)
+
+        //Setting header cancel button
+        binding.navigationDrawerView.getHeaderView(0).findViewById<MaterialButton>(R.id.btn_drawer_cancel).setOnClickListener {
+            drawerLayout.close()
+        }
 
 
         //Bottom nav bar

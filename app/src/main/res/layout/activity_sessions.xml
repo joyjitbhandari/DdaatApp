@@ -11,6 +11,7 @@
 
     <!--For Activity layout-->
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/mainCard"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <!--ToolBar-->
@@ -54,8 +55,8 @@
 
             <!--Help Button-->
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/btn_help"
                 style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+                android:id="@+id/btn_help"
                 android:layout_width="40dp"
                 android:layout_height="wrap_content"
                 android:background="@color/float_transparent"
@@ -70,8 +71,8 @@
 
             <!--Favorite Button-->
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/btn_MyFavorite"
                 style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+                android:id="@+id/btn_MyFavorite"
                 android:layout_width="40dp"
                 android:layout_height="wrap_content"
                 android:background="@color/float_transparent"
@@ -86,13 +87,12 @@
 
             <!--Notification Button-->
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/btn_notification"
                 style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+                android:id="@+id/btn_notification"
                 android:layout_width="40dp"
                 android:layout_height="wrap_content"
                 android:background="@color/float_transparent"
                 android:onClick="onClick"
-                android:padding="8dp"
                 app:icon="@drawable/ic_notification"
                 app:iconSize="30dp"
                 app:iconGravity="textStart"
@@ -102,6 +102,51 @@
                 app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
+        <!--tab layout-->
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tab_layout"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@android:color/transparent"
+            android:layout_marginTop="@dimen/_15dp"
+            android:layout_marginHorizontal="@dimen/_15dp"
+            app:tabIndicatorColor="@color/blue_bg"
+            app:tabTextColor="@color/tablayout_text_color"
+            app:tabIndicatorHeight="@dimen/_3dp"
+            app:tabIndicatorFullWidth="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toolbar" />
+        <!--View Pager-->
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/view_pager"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toBottomOf="@id/tab_layout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/bottom_bar"/>
+
+        <!--floating button-->
+        <com.google.android.material.button.MaterialButton
+            style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+            android:id="@+id/btnAddSession"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#46CBE9"
+            android:layout_margin="@dimen/_15dp"
+            android:onClick="onClick"
+            app:icon="@drawable/ic_add"
+            app:iconTint="@color/black"
+            app:iconGravity="textStart"
+            app:iconSize="@dimen/_35dp"
+            android:elevation="@dimen/_25dp"
+            app:layout_constraintBottom_toTopOf="@+id/bottom_bar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
 
         <!--BOTTOM NAVIGATION BAR-->
         <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -121,8 +166,6 @@
             app:layout_constraintVertical_bias="1.0"
             app:menu="@menu/bottom_bar_items" />
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
 
     <!--DrawerNavigation-->
     <com.google.android.material.navigation.NavigationView

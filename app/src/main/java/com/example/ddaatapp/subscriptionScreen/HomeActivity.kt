@@ -2,6 +2,7 @@ package com.example.ddaatapp.subscriptionScreen
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import android.widget.Button
 import androidx.appcompat.app.ActionBarDrawerToggle
@@ -22,6 +23,7 @@ import com.example.ddaatapp.datamodel.ArticleDataModel
 import com.example.ddaatapp.datamodel.MyNotesModel
 import com.example.ddaatapp.fragment.*
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.button.MaterialButton
 
 
 @Suppress("DEPRECATION")
@@ -50,14 +52,10 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
         binding.navigationDrawerView.setNavigationItemSelectedListener(listener)
 
 
-        val headerView: View =
-            LayoutInflater.from(this).inflate(R.layout.nav_header, drawerLayout, false)
-        val cancelButton = headerView.findViewById<Button>(R.id.btn_drawer_cancel)
-        cancelButton.setOnClickListener{
+        //Setting header cancel button
+        binding.navigationDrawerView.getHeaderView(0).findViewById<MaterialButton>(R.id.btn_drawer_cancel).setOnClickListener {
             drawerLayout.close()
         }
-
-
 
 
         //bottom navigation view
@@ -148,7 +146,7 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
 
                }
                R.id.btn_up_sessions ->{
-                   inflateFragment(HomeSessionsFragment.newInstance())
+                   inflateFragment(HomeUpcomingSessionsFragment.newInstance())
 
                }
                R.id.btn_courses ->{
@@ -159,7 +157,6 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
         }
 
 // for article view
-
         val articleList = arrayListOf<ArticleDataModel>(
             ArticleDataModel(R.drawable.article_bg_img,"Lorem Ipsum is simply dummy text","Lorem Ipsum is simply dummy text of the printing and.....","June 04, 2022","Smith"),
             ArticleDataModel(R.drawable.article_bg_img,"Lorem Ipsum is simply dummy text","Lorem Ipsum is simply dummy text of the printing and.....","June 04, 2022","Smith"),

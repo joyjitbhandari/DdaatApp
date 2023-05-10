@@ -6,6 +6,7 @@ import android.view.View
 import com.example.ddaatapp.R
 import com.example.ddaatapp.adapter.MyFavoriteAdapter
 import com.example.ddaatapp.commonClass.LinearListSpacingItemDecoration
+import com.example.ddaatapp.commonClass.ShowDialog
 import com.example.ddaatapp.databinding.ActivityMyFavoriteBinding
 import com.example.ddaatapp.datamodel.VideoLibraryDataModel
 
@@ -39,6 +40,9 @@ class MyFavoriteActivity : AppCompatActivity() , View.OnClickListener {
         when(view){
             binding.btnBack->{
                 onBackPressed()
+            }
+            binding.btnFilter->{
+                ShowDialog(this).showFilterDialog()
             }
         }
     }

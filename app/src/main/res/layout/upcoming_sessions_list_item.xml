@@ -8,16 +8,16 @@
         android:id="@+id/session_card"
         android:layout_width="150dp"
         android:layout_height="210dp"
-        android:layout_marginTop="@dimen/_20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:background="@drawable/round_25_black_bg">
 
-        <ImageView
+        <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/session_image"
             android:layout_width="match_parent"
+            app:shapeAppearance="@style/MySessionsImageShape"
             android:layout_height="110dp"
             android:scaleType="fitXY"
             android:src="@drawable/video_sample_image"
