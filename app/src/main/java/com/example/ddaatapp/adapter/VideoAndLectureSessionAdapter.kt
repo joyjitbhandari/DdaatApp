@@ -1,27 +1,27 @@
 package com.example.ddaatapp.adapter
 
 import android.content.Context
-import android.content.Intent
-import android.provider.ContactsContract.CommonDataKinds.Note
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
-import com.example.ddaatapp.R
-import com.example.ddaatapp.activity.showVideoContent.ShowVideoContentActivity
-import com.example.ddaatapp.databinding.RelatedVideoCourseListItemBinding
-import com.example.ddaatapp.databinding.VideoLibraryListItemBinding
 import com.example.ddaatapp.databinding.VideoPlaySessionListItemBinding
 import com.example.ddaatapp.datamodel.VideoLibraryDataModel
 
-class VideoPlaySessionAdapter(val sessionList: ArrayList<VideoLibraryDataModel>,var context: Context) :
-    RecyclerView.Adapter<VideoPlaySessionAdapter.ViewHolder>() {
+class VideoAndLectureSessionAdapter(val sessionList: ArrayList<VideoLibraryDataModel>, var context: Context , var isVideo:Boolean) :
+    RecyclerView.Adapter<VideoAndLectureSessionAdapter.ViewHolder>() {
     class ViewHolder(var binding: VideoPlaySessionListItemBinding ): RecyclerView.ViewHolder(binding.root) {
-        fun bind(videoLibraryDataModel: VideoLibraryDataModel, mContext:AppCompatActivity, context: Context){
+        fun bind(videoLibraryDataModel: VideoLibraryDataModel, mContext:AppCompatActivity, context: Context, isVideo: Boolean){
             binding.videoImage.setImageResource(videoLibraryDataModel.drawable)
             binding.txtVideoName.text = videoLibraryDataModel.name
             binding.txtVideoDesc.text = videoLibraryDataModel.desc
+
+            if(isVideo){
+                binding.playButton.visibility = View.VISIBLE
+            }else{
+                binding.playButton.visibility = View.GONE
+            }
 
         }
     }
@@ -37,7 +37,7 @@ class VideoPlaySessionAdapter(val sessionList: ArrayList<VideoLibraryDataModel>,
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-       holder.bind(sessionList[position],context as AppCompatActivity, context)
+       holder.bind(sessionList[position],context as AppCompatActivity, context, isVideo)
         holder.binding.textNumber.text = position.toString()
     }
 }

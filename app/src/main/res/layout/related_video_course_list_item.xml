@@ -21,6 +21,7 @@
 
 
     <com.google.android.material.button.MaterialButton
+        android:id="@+id/playButton"
         style="@style/Widget.Material3.Button.IconButton.Filled"
         android:layout_width="30dp"
         android:layout_height="30dp"

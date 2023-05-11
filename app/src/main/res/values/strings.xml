@@ -151,6 +151,7 @@
         * Lorem Ipsum is simply dummy text of the printing and typesetting industry. </string>
     <string name="write_notes">Write Notes</string>
     <string name="session_feedback">Session Feedback</string>
+    <string name="lecture">Lecture</string>
 
 
 </resources>

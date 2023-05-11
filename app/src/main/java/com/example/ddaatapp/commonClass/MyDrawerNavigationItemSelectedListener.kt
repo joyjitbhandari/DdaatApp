@@ -15,9 +15,8 @@ import com.example.ddaatapp.activity.myNotes.MyNotesActivity
 import com.example.ddaatapp.activity.aboutDdaat.AboutActivity
 import com.example.ddaatapp.activity.feedback.FeedBackActivity
 import com.example.ddaatapp.activity.forgot.ChangePwdActivity
-import com.example.ddaatapp.activity.myPurchase.MyPurchaseActivity
+import com.example.ddaatapp.activity.myPurchase.MyPurchasedActivity
 import com.example.ddaatapp.activity.profile.MyProfileActivity
-import com.example.ddaatapp.databinding.DialogApplyFilterBinding
 import com.google.android.material.navigation.NavigationView
 
 
@@ -38,7 +37,7 @@ class MyDrawerNavigationItemSelectedListener(var context: Context) : NavigationV
                 return true
             }
             R.id.drawerMyPurchases->{
-                mContext.startActivity(Intent(context, MyPurchaseActivity::class.java))
+                mContext.startActivity(Intent(context, MyPurchasedActivity::class.java))
                 return true
             }
             R.id.drawerChangePwd ->{

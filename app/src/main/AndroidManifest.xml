@@ -15,7 +15,7 @@
             android:name=".activity.session.VideoCallSessionCompleteActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.chat.ChatActivity"
+            android:name=".activity.chat.ChatClickActivity"
             android:exported="false" />
         <activity
             android:name=".activity.session.VideoCallActivity"
@@ -51,7 +51,7 @@
             android:name=".activity.feedback.FeedBackActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.myPurchase.MyPurchaseActivity"
+            android:name=".activity.myPurchase.MyPurchasedActivity"
             android:exported="false" />
         <activity
             android:name=".activity.myNotes.ShowNotesActivity"
@@ -76,7 +76,8 @@
             android:exported="false" />
         <activity
             android:name=".subscriptionScreen.CoursesActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustNothing"/>
         <activity
             android:name=".subscriptionScreen.StreamsActivity"
             android:exported="false"

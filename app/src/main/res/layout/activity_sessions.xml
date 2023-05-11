@@ -134,7 +134,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:backgroundTint="#46CBE9"
-            android:layout_margin="@dimen/_15dp"
+            android:layout_margin="@dimen/_20dp"
             android:onClick="onClick"
             app:icon="@drawable/ic_add"
             app:iconTint="@color/black"

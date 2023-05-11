@@ -8,7 +8,6 @@
     tools:context=".subscriptionScreen.CoursesActivity"
     android:background="@color/screen_bg">
 
-
     <!--For Activity layout-->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -65,22 +64,6 @@
                 app:iconGravity="textStart"
                 app:iconTint="@color/light_grey"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/btn_MyFavorite"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <!--Favorite Button-->
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btn_MyFavorite"
-                style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
-                android:layout_width="40dp"
-                android:layout_height="wrap_content"
-                android:background="@color/float_transparent"
-                android:onClick="onClick"
-                app:icon="@drawable/ic_outline_favorite"
-                app:iconSize="30dp"
-                app:iconGravity="textStart"
-                app:iconTint="@color/light_grey"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/btn_notification"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -102,8 +85,298 @@
                 app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <!--Scroll View-->
+
 
         <!--BOTTOM NAVIGATION BAR-->
+        <ScrollView
+            android:id="@+id/scrollView2"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:scrollbars="none"
+            app:layout_constraintBottom_toTopOf="@+id/bottom_bar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar"
+            app:layout_constraintVertical_bias="0.0">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/scrollItems"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="200dp">
+                <!--search box-->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/search_card"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <SearchView
+                        android:id="@+id/SearchView"
+                        style="@style/MySearchViewStyle"
+                        android:layout_width="0dp"
+                        android:layout_height="50dp"
+                        android:layout_marginEnd="@dimen/_10dp"
+                        android:iconifiedByDefault="false"
+                        android:onClick="onClick"
+                        android:queryHint="Search"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/btn_filter"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_filter"
+                        android:layout_width="63dp"
+                        android:layout_height="60dp"
+                        android:backgroundTint="@color/black_bg"
+                        android:onClick="onClick"
+                        app:icon="@drawable/ic_filter"
+                        app:iconTint="@color/white"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <!--Course Survey-->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/btn_take_survey"
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:layout_marginHorizontal="@dimen/_25dp"
+                    android:layout_marginTop="@dimen/_15dp"
+                    android:background="@drawable/round_25_black_stroke_shape"
+                    android:paddingHorizontal="@dimen/_20dp"
+                    android:paddingVertical="@dimen/_15dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/search_card">
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/surveyCardImage"
+                        android:layout_width="70dp"
+                        android:layout_height="90dp"
+                        app:shapeAppearance="@style/MyVideoImageShape"
+                        android:src="@drawable/survey_img"
+                        android:scaleType="fitXY"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/txt_heading"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_15dp"
+                        android:background="@color/float_transparent"
+                        android:fontFamily="@font/dm_sans_bold700"
+                        android:letterSpacing="0.02"
+                        android:maxLines="2"
+                        android:text="@string/take_behavi"
+                        android:textColor="@color/white"
+                        android:textSize="14sp"
+                        android:layout_marginTop="5dp"
+                        app:layout_constraintEnd_toStartOf="@+id/right_arrow"
+                        app:layout_constraintStart_toEndOf="@+id/surveyCardImage"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/txt_desc"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_marginTop="@dimen/_10dp"
+                        android:background="@color/float_transparent"
+                        android:fontFamily="@font/dm_sans_bold700"
+                        android:letterSpacing="0.02"
+                        android:maxLines="3"
+                        android:text=" Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"
+                        android:textColor="@color/white"
+                        android:textSize="10sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="@+id/txt_heading"
+                        app:layout_constraintStart_toStartOf="@+id/txt_heading"
+                        app:layout_constraintTop_toBottomOf="@+id/txt_heading" />
+                    <ImageView
+                        android:id="@+id/right_arrow"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:background="@color/float_transparent"
+                        android:src="@drawable/ic_right_arrow"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <!--Watchlist and favorites Buttons-->
+                <LinearLayout
+                    android:id="@+id/buttonsCard"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_25dp"
+                    android:layout_marginStart="@dimen/_20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/btn_take_survey">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_MyWatchList"
+                        style="@style/Widget.Material3.Button.TextButton"
+                        android:layout_width="150dp"
+                        android:layout_height="45dp"
+                        android:backgroundTint="@color/yellow"
+                        android:onClick="onClick"
+                        android:text="@string/my_watch_list"
+                        android:textColor="@color/black"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_MyFavorite"
+                        style="@style/Widget.Material3.Button.TextButton"
+                        android:layout_width="150dp"
+                        android:layout_height="45dp"
+                        android:layout_marginStart="@dimen/_15dp"
+                        android:backgroundTint="@color/green"
+                        android:onClick="onClick"
+                        android:text="@string/my_favorites"
+                        android:textColor="@color/black"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </LinearLayout>
+
+                <!--Live Course-->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/liveCourseCard"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginTop="25dp"
+                    app:layout_constraintTop_toBottomOf="@id/buttonsCard">
+                    <!--Live course Heading-->
+                    <TextView
+                        android:id="@+id/txt_liveCourseHeading"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_25dp"
+                        android:background="@color/float_transparent"
+                        android:fontFamily="@font/dm_sans_bold700"
+                        android:text="Live Courses"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <!--List view-->
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/liveCourseRecycler"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="15dp"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txt_liveCourseHeading"
+                        tools:listitem="@layout/live_course_list_item" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <!--Courses-->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/courseCard"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginTop="25dp"
+                    app:layout_constraintTop_toBottomOf="@id/liveCourseCard">
+                    <!--course Heading-->
+                    <TextView
+                        android:id="@+id/txt_courseHeading"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_25dp"
+                        android:background="@color/float_transparent"
+                        android:fontFamily="@font/dm_sans_bold700"
+                        android:text="Courses"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <!--List view-->
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/courseRecycler"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:paddingHorizontal="@dimen/_25dp"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txt_courseHeading"
+                        tools:listitem="@layout/video_library_list_item" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <!--My Purchased-->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/myPurchasedCard"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginBottom="@dimen/_10dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/courseCard">
+                    <!--course Heading-->
+                    <TextView
+                        android:id="@+id/txt_purchasedHeading"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_25dp"
+                        android:background="@color/float_transparent"
+                        android:fontFamily="@font/dm_sans_bold700"
+                        android:text="My Purchased"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <!--List view-->
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/myPurchasedRecycler"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:paddingHorizontal="@dimen/_25dp"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txt_purchasedHeading"
+                        tools:listitem="@layout/video_library_list_item" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottom_bar"
             android:layout_width="match_parent"
@@ -121,8 +394,6 @@
             app:layout_constraintVertical_bias="1.0"
             app:menu="@menu/bottom_bar_items" />
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
 
     <!--DrawerNavigation-->
     <com.google.android.material.navigation.NavigationView

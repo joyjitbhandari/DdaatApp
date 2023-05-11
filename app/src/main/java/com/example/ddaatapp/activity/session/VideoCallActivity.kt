@@ -1,18 +1,12 @@
 package com.example.ddaatapp.activity.session
 
-import android.app.Dialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.Gravity
 import android.view.View
-import android.view.ViewGroup
-import com.example.ddaatapp.R
-import com.example.ddaatapp.activity.chat.ChatActivity
+import com.example.ddaatapp.activity.chat.ChatClickActivity
 import com.example.ddaatapp.commonClass.ShowDialog
 import com.example.ddaatapp.databinding.ActivityVideoCallBinding
-import com.example.ddaatapp.subscriptionScreen.HomeActivity
-import com.google.android.material.button.MaterialButton
 
 class VideoCallActivity : AppCompatActivity() , View.OnClickListener {
     private lateinit var binding:ActivityVideoCallBinding
@@ -33,7 +27,7 @@ class VideoCallActivity : AppCompatActivity() , View.OnClickListener {
                 startActivity(intent)
             }
             binding.btnChat->{
-                startActivity(Intent(this,ChatActivity::class.java))
+                startActivity(Intent(this,ChatClickActivity::class.java))
             }
             binding.btnNote->{
                 ShowDialog(this).showWriteNoteDialog()

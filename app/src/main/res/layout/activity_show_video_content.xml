@@ -143,7 +143,84 @@
                     app:layout_constraintTop_toBottomOf="@id/txt_ContentName" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-<!--Related Video card-->
+<!--Video Sessions-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/videoSessionCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_15dp"
+                android:paddingHorizontal="@dimen/_25dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/contentInfoCard">
+
+                <!--Text Video Session-->
+                <TextView
+                    android:id="@+id/txt_Session"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/dm_sans_bold700"
+                    android:text="@string/session"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <!--Video session recycler-->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/sessionVideoRecycler"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_15dp"
+                    android:paddingBottom="@dimen/_25dp"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/txt_Session"
+                    tools:listitem="@layout/video_play_session_list_item" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+<!--Lecture Sessions-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/lectureSessionCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_15dp"
+                android:visibility="visible"
+                android:paddingHorizontal="@dimen/_25dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/videoSessionCard">
+
+                <!--Text Video Session-->
+                <TextView
+                    android:id="@+id/txt_lectureSession"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/dm_sans_bold700"
+                    android:text="@string/lecture"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <!--Video session recycler-->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/sessionLectureRecycler"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_15dp"
+                    android:paddingBottom="@dimen/_25dp"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/txt_lectureSession"
+                    tools:listitem="@layout/video_play_session_list_item" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+<!--Related Video Card-->
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/relatedVideoCard"
                 android:layout_width="match_parent"
@@ -151,7 +228,7 @@
                 android:padding="@dimen/_25dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/contentInfoCard">
+                app:layout_constraintTop_toBottomOf="@+id/lectureSessionCard">
 
                 <!--Text Related Video-->
                 <TextView
@@ -179,6 +256,42 @@
                     tools:listitem="@layout/video_library_list_item" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
+<!--Lecture Video Card-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/relatedLectureCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/_25dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/relatedVideoCard">
+
+                <!--Text Related Video-->
+                <TextView
+                    android:id="@+id/txt_LectureVideo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/dm_sans_bold700"
+                    android:text="Related Lecture"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <!--Related list view-->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/relatedLectureRecycler"
+                    android:layout_width="match_parent"
+                    android:layout_height="500dp"
+                    android:layout_marginTop="@dimen/_15dp"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/txt_LectureVideo"
+                    tools:listitem="@layout/video_library_list_item" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
 <!--comment section-->
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/commentsCard"
@@ -188,7 +301,7 @@
                 android:paddingHorizontal="@dimen/_25dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/relatedVideoCard">
+                app:layout_constraintTop_toBottomOf="@+id/relatedLectureCard">
 
                 <!--Text Comments-->
                 <TextView
