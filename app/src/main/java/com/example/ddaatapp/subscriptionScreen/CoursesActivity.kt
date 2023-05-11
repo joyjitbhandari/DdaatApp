@@ -89,9 +89,7 @@ class CoursesActivity : AppCompatActivity(), View.OnClickListener  {
             LiveCourseDataModel(R.drawable.live_course_sample_img,"Course Name"),
             LiveCourseDataModel(R.drawable.live_course_sample_img,"Course Name"),
             LiveCourseDataModel(R.drawable.live_course_sample_img,"Course Name"),
-
             )
-
         //Setup adapter
         val liveCourseRecycler = binding.liveCourseRecycler
         val liveCourseAdapter = LiveCourseAdapter(liveCourseList,this)
@@ -110,7 +108,6 @@ class CoursesActivity : AppCompatActivity(), View.OnClickListener  {
             CourseDataModel(R.drawable.video_sample_image3,"Course Name","Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been",true),
             CourseDataModel(R.drawable.video_sample_image3,"Podcast Title","Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been",false)
         )
-
         //setting up the list view adapter
         val courseRecycler = binding.courseRecycler
         val courseAdapter = CourseAdapter(courseList,2,this)
