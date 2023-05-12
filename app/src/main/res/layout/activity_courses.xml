@@ -152,6 +152,7 @@
                     android:layout_height="120dp"
                     android:layout_marginHorizontal="@dimen/_25dp"
                     android:layout_marginTop="@dimen/_15dp"
+                    android:onClick="onClick"
                     android:background="@drawable/round_25_black_stroke_shape"
                     android:paddingHorizontal="@dimen/_20dp"
                     android:paddingVertical="@dimen/_15dp"

@@ -1,11 +1,13 @@
 package com.example.ddaatapp.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.ddaatapp.R
+import com.example.ddaatapp.activity.superPower.SurveyActivity
 import com.example.ddaatapp.adapter.CourseAdapter
 import com.example.ddaatapp.commonClass.LinearListSpacingItemDecoration
 import com.example.ddaatapp.databinding.FragmentHomeCoursesBinding
@@ -46,6 +48,11 @@ class HomeCoursesFragment : Fragment() {
         //List item Decoration
         val spacing = resources.getDimensionPixelSize(R.dimen._15dp)
         courseRecycler.addItemDecoration(LinearListSpacingItemDecoration(spacing))
+
+        binding.btnTakeSurvey.setOnClickListener {
+            startActivity(Intent(requireContext(),SurveyActivity::class.java))
+        }
+
     }
 
 

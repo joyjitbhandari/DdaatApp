@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/transparent"
+    android:padding="@dimen/_5dp">
+<!--Keyword-->
+    <TextView
+        android:id="@+id/questionKeyWord"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:singleLine="true"
+        android:text="KeyWord"
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        android:fontFamily="@font/dm_sans_bold700"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+<!--summery-->
+
+    <TextView
+        android:id="@+id/questionSummery"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/dm_sans_bold700"
+        android:maxLines="3"
+        android:singleLine="true"
+        android:text="question Summery"
+        android:textColor="@color/light_grey"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.555"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/questionKeyWord"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/choiceAnswerGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="@dimen/_25dp"
+        app:singleSelection="true"
+        app:singleLine="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/questionSummery">
+<!--Button Most-->
+        <com.google.android.material.chip.Chip
+            style="@style/MyChoiceChipStyle"
+            android:id="@+id/btnMost"
+            android:layout_width="150dp"
+            android:layout_height="60dp"
+            app:chipStrokeWidth="1dp"
+            android:checkable="true"
+            android:text="Most"
+            android:textAlignment="center"
+            android:textSize="@dimen/_16sp"
+            app:chipIcon="@drawable/ic_sentiment_satisfied"
+            app:chipIconSize="@dimen/_30dp" />
+
+<!--Button Least-->
+        <com.google.android.material.chip.Chip
+            style="@style/MyChoiceChipStyle"
+            android:id="@+id/btnLeast"
+            android:layout_width="150dp"
+            android:layout_height="60dp"
+            app:chipStrokeWidth="1dp"
+            android:checkable="true"
+            android:text="Least"
+            android:layout_marginStart="15dp"
+            android:textAlignment="center"
+            android:textSize="@dimen/_16sp"
+            app:chipIcon="@drawable/ic_sentiment_dissatisfied"
+            app:chipIconSize="@dimen/_30dp" />
+    </com.google.android.material.chip.ChipGroup>
+</androidx.constraintlayout.widget.ConstraintLayout>

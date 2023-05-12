@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.superPower.SurveyResultActivity"
+    android:background="@color/screen_bg">
+    <!--Tool Bar-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginHorizontal="@dimen/_10dp"
+        android:layout_marginTop="@dimen/_20dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_back"
+            style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:background="@color/float_transparent"
+            android:onClick="onClick"
+            android:padding="8dp"
+            app:icon="@drawable/ic_back_arrow"
+            app:iconSize="30dp"
+            app:iconTint="@color/light_grey"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/toolTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:fontFamily="@font/dm_sans_medium_500"
+            android:gravity="center"
+            android:text="@string/my_result"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!--Scroll View-->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:scrollbars="none"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="@dimen/_25dp">
+            <!--Survey card Image-->
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/surveyCardImage"
+                android:layout_width="310dp"
+                android:layout_height="220dp"
+                app:shapeAppearance="@style/MyVideoImageShape"
+                android:src="@drawable/my_super_power_img"
+                android:scaleType="fitXY"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginVertical="@dimen/_15dp"/>
+
+<!--Adapter card-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/adapterCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/surveyCardImage">
+
+<!--Adapter Heading-->
+            <TextView
+                android:id="@+id/txt_adapterHeading"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:background="@color/float_transparent"
+                android:fontFamily="@font/dm_sans_medium_500"
+                android:text="You Are An Adapter"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!--Adapter Body-->
+            <TextView
+                android:id="@+id/txt_adapterBody"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:gravity="center"
+                android:background="@color/float_transparent"
+                android:fontFamily="@font/dm_sans_regular_400"
+                android:text="@string/adapters_ar"
+                android:textColor="@color/light_grey"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txt_adapterHeading"/>
+
+<!--Download Report Button-->
+            <com.google.android.material.button.MaterialButton
+                style="@style/Widget.Material3.Button.TextButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="@dimen/_16dp"
+                android:text="Download Report"
+                android:textSize="@dimen/_17sp"
+                app:icon="@drawable/ic_download"
+                app:iconSize="30dp"
+                app:iconGravity="textStart"
+                app:iconPadding="@dimen/_5dp"
+                app:strokeWidth="1dp"
+                app:strokeColor="@color/blue_bg"
+                android:layout_marginTop="@dimen/_15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txt_adapterBody"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+<!--Work Talent Heading-->
+            <TextView
+                android:id="@+id/txt_workTalentHeading"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:background="@color/float_transparent"
+                android:fontFamily="@font/dm_sans_medium_500"
+                android:text="Your Contrasting Work Talents"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/adapterCard"
+                />
+
+            <!--Work Talent Body-->
+            <TextView
+                android:id="@+id/txt_workTalentBody"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@color/float_transparent"
+                android:fontFamily="@font/dm_sans_regular_400"
+                android:text="The shaded circles and scores below indicate your strength level as a percentage of the population with the corresponding descriptor in the same color."
+                android:textColor="@color/light_grey"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txt_workTalentHeading"/>
+
+<!--Result List-->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/resultRecycler"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/_25dp"
+                android:scrollbars="none"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/survey_result_item"
+                app:layout_constraintBottom_toTopOf="@+id/btn_done"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_workTalentBody" />
+
+<!--Done Button-->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_done"
+                android:layout_width="0dp"
+                android:layout_height="55dp"
+                android:onClick="onClick"
+                android:text="Done"
+                android:textColor="@color/black"
+                android:textSize="17sp"
+                android:layout_marginBottom="@dimen/_30dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="1.0" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

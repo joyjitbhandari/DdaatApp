@@ -17,6 +17,7 @@ import com.example.ddaatapp.activity.feedback.FeedBackActivity
 import com.example.ddaatapp.activity.forgot.ChangePwdActivity
 import com.example.ddaatapp.activity.myPurchase.MyPurchasedActivity
 import com.example.ddaatapp.activity.profile.MyProfileActivity
+import com.example.ddaatapp.activity.superPower.SurveyResultActivity
 import com.google.android.material.navigation.NavigationView
 
 
@@ -38,6 +39,10 @@ class MyDrawerNavigationItemSelectedListener(var context: Context) : NavigationV
             }
             R.id.drawerMyPurchases->{
                 mContext.startActivity(Intent(context, MyPurchasedActivity::class.java))
+                return true
+            }
+            R.id.drawerMySuperpower->{
+                mContext.startActivity(Intent(context, SurveyResultActivity::class.java))
                 return true
             }
             R.id.drawerChangePwd ->{

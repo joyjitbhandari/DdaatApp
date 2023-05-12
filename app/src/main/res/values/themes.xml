@@ -43,7 +43,8 @@
         <item name="chipStrokeColor">@color/choice_chip_stroke_color</item>
         <!-- Chip text color selector -->
         <item name="android:textColor">@color/choice_chip_text_color</item>
-        <!-- Chip close icon color selector -->
+        <!-- Chip icon color selector -->
+        <item name="chipIconTint">@color/choice_chip_text_color</item>
     </style>
 
 <!--My searchView-->
@@ -71,6 +72,4 @@
         <item name="cornerSizeTopLeft">15%</item>
         <item name="cornerSizeTopRight">15%</item>
     </style>
-
-
 </resources>

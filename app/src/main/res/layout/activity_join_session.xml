@@ -233,7 +233,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0">
 
-        <!--Show Content Button-->
+        <!--Join Session-->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_joinSession"
             android:layout_width="280dp"

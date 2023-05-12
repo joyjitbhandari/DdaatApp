@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/screen_bg"
+    tools:context=".activity.liveCourse.JoinLiveCourseActivity">
+
+    <!--Tool Bar-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginHorizontal="@dimen/_10dp"
+        android:layout_marginTop="@dimen/_20dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_back"
+            style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:background="@color/float_transparent"
+            android:onClick="onClick"
+            android:padding="8dp"
+            app:icon="@drawable/ic_back_arrow"
+            app:iconSize="30dp"
+            app:iconTint="@color/light_grey"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/toolTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:fontFamily="@font/dm_sans_medium_500"
+            android:gravity="center"
+            android:text="Course Name"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+<!--Image view-->
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:layout_width="300dp"
+        android:layout_height="0dp"
+        android:scaleType="fitXY"
+        app:shapeAppearance="@style/MyVideoImageShape"
+        android:layout_marginHorizontal="@dimen/_15dp"
+        android:layout_marginVertical="@dimen/_40dp"
+        android:src="@drawable/video_call_incoming"
+        app:layout_constraintBottom_toTopOf="@+id/buttonsCard"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+
+
+    <!--Videocam and mic button-->
+    <LinearLayout
+        android:id="@+id/buttonsCard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="@dimen/_30dp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_joinSession"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:layout_constraintVertical_bias="1.0">
+
+        <!--Mic Button-->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_mic"
+            style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:backgroundTint="@color/blue_bg"
+            android:onClick="onClick"
+            android:textSize="17sp"
+            app:icon="@drawable/ic_mic"
+            app:iconSize="@dimen/_30dp"/>
+
+        <!--Video button-->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_videoCam"
+            style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_marginStart="@dimen/_15dp"
+            android:backgroundTint="@color/blue_bg"
+            android:onClick="onClick"
+            android:textSize="17sp"
+            app:icon="@drawable/ic_videocam"
+            app:iconSize="@dimen/_30dp"/>
+    </LinearLayout>
+
+    <!--Join Button-->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_joinSession"
+        android:layout_width="0dp"
+        android:layout_height="55dp"
+        android:layout_marginHorizontal="@dimen/_25dp"
+        android:layout_marginBottom="@dimen/_60dp"
+        android:onClick="onClick"
+        android:text="Join"
+        android:textColor="@color/black"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.68"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

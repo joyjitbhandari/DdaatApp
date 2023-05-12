@@ -11,6 +11,7 @@ import com.example.ddaatapp.R
 import com.example.ddaatapp.activity.notification.NotificationActivity
 import com.example.ddaatapp.activity.showVideoContent.MyFavoriteActivity
 import com.example.ddaatapp.activity.showVideoContent.MyWatchlistActivity
+import com.example.ddaatapp.activity.superPower.SurveyActivity
 import com.example.ddaatapp.adapter.CourseAdapter
 import com.example.ddaatapp.adapter.LiveCourseAdapter
 import com.example.ddaatapp.adapter.MyPurchasedAdapter
@@ -152,6 +153,9 @@ class CoursesActivity : AppCompatActivity(), View.OnClickListener  {
             }
             binding.btnFilter->{
                 ShowDialog(this).showFilterDialog()
+            }
+            binding.btnTakeSurvey->{
+                startActivity(Intent(this, SurveyActivity::class.java))
             }
         }
     }

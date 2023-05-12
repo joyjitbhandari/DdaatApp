@@ -12,6 +12,18 @@
         android:theme="@style/Theme.DdaatApp"
         tools:targetApi="31">
         <activity
+            android:name=".activity.superPower.SurveyQuestionAnswerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.superPower.SurveyResultActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.superPower.SurveyActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.liveCourse.JoinLiveCourseActivity"
+            android:exported="false" />
+        <activity
             android:name=".activity.session.VideoCallSessionCompleteActivity"
             android:exported="false" />
         <activity
@@ -77,7 +89,7 @@
         <activity
             android:name=".subscriptionScreen.CoursesActivity"
             android:exported="false"
-            android:windowSoftInputMode="adjustNothing"/>
+            android:windowSoftInputMode="adjustNothing" />
         <activity
             android:name=".subscriptionScreen.StreamsActivity"
             android:exported="false"
