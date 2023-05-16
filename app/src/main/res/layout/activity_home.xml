@@ -402,19 +402,22 @@
                     app:layout_constraintTop_toBottomOf="@id/my_notes_recyclerView" />
 
                 <!--View All button-->
-                <TextView
+                <com.google.android.material.button.MaterialButton
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
                     android:id="@+id/btn_view_all"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
                     android:background="@color/float_transparent"
                     android:fontFamily="@font/dm_sans_medium_500"
                     android:gravity="center"
-                    android:paddingStart="@dimen/_15dp"
-                    android:paddingEnd="25dp"
+                    android:onClick="onClick"
+                    android:padding="@dimen/_5dp"
+                    android:layout_marginEnd="@dimen/_20dp"
+                    app:icon="@drawable/ic_add"
+                    app:iconGravity="textEnd"
                     android:text="View all"
                     android:textColor="@color/blue_bg"
-                    android:textSize="14sp"
+                    android:textSize="12sp"
                     app:layout_constraintBottom_toBottomOf="@+id/txt_article"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/my_notes_recyclerView" />

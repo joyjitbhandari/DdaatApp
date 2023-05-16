@@ -12,6 +12,24 @@
         android:theme="@style/Theme.DdaatApp"
         tools:targetApi="31">
         <activity
+            android:name=".activity.paymentAndBilling.AddNewCardActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.subscription.SubscriptionDetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.paymentAndBilling.PaymentAndBillingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.reviewAndRating.ReviewAndRatingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.articleAndBlog.AllBlogActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.articleAndBlog.ArticleActivity"
+            android:exported="false" />
+        <activity
             android:name=".activity.superPower.SurveyQuestionAnswerActivity"
             android:exported="false" />
         <activity

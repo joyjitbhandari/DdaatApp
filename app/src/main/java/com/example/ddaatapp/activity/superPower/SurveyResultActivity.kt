@@ -19,7 +19,6 @@ class SurveyResultActivity : AppCompatActivity() , View.OnClickListener {
             SurveyResultDataModel(96,"Daring vs. Careful","Confidently takes risks and tolerant of losses "),
             SurveyResultDataModel(73,"Abstract vs. Concrete","Works with known pathways forward"),
             SurveyResultDataModel(66,"Systematic vs. Flexible","Able to balance completing tasks and responding on the spot"),
-            SurveyResultDataModel(60,"Promoting vs. Operating","Engaging and relational with others but also enjoys operating alone"),
         )
 
         val resultRecyclerView = binding.resultRecycler

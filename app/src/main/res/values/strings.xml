@@ -44,7 +44,7 @@
     <string name="male">Male</string>
     <string name="female">Female</string>
     <string name="profile_created_successfully">Profile created successfully</string>
-    <string name="lorem_ipsum">Lorem Ipsum is simply dummy text of\n the printing and typesetting industry.</string>
+    <string name="lorem_ipsum">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</string>
     <string name="this_call_i">This call is routed outside\nthe application</string>
     <string name="continue_payment">Continue Payment</string>
     <string name="on_demand_v">On-demand videos subscription from</string>
@@ -169,5 +169,16 @@ You’ll see your dashboard at the end that will reveal your workplace talents.<
     <string name="my_result">My Result</string>
 
     <string name="adapters_ar">Adapters are unique in that they have the ability of being able to adapt to the needs of their environment.</string>
+    <string name="national_suicide_prevention_lifeline_at_988">National Suicide Prevention Lifeline at 988</string>
+    <string name="if_you_think_you_may_have_a_medical_emergency_call_your_doctor_or">If you think you may have a medical emergency, call your doctor or</string>
+    <string name="if_you_are_considering_suicide_or_have_a_plan_to_take_your_life_please_call">If you are considering suicide or have a plan to take your life, please call</string>
+    <string name="if_you_are_in_a_state_of_crisis_please_contact_the_crisis_text_line_by_texting">If you are in a state of crisis, please contact the Crisis Text Line by texting</string>
+    <string name="ddaat_app_declares_no_affiliation_sponsorship_nor_any_partnership_with_the_988_national_suicide_and_crisis_lifeline">DDAAT App declares no affiliation, sponsorship, nor any partnership with the 988 National Suicide and Crisis Lifeline.</string>
+    <string name="subscription_details">Subscription Details</string>
+    <string name="are_you_sure_you_want_unsubscribe">Are you sure you want Unsubscribe</string>
+    <string name="cardholder_name">Cardholder Name</string>
+    <string name="enter_cardholder_name">Enter CardHolder Name</string>
+    <string name="card_number">Card Number</string>
+    <string name="expiry_date">Expiry Date</string>
 
 </resources>

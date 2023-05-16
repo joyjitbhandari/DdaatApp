@@ -21,6 +21,7 @@ class SurveyActivity : AppCompatActivity(), View.OnClickListener {
             }
             binding.btnStartSurvey->{
                 startActivity(Intent(this,SurveyQuestionAnswerActivity::class.java))
+                finish()
             }
 
         }

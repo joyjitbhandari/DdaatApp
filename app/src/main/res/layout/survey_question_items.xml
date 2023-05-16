@@ -54,7 +54,7 @@
         <com.google.android.material.chip.Chip
             style="@style/MyChoiceChipStyle"
             android:id="@+id/btnMost"
-            android:layout_width="150dp"
+            android:layout_width="140dp"
             android:layout_height="60dp"
             app:chipStrokeWidth="1dp"
             android:checkable="true"
@@ -68,12 +68,12 @@
         <com.google.android.material.chip.Chip
             style="@style/MyChoiceChipStyle"
             android:id="@+id/btnLeast"
-            android:layout_width="150dp"
+            android:layout_width="140dp"
             android:layout_height="60dp"
             app:chipStrokeWidth="1dp"
             android:checkable="true"
             android:text="Least"
-            android:layout_marginStart="15dp"
+            android:layout_marginStart="10dp"
             android:textAlignment="center"
             android:textSize="@dimen/_16sp"
             app:chipIcon="@drawable/ic_sentiment_dissatisfied"

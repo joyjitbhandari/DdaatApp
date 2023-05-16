@@ -7,12 +7,14 @@ import android.graphics.drawable.ColorDrawable
 import android.view.Gravity
 import android.view.ViewGroup
 import android.widget.Button
+import androidx.appcompat.app.AppCompatActivity
 import com.example.ddaatapp.R
 import com.example.ddaatapp.databinding.DialogApplyFilterBinding
 import com.example.ddaatapp.databinding.DialogSelectGenresBinding
 
 class ShowDialog(var context: Context) {
 
+    private val mContext = context as AppCompatActivity
     //Filter dialog
     fun showFilterDialog() {
         val dialog = Dialog(context)

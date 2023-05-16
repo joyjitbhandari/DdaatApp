@@ -41,9 +41,9 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_weight="1"
+            android:fontFamily="@font/dm_sans_medium_500"
             android:gravity="center"
             android:text="@string/complete_profile"
-            android:fontFamily="@font/dm_sans_medium_500"
             android:textColor="@color/white"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -86,450 +86,464 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_heading" />
 
-<!--CardScrollView-->
-    <HorizontalScrollView
-        android:id="@+id/horizontalScrollView"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="@dimen/_20dp"
-        android:scrollbars="none"
+<!--Card list view-->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/subscriptionRecycler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/_25dp"
         app:layout_constraintBottom_toTopOf="@+id/btn_skip"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_sample">
+        app:layout_constraintTop_toBottomOf="@+id/txt_sample"
+        android:orientation="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/subscription_card_item"/>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginStart="@dimen/_40dp"
-            android:layout_marginEnd="@dimen/_40dp"
-            android:gravity="center">
-            <!--Card1-->
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/card1"
-                android:layout_width="290dp"
-                android:layout_height="429dp"
-                android:layout_marginEnd="@dimen/_20dp"
-                app:cardCornerRadius="25dp"
-                app:cardElevation="4dp">
+<!--CardScrollView-->
+<!--    <HorizontalScrollView-->
+<!--        android:id="@+id/horizontalScrollView"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="0dp"-->
+<!--        android:layout_marginTop="@dimen/_20dp"-->
+<!--        android:scrollbars="none"-->
+<!--        app:layout_constraintBottom_toTopOf="@+id/btn_skip"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/txt_sample">-->
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/subs_card_shape_blue">
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:layout_marginStart="@dimen/_40dp"-->
+<!--            android:layout_marginEnd="@dimen/_40dp"-->
+<!--            android:gravity="center">-->
+<!--            &lt;!&ndash;Card1&ndash;&gt;-->
+<!--            <com.google.android.material.card.MaterialCardView-->
+<!--                android:id="@+id/card1"-->
+<!--                android:layout_width="290dp"-->
+<!--                android:layout_height="429dp"-->
+<!--                android:layout_marginEnd="@dimen/_20dp"-->
+<!--                app:cardCornerRadius="25dp"-->
+<!--                app:cardElevation="4dp">-->
 
-                    <TextView
-                        android:id="@+id/c1_discount"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="15dp"
-                        android:layout_marginEnd="@dimen/_15dp"
-                        android:background="@drawable/round_5dp_white_bg"
-                        android:paddingHorizontal="10dp"
-                        android:paddingVertical="@dimen/_5dp"
-                        android:text="@string/save_40"
-                        android:textColor="@color/black_bg"
-                        android:textSize="12sp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+<!--                <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:background="@drawable/subs_card_shape_blue">-->
 
-                    <ImageView
-                        android:id="@+id/c1_image"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="35dp"
-                        android:src="@drawable/img_subs_card"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+<!--                    <TextView-->
+<!--                        android:id="@+id/c1_discount"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginTop="15dp"-->
+<!--                        android:layout_marginEnd="@dimen/_15dp"-->
+<!--                        android:background="@drawable/round_5dp_white_bg"-->
+<!--                        android:paddingHorizontal="10dp"-->
+<!--                        android:paddingVertical="@dimen/_5dp"-->
+<!--                        android:text="@string/save_40"-->
+<!--                        android:textColor="@color/black_bg"-->
+<!--                        android:textSize="12sp"-->
+<!--                        app:layout_constraintEnd_toEndOf="parent"-->
+<!--                        app:layout_constraintTop_toTopOf="parent" />-->
 
-                    <TextView
-                        android:id="@+id/c1_plan_name"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
-                        android:fontFamily="@font/dm_sans_bold700"
-                        android:text="@string/plan_name"
-                        android:textColor="@color/white"
-                        android:textSize="26sp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/c1_image" />
+<!--                    <ImageView-->
+<!--                        android:id="@+id/c1_image"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginTop="35dp"-->
+<!--                        android:src="@drawable/img_subs_card"-->
+<!--                        app:layout_constraintEnd_toEndOf="parent"-->
+<!--                        app:layout_constraintStart_toStartOf="parent"-->
+<!--                        app:layout_constraintTop_toTopOf="parent" />-->
 
-                    <TextView
-                        android:id="@+id/c1_desc"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:fontFamily="@font/dm_sans_medium_500"
-                        android:gravity="center"
-                        android:paddingStart="30dp"
-                        android:paddingEnd="@dimen/_30dp"
-                        android:text="@string/on_demand_v"
-                        android:textColor="@color/white"
-                        android:textSize="18sp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/c1_plan_name" />
-<!--pricing-->
-                    <LinearLayout
-                        android:id="@+id/c1_price_card"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_10dp"
-                        android:orientation="horizontal"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/c1_desc">
+<!--                    <TextView-->
+<!--                        android:id="@+id/c1_plan_name"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginTop="20dp"-->
+<!--                        android:fontFamily="@font/dm_sans_bold700"-->
+<!--                        android:text="@string/plan_name"-->
+<!--                        android:textColor="@color/white"-->
+<!--                        android:textSize="26sp"-->
+<!--                        app:layout_constraintEnd_toEndOf="parent"-->
+<!--                        app:layout_constraintStart_toStartOf="parent"-->
+<!--                        app:layout_constraintTop_toBottomOf="@+id/c1_image" />-->
 
-                        <TextView
-                            android:id="@+id/c1_dolar"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="4dp"
-                            android:fontFamily="@font/dm_sans_medium_500"
-                            android:text="@string/doler"
-                            android:textColor="@color/light_grey"
-                            android:textSize="16sp" />
+<!--                    <TextView-->
+<!--                        android:id="@+id/c1_desc"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginTop="10dp"-->
+<!--                        android:fontFamily="@font/dm_sans_medium_500"-->
+<!--                        android:gravity="center"-->
+<!--                        android:paddingStart="30dp"-->
+<!--                        android:paddingEnd="@dimen/_30dp"-->
+<!--                        android:text="@string/on_demand_v"-->
+<!--                        android:textColor="@color/white"-->
+<!--                        android:textSize="18sp"-->
+<!--                        app:layout_constraintEnd_toEndOf="parent"-->
+<!--                        app:layout_constraintStart_toStartOf="parent"-->
+<!--                        app:layout_constraintTop_toBottomOf="@+id/c1_plan_name" />-->
+<!--&lt;!&ndash;pricing&ndash;&gt;-->
+<!--                    <LinearLayout-->
+<!--                        android:id="@+id/c1_price_card"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginTop="@dimen/_10dp"-->
+<!--                        android:orientation="horizontal"-->
+<!--                        app:layout_constraintEnd_toEndOf="parent"-->
+<!--                        app:layout_constraintStart_toStartOf="parent"-->
+<!--                        app:layout_constraintTop_toBottomOf="@+id/c1_desc">-->
 
-                        <TextView
-                            android:id="@+id/c1_price"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/dm_sans_medium_500"
-                            android:text="19.23"
-                            android:textColor="@color/white"
-                            android:textSize="22sp" />
+<!--                        <TextView-->
+<!--                            android:id="@+id/c1_dolar"-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_marginStart="4dp"-->
+<!--                            android:fontFamily="@font/dm_sans_medium_500"-->
+<!--                            android:text="@string/doler"-->
+<!--                            android:textColor="@color/light_grey"-->
+<!--                            android:textSize="16sp" />-->
 
-                        <TextView
-                            android:id="@+id/c1_month"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="4dp"
-                            android:fontFamily="@font/dm_sans_medium_500"
-                            android:text="/month"
-                            android:textColor="@color/light_grey"
-                            android:textSize="16sp" />
-                    </LinearLayout>
+<!--                        <TextView-->
+<!--                            android:id="@+id/c1_price"-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:fontFamily="@font/dm_sans_medium_500"-->
+<!--                            android:text="19.23"-->
+<!--                            android:textColor="@color/white"-->
+<!--                            android:textSize="22sp" />-->
 
-                    <TextView
-                        android:id="@+id/c1_info"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:fontFamily="@font/dm_sans_medium_500"
-                        android:gravity="center"
-                        android:paddingStart="30dp"
-                        android:paddingEnd="@dimen/_30dp"
-                        android:text="@string/interactive"
-                        android:textColor="@color/white"
-                        android:textSize="18sp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/c1_price_card" />
+<!--                        <TextView-->
+<!--                            android:id="@+id/c1_month"-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_marginStart="4dp"-->
+<!--                            android:fontFamily="@font/dm_sans_medium_500"-->
+<!--                            android:text="/month"-->
+<!--                            android:textColor="@color/light_grey"-->
+<!--                            android:textSize="16sp" />-->
+<!--                    </LinearLayout>-->
 
-                    <TextView
-                        android:id="@+id/c1_btn_continue"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/subs_card_btn_shape"
-                        android:gravity="center"
-                        android:onClick="onClick"
-                        android:text="Continue"
-                        android:textColor="@color/white"
-                        android:textSize="17sp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/c1_info" />
+<!--                    <TextView-->
+<!--                        android:id="@+id/c1_info"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginTop="10dp"-->
+<!--                        android:fontFamily="@font/dm_sans_medium_500"-->
+<!--                        android:gravity="center"-->
+<!--                        android:paddingStart="30dp"-->
+<!--                        android:paddingEnd="@dimen/_30dp"-->
+<!--                        android:text="@string/interactive"-->
+<!--                        android:textColor="@color/white"-->
+<!--                        android:textSize="18sp"-->
+<!--                        app:layout_constraintEnd_toEndOf="parent"-->
+<!--                        app:layout_constraintStart_toStartOf="parent"-->
+<!--                        app:layout_constraintTop_toBottomOf="@+id/c1_price_card" />-->
 
-                </androidx.constraintlayout.widget.ConstraintLayout>
-            </com.google.android.material.card.MaterialCardView>
+<!--                    <TextView-->
+<!--                        android:id="@+id/c1_btn_continue"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:background="@drawable/subs_card_btn_shape"-->
+<!--                        android:gravity="center"-->
+<!--                        android:onClick="onClick"-->
+<!--                        android:text="Continue"-->
+<!--                        android:textColor="@color/white"-->
+<!--                        android:textSize="17sp"-->
+<!--                        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                        app:layout_constraintEnd_toEndOf="parent"-->
+<!--                        app:layout_constraintStart_toStartOf="parent"-->
+<!--                        app:layout_constraintTop_toBottomOf="@+id/c1_info" />-->
 
-            <!--card2-->
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/card2"
-                android:layout_width="290dp"
-                android:layout_height="429dp"
-                android:layout_marginEnd="@dimen/_20dp"
-                app:cardCornerRadius="25dp"
-                app:cardElevation="4dp">
+<!--                </androidx.constraintlayout.widget.ConstraintLayout>-->
+<!--            </com.google.android.material.card.MaterialCardView>-->
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/subs_card_shape_grey">
+<!--            &lt;!&ndash;card2&ndash;&gt;-->
+<!--            <com.google.android.material.card.MaterialCardView-->
+<!--                android:id="@+id/card2"-->
+<!--                android:layout_width="290dp"-->
+<!--                android:layout_height="429dp"-->
+<!--                android:layout_marginEnd="@dimen/_20dp"-->
+<!--                app:cardCornerRadius="25dp"-->
+<!--                app:cardElevation="4dp">-->
 
-                    <TextView
-                        android:id="@+id/c2_discount"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="15dp"
-                        android:layout_marginEnd="@dimen/_15dp"
-                        android:background="@drawable/round_5dp_white_bg"
-                        android:paddingHorizontal="10dp"
-                        android:paddingVertical="@dimen/_5dp"
-                        android:text="@string/save_40"
-                        android:textColor="@color/black_bg"
-                        android:textSize="12sp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+<!--                <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:background="@drawable/subs_card_shape_grey">-->
 
-                    <ImageView
-                        android:id="@+id/c2_image"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="35dp"
-                        android:src="@drawable/img_subs_card"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+<!--                    <TextView-->
+<!--                        android:id="@+id/c2_discount"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginTop="15dp"-->
+<!--                        android:layout_marginEnd="@dimen/_15dp"-->
+<!--                        android:background="@drawable/round_5dp_white_bg"-->
+<!--                        android:paddingHorizontal="10dp"-->
+<!--                        android:paddingVertical="@dimen/_5dp"-->
+<!--                        android:text="@string/save_40"-->
+<!--                        android:textColor="@color/black_bg"-->
+<!--                        android:textSize="12sp"-->
+<!--                        app:layout_constraintEnd_toEndOf="parent"-->
+<!--                        app:layout_constraintTop_toTopOf="parent" />-->
 
-                    <TextView
-                        android:id="@+id/c2_plan_name"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
-                        android:fontFamily="@font/dm_sans_bold700"
-                        android:text="@string/plan_name"
-                        android:textColor="@color/white"
-                        android:textSize="26sp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/c2_image" />
+<!--                    <ImageView-->
+<!--                        android:id="@+id/c2_image"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginTop="35dp"-->
+<!--                        android:src="@drawable/img_subs_card"-->
+<!--                        app:layout_constraintEnd_toEndOf="parent"-->
+<!--                        app:layout_constraintStart_toStartOf="parent"-->
+<!--                        app:layout_constraintTop_toTopOf="parent" />-->
 
-                    <TextView
-                        android:id="@+id/c2_desc"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:fontFamily="@font/dm_sans_medium_500"
-                        android:gravity="center"
-                        android:paddingStart="30dp"
-                        android:paddingEnd="@dimen/_30dp"
-                        android:text="@string/on_demand_v"
-                        android:textColor="@color/white"
-                        android:textSize="18sp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/c2_plan_name" />
+<!--                    <TextView-->
+<!--                        android:id="@+id/c2_plan_name"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginTop="20dp"-->
+<!--                        android:fontFamily="@font/dm_sans_bold700"-->
+<!--                        android:text="@string/plan_name"-->
+<!--                        android:textColor="@color/white"-->
+<!--                        android:textSize="26sp"-->
+<!--                        app:layout_constraintEnd_toEndOf="parent"-->
+<!--                        app:layout_constraintStart_toStartOf="parent"-->
+<!--                        app:layout_constraintTop_toBottomOf="@+id/c2_image" />-->
 
-                    <!--pricing-->
-                    <LinearLayout
-                        android:id="@+id/c2_price_card"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_10dp"
-                        android:orientation="horizontal"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/c2_desc">
+<!--                    <TextView-->
+<!--                        android:id="@+id/c2_desc"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginTop="10dp"-->
+<!--                        android:fontFamily="@font/dm_sans_medium_500"-->
+<!--                        android:gravity="center"-->
+<!--                        android:paddingStart="30dp"-->
+<!--                        android:paddingEnd="@dimen/_30dp"-->
+<!--                        android:text="@string/on_demand_v"-->
+<!--                        android:textColor="@color/white"-->
+<!--                        android:textSize="18sp"-->
+<!--                        app:layout_constraintEnd_toEndOf="parent"-->
+<!--                        app:layout_constraintStart_toStartOf="parent"-->
+<!--                        app:layout_constraintTop_toBottomOf="@+id/c2_plan_name" />-->
 
-                        <TextView
-                            android:id="@+id/c2_dolar"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="4dp"
-                            android:fontFamily="@font/dm_sans_medium_500"
-                            android:text="@string/doler"
-                            android:textColor="@color/light_grey"
-                            android:textSize="16sp" />
+<!--                    &lt;!&ndash;pricing&ndash;&gt;-->
+<!--                    <LinearLayout-->
+<!--                        android:id="@+id/c2_price_card"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginTop="@dimen/_10dp"-->
+<!--                        android:orientation="horizontal"-->
+<!--                        app:layout_constraintEnd_toEndOf="parent"-->
+<!--                        app:layout_constraintStart_toStartOf="parent"-->
+<!--                        app:layout_constraintTop_toBottomOf="@+id/c2_desc">-->
 
-                        <TextView
-                            android:id="@+id/c2_price"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/dm_sans_medium_500"
-                            android:text="19.23"
-                            android:textColor="@color/white"
-                            android:textSize="22sp" />
+<!--                        <TextView-->
+<!--                            android:id="@+id/c2_dolar"-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_marginStart="4dp"-->
+<!--                            android:fontFamily="@font/dm_sans_medium_500"-->
+<!--                            android:text="@string/doler"-->
+<!--                            android:textColor="@color/light_grey"-->
+<!--                            android:textSize="16sp" />-->
 
-                        <TextView
-                            android:id="@+id/c2_month"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="4dp"
-                            android:fontFamily="@font/dm_sans_medium_500"
-                            android:text="/month"
-                            android:textColor="@color/light_grey"
-                            android:textSize="16sp" />
-                    </LinearLayout>
+<!--                        <TextView-->
+<!--                            android:id="@+id/c2_price"-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:fontFamily="@font/dm_sans_medium_500"-->
+<!--                            android:text="19.23"-->
+<!--                            android:textColor="@color/white"-->
+<!--                            android:textSize="22sp" />-->
 
-                    <TextView
-                        android:id="@+id/c2_info"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:fontFamily="@font/dm_sans_medium_500"
-                        android:gravity="center"
-                        android:paddingStart="30dp"
-                        android:paddingEnd="@dimen/_30dp"
-                        android:text="@string/interactive"
-                        android:textColor="@color/white"
-                        android:textSize="18sp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/c2_price_card" />
+<!--                        <TextView-->
+<!--                            android:id="@+id/c2_month"-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_marginStart="4dp"-->
+<!--                            android:fontFamily="@font/dm_sans_medium_500"-->
+<!--                            android:text="/month"-->
+<!--                            android:textColor="@color/light_grey"-->
+<!--                            android:textSize="16sp" />-->
+<!--                    </LinearLayout>-->
 
-                    <TextView
-                        android:id="@+id/c2_btn_continue"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/subs_card_btn_shape"
-                        android:gravity="center"
-                        android:text="Continue"
-                        android:textColor="@color/white"
-                        android:textSize="17sp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/c2_info" />
+<!--                    <TextView-->
+<!--                        android:id="@+id/c2_info"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginTop="10dp"-->
+<!--                        android:fontFamily="@font/dm_sans_medium_500"-->
+<!--                        android:gravity="center"-->
+<!--                        android:paddingStart="30dp"-->
+<!--                        android:paddingEnd="@dimen/_30dp"-->
+<!--                        android:text="@string/interactive"-->
+<!--                        android:textColor="@color/white"-->
+<!--                        android:textSize="18sp"-->
+<!--                        app:layout_constraintEnd_toEndOf="parent"-->
+<!--                        app:layout_constraintStart_toStartOf="parent"-->
+<!--                        app:layout_constraintTop_toBottomOf="@+id/c2_price_card" />-->
 
-                </androidx.constraintlayout.widget.ConstraintLayout>
-            </com.google.android.material.card.MaterialCardView>
+<!--                    <TextView-->
+<!--                        android:id="@+id/c2_btn_continue"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:background="@drawable/subs_card_btn_shape"-->
+<!--                        android:gravity="center"-->
+<!--                        android:text="Continue"-->
+<!--                        android:textColor="@color/white"-->
+<!--                        android:textSize="17sp"-->
+<!--                        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                        app:layout_constraintEnd_toEndOf="parent"-->
+<!--                        app:layout_constraintStart_toStartOf="parent"-->
+<!--                        app:layout_constraintTop_toBottomOf="@+id/c2_info" />-->
 
-            <!--card3-->
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/card3"
-                android:layout_width="290dp"
-                android:layout_height="429dp"
-                android:layout_marginEnd="80dp"
-                app:cardCornerRadius="25dp"
-                app:cardElevation="4dp">
+<!--                </androidx.constraintlayout.widget.ConstraintLayout>-->
+<!--            </com.google.android.material.card.MaterialCardView>-->
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/subs_card_shape_purple">
+<!--            &lt;!&ndash;card3&ndash;&gt;-->
+<!--            <com.google.android.material.card.MaterialCardView-->
+<!--                android:id="@+id/card3"-->
+<!--                android:layout_width="290dp"-->
+<!--                android:layout_height="429dp"-->
+<!--                android:layout_marginEnd="80dp"-->
+<!--                app:cardCornerRadius="25dp"-->
+<!--                app:cardElevation="4dp">-->
 
-                    <TextView
-                        android:id="@+id/c3_discount"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="15dp"
-                        android:layout_marginEnd="@dimen/_15dp"
-                        android:background="@drawable/round_5dp_white_bg"
-                        android:paddingHorizontal="10dp"
-                        android:paddingVertical="@dimen/_5dp"
-                        android:text="@string/save_40"
-                        android:textColor="@color/black_bg"
-                        android:textSize="12sp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+<!--                <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:background="@drawable/subs_card_shape_purple">-->
 
-                    <ImageView
-                        android:id="@+id/c3_image"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="35dp"
-                        android:src="@drawable/img_subs_card"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+<!--                    <TextView-->
+<!--                        android:id="@+id/c3_discount"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginTop="15dp"-->
+<!--                        android:layout_marginEnd="@dimen/_15dp"-->
+<!--                        android:background="@drawable/round_5dp_white_bg"-->
+<!--                        android:paddingHorizontal="10dp"-->
+<!--                        android:paddingVertical="@dimen/_5dp"-->
+<!--                        android:text="@string/save_40"-->
+<!--                        android:textColor="@color/black_bg"-->
+<!--                        android:textSize="12sp"-->
+<!--                        app:layout_constraintEnd_toEndOf="parent"-->
+<!--                        app:layout_constraintTop_toTopOf="parent" />-->
 
-                    <TextView
-                        android:id="@+id/c3_plan_name"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
-                        android:fontFamily="@font/dm_sans_bold700"
-                        android:text="@string/plan_name"
-                        android:textColor="@color/white"
-                        android:textSize="26sp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/c3_image" />
+<!--                    <ImageView-->
+<!--                        android:id="@+id/c3_image"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginTop="35dp"-->
+<!--                        android:src="@drawable/img_subs_card"-->
+<!--                        app:layout_constraintEnd_toEndOf="parent"-->
+<!--                        app:layout_constraintStart_toStartOf="parent"-->
+<!--                        app:layout_constraintTop_toTopOf="parent" />-->
 
-                    <TextView
-                        android:id="@+id/c3_desc"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:fontFamily="@font/dm_sans_medium_500"
-                        android:gravity="center"
-                        android:paddingStart="30dp"
-                        android:paddingEnd="@dimen/_30dp"
-                        android:text="@string/on_demand_v"
-                        android:textColor="@color/white"
-                        android:textSize="18sp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/c3_plan_name" />
-                    <!--pricing-->
-                    <LinearLayout
-                        android:id="@+id/c3_price_card"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_10dp"
-                        android:orientation="horizontal"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/c3_desc">
+<!--                    <TextView-->
+<!--                        android:id="@+id/c3_plan_name"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginTop="20dp"-->
+<!--                        android:fontFamily="@font/dm_sans_bold700"-->
+<!--                        android:text="@string/plan_name"-->
+<!--                        android:textColor="@color/white"-->
+<!--                        android:textSize="26sp"-->
+<!--                        app:layout_constraintEnd_toEndOf="parent"-->
+<!--                        app:layout_constraintStart_toStartOf="parent"-->
+<!--                        app:layout_constraintTop_toBottomOf="@+id/c3_image" />-->
 
-                        <TextView
-                            android:id="@+id/c3_dolar"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="4dp"
-                            android:fontFamily="@font/dm_sans_medium_500"
-                            android:text="@string/doler"
-                            android:textColor="@color/light_grey"
-                            android:textSize="16sp" />
+<!--                    <TextView-->
+<!--                        android:id="@+id/c3_desc"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginTop="10dp"-->
+<!--                        android:fontFamily="@font/dm_sans_medium_500"-->
+<!--                        android:gravity="center"-->
+<!--                        android:paddingStart="30dp"-->
+<!--                        android:paddingEnd="@dimen/_30dp"-->
+<!--                        android:text="@string/on_demand_v"-->
+<!--                        android:textColor="@color/white"-->
+<!--                        android:textSize="18sp"-->
+<!--                        app:layout_constraintEnd_toEndOf="parent"-->
+<!--                        app:layout_constraintStart_toStartOf="parent"-->
+<!--                        app:layout_constraintTop_toBottomOf="@+id/c3_plan_name" />-->
+<!--                    &lt;!&ndash;pricing&ndash;&gt;-->
+<!--                    <LinearLayout-->
+<!--                        android:id="@+id/c3_price_card"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginTop="@dimen/_10dp"-->
+<!--                        android:orientation="horizontal"-->
+<!--                        app:layout_constraintEnd_toEndOf="parent"-->
+<!--                        app:layout_constraintStart_toStartOf="parent"-->
+<!--                        app:layout_constraintTop_toBottomOf="@+id/c3_desc">-->
 
-                        <TextView
-                            android:id="@+id/c3_price"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/dm_sans_medium_500"
-                            android:text="19.23"
-                            android:textColor="@color/white"
-                            android:textSize="22sp" />
+<!--                        <TextView-->
+<!--                            android:id="@+id/c3_dolar"-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_marginStart="4dp"-->
+<!--                            android:fontFamily="@font/dm_sans_medium_500"-->
+<!--                            android:text="@string/doler"-->
+<!--                            android:textColor="@color/light_grey"-->
+<!--                            android:textSize="16sp" />-->
 
-                        <TextView
-                            android:id="@+id/c3_month"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="4dp"
-                            android:fontFamily="@font/dm_sans_medium_500"
-                            android:text="/month"
-                            android:textColor="@color/light_grey"
-                            android:textSize="16sp" />
-                    </LinearLayout>
+<!--                        <TextView-->
+<!--                            android:id="@+id/c3_price"-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:fontFamily="@font/dm_sans_medium_500"-->
+<!--                            android:text="19.23"-->
+<!--                            android:textColor="@color/white"-->
+<!--                            android:textSize="22sp" />-->
 
-                    <TextView
-                        android:id="@+id/c3_info"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:fontFamily="@font/dm_sans_medium_500"
-                        android:gravity="center"
-                        android:paddingStart="30dp"
-                        android:paddingEnd="@dimen/_30dp"
-                        android:text="@string/interactive"
-                        android:textColor="@color/white"
-                        android:textSize="18sp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/c3_price_card" />
+<!--                        <TextView-->
+<!--                            android:id="@+id/c3_month"-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_marginStart="4dp"-->
+<!--                            android:fontFamily="@font/dm_sans_medium_500"-->
+<!--                            android:text="/month"-->
+<!--                            android:textColor="@color/light_grey"-->
+<!--                            android:textSize="16sp" />-->
+<!--                    </LinearLayout>-->
 
-                    <TextView
-                        android:id="@+id/c3_btn_continue"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/subs_card_btn_shape"
-                        android:gravity="center"
-                        android:text="Continue"
-                        android:textColor="@color/white"
-                        android:textSize="17sp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/c3_info" />
+<!--                    <TextView-->
+<!--                        android:id="@+id/c3_info"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginTop="10dp"-->
+<!--                        android:fontFamily="@font/dm_sans_medium_500"-->
+<!--                        android:gravity="center"-->
+<!--                        android:paddingStart="30dp"-->
+<!--                        android:paddingEnd="@dimen/_30dp"-->
+<!--                        android:text="@string/interactive"-->
+<!--                        android:textColor="@color/white"-->
+<!--                        android:textSize="18sp"-->
+<!--                        app:layout_constraintEnd_toEndOf="parent"-->
+<!--                        app:layout_constraintStart_toStartOf="parent"-->
+<!--                        app:layout_constraintTop_toBottomOf="@+id/c3_price_card" />-->
 
-                </androidx.constraintlayout.widget.ConstraintLayout>
-            </com.google.android.material.card.MaterialCardView>
-        </LinearLayout>
-    </HorizontalScrollView>
+<!--                    <TextView-->
+<!--                        android:id="@+id/c3_btn_continue"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:background="@drawable/subs_card_btn_shape"-->
+<!--                        android:gravity="center"-->
+<!--                        android:text="Continue"-->
+<!--                        android:textColor="@color/white"-->
+<!--                        android:textSize="17sp"-->
+<!--                        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                        app:layout_constraintEnd_toEndOf="parent"-->
+<!--                        app:layout_constraintStart_toStartOf="parent"-->
+<!--                        app:layout_constraintTop_toBottomOf="@+id/c3_info" />-->
+
+<!--                </androidx.constraintlayout.widget.ConstraintLayout>-->
+<!--            </com.google.android.material.card.MaterialCardView>-->
+<!--        </LinearLayout>-->
+<!--    </HorizontalScrollView>-->
 
     <TextView
         android:id="@+id/btn_skip"

@@ -11,6 +11,7 @@ import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import com.example.ddaatapp.R
+import com.example.ddaatapp.activity.articleAndBlog.AllBlogActivity
 import com.example.ddaatapp.activity.notification.NotificationActivity
 import com.example.ddaatapp.activity.showVideoContent.MyFavoriteActivity
 import com.example.ddaatapp.adapter.ArticleBlogAdapter
@@ -164,7 +165,7 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
             ArticleDataModel(R.drawable.article_bg_img,"Lorem Ipsum is simply dummy text","Lorem Ipsum is simply dummy text of the printing and.....","June 04, 2022","Smith")
         )
         val articleRecyclerView = binding.articleRecyclerView
-        val articleAdapter = ArticleBlogAdapter(articleList)
+        val articleAdapter = ArticleBlogAdapter(articleList,this,false)
         articleRecyclerView.adapter = articleAdapter
 
         //Article item Decoration
@@ -212,6 +213,9 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
 
             binding.btnMyFavorite->{
                 startActivity(Intent(this, MyFavoriteActivity::class.java))
+            }
+            binding.btnViewAll->{
+                startActivity(Intent(this,AllBlogActivity::class.java))
             }
 
 

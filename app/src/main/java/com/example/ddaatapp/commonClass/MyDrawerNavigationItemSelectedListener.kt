@@ -16,7 +16,10 @@ import com.example.ddaatapp.activity.aboutDdaat.AboutActivity
 import com.example.ddaatapp.activity.feedback.FeedBackActivity
 import com.example.ddaatapp.activity.forgot.ChangePwdActivity
 import com.example.ddaatapp.activity.myPurchase.MyPurchasedActivity
+import com.example.ddaatapp.activity.paymentAndBilling.PaymentAndBillingActivity
 import com.example.ddaatapp.activity.profile.MyProfileActivity
+import com.example.ddaatapp.activity.reviewAndRating.ReviewAndRatingActivity
+import com.example.ddaatapp.activity.subscription.SubscriptionActivity
 import com.example.ddaatapp.activity.superPower.SurveyResultActivity
 import com.google.android.material.navigation.NavigationView
 
@@ -33,16 +36,28 @@ class MyDrawerNavigationItemSelectedListener(var context: Context) : NavigationV
                 mContext.startActivity(Intent(context,MyProfileActivity::class.java))
                 return true
             }
+            R.id.drawerSubscription ->{
+                mContext.startActivity(Intent(context,SubscriptionActivity::class.java))
+                return true
+            }
             R.id.drawerMyNotes ->{
                 mContext.startActivity(Intent(context, MyNotesActivity::class.java))
+                return true
+            }
+            R.id.drawerMySuperpower->{
+                mContext.startActivity(Intent(context, SurveyResultActivity::class.java))
                 return true
             }
             R.id.drawerMyPurchases->{
                 mContext.startActivity(Intent(context, MyPurchasedActivity::class.java))
                 return true
             }
-            R.id.drawerMySuperpower->{
-                mContext.startActivity(Intent(context, SurveyResultActivity::class.java))
+            R.id.drawerReview->{
+                mContext.startActivity(Intent(context, ReviewAndRatingActivity::class.java))
+                return true
+            }
+            R.id.drawerPayment->{
+                mContext.startActivity(Intent(context, PaymentAndBillingActivity::class.java))
                 return true
             }
             R.id.drawerChangePwd ->{

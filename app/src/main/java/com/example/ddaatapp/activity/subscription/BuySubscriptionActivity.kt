@@ -4,15 +4,19 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import com.example.ddaatapp.activity.paymentAndBilling.PaymentAndBillingActivity
 import com.example.ddaatapp.activity.signup.ProfileCreatedActivity
 import com.example.ddaatapp.databinding.ActivityBuySubscriptionBinding
 
 class BuySubscriptionActivity : AppCompatActivity() , View.OnClickListener {
-    lateinit var binding: ActivityBuySubscriptionBinding
+    private lateinit var binding: ActivityBuySubscriptionBinding
+    private lateinit var operationFlow : String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityBuySubscriptionBinding.inflate(layoutInflater)
         setContentView( binding.root)
+
+        operationFlow = intent.getStringExtra("operation").toString()
 
     }
 
@@ -22,9 +26,19 @@ class BuySubscriptionActivity : AppCompatActivity() , View.OnClickListener {
               onBackPressed()
           }
           binding.btnPayment->{
-              val intent = Intent(this, ProfileCreatedActivity::class.java)
-              intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-              startActivity(intent)
+              when(operationFlow){
+                  "SIGN_UP"->{
+                      val intent = Intent(this, ProfileCreatedActivity::class.java)
+                      intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                      startActivity(intent)
+                  }
+                  "SUBSCRIPTION"->{
+                      val intent = Intent(this, PaymentAndBillingActivity::class.java)
+//                      intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                      startActivity(intent)
+                  }
+              }
+
           }
       }
     }

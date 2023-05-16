@@ -59,7 +59,7 @@
     <!--Round Video Thumbnail-->
     <style name="MyVideoImageShape" parent="ShapeAppearance.MaterialComponents">
         <item name="cornerFamily">rounded</item>
-        <item name="cornerSize">15%</item>
+        <item name="cornerSize">10%</item>
     </style>
     <!--Circle Profile-->
     <style name="MyProfileImageShape" parent="ShapeAppearance.MaterialComponents">

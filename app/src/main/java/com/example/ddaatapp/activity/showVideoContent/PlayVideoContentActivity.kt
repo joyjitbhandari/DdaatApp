@@ -23,10 +23,10 @@ class PlayVideoContentActivity : AppCompatActivity(), View.OnClickListener {
         when(operationFlow){
             "VIDEO"->{
                 //setting up visibility
-                binding.relatedVideoCard.visibility = View.VISIBLE
+                binding.relatedVideoCard.visibility = View.GONE
                 binding.relatedLectureCard.visibility = View.GONE
                 binding.lectureSessionCard.visibility = View.GONE
-                binding.videoSessionCard.visibility = View.GONE
+                binding.videoSessionCard.visibility = View.VISIBLE
 
 
                 val videoList = arrayListOf<VideoLibraryDataModel>(

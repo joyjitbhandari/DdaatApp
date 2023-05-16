@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:layout_width="290dp"
+    android:layout_height="420dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-        <!--Card1-->
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/card1"
-        android:layout_width="290dp"
-        android:layout_height="429dp"
-        app:cardBackgroundColor="@color/blue_bg"
-        app:cardCornerRadius="25dp"
-        android:layout_margin="10dp"
-        app:cardElevation="4dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <!--Subscription Card-->
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/subsCardBG"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            app:shapeAppearance="@style/MyVideoImageShape"
+            android:src="@drawable/subs_card_shape_blue"
+            android:scaleType="fitXY"
+            app:cardBackgroundColor="@color/blue_bg"
+            app:cardCornerRadius="25dp"
+            app:cardElevation="4dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
 
             <TextView
                 android:id="@+id/c1_discount"
@@ -35,7 +35,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
-                android:id="@+id/c1_image"
+                android:id="@+id/cardImage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="35dp"
@@ -45,7 +45,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/c1_plan_name"
+                android:id="@+id/cardPlanName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
@@ -55,10 +55,10 @@
                 android:textSize="26sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/c1_image" />
+                app:layout_constraintTop_toBottomOf="@+id/cardImage" />
 
             <TextView
-                android:id="@+id/c1_desc"
+                android:id="@+id/cardDesc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -71,29 +71,36 @@
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/c1_plan_name" />
-
+                app:layout_constraintTop_toBottomOf="@+id/cardPlanName" />
+<!--Price list-->
             <LinearLayout
-                android:id="@+id/c1_price_card"
+                android:id="@+id/priceCard"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_10dp"
                 android:orientation="horizontal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/c1_desc">
+                app:layout_constraintTop_toBottomOf="@+id/cardDesc">
 
                 <TextView
-                    android:id="@+id/c1_price"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/dm_sans_medium_500"
-                    android:text="$19.23"
+                    android:text="$"
                     android:textColor="@color/white"
-                    android:textSize="17sp" />
+                    android:textSize="16sp" />
 
                 <TextView
-                    android:id="@+id/c1_month"
+                    android:id="@+id/price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/dm_sans_bold700"
+                    android:text="19.23"
+                    android:textColor="@color/white"
+                    android:textSize="20sp" />
+
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="4dp"
@@ -104,35 +111,35 @@
             </LinearLayout>
 
             <TextView
-                android:id="@+id/c1_info"
+                android:id="@+id/cardInfo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/dm_sans_medium_500"
                 android:gravity="center"
-                android:paddingStart="30dp"
-                android:paddingEnd="@dimen/_30dp"
                 android:text="@string/interactive"
                 android:textColor="@color/white"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/c1_price_card" />
+                app:layout_constraintTop_toBottomOf="@+id/priceCard" />
 
-            <TextView
-                android:id="@+id/c1_btn_continue"
-                android:layout_width="wrap_content"
+            <com.google.android.material.button.MaterialButton
+                style="@style/Widget.Material3.Button.TextButton"
+                android:id="@+id/btn_continue"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:background="@drawable/subs_card_btn_shape"
+                android:layout_marginHorizontal="@dimen/_20dp"
                 android:gravity="center"
                 android:text="Continue"
+                android:paddingVertical="17sp"
+                app:strokeWidth="1dp"
+                app:strokeColor="@color/white"
                 android:textColor="@color/white"
                 android:textSize="17sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/c1_info" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </com.google.android.material.card.MaterialCardView>
+                app:layout_constraintTop_toBottomOf="@+id/cardInfo" />
 </androidx.constraintlayout.widget.ConstraintLayout>

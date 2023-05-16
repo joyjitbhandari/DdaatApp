@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <View
+        android:id="@+id/dialog_card"
+        android:layout_width="333dp"
+        android:layout_height="400dp"
+        android:background="@drawable/dialog_black_stroke_card_shape"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+<!--logout image-->
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/unSubscribeImage"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:background="@android:color/transparent"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_error"
+        android:tint="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/dialog_card"
+        app:layout_constraintEnd_toEndOf="@+id/dialog_card"
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toStartOf="@+id/dialog_card"
+        app:layout_constraintTop_toTopOf="@+id/dialog_card"
+        app:layout_constraintVertical_bias="0.071"
+        app:shapeAppearance="@style/MyProfileImageShape" />
+<!--Text-->
+    <TextView
+        android:id="@+id/textWarning"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/dm_sans_bold700"
+        android:text="@string/are_you_sure_you_want_unsubscribe"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:textSize="24sp"
+        android:layout_marginTop="@dimen/_30dp"
+        app:layout_constraintEnd_toEndOf="@+id/dialog_card"
+        app:layout_constraintStart_toStartOf="@+id/dialog_card"
+        app:layout_constraintTop_toBottomOf="@+id/unSubscribeImage" />
+<!--text-->
+    <TextView
+        android:id="@+id/txtSubContent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/dm_sans_regular_400"
+        android:gravity="center"
+        android:text="Lorem Ipsum is simply dummy text of\n the printing and typesetting industry. "
+        android:textColor="@color/light_grey"
+        android:textSize="14sp"
+        android:layout_marginTop="@dimen/_15dp"
+        app:layout_constraintEnd_toEndOf="@+id/dialog_card"
+        app:layout_constraintStart_toStartOf="@+id/dialog_card"
+        app:layout_constraintTop_toBottomOf="@+id/textWarning"/>
+
+<!--Logout Buttons-->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/dialog_card"
+        app:layout_constraintEnd_toEndOf="@+id/dialog_card"
+        app:layout_constraintStart_toStartOf="@+id/dialog_card"
+        app:layout_constraintTop_toBottomOf="@+id/txtSubContent">
+
+        <!--Cancel-->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnCancel"
+            android:layout_width="125dp"
+            android:layout_height="60dp"
+            android:text="Cancel"
+            android:fontFamily="@font/dm_sans_medium_500"
+            android:textColor="@color/black"
+            app:strokeWidth="1dp"
+            android:backgroundTint="@color/blue_bg"
+            app:strokeColor="@color/blue_bg"/>
+        <!--Yes-->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnYes"
+            style="@style/Widget.Material3.Button.TextButton"
+            android:layout_width="125dp"
+            android:layout_height="60dp"
+            android:text="Yes"
+            android:fontFamily="@font/dm_sans_medium_500"
+            android:layout_marginStart="15dp"
+            app:strokeWidth="1dp"
+            app:strokeColor="@color/blue_bg" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

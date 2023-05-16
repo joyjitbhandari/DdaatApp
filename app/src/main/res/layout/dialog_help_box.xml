@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="333dp"
-    android:layout_height="333dp"
+    android:layout_height="wrap_content"
     android:background="@drawable/dialog_black_stroke_card_shape"
     android:padding="@dimen/_15dp">
 
@@ -23,6 +23,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
+<!--Heading-->
     <TextView
         android:id="@+id/textHeading"
         android:layout_width="0dp"
@@ -33,43 +34,134 @@
         android:textColor="@color/white"
         android:layout_marginHorizontal="@dimen/_10dp"
         android:textSize="22sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="60dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.275" />
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <!--Call button-->
+    <!--Call 911 text-->
     <TextView
-        android:id="@+id/textSubHeading"
+        android:id="@+id/textEmergencyCall"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginVertical="@dimen/_15dp"
-        android:paddingHorizontal="@dimen/_15dp"
-        android:text="@string/lorem_ipsum"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/_25dp"
+        android:text="@string/if_you_think_you_may_have_a_medical_emergency_call_your_doctor_or"
         android:textColor="@color/light_grey"
         android:textSize="14sp"
-        app:layout_constraintBottom_toTopOf="@+id/btn_call"
         app:layout_constraintEnd_toEndOf="@+id/textHeading"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/textHeading"
-        app:layout_constraintTop_toBottomOf="@+id/textHeading"
-        app:layout_constraintVertical_bias="0.0" />
-
+        app:layout_constraintTop_toBottomOf="@+id/textHeading" />
+<!--Button 988-->
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_call"
+        android:id="@+id/btnEmergencyCall"
+        style="@style/Widget.Material3.Button.TextButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/blue_bg"
+        android:textColor="@color/black"
+        android:textSize="17sp"
+        android:fontFamily="@font/dm_sans_medium_500"
+        android:layout_marginStart="@dimen/_10dp"
+        android:layout_marginEnd="@dimen/_10dp"
+        android:onClick="onClick"
+        android:paddingVertical="@dimen/_16dp"
+        android:text="Emergency Call 911"
+        android:layout_marginTop="@dimen/_15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textEmergencyCall" />
+
+    <!--Call 988 text-->
+    <TextView
+        android:id="@+id/text988Call"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/_15dp"
+        android:text="@string/if_you_are_considering_suicide_or_have_a_plan_to_take_your_life_please_call"
+        android:textColor="@color/light_grey"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/btnEmergencyCall"
+        app:layout_constraintStart_toStartOf="@+id/btnEmergencyCall"
+        app:layout_constraintTop_toBottomOf="@+id/btnEmergencyCall" />
+    <!--Button 988-->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_988call"
+        style="@style/Widget.Material3.Button.TextButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_10dp"
+        android:layout_marginEnd="@dimen/_10dp"
+        android:paddingVertical="@dimen/_10dp"
+        android:backgroundTint="@color/blue_bg"
+        android:textColor="@color/black"
+        android:textSize="17sp"
+        android:onClick="onClick"
+        android:fontFamily="@font/dm_sans_medium_500"
+        android:text="@string/national_suicide_prevention_lifeline_at_988"
+        android:layout_marginTop="@dimen/_15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text988Call" />
+
+    <!--Call 741 text-->
+    <TextView
+        android:id="@+id/text741Call"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/_15dp"
+        android:text="@string/if_you_are_in_a_state_of_crisis_please_contact_the_crisis_text_line_by_texting"
+        android:textColor="@color/light_grey"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/btn_988call"
+        app:layout_constraintStart_toStartOf="@+id/btn_988call"
+        app:layout_constraintTop_toBottomOf="@+id/btn_988call" />
+    <!--Button 741-->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn741call"
+        style="@style/Widget.Material3.Button.TextButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/blue_bg"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_17sp"
+        android:fontFamily="@font/dm_sans_medium_500"
+        android:layout_marginStart="@dimen/_10dp"
+        android:layout_marginEnd="@dimen/_10dp"
+        android:onClick="onClick"
+        android:paddingVertical="@dimen/_16dp"
+        android:text="''HOME'' to 741-741"
+        android:layout_marginTop="@dimen/_15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text741Call" />
+
+    <!--Call 988 text-->
+    <TextView
+        android:id="@+id/textNationalSuicideCall"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/_15dp"
+        android:text="@string/ddaat_app_declares_no_affiliation_sponsorship_nor_any_partnership_with_the_988_national_suicide_and_crisis_lifeline"
+        android:textColor="@color/light_grey"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/btn741call"
+        app:layout_constraintStart_toStartOf="@+id/btn741call"
+        app:layout_constraintTop_toBottomOf="@+id/btn741call" />
+    <!--Button 988-->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnNationalSuicideCall"
         style="@style/MyTextButtonStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="onClick"
-        android:layout_marginBottom="@dimen/_30dp"
         android:layout_marginStart="@dimen/_10dp"
         android:layout_marginEnd="@dimen/_10dp"
+        android:onClick="onClick"
         android:paddingVertical="@dimen/_16dp"
-        android:text="@string/emergency_call_988"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="Call National Suicide 988"
+        android:layout_marginTop="@dimen/_15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintVertical_bias="0.172" />
+        app:layout_constraintTop_toBottomOf="@+id/textNationalSuicideCall" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -69,7 +69,9 @@ class InterestActivity : AppCompatActivity(), View.OnClickListener {
                        onBackPressed()
                    }
                    "SIGN_UP"->{
+                       val operationFlow = "SIGN_UP"
                        val intent = Intent(this, SubscriptionActivity::class.java)
+                       intent.putExtra("operation", operationFlow)
                        startActivity(intent)
                    }
                 }

@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/screen_bg">
+
+    <!--User feedback taking card-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/takingFeedbackCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/round_25_black_stroke_shape"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <View
+            android:id="@+id/headerCard"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:background="@drawable/bottom_nav_black_shape"
+            android:backgroundTint="@color/blue_bg"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <!--Mentor Image-->
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/mentorImage"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/video_session_img2"
+            app:layout_constraintBottom_toBottomOf="@+id/headerCard"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.096"
+            app:layout_constraintStart_toStartOf="@+id/headerCard"
+            app:layout_constraintTop_toTopOf="@+id/headerCard"
+            app:layout_constraintVertical_bias="0.4"
+            app:shapeAppearance="@style/MyProfileImageShape" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_15dp"
+            android:layout_marginEnd="@dimen/_25dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="@+id/headerCard"
+            app:layout_constraintEnd_toEndOf="@+id/headerCard"
+            app:layout_constraintStart_toEndOf="@+id/mentorImage"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <!--Text Mentor Name-->
+            <TextView
+                android:id="@+id/txt_mentorName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/dm_sans_bold700"
+                android:text="Ellie Olsen"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+            <!--Video Session-->
+            <TextView
+                android:id="@+id/txt_dateTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10dp"
+                android:fontFamily="@font/dm_sans_regular_400"
+                android:text="Video Session"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <!--Rating stars-->
+        <LinearLayout
+            android:id="@+id/ratingCard"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_25dp"
+            android:layout_marginTop="@dimen/_15dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/headerCard">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/rate1Star"
+                style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:backgroundTint="@android:color/transparent"
+                app:icon="@drawable/ic_star"
+                app:iconGravity="textStart"
+                app:iconSize="@dimen/_25dp"
+                app:iconTint="@color/yellow" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/rate2Star"
+                style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:backgroundTint="@android:color/transparent"
+                app:icon="@drawable/ic_star"
+                app:iconGravity="textStart"
+                app:iconSize="@dimen/_25dp"
+                app:iconTint="@color/yellow" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/rate3Star"
+                style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:backgroundTint="@android:color/transparent"
+                app:icon="@drawable/ic_star"
+                app:iconGravity="textStart"
+                app:iconSize="@dimen/_25dp"
+                app:iconTint="@color/yellow" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/rate4Star"
+                style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:backgroundTint="@android:color/transparent"
+                app:icon="@drawable/ic_star"
+                app:iconGravity="textStart"
+                app:iconSize="@dimen/_25dp"
+                app:iconTint="@color/yellow" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/rate5Star"
+                style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:backgroundTint="@android:color/transparent"
+                app:icon="@drawable/ic_star"
+                app:iconGravity="textStart"
+                app:iconSize="@dimen/_25dp"
+                app:iconTint="@color/light_grey" />
+        </LinearLayout>
+
+
+        <!--Something About session Body-->
+
+        <TextView
+            android:id="@+id/txt_ratingBody"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_25dp"
+            android:layout_marginBottom="@dimen/_25dp"
+            android:layout_marginTop="@dimen/_10dp"
+            android:background="@color/float_transparent"
+            android:fontFamily="@font/dm_sans_regular_400"
+            android:text="@string/lorem_ipsum"
+            android:textColor="@color/light_grey"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ratingCard" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

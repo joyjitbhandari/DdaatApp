@@ -57,7 +57,6 @@
             android:textSize="15sp"
             app:layout_constraintStart_toStartOf="@id/et_name"
             app:layout_constraintTop_toBottomOf="@id/view_blue" />
-
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/et_name"
                 android:layout_width="match_parent"
@@ -91,7 +90,6 @@
                 android:textSize="15sp"
                 app:layout_constraintStart_toStartOf="@id/et_userId"
                 app:layout_constraintTop_toBottomOf="@id/et_name" />
-
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/et_userId"
                     android:layout_width="match_parent"
@@ -127,8 +125,6 @@
                 android:textSize="15sp"
                 app:layout_constraintStart_toStartOf="@id/et_email"
                 app:layout_constraintTop_toBottomOf="@id/et_userId" />
-
-
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/et_email"
                     android:layout_width="match_parent"
