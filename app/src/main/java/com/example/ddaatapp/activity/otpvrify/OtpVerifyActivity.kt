@@ -6,6 +6,7 @@ import android.os.Bundle
 import com.example.ddaatapp.activity.forgot.ChangePwdActivity
 import com.example.ddaatapp.databinding.ActivityOtpVerifyBinding
 import com.example.ddaatapp.activity.signup.CompleteProfile
+import com.example.ddaatapp.`object`.Constants
 
 class OtpVerifyActivity : AppCompatActivity() {
     private lateinit var binding: ActivityOtpVerifyBinding
@@ -18,15 +19,15 @@ class OtpVerifyActivity : AppCompatActivity() {
 
         binding.btnVerify.setOnClickListener {
             when (operationFlow) {
-                "SIGN_UP"-> {
-                    val operationFlow = "SIGN_UP"
+                Constants.SIGN_UP-> {
+                    val operationFlow = Constants.SIGN_UP
                     val intent = Intent(this, CompleteProfile::class.java)
                     intent.putExtra("operation",operationFlow)
                     startActivity(intent)
                     finish()
                 }
-                "FORGOT"-> {
-                    val operationFlow = "FORGOT"
+                Constants.FORGOT-> {
+                    val operationFlow = Constants.FORGOT
                     val intent = Intent(this, ChangePwdActivity::class.java)
                     intent.putExtra("operation",operationFlow)
                     startActivity(intent)

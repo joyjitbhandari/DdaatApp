@@ -72,4 +72,6 @@
         <item name="cornerSizeTopLeft">15%</item>
         <item name="cornerSizeTopRight">15%</item>
     </style>
+
+
 </resources>

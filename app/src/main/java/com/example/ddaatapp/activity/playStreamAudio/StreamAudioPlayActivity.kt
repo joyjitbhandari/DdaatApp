@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import com.example.ddaatapp.databinding.ActivityStreamAudioPlayBinding
+import com.example.ddaatapp.`object`.Constants
 
 class StreamAudioPlayActivity : AppCompatActivity(), View.OnClickListener  {
     private lateinit var binding:ActivityStreamAudioPlayBinding
@@ -16,7 +17,7 @@ class StreamAudioPlayActivity : AppCompatActivity(), View.OnClickListener  {
         //Getting flow from intent
         operationFlow = intent.getStringExtra("operation").toString()
 
-        if(operationFlow == "PODCAST"){
+        if(operationFlow == Constants.PODCAST){
             binding.txtContentName.text = "Podcast Title"
         }else{
             binding.txtContentName.text = "Stream Title"

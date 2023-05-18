@@ -7,6 +7,7 @@ import android.view.View
 import com.example.ddaatapp.activity.paymentAndBilling.PaymentAndBillingActivity
 import com.example.ddaatapp.activity.signup.ProfileCreatedActivity
 import com.example.ddaatapp.databinding.ActivityBuySubscriptionBinding
+import com.example.ddaatapp.`object`.Constants
 
 class BuySubscriptionActivity : AppCompatActivity() , View.OnClickListener {
     private lateinit var binding: ActivityBuySubscriptionBinding
@@ -27,12 +28,12 @@ class BuySubscriptionActivity : AppCompatActivity() , View.OnClickListener {
           }
           binding.btnPayment->{
               when(operationFlow){
-                  "SIGN_UP"->{
+                  Constants.SIGN_UP->{
                       val intent = Intent(this, ProfileCreatedActivity::class.java)
                       intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                       startActivity(intent)
                   }
-                  "SUBSCRIPTION"->{
+                  Constants.SUBSCRIPTION->{
                       val intent = Intent(this, PaymentAndBillingActivity::class.java)
 //                      intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                       startActivity(intent)

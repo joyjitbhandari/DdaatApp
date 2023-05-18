@@ -8,6 +8,7 @@ import com.example.ddaatapp.R
 import com.example.ddaatapp.activity.subscription.SubscriptionActivity
 import com.example.ddaatapp.databinding.ActivityInterestBinding
 import com.example.ddaatapp.databinding.InterestChoiceChipItemBinding
+import com.example.ddaatapp.`object`.Constants
 import com.google.android.material.chip.Chip
 
 
@@ -23,7 +24,7 @@ class InterestActivity : AppCompatActivity(), View.OnClickListener {
 
         //   Checking the operation flow
         operationFlow = intent.getStringExtra("operation").toString()
-        if (operationFlow == "EDIT"){
+        if (operationFlow == Constants.EDIT){
             binding.btnNext.text = "Save"
             binding.toolTitle.text = "Edit Category"
         }
@@ -65,11 +66,11 @@ class InterestActivity : AppCompatActivity(), View.OnClickListener {
         when (view) {
             binding.btnNext -> {
                when(operationFlow){
-                   "EDIT"->{
+                   Constants.EDIT->{
                        onBackPressed()
                    }
-                   "SIGN_UP"->{
-                       val operationFlow = "SIGN_UP"
+                   Constants.SIGN_UP->{
+                       val operationFlow = Constants.SIGN_UP
                        val intent = Intent(this, SubscriptionActivity::class.java)
                        intent.putExtra("operation", operationFlow)
                        startActivity(intent)

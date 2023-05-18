@@ -228,7 +228,7 @@
             android:cursorVisible="false"
             android:onClick="onClick"
             android:text="@string/select"
-            android:drawableEnd="@drawable/ic_drop_down_arrow"
+            android:drawableEnd="@drawable/ic_expand_more_arrow"
             android:textColor="@color/white"
             android:textSize="15sp"
             app:layout_constraintEnd_toEndOf="parent"

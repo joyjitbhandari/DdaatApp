@@ -10,6 +10,7 @@ import com.example.ddaatapp.adapter.SubscriptionAdapter
 import com.example.ddaatapp.commonClass.HorizontalListSpacingItemDecoration
 import com.example.ddaatapp.databinding.ActivitySubscriptionBinding
 import com.example.ddaatapp.datamodel.SubscriptionDataModel
+import com.example.ddaatapp.`object`.Constants
 
 class SubscriptionActivity : AppCompatActivity(),View.OnClickListener {
     private lateinit var binding: ActivitySubscriptionBinding
@@ -22,11 +23,6 @@ class SubscriptionActivity : AppCompatActivity(),View.OnClickListener {
 
         operationFlow = intent.getStringExtra("operation").toString()
 
-        if(operationFlow=="SIGN_UP"){
-            binding.toolTitle.text = "Complete Profile"
-        }else{
-            binding.toolTitle.text = "Subscription"
-        }
 
         //Card list setting
         val cardList = arrayListOf<SubscriptionDataModel>(
@@ -38,10 +34,12 @@ class SubscriptionActivity : AppCompatActivity(),View.OnClickListener {
         val subscriptionRecyclerView = binding.subscriptionRecycler
         val adapter : SubscriptionAdapter
 
-        if(operationFlow=="SIGN_UP"){
+        if(operationFlow==Constants.SIGN_UP){
+            binding.toolTitle.text = "Complete Profile"
             binding.btnSkip.visibility = View.VISIBLE
             adapter = SubscriptionAdapter(cardList,this,false)
         }else{
+            binding.toolTitle.text = "Subscription"
             binding.btnSkip.visibility = View.GONE
             adapter = SubscriptionAdapter(cardList,this,true)
         }
@@ -57,7 +55,9 @@ class SubscriptionActivity : AppCompatActivity(),View.OnClickListener {
     override fun onClick(view: View?) {
         when(view){
             binding.btnSkip->{
+                val operationFlow = Constants.UNSUBSCRIBE
                 val intent = Intent(this, ProfileCreatedActivity::class.java)
+                intent.putExtra("operation",operationFlow)
                 intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                 startActivity(intent)
             }

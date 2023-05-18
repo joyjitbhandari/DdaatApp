@@ -89,10 +89,11 @@
             android:layout_width="55dp"
             android:layout_height="55dp"
             android:backgroundTint="@color/blue_bg"
+            app:iconSize="@dimen/_35dp"
+            app:iconGravity="textStart"
             android:onClick="onClick"
             android:textSize="17sp"
-            app:icon="@drawable/ic_mic"
-            app:iconSize="@dimen/_30dp"/>
+            app:icon="@drawable/ic_mic" />
 
         <!--Video button-->
         <com.google.android.material.button.MaterialButton

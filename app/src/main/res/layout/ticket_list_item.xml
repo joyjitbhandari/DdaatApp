@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="180dp"
+    android:background="@drawable/round_25_black_stroke_shape"
+    android:padding="@dimen/_25dp">
+<!--Ticket Title-->
+    <TextView
+        android:id="@+id/txt_TicketTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/float_transparent"
+        android:fontFamily="@font/dm_sans_bold700"
+        android:text="Title of the Ticket"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <!--Ticket status-->
+    <TextView
+        android:id="@+id/txt_TicketStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_25dp"
+        android:background="@color/float_transparent"
+        android:fontFamily="@font/dm_sans_bold700"
+        android:text="(Open)"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/txt_TicketTitle"
+        app:layout_constraintStart_toEndOf="@+id/txt_TicketTitle"
+        app:layout_constraintTop_toTopOf="parent" />
+    <!--Ticket Desc-->
+    <TextView
+        android:id="@+id/txt_TicketDesc"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginVertical="@dimen/_15dp"
+        android:background="@color/float_transparent"
+        android:fontFamily="@font/dm_sans_medium_500"
+        android:text="Title of the Ticket"
+        android:textColor="@color/light_grey"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/txt_TicketDateTime"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_TicketTitle" />
+
+
+    <!--Ticket Date Time-->
+    <TextView
+        android:id="@+id/txt_TicketDateTime"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/float_transparent"
+        android:fontFamily="@font/dm_sans_medium_500"
+        android:maxLines="3"
+        android:text="Created - 28th Feb 2023 at 12.00 PM"
+        android:textColor="@color/blue_bg"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

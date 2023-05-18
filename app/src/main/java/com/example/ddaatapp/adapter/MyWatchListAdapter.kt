@@ -12,6 +12,7 @@ import com.example.ddaatapp.R
 import com.example.ddaatapp.activity.showVideoContent.ShowVideoContentActivity
 import com.example.ddaatapp.databinding.VideoLibraryListItemBinding
 import com.example.ddaatapp.datamodel.VideoLibraryDataModel
+import com.example.ddaatapp.`object`.Constants
 
 class MyWatchListAdapter(val videoList: ArrayList<VideoLibraryDataModel>, val context: Context) :
     RecyclerView.Adapter<MyWatchListAdapter.ViewHolder>() {
@@ -23,7 +24,7 @@ class MyWatchListAdapter(val videoList: ArrayList<VideoLibraryDataModel>, val co
 
 
             binding.root.setOnClickListener {
-                val operationFlow = "VIDEO"
+                val operationFlow = Constants.VIDEO
                 val intent = Intent(context,ShowVideoContentActivity::class.java)
                 intent.putExtra("operation",operationFlow)
                 mContext.startActivity(intent)

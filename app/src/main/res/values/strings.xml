@@ -180,5 +180,9 @@ You’ll see your dashboard at the end that will reveal your workplace talents.<
     <string name="enter_cardholder_name">Enter CardHolder Name</string>
     <string name="card_number">Card Number</string>
     <string name="expiry_date">Expiry Date</string>
+    <string name="chat_with_support">Chat With Support</string>
+    <string name="question">Question</string>
+    <string name="chat">Chat</string>
+    <string name="search">Search</string>
 
 </resources>

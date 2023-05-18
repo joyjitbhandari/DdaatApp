@@ -37,9 +37,9 @@ class MyNotesActivity : AppCompatActivity() {
         )
 
         //setting up the list view adapter
-        val myNotetRecycler = binding.myNotesRecyclerView
+        val myNotesRecycler = binding.myNotesRecyclerView
         val myNotesAdapter = MyNotesAdapter(noteList,true,this)
-        myNotetRecycler.adapter = myNotesAdapter
+        myNotesRecycler.adapter = myNotesAdapter
 
         binding.btnBack.setOnClickListener {
             onBackPressed()

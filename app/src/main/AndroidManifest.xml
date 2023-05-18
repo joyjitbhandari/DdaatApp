@@ -12,6 +12,36 @@
         android:theme="@style/Theme.DdaatApp"
         tools:targetApi="31">
         <activity
+            android:name=".unsubscribeScreen.UnsubscribeQuestionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".unsubscribeScreen.UnsubscribeSearchActivity"
+            android:exported="false" />
+        <activity
+            android:name=".unsubscribeScreen.UnsubscribeChatActivity"
+            android:exported="false" />
+        <activity
+            android:name=".unsubscribeScreen.UnsubscribeStreamsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".unsubscribeScreen.UnsubscribeHomeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.techSupport.TechSupportChatActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.techSupport.CreateTicketActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.techSupport.TechSupportTicketActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.notification.NotificationSettingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.techSupport.TechSupportActivity"
+            android:exported="false" />
+        <activity
             android:name=".activity.paymentAndBilling.AddNewCardActivity"
             android:exported="false" />
         <activity
@@ -148,16 +178,18 @@
             android:exported="false" />
         <activity
             android:name=".activity.splash.OnBoardingActivity"
-            android:exported="true">
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".activity.splash.SplashActivity"
-            android:exported="true" />
+            android:exported="true"/>
+
         <activity
             android:name=".activity.login.LoginActivity"
             android:exported="false" />

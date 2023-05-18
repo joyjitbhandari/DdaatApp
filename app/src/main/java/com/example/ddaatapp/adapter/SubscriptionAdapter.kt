@@ -12,6 +12,7 @@ import com.example.ddaatapp.databinding.ReviewAndRatingItemBinding
 import com.example.ddaatapp.databinding.SubscriptionCardItemBinding
 import com.example.ddaatapp.datamodel.ReviewAndRatingDataModel
 import com.example.ddaatapp.datamodel.SubscriptionDataModel
+import com.example.ddaatapp.`object`.Constants
 
 class SubscriptionAdapter(private val cardList: ArrayList<SubscriptionDataModel>, var context: Context, var isAfterSignIn: Boolean) :
     RecyclerView.Adapter<SubscriptionAdapter.ViewHolder>() {
@@ -26,20 +27,22 @@ class SubscriptionAdapter(private val cardList: ArrayList<SubscriptionDataModel>
             binding.cardInfo.text = subscriptionDataModel.subsInfo
 
 
-            binding.root.setOnClickListener {
-                val intent = Intent(context,SubscriptionDetailsActivity::class.java)
-                mContext.startActivity(intent)
-            }
-
-
             if(isAfterSignIn){
                 if(subscriptionDataModel.isSubscribed){
                     binding.btnContinue.text = "Subscribed"
+                    binding.root.setOnClickListener {
+                        val intent = Intent(context,SubscriptionDetailsActivity::class.java)
+                        mContext.startActivity(intent)
+                    }
 
                 }else{
                     binding.btnContinue.text = "Subscribe"
+                    binding.root.setOnClickListener {
+                        val intent = Intent(context,SubscriptionDetailsActivity::class.java)
+                        mContext.startActivity(intent)
+                    }
                     binding.btnContinue.setOnClickListener {
-                        val operationFlow = "SUBSCRIPTION"
+                        val operationFlow = Constants.SUBSCRIPTION
                         val intent = Intent(context,BuySubscriptionActivity::class.java)
                         intent.putExtra("operation",operationFlow)
                         mContext.startActivity(intent)
@@ -49,7 +52,7 @@ class SubscriptionAdapter(private val cardList: ArrayList<SubscriptionDataModel>
             }else{
                 binding.btnContinue.text = "Continue"
                 binding.btnContinue.setOnClickListener {
-                    val operationFlow = "SIGN_UP"
+                    val operationFlow = Constants.SIGN_UP
                     val intent = Intent(context,BuySubscriptionActivity::class.java)
                     intent.putExtra("operation",operationFlow)
                     mContext.startActivity(intent)

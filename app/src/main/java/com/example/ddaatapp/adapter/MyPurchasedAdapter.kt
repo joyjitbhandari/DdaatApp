@@ -11,6 +11,7 @@ import com.example.ddaatapp.R
 import com.example.ddaatapp.activity.showVideoContent.ShowVideoContentActivity
 import com.example.ddaatapp.databinding.VideoLibraryListItemBinding
 import com.example.ddaatapp.datamodel.MyPurchasedDataModel
+import com.example.ddaatapp.`object`.Constants
 
 class MyPurchasedAdapter(val videoList: ArrayList<MyPurchasedDataModel>, private val itemCount:Int, val context: Context ) :
     RecyclerView.Adapter<MyPurchasedAdapter.ViewHolder>() {
@@ -21,7 +22,7 @@ class MyPurchasedAdapter(val videoList: ArrayList<MyPurchasedDataModel>, private
             binding.txtVideoDesc.text = myPurchaseDataModel.desc
 
                 binding.root.setOnClickListener {
-                    val operationFlow = "PURCHASED"
+                    val operationFlow = Constants.PURCHASED
                     val intent = Intent(context, ShowVideoContentActivity::class.java)
                     intent.putExtra("operation",operationFlow)
                     mContext.startActivity(intent)

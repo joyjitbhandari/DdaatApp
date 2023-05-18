@@ -10,6 +10,7 @@ import com.example.ddaatapp.adapter.VideoAndLectureSessionAdapter
 import com.example.ddaatapp.commonClass.LinearListSpacingItemDecoration
 import com.example.ddaatapp.databinding.ActivityPlayVideoContentBinding
 import com.example.ddaatapp.datamodel.VideoLibraryDataModel
+import com.example.ddaatapp.`object`.Constants
 
 class PlayVideoContentActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var binding:ActivityPlayVideoContentBinding
@@ -21,7 +22,7 @@ class PlayVideoContentActivity : AppCompatActivity(), View.OnClickListener {
 
         operationFlow = intent.getStringExtra("operation").toString()
         when(operationFlow){
-            "VIDEO"->{
+            Constants.VIDEO->{
                 //setting up visibility
                 binding.relatedVideoCard.visibility = View.GONE
                 binding.relatedLectureCard.visibility = View.GONE
@@ -40,7 +41,7 @@ class PlayVideoContentActivity : AppCompatActivity(), View.OnClickListener {
                 sessionVideoRecyclerView.adapter = adapter
             }
 
-            "PURCHASED"->{
+            Constants.PURCHASED->{
                 binding.txtContentName.text = "Course Name"
                 //setting up visibility
                 binding.relatedVideoCard.visibility = View.GONE
@@ -75,7 +76,7 @@ class PlayVideoContentActivity : AppCompatActivity(), View.OnClickListener {
 
             }
 
-            "COURSE"->{
+            Constants.COURSE->{
                 //setting course heading
                 binding.txtContentName.text = "Course Name"
                 //setting up visibility

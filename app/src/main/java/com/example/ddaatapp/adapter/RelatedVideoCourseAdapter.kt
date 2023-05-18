@@ -13,6 +13,7 @@ import com.example.ddaatapp.activity.showVideoContent.ShowVideoContentActivity
 import com.example.ddaatapp.databinding.RelatedVideoCourseListItemBinding
 import com.example.ddaatapp.databinding.VideoLibraryListItemBinding
 import com.example.ddaatapp.datamodel.VideoLibraryDataModel
+import com.example.ddaatapp.`object`.Constants
 
 class RelatedVideoCourseAdapter(val videoList: ArrayList<VideoLibraryDataModel>, private val itemCount:Int, val context: Context, val isVideo:Boolean) :
     RecyclerView.Adapter<RelatedVideoCourseAdapter.ViewHolder>() {
@@ -25,7 +26,7 @@ class RelatedVideoCourseAdapter(val videoList: ArrayList<VideoLibraryDataModel>,
             if(isVideo){
                 binding.root.setOnClickListener {
                     binding.playButton.visibility = View.VISIBLE
-                    val operationFlow = "VIDEO"
+                    val operationFlow = Constants.VIDEO
                     val intent = Intent(context,ShowVideoContentActivity::class.java)
                     intent.putExtra("operation",operationFlow)
                     mContext.startActivity(intent)
@@ -34,7 +35,7 @@ class RelatedVideoCourseAdapter(val videoList: ArrayList<VideoLibraryDataModel>,
             }else{
                 binding.playButton.visibility = View.GONE
                 binding.root.setOnClickListener {
-                    val operationFlow = "COURSE"
+                    val operationFlow = Constants.COURSE
                     val intent = Intent(context,ShowVideoContentActivity::class.java)
                     intent.putExtra("operation",operationFlow)
                     mContext.startActivity(intent)

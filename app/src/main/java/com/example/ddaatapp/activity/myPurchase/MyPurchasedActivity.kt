@@ -30,8 +30,8 @@ class MyPurchasedActivity : AppCompatActivity() {
 
         //setting up the list view adapter
         val myPurchasedRecycler = binding.myPurchasedRecycler
-        val mypurchaseAdapter = MyPurchasedAdapter(purchaseList,purchaseList.size,this)
-        myPurchasedRecycler.adapter =  mypurchaseAdapter
+        val myPurchaseAdapter = MyPurchasedAdapter(purchaseList,purchaseList.size,this)
+        myPurchasedRecycler.adapter =  myPurchaseAdapter
         val spacing = resources.getDimensionPixelSize(R.dimen._15dp)
         myPurchasedRecycler.addItemDecoration(LinearListSpacingItemDecoration(spacing))
 

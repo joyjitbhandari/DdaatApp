@@ -14,6 +14,7 @@ import com.example.ddaatapp.databinding.ActivityPaymentAndBillingBinding
 import com.example.ddaatapp.databinding.SubscriptionCardItemBinding
 import com.example.ddaatapp.datamodel.AtmCardDataModel
 import com.example.ddaatapp.datamodel.AtmCardTransactionDataModel
+import com.example.ddaatapp.`object`.Constants
 
 class PaymentAndBillingActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var binding: ActivityPaymentAndBillingBinding
@@ -67,7 +68,7 @@ class PaymentAndBillingActivity : AppCompatActivity(), View.OnClickListener {
                 onBackPressed()
             }
             binding.btnAddNew->{
-                val operationFlow = "ADD"
+                val operationFlow = Constants.ADD
                 val intent = Intent(this, AddNewCardActivity::class.java)
                 intent.putExtra("operation", operationFlow)
                 startActivity(intent)

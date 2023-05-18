@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.enableSavedStateHandles
 import com.example.ddaatapp.databinding.ActivityAddNewCardBinding
+import com.example.ddaatapp.`object`.Constants
 
 class AddNewCardActivity : AppCompatActivity() , View.OnClickListener {
     private lateinit var binding:ActivityAddNewCardBinding
@@ -16,10 +17,10 @@ class AddNewCardActivity : AppCompatActivity() , View.OnClickListener {
 
         operationFlow = intent.getStringExtra("operation").toString()
         when(operationFlow){
-            "ADD"->{
+            Constants.ADD->{
                 binding.toolTitle.text = "Add New Card"
             }
-            "EDIT"->{
+            Constants.EDIT->{
                 binding.toolTitle.text = "Edit Card"
             }
         }

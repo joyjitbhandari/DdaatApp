@@ -413,8 +413,6 @@
                     android:onClick="onClick"
                     android:padding="@dimen/_5dp"
                     android:layout_marginEnd="@dimen/_20dp"
-                    app:icon="@drawable/ic_add"
-                    app:iconGravity="textEnd"
                     android:text="View all"
                     android:textColor="@color/blue_bg"
                     android:textSize="12sp"

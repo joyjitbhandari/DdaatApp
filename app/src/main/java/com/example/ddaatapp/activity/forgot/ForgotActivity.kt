@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import com.example.ddaatapp.activity.otpvrify.OtpVerifyActivity
 import com.example.ddaatapp.databinding.ActivityForgotBinding
+import com.example.ddaatapp.`object`.Constants
 
 class ForgotActivity : AppCompatActivity() , View.OnClickListener {
     private lateinit var binding: ActivityForgotBinding
@@ -18,7 +19,7 @@ class ForgotActivity : AppCompatActivity() , View.OnClickListener {
     override fun onClick(view: View?) {
        when(view){
            binding.btnSetNewPwd->{
-               val operationFlow = "FORGOT"
+               val operationFlow = Constants.FORGOT
                val intent = Intent(this, OtpVerifyActivity::class.java)
                intent.putExtra("operation",operationFlow)
                startActivity(intent)

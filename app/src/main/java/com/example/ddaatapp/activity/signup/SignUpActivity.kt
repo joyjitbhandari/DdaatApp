@@ -6,6 +6,8 @@ import android.os.Bundle
 import android.view.View
 import com.example.ddaatapp.activity.otpvrify.OtpVerifyActivity
 import com.example.ddaatapp.databinding.ActivitySignUpBinding
+import com.example.ddaatapp.`object`.Constants
+import kotlin.coroutines.Continuation
 
 class SignUpActivity : AppCompatActivity() , View.OnClickListener {
     private lateinit var binding: ActivitySignUpBinding
@@ -17,7 +19,7 @@ class SignUpActivity : AppCompatActivity() , View.OnClickListener {
 
     override fun onClick(view: View?) {
         when(view){
-            binding.signupBtn->{val operationFlow = "SIGN_UP"
+            binding.signupBtn->{val operationFlow = Constants.SIGN_UP
                 val intent = Intent(this, OtpVerifyActivity::class.java)
                 intent.putExtra("operation",operationFlow)
                 startActivity(intent)

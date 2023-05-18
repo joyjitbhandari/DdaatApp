@@ -7,10 +7,11 @@ import android.view.View
 import com.example.ddaatapp.activity.signup.CompleteProfile
 import com.example.ddaatapp.activity.signup.InterestActivity
 import com.example.ddaatapp.databinding.ActivityMyProfileBinding
+import com.example.ddaatapp.`object`.Constants
 
 class MyProfileActivity : AppCompatActivity() , View.OnClickListener {
     lateinit var binding : ActivityMyProfileBinding
-    private val operationFlow = "EDIT"
+    private val operationFlow = Constants.EDIT
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMyProfileBinding.inflate(layoutInflater)

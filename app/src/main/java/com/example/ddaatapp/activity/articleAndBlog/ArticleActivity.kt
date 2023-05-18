@@ -19,7 +19,7 @@ class ArticleActivity : AppCompatActivity(), View.OnClickListener{
     override fun onClick(view: View?) {
         when(view){
             binding.btnBack->{
-               onBackPressedDispatcher
+               onBackPressed()
             }
         }
     }

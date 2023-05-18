@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawerLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/screen_bg"
+    tools:context=".unsubscribeScreen.UnsubscribeStreamsActivity">
+
+
+    <!--For Activity layout-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <!--ToolBar-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_10dp"
+            android:layout_marginTop="@dimen/_10dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_drawer_menu"
+                style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="@dimen/_5dp"
+                android:backgroundTint="@android:color/transparent"
+                android:onClick="onClick"
+                app:icon="@drawable/ic_drawer_menu"
+                app:iconGravity="textStart"
+                app:iconSize="30dp"
+                app:iconTint="@color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/img_logo"
+                android:layout_width="128dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/_10dp"
+                android:src="@drawable/logo_name"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/btn_drawer_menu"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!--Help Button-->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_help"
+                style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:background="@color/float_transparent"
+                android:onClick="onClick"
+                app:icon="@drawable/ic_help"
+                app:iconGravity="textStart"
+                app:iconSize="30dp"
+                app:iconTint="@color/light_grey"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/btn_MyFavorite"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!--Favorite Button-->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_MyFavorite"
+                style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:background="@color/float_transparent"
+                android:onClick="onClick"
+                app:icon="@drawable/ic_outline_favorite"
+                app:iconGravity="textStart"
+                app:iconSize="30dp"
+                app:iconTint="@color/light_grey"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/btn_notification"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!--Notification Button-->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_notification"
+                style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:background="@color/float_transparent"
+                android:onClick="onClick"
+                android:padding="8dp"
+                app:icon="@drawable/ic_notification"
+                app:iconGravity="textStart"
+                app:iconSize="30dp"
+                app:iconTint="@color/light_grey"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!--Scroll View-->
+        <ScrollView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scrollbars="none"
+            app:layout_constraintBottom_toTopOf="@+id/bottom_bar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <!--Choice Chip group-->
+                <HorizontalScrollView
+                    android:id="@+id/horizontalScrollView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_15dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent">
+
+                        <com.google.android.material.chip.ChipGroup
+                            android:id="@+id/choiceChipGroup"
+                            android:layout_width="wrap_content"
+                            android:layout_height="55dp"
+                            android:layout_marginHorizontal="@dimen/_25dp"
+                            app:singleLine="true" />
+                    </LinearLayout>
+                </HorizontalScrollView>
+
+                <!--search box-->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/search_card"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView">
+
+                    <SearchView
+                        android:id="@+id/SearchView"
+                        style="@style/MySearchViewStyle"
+                        android:layout_width="0dp"
+                        android:layout_height="50dp"
+                        android:layout_marginEnd="@dimen/_10dp"
+                        android:iconifiedByDefault="false"
+                        android:onClick="onClick"
+                        android:queryHint="Search"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/btn_filter"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_filter"
+                        android:layout_width="63dp"
+                        android:layout_height="60dp"
+                        android:backgroundTint="@color/black_bg"
+                        android:onClick="onClick"
+                        app:icon="@drawable/ic_filter"
+                        app:iconTint="@color/white"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <!--Select Genres Button-->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_selectGenres"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_25dp"
+                    android:layout_marginTop="@dimen/_15dp"
+                    android:backgroundTint="@color/black_bg"
+                    android:drawableTint="@color/white"
+                    android:gravity="center|start"
+                    android:paddingVertical="@dimen/_10dp"
+                    android:paddingStart="55dp"
+                    android:onClick="onClick"
+                    android:text="@string/select_genres"
+                    android:textColor="@color/light_grey"
+                    android:textSize="@dimen/_16sp"
+                    app:icon="@drawable/ic_right_arrow"
+                    app:iconGravity="end"
+                    app:iconSize="30dp"
+                    app:iconTint="@color/light_grey"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/search_card"
+                    app:strokeColor="@color/black_stroke"
+                    app:strokeWidth="@dimen/_1dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+                    android:layout_width="62dp"
+                    android:layout_height="56dp"
+                    android:backgroundTint="@android:color/transparent"
+                    app:icon="@drawable/ic_select_genres"
+                    app:layout_constraintBottom_toBottomOf="@+id/btn_selectGenres"
+                    app:layout_constraintEnd_toEndOf="@+id/btn_selectGenres"
+                    app:layout_constraintHorizontal_bias="0.036"
+                    app:layout_constraintStart_toStartOf="@+id/btn_selectGenres"
+                    app:layout_constraintTop_toTopOf="@+id/btn_selectGenres"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <!--Ddaat Station view-->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/ddaatStationCard"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="25dp"
+                    android:paddingHorizontal="@dimen/_25dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/btn_selectGenres">
+
+                    <TextView
+                        android:id="@+id/txt_DdaatStation"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@color/float_transparent"
+                        android:fontFamily="@font/dm_sans_bold700"
+                        android:text="@string/ddaat_station"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                    <!--List view-->
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/ddaatStationRecycler"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txt_DdaatStation"
+                        tools:listitem="@layout/video_library_list_item" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <!--Podcast Station view-->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/podcastStationCard"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginBottom="@dimen/_10dp"
+                    android:paddingHorizontal="@dimen/_25dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ddaatStationCard">
+
+                    <TextView
+                        android:id="@+id/txt_PodcastStation"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@color/float_transparent"
+                        android:fontFamily="@font/dm_sans_bold700"
+                        android:text="@string/podcast_station"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                    <!--List view-->
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/podcastStationRecycler"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txt_PodcastStation"
+                        tools:listitem="@layout/video_library_list_item" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+        <!--BOTTOM NAVIGATION BAR-->
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottom_bar"
+            android:layout_width="match_parent"
+            android:layout_height="82dp"
+            android:background="@drawable/bottom_nav_black_shape"
+            android:elevation="@dimen/_5dp"
+            app:itemIconTint="@color/bottom_nav_item_colors"
+            app:itemTextColor="@color/bottom_nav_item_colors"
+            app:labelVisibilityMode="labeled"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0"
+            app:menu="@menu/bottom_bar_items" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <!--DrawerNavigation-->
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navigationDrawerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:layout_marginEnd="-65dp"
+        android:background="@color/screen_bg"
+        android:fitsSystemWindows="true"
+        android:scrollbars="none"
+        app:headerLayout="@layout/nav_header"
+        app:itemHorizontalPadding="@dimen/_25dp"
+        app:itemIconPadding="@dimen/_15dp"
+        app:itemIconSize="@dimen/_40dp"
+        app:itemTextColor="@color/white"
+        app:itemVerticalPadding="@dimen/_10dp"
+        app:menu="@menu/nav_drawer_menu" />
+</androidx.drawerlayout.widget.DrawerLayout>

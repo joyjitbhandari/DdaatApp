@@ -1,6 +1,7 @@
 package com.example.ddaatapp.commonClass
 
 import android.app.Dialog
+import android.app.Notification
 import android.content.Context
 import android.content.Intent
 import android.graphics.Color
@@ -16,11 +17,14 @@ import com.example.ddaatapp.activity.aboutDdaat.AboutActivity
 import com.example.ddaatapp.activity.feedback.FeedBackActivity
 import com.example.ddaatapp.activity.forgot.ChangePwdActivity
 import com.example.ddaatapp.activity.myPurchase.MyPurchasedActivity
+import com.example.ddaatapp.activity.notification.NotificationActivity
+import com.example.ddaatapp.activity.notification.NotificationSettingActivity
 import com.example.ddaatapp.activity.paymentAndBilling.PaymentAndBillingActivity
 import com.example.ddaatapp.activity.profile.MyProfileActivity
 import com.example.ddaatapp.activity.reviewAndRating.ReviewAndRatingActivity
 import com.example.ddaatapp.activity.subscription.SubscriptionActivity
 import com.example.ddaatapp.activity.superPower.SurveyResultActivity
+import com.example.ddaatapp.activity.techSupport.TechSupportActivity
 import com.google.android.material.navigation.NavigationView
 
 
@@ -58,6 +62,14 @@ class MyDrawerNavigationItemSelectedListener(var context: Context) : NavigationV
             }
             R.id.drawerPayment->{
                 mContext.startActivity(Intent(context, PaymentAndBillingActivity::class.java))
+                return true
+            }
+            R.id.drawerNotification->{
+                mContext.startActivity(Intent(context, NotificationSettingActivity::class.java))
+                return true
+            }
+            R.id.drawerTechSupport->{
+                mContext.startActivity(Intent(context, TechSupportActivity::class.java))
                 return true
             }
             R.id.drawerChangePwd ->{

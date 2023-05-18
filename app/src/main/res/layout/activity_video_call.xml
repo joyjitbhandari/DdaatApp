@@ -198,7 +198,7 @@
             android:onClick="onClick"
             android:textSize="17sp"
             android:layout_marginStart="@dimen/_10dp"
-            app:icon="@drawable/ic_chat"
+            app:icon="@drawable/ic_video_call_chat"
             app:iconSize="@dimen/_30dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/btn_persons"
@@ -229,7 +229,8 @@
             android:layout_marginEnd="@dimen/_10dp"
             android:textSize="17sp"
             app:icon="@drawable/ic_mic"
-            app:iconSize="@dimen/_30dp"
+            app:iconSize="@dimen/_35dp"
+            app:iconGravity="textStart"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/btn_videoCam"
             app:layout_constraintTop_toTopOf="parent"/>

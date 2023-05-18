@@ -15,6 +15,7 @@ import com.example.ddaatapp.R
 import com.example.ddaatapp.databinding.ActivityCompleteProfileBinding
 import com.example.ddaatapp.databinding.DialogGenderPickerBinding
 import com.example.ddaatapp.databinding.DialogTypeGenderBinding
+import com.example.ddaatapp.`object`.Constants
 import com.facebook.appevents.codeless.internal.ViewHierarchy.setOnClickListener
 import java.util.*
 
@@ -31,7 +32,7 @@ class CompleteProfile : AppCompatActivity(), View.OnClickListener {
 
 //   Checking the operation flow
         operationFlow = intent.getStringExtra("operation").toString()
-        if (operationFlow == "EDIT") {
+        if (operationFlow == Constants.EDIT) {
             binding.btnNext.text = "Save"
         }
     }
@@ -40,11 +41,11 @@ class CompleteProfile : AppCompatActivity(), View.OnClickListener {
         when (view) {
             binding.btnNext -> {
                 when (operationFlow) {
-                    "EDIT" -> {
+                    Constants.EDIT -> {
                         onBackPressed()
                     }
-                    "SIGN_UP" -> {
-                        val operationFlow = "SIGN_UP"
+                    Constants.SIGN_UP -> {
+                        val operationFlow = Constants.SIGN_UP
                         val intent = Intent(this, InterestActivity::class.java)
                         intent.putExtra("operation", operationFlow)
                         startActivity(intent)

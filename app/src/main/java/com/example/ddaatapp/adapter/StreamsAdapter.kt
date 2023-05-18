@@ -13,6 +13,7 @@ import com.example.ddaatapp.activity.playStreamAudio.StreamAudioPlayActivity
 import com.example.ddaatapp.databinding.VideoLibraryListItemBinding
 import com.example.ddaatapp.datamodel.StreamsDataModel
 import com.example.ddaatapp.datamodel.VideoLibraryDataModel
+import com.example.ddaatapp.`object`.Constants
 
 class StreamsAdapter(val videoList: ArrayList<StreamsDataModel>, private val itemCount:Int, var isPodcast:Boolean, var context: Context) :
     RecyclerView.Adapter<StreamsAdapter.ViewHolder>() {
@@ -25,14 +26,14 @@ class StreamsAdapter(val videoList: ArrayList<StreamsDataModel>, private val ite
 
           if(isPodcast){
               binding.root.setOnClickListener {
-                  val operationFlow = "PODCAST"
+                  val operationFlow = Constants.PODCAST
                   val intent = Intent(context, StreamAudioPlayActivity::class.java)
                   intent.putExtra("operation", operationFlow)
                   mContext.startActivity(intent)
               }
           }else{
               binding.root.setOnClickListener {
-                  val operationFlow = "STREAM"
+                  val operationFlow = Constants.STREAM
                   val intent = Intent(context, StreamAudioPlayActivity::class.java)
                   intent.putExtra("operation", operationFlow)
                   mContext.startActivity(intent)

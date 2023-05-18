@@ -8,6 +8,7 @@ import com.example.ddaatapp.R
 import com.example.ddaatapp.activity.session.VideoCallActivity
 import com.example.ddaatapp.activity.showVideoContent.ShowVideoContentActivity
 import com.example.ddaatapp.databinding.ActivityJoinLiveCourseBinding
+import com.example.ddaatapp.`object`.Constants
 
 class JoinLiveCourseActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var binding:ActivityJoinLiveCourseBinding
@@ -25,7 +26,7 @@ class JoinLiveCourseActivity : AppCompatActivity(), View.OnClickListener {
                 onBackPressed()
             }
             binding.btnJoinSession->{
-                val operationFlow = "LIVE"
+                val operationFlow = Constants.LIVE
                 val intent = Intent(this, VideoCallActivity::class.java)
                 intent.putExtra("operation",operationFlow)
                 startActivity(intent)
