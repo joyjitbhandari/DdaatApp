@@ -8,9 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ddaatapp.activity.subscription.BuySubscriptionActivity
 import com.example.ddaatapp.activity.subscription.SubscriptionDetailsActivity
-import com.example.ddaatapp.databinding.ReviewAndRatingItemBinding
 import com.example.ddaatapp.databinding.SubscriptionCardItemBinding
-import com.example.ddaatapp.datamodel.ReviewAndRatingDataModel
 import com.example.ddaatapp.datamodel.SubscriptionDataModel
 import com.example.ddaatapp.`object`.Constants
 

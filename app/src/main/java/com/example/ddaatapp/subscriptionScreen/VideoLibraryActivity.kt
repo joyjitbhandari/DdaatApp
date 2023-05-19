@@ -12,17 +12,17 @@ import com.example.ddaatapp.activity.notification.NotificationActivity
 import com.example.ddaatapp.activity.showVideoContent.MyFavoriteActivity
 import com.example.ddaatapp.activity.showVideoContent.MyWatchlistActivity
 import com.example.ddaatapp.adapter.VideoLibraryAdapter
+import com.example.ddaatapp.commonClass.DynamicInterestChipCreator
 import com.example.ddaatapp.commonClass.LinearListSpacingItemDecoration
 import com.example.ddaatapp.commonClass.MyDrawerNavigationItemSelectedListener
 import com.example.ddaatapp.commonClass.ShowDialog
 import com.example.ddaatapp.databinding.ActivityVideoLibraryBinding
-import com.example.ddaatapp.databinding.InterestChoiceChipItemBinding
 import com.example.ddaatapp.datamodel.VideoLibraryDataModel
+import com.example.ddaatapp.`object`.Constants
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.button.MaterialButton
-import com.google.android.material.chip.Chip
 
-class VideoLibraryActivity : AppCompatActivity() , View.OnClickListener  {
+class VideoLibraryActivity: AppCompatActivity() , View.OnClickListener  {
     lateinit var binding: ActivityVideoLibraryBinding
 
     private lateinit var drawerLayout: DrawerLayout
@@ -84,7 +84,7 @@ class VideoLibraryActivity : AppCompatActivity() , View.OnClickListener  {
         })
 
         //Setup chips in chipGroup view
-        setupChip()
+        DynamicInterestChipCreator(this).setupChip(binding.choiceChipGroup)
 
 
         // Setting top videos in recycler
@@ -100,39 +100,13 @@ class VideoLibraryActivity : AppCompatActivity() , View.OnClickListener  {
         )
 
         val topVideoRecyclerView= binding.topVideoRecycler
-        val adapter = VideoLibraryAdapter(videoList,5,this)
+        val adapter = VideoLibraryAdapter(videoList,5,this,Constants.SUBSCRIPTION)
         topVideoRecyclerView.adapter = adapter
         //List item Decoration
         val spacing = resources.getDimensionPixelSize(R.dimen._15dp)
         topVideoRecyclerView.addItemDecoration(LinearListSpacingItemDecoration(spacing))
     }
 
-    private fun setupChip() {
-        val interestList =
-            arrayListOf(
-                "Need Motivation",
-                "Fitness",
-                "Business",
-                "Job",
-                "Relationship",
-                "Feeling Lonely",
-                "Careers")
-        for (name in interestList) {
-            val chip = createChip(name)
-            binding.choiceChipGroup.addView(chip)
-        }
-    }
-
-    private fun createChip(label: String): Chip {
-        val chip = InterestChoiceChipItemBinding.inflate(layoutInflater).root
-        chip.text = label
-
-        //setting padding
-        val padding1 = resources.getDimension(R.dimen._20dp).toInt()
-        val padding2 = resources.getDimension(R.dimen._18dp).toInt()
-        chip.setPadding(padding1, padding2, padding1, padding2)
-        return chip
-    }
 
     override fun onClick(view: View?) {
         when(view){

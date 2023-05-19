@@ -19,6 +19,7 @@ import com.example.ddaatapp.commonClass.ShowDialog
 import com.example.ddaatapp.databinding.ActivityUnsubscribeHomeBinding
 import com.example.ddaatapp.datamodel.ArticleDataModel
 import com.example.ddaatapp.fragment.*
+import com.example.ddaatapp.`object`.Constants
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.button.MaterialButton
 
@@ -45,7 +46,7 @@ class UnsubscribeHomeActivity : AppCompatActivity(), View.OnClickListener {
         //Setting drawer menu item visibility
         binding.navigationDrawerView.menu.findItem(R.id.drawerMySuperpower).isVisible = false
         binding.navigationDrawerView.menu.findItem(R.id.drawerMyNotes).isVisible = false
-
+        binding.navigationDrawerView.menu.findItem(R.id.drawerReview).isVisible = false
 
         //for navigation drawer item click listener
         val listener = MyDrawerNavigationItemSelectedListener(this)
@@ -97,7 +98,7 @@ class UnsubscribeHomeActivity : AppCompatActivity(), View.OnClickListener {
 
 
         //By default video fragment
-       inflateFragment(HomeVideoLibraryFragment.newInstance())
+       inflateFragment(HomeVideoLibraryFragment(Constants.UNSUBSCRIBE))
 
 
         // horizontal buttonView
@@ -105,13 +106,13 @@ class UnsubscribeHomeActivity : AppCompatActivity(), View.OnClickListener {
        chipGroup.setOnCheckedChangeListener { group, checkedId ->
            when(checkedId){
                R.id.btn_video_library ->{
-                   inflateFragment(HomeVideoLibraryFragment.newInstance())
+                   inflateFragment(HomeVideoLibraryFragment(Constants.UNSUBSCRIBE))
                }
                R.id.btn_streams ->{
-                   inflateFragment(HomeStreamsFragment.newInstance())
+                   inflateFragment(HomeStreamsFragment(Constants.HOME))
                }
                R.id.btn_liveStream ->{
-                   inflateFragment(HomeUpcomingSessionsFragment.newInstance())
+                   inflateFragment(UnsubscribeHomeLiveStreamingFragment(Constants.HOME))
                }
            }
         }

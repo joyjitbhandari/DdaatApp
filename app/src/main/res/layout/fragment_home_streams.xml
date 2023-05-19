@@ -4,153 +4,127 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context=".fragment.HomeStreamsFragment"
-    android:background="@color/screen_bg">
-    <androidx.constraintlayout.widget.ConstraintLayout
+    android:background="@color/screen_bg"
+    tools:context=".fragment.HomeStreamsFragment">
+
+    <ScrollView
+        android:id="@+id/scrollView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/txt_categories"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="25dp"
-            android:background="@color/float_transparent"
-            android:fontFamily="@font/dm_sans_bold700"
-            android:text="Categories"
-            android:textColor="@color/white"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
-        <!--Choice Chip group-->
-        <HorizontalScrollView
-            android:id="@+id/horizontalScrollView"
-            android:layout_width="0dp"
-            android:layout_marginTop="@dimen/_5dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txt_categories">
+            <TextView
+                android:id="@+id/txt_categories"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="25dp"
+                android:background="@color/float_transparent"
+                android:fontFamily="@font/dm_sans_bold700"
+                android:text="Categories"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            <!--Choice Chip group-->
+            <HorizontalScrollView
+                android:id="@+id/horizontalScrollView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_categories">
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent">
-
-                <com.google.android.material.chip.ChipGroup
-                    android:id="@+id/choiceChipGroup"
+                <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="55dp"
-                    android:layout_marginHorizontal="@dimen/_25dp"
-                    app:singleLine="true" />
-            </LinearLayout>
-        </HorizontalScrollView>
+                    android:layout_height="match_parent">
 
-<!--Ddaat Station-->
-        <TextView
-            android:id="@+id/txt_DdaatStation"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="25dp"
-            android:background="@color/float_transparent"
-            android:fontFamily="@font/dm_sans_bold700"
-            android:text="@string/ddaat_station"
-            android:textColor="@color/white"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="@+id/btn_selectGenres"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/btn_selectGenres" />
+                    <com.google.android.material.chip.ChipGroup
+                        android:id="@+id/choiceChipGroup"
+                        android:layout_width="wrap_content"
+                        android:layout_height="55dp"
+                        android:layout_marginHorizontal="@dimen/_25dp"
+                        app:singleLine="true" />
+                </LinearLayout>
+            </HorizontalScrollView>
 
-<!--Select Genres Button-->
-        <TextView
-            android:id="@+id/btn_selectGenres"
-            android:layout_width="wrap_content"
-            android:layout_height="45dp"
-            android:paddingHorizontal="@dimen/_10dp"
-            android:layout_marginTop="@dimen/_10dp"
-            android:layout_marginEnd="@dimen/_15dp"
-            android:background="@drawable/round_25_black_stroke_shape"
-            android:clickable="true"
-            android:text="Select Genres"
-            android:textColor="@color/white"
-            android:gravity="center"
-            android:drawablePadding="@dimen/_3dp"
-            android:drawableStart="@drawable/ic_select_genres"
-            android:drawableEnd="@drawable/ic_right_arrow"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/horizontalScrollView" />
+            <!--Ddaat Station-->
+            <TextView
+                android:id="@+id/txt_DdaatStation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="25dp"
+                android:background="@color/float_transparent"
+                android:fontFamily="@font/dm_sans_bold700"
+                android:text="@string/ddaat_station"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="@+id/btn_selectGenres"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/btn_selectGenres" />
 
-<!--            <ImageView-->
-<!--                android:id="@+id/imageView"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:src="@drawable/ic_select_genres"-->
-<!--                app:layout_constraintBottom_toBottomOf="parent"-->
-<!--                app:layout_constraintStart_toStartOf="parent"-->
-<!--                app:layout_constraintTop_toTopOf="parent" />-->
+            <!--Select Genres Button-->
+            <TextView
+                android:id="@+id/btn_selectGenres"
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:layout_marginTop="@dimen/_10dp"
+                android:layout_marginEnd="@dimen/_15dp"
+                android:background="@drawable/round_25_black_stroke_shape"
+                android:clickable="true"
+                android:drawableStart="@drawable/ic_select_genres"
+                android:drawableEnd="@drawable/ic_right_arrow"
+                android:drawablePadding="@dimen/_3dp"
+                android:gravity="center"
+                android:paddingHorizontal="@dimen/_10dp"
+                android:text="Select Genres"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/horizontalScrollView" />
 
-<!--            <TextView-->
-<!--                android:id="@+id/textView2"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginStart="@dimen/_10dp"-->
-<!--                android:text="Select Genres"-->
-<!--                android:textColor="@color/white"-->
-<!--                android:textSize="14sp"-->
-<!--                app:layout_constraintBottom_toBottomOf="parent"-->
-<!--                app:layout_constraintEnd_toStartOf="@+id/imageView2"-->
-<!--                app:layout_constraintStart_toEndOf="@+id/imageView"-->
-<!--                app:layout_constraintTop_toTopOf="parent" />-->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/ddaatStationRecycler"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5dp"
+                android:paddingHorizontal="25dp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btn_selectGenres"
+                tools:listitem="@layout/video_library_list_item" />
 
-<!--            <ImageView-->
-<!--                android:id="@+id/imageView2"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:src="@drawable/ic_right_arrow"-->
-<!--                app:layout_constraintBottom_toBottomOf="parent"-->
-<!--                app:layout_constraintEnd_toEndOf="parent"-->
-<!--                app:layout_constraintTop_toTopOf="parent" />-->
+            <!--Podcast Station-->
+            <TextView
+                android:id="@+id/txt_PodcastStation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="25dp"
+                android:layout_marginTop="@dimen/_15dp"
+                android:background="@color/float_transparent"
+                android:fontFamily="@font/dm_sans_bold700"
+                android:text="@string/podcast_station"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ddaatStationRecycler" />
 
-<!--        </Button>-->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/podcastStationRecycler"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="25dp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_PodcastStation"
+                tools:listitem="@layout/video_library_list_item" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/ddaatStationRecycler"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_selectGenres"
-            tools:listitem="@layout/video_library_list_item"
-            android:paddingHorizontal="25dp"
-            android:layout_marginTop="@dimen/_5dp"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
-
-<!--Podcast Station-->
-        <TextView
-            android:id="@+id/txt_PodcastStation"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="25dp"
-            android:background="@color/float_transparent"
-            android:fontFamily="@font/dm_sans_bold700"
-            android:text="@string/podcast_station"
-            android:textColor="@color/white"
-            android:textSize="18sp"
-            android:layout_marginTop="@dimen/_15dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ddaatStationRecycler"/>
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/podcastStationRecycler"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingHorizontal="25dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txt_PodcastStation"
-            tools:listitem="@layout/video_library_list_item"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 </FrameLayout>

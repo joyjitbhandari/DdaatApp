@@ -177,43 +177,46 @@
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <!--Select Genres Button-->
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btn_selectGenres"
-                    android:layout_width="0dp"
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/selectGenresCard"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/_25dp"
                     android:layout_marginTop="@dimen/_15dp"
-                    android:backgroundTint="@color/black_bg"
-                    android:drawableTint="@color/white"
-                    android:gravity="center|start"
-                    android:paddingVertical="@dimen/_10dp"
-                    android:paddingStart="55dp"
-                    android:onClick="onClick"
-                    android:text="@string/select_genres"
-                    android:textColor="@color/light_grey"
-                    android:textSize="@dimen/_16sp"
-                    app:icon="@drawable/ic_right_arrow"
-                    app:iconGravity="end"
-                    app:iconSize="30dp"
-                    app:iconTint="@color/light_grey"
+                    android:background="@drawable/round_25_black_stroke_shape"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/search_card"
-                    app:strokeColor="@color/black_stroke"
-                    app:strokeWidth="@dimen/_1dp" />
+                    app:layout_constraintTop_toBottomOf="@+id/search_card">
 
-                <com.google.android.material.button.MaterialButton
-                    style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
-                    android:layout_width="62dp"
-                    android:layout_height="56dp"
-                    android:backgroundTint="@android:color/transparent"
-                    app:icon="@drawable/ic_select_genres"
-                    app:layout_constraintBottom_toBottomOf="@+id/btn_selectGenres"
-                    app:layout_constraintEnd_toEndOf="@+id/btn_selectGenres"
-                    app:layout_constraintHorizontal_bias="0.036"
-                    app:layout_constraintStart_toStartOf="@+id/btn_selectGenres"
-                    app:layout_constraintTop_toTopOf="@+id/btn_selectGenres"
-                    app:layout_constraintVertical_bias="0.0" />
+                    <ImageView
+                        android:id="@+id/imageView"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_marginStart="@dimen/_25dp"
+                        android:src="@drawable/ic_select_genres"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_selectGenres"
+                        style="@style/Widget.Material3.Button.TextButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
+                        android:drawableEnd="@drawable/ic_right_arrow"
+                        android:paddingStart="60dp"
+                        android:text="Select Genres"
+                        android:onClick="onClick"
+                        android:textAlignment="textStart"
+                        android:textColor="@color/light_grey"
+                        android:textSize="@dimen/_16sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <!--Ddaat Station view-->
                 <androidx.constraintlayout.widget.ConstraintLayout
@@ -224,7 +227,7 @@
                     android:paddingHorizontal="@dimen/_25dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/btn_selectGenres">
+                    app:layout_constraintTop_toBottomOf="@+id/selectGenresCard">
 
                     <TextView
                         android:id="@+id/txt_DdaatStation"
@@ -290,21 +293,21 @@
         </ScrollView>
         <!--BOTTOM NAVIGATION BAR-->
         <com.google.android.material.bottomnavigation.BottomNavigationView
+            style="@style/Widget.MaterialComponents.BottomNavigationView"
             android:id="@+id/bottom_bar"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="82dp"
-            android:background="@drawable/bottom_nav_black_shape"
             android:elevation="@dimen/_5dp"
+            android:paddingVertical="@dimen/_8dp"
+            android:background="@drawable/bottom_nav_black_shape"
             app:itemIconTint="@color/bottom_nav_item_colors"
             app:itemTextColor="@color/bottom_nav_item_colors"
             app:labelVisibilityMode="labeled"
+            app:itemRippleColor="@android:color/transparent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.0"
-            app:menu="@menu/bottom_bar_items" />
+            app:menu="@menu/bottom_bar_items"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

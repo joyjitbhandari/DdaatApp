@@ -17,11 +17,19 @@ class StreamAudioPlayActivity : AppCompatActivity(), View.OnClickListener  {
         //Getting flow from intent
         operationFlow = intent.getStringExtra("operation").toString()
 
-        if(operationFlow == Constants.PODCAST){
-            binding.txtContentName.text = "Podcast Title"
-        }else{
-            binding.txtContentName.text = "Stream Title"
+        when(operationFlow){
+            Constants.UNSUBSCRIBE->{
+                binding.txtContentName.text = "Video Name"
+            }
+            Constants.PODCAST->{
+                binding.txtContentName.text = "Podcast Title"
+            }
+            Constants.STREAM->{
+                binding.txtContentName.text = "Stream Title"
+            }
+
         }
+
     }
 
     override fun onClick(view: View?) {

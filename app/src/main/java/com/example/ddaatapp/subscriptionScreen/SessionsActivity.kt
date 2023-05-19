@@ -11,7 +11,7 @@ import com.example.ddaatapp.R
 import com.example.ddaatapp.activity.notification.NotificationActivity
 import com.example.ddaatapp.activity.session.RequestSessionActivity
 import com.example.ddaatapp.activity.showVideoContent.MyFavoriteActivity
-import com.example.ddaatapp.adapter.MyTabPagerAdapter
+import com.example.ddaatapp.adapter.SessionTabPagerAdapter
 import com.example.ddaatapp.commonClass.MyDrawerNavigationItemSelectedListener
 import com.example.ddaatapp.commonClass.ShowDialog
 import com.example.ddaatapp.databinding.ActivitySessionsBinding
@@ -76,10 +76,10 @@ class SessionsActivity : AppCompatActivity(), View.OnClickListener{
             false
         })
 
-        //Setting up fragments to viewpager using tablayout
+        //Setting up fragments to viewpager using tab layout
         val tabLayout = binding.tabLayout
         val viewPager = binding.viewPager
-        val adapter = MyTabPagerAdapter(supportFragmentManager)
+        val adapter = SessionTabPagerAdapter(supportFragmentManager)
         viewPager.adapter = adapter
         tabLayout.setupWithViewPager(viewPager)
 

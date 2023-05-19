@@ -40,6 +40,7 @@
             android:background="@android:color/transparent"
             app:icon="@drawable/ic_expand_more_arrow"
             app:iconSize="@dimen/_30dp"
+            android:clickable="false"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"

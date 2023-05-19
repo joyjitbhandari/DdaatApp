@@ -63,7 +63,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <!--Subscribe Button-->
+            <!--FAQ list view-->
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/faqsRecycler"
                 android:layout_width="match_parent"

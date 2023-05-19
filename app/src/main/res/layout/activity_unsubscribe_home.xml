@@ -402,6 +402,7 @@
 
         <!--BOTTOM NAVIGATION BAR-->
         <com.google.android.material.bottomnavigation.BottomNavigationView
+            style="@style/Widget.MaterialComponents.BottomNavigationView"
             android:id="@+id/bottom_bar"
             android:layout_width="0dp"
             android:layout_height="82dp"
@@ -410,6 +411,7 @@
             app:itemIconTint="@color/bottom_nav_item_colors"
             app:itemTextColor="@color/bottom_nav_item_colors"
             app:labelVisibilityMode="labeled"
+            android:paddingVertical="@dimen/_8dp"
             app:itemRippleColor="@android:color/transparent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

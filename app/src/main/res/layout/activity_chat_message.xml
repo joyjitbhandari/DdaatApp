@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.chat.ChatClickActivity"
+    tools:context=".activity.chat.ChatMessageActivity"
     android:background="@color/screen_bg">
 
     <!--Tool Bar-->

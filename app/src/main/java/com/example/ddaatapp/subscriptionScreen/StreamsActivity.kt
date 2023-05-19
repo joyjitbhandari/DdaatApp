@@ -11,15 +11,14 @@ import com.example.ddaatapp.R
 import com.example.ddaatapp.activity.notification.NotificationActivity
 import com.example.ddaatapp.activity.showVideoContent.MyFavoriteActivity
 import com.example.ddaatapp.adapter.StreamsAdapter
+import com.example.ddaatapp.commonClass.DynamicInterestChipCreator
 import com.example.ddaatapp.commonClass.LinearListSpacingItemDecoration
 import com.example.ddaatapp.commonClass.MyDrawerNavigationItemSelectedListener
 import com.example.ddaatapp.commonClass.ShowDialog
 import com.example.ddaatapp.databinding.ActivityStreamsBinding
-import com.example.ddaatapp.databinding.InterestChoiceChipItemBinding
 import com.example.ddaatapp.datamodel.StreamsDataModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.button.MaterialButton
-import com.google.android.material.chip.Chip
 
 class StreamsActivity : AppCompatActivity() , View.OnClickListener {
 
@@ -84,7 +83,7 @@ class StreamsActivity : AppCompatActivity() , View.OnClickListener {
 
 
         //Setup chips in chipGroup view
-        setupChip()
+        DynamicInterestChipCreator(this).setupChip(binding.choiceChipGroup)
 
         //DdaatStation setup
         val streamList = arrayListOf<StreamsDataModel>(
@@ -114,34 +113,6 @@ class StreamsActivity : AppCompatActivity() , View.OnClickListener {
         podcastRecycler.addItemDecoration(LinearListSpacingItemDecoration(spacing))
 
     }
-
-    private fun setupChip() {
-        val interestList =
-            arrayListOf(
-                "Need Motivation",
-                "Fitness",
-                "Business",
-                "Job",
-                "Relationship",
-                "Feeling Lonely",
-                "Careers")
-        for (name in interestList) {
-            val chip = createChip(name)
-            binding.choiceChipGroup.addView(chip)
-        }
-    }
-
-    private fun createChip(label: String): Chip {
-        val chip = InterestChoiceChipItemBinding.inflate(layoutInflater).root
-        chip.text = label
-
-        //setting padding
-        val padding1 = resources.getDimension(R.dimen._20dp).toInt()
-        val padding2 = resources.getDimension(R.dimen._18dp).toInt()
-        chip.setPadding(padding1, padding2, padding1, padding2)
-        return chip
-    }
-
     override fun onClick(view: View?) {
         when(view){
             binding.btnDrawerMenu->{

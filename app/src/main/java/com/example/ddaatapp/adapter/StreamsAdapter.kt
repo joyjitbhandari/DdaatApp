@@ -23,22 +23,19 @@ class StreamsAdapter(val videoList: ArrayList<StreamsDataModel>, private val ite
             binding.txtVideoName.text = streamsDataModel.name
             binding.txtVideoDesc.text = streamsDataModel.desc
 
-
-          if(isPodcast){
-              binding.root.setOnClickListener {
-                  val operationFlow = Constants.PODCAST
-                  val intent = Intent(context, StreamAudioPlayActivity::class.java)
-                  intent.putExtra("operation", operationFlow)
-                  mContext.startActivity(intent)
-              }
-          }else{
-              binding.root.setOnClickListener {
-                  val operationFlow = Constants.STREAM
-                  val intent = Intent(context, StreamAudioPlayActivity::class.java)
-                  intent.putExtra("operation", operationFlow)
-                  mContext.startActivity(intent)
-              }
-          }
+            binding.root.setOnClickListener {
+                if (isPodcast) {
+                    val operationFlow = Constants.PODCAST
+                    val intent = Intent(context, StreamAudioPlayActivity::class.java)
+                    intent.putExtra("operation", operationFlow)
+                    mContext.startActivity(intent)
+                } else {
+                        val operationFlow = Constants.STREAM
+                        val intent = Intent(context, StreamAudioPlayActivity::class.java)
+                        intent.putExtra("operation", operationFlow)
+                        mContext.startActivity(intent)
+                }
+            }
         }
     }
 

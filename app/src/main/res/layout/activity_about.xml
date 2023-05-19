@@ -236,21 +236,21 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
-                        app:icon="@drawable/instagram"
+                        app:icon="@drawable/ic_instagram"
                         />
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/btnTwitter"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
-                        app:icon="@drawable/twitter"
+                        app:icon="@drawable/ic_twitter"
                         />
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/btnYoutube"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
-                        app:icon="@drawable/youtube"
+                        app:icon="@drawable/ic_youtube"
                         />
                 </LinearLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>

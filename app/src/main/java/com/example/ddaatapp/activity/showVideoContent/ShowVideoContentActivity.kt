@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import com.example.ddaatapp.R
+import com.example.ddaatapp.activity.playStreamAudio.StreamAudioPlayActivity
 import com.example.ddaatapp.adapter.RelatedVideoCourseAdapter
 import com.example.ddaatapp.adapter.VideoAndLectureSessionAdapter
 import com.example.ddaatapp.commonClass.LinearListSpacingItemDecoration
@@ -181,6 +182,35 @@ class ShowVideoContentActivity : AppCompatActivity(), View.OnClickListener{
                         //other payment activity will open here
 
                     }
+                }
+            }
+            Constants.UNSUBSCRIBE->{
+                binding.videoSessionCard.visibility = View.GONE
+                binding.lectureSessionCard.visibility = View.GONE
+                binding.relatedLectureCard.visibility = View.GONE
+                binding.relatedVideoCard.visibility = View.VISIBLE
+                binding.commentsCard.visibility = View.VISIBLE
+
+
+                //video list
+                val videoList = arrayListOf<VideoLibraryDataModel>(
+                    VideoLibraryDataModel(R.drawable.video_sample_image,"Video Name","30:12 in Session"),
+                    VideoLibraryDataModel(R.drawable.video_sample_image2,"Video Name","30:12 in Session"),
+                    VideoLibraryDataModel(R.drawable.video_sample_image3,"Video Name","30:12 in Session"),
+                    VideoLibraryDataModel(R.drawable.video_sample_image,"Video Name","30:12 in Session")
+                )
+                // Setting top videos in recycler
+                val relatedVideoRecyclerView= binding.relatedVideoRecycler
+                val adapter = RelatedVideoCourseAdapter(videoList,4,this,true)
+                relatedVideoRecyclerView.adapter = adapter
+                //List item Decoration
+                val spacing = resources.getDimensionPixelSize(R.dimen._15dp)
+                relatedVideoRecyclerView.addItemDecoration(LinearListSpacingItemDecoration(spacing))
+
+                binding.btnPlayContent.setOnClickListener {
+                    val intent = Intent(this,StreamAudioPlayActivity::class.java)
+                    intent.putExtra("operation",operationFlow)
+                    startActivity(intent)
                 }
             }
         }

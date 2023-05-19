@@ -184,5 +184,7 @@ You’ll see your dashboard at the end that will reveal your workplace talents.<
     <string name="question">Question</string>
     <string name="chat">Chat</string>
     <string name="search">Search</string>
+    <string name="live_streaming">Live Streaming</string>
+    <string name="suggest_topics">Suggest Topics</string>
 
 </resources>

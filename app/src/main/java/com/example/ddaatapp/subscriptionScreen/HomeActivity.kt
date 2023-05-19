@@ -2,9 +2,7 @@ package com.example.ddaatapp.subscriptionScreen
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.*
-import android.widget.Button
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
@@ -23,6 +21,7 @@ import com.example.ddaatapp.databinding.ActivityHomeBinding
 import com.example.ddaatapp.datamodel.ArticleDataModel
 import com.example.ddaatapp.datamodel.MyNotesModel
 import com.example.ddaatapp.fragment.*
+import com.example.ddaatapp.`object`.Constants
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.button.MaterialButton
 
@@ -130,7 +129,7 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
 
 
         //By default video fragment
-       inflateFragment(HomeVideoLibraryFragment.newInstance())
+       inflateFragment(HomeVideoLibraryFragment(Constants.SUBSCRIPTION))
 
 
 
@@ -139,10 +138,10 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
        chipGroup.setOnCheckedChangeListener { group, checkedId ->
            when(checkedId){
                R.id.btn_video_library ->{
-                   inflateFragment(HomeVideoLibraryFragment.newInstance())
+                   inflateFragment(HomeVideoLibraryFragment(Constants.SUBSCRIPTION))
                }
                R.id.btn_streams ->{
-                   inflateFragment(HomeStreamsFragment.newInstance())
+                   inflateFragment(HomeStreamsFragment(Constants.HOME))
 
                }
                R.id.btn_up_sessions ->{

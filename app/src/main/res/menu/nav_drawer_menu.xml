@@ -4,35 +4,35 @@
         <item
             android:id="@+id/drawerProfile"
             android:title="My Profile"
-            android:icon="@drawable/ic_profile" />
+            android:icon="@drawable/ic_nav_profile" />
         <item
             android:id="@+id/drawerSubscription"
             android:title="Subscription"
-            android:icon="@drawable/ic_subscription" />
+            android:icon="@drawable/ic_nav_subscription" />
 
         <item
             android:id="@+id/drawerMyNotes"
             android:title="My Notes"
-            android:icon="@drawable/ic_mynotes"/>
+            android:icon="@drawable/ic_nav_mynotes"/>
         <item
             android:id="@+id/drawerMySuperpower"
             android:title="My Superpower"
-            android:icon="@drawable/ic_superpower"/>
+            android:icon="@drawable/ic_nav_superpower"/>
 
         <item
             android:id="@+id/drawerMyPurchases"
             android:title="My Purchases"
-            android:icon="@drawable/ic_purchase"/>
+            android:icon="@drawable/ic_nav_purchase"/>
 
         <item
             android:id="@+id/drawerReview"
             android:title="Review And Rating"
-            android:icon="@drawable/ic_review"/>
+            android:icon="@drawable/ic_nav_review"/>
 
         <item
             android:id="@+id/drawerPayment"
             android:title="Payment And Billing "
-            android:icon="@drawable/ic_payment"/>
+            android:icon="@drawable/ic_nav_payment"/>
 
         <item
             android:id="@+id/drawerNotification"
@@ -42,7 +42,7 @@
         <item
             android:id="@+id/drawerTechSupport"
             android:title="Tech Support"
-            android:icon="@drawable/ic_techsupport"/>
+            android:icon="@drawable/ic_nav_techsupport"/>
     </group>
 
     <group android:id="@+id/group_item2">

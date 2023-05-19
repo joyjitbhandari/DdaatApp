@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import com.example.ddaatapp.R
-import com.example.ddaatapp.activity.chat.ChatClickActivity
+import com.example.ddaatapp.activity.chat.ChatMessageActivity
 import com.example.ddaatapp.commonClass.ShowDialog
 import com.example.ddaatapp.databinding.ActivityVideoCallBinding
 import com.example.ddaatapp.`object`.Constants
@@ -51,7 +51,7 @@ class VideoCallActivity : AppCompatActivity() , View.OnClickListener {
 
             }
             binding.btnChat->{
-                startActivity(Intent(this,ChatClickActivity::class.java))
+                startActivity(Intent(this,ChatMessageActivity::class.java))
             }
             binding.btnNote->{
                 ShowDialog(this).showWriteNoteDialog()

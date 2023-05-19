@@ -1,9 +1,259 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawerLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/screen_bg"
     tools:context=".unsubscribeScreen.UnsubscribeQuestionActivity">
+    <!--For Activity layout-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <!--ToolBar-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_10dp"
+            android:layout_marginTop="@dimen/_10dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_drawer_menu"
+                style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="@dimen/_5dp"
+                android:backgroundTint="@android:color/transparent"
+                android:onClick="onClick"
+                app:icon="@drawable/ic_drawer_menu"
+                app:iconGravity="textStart"
+                app:iconSize="30dp"
+                app:iconTint="@color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/img_logo"
+                android:layout_width="128dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/_10dp"
+                android:src="@drawable/logo_name"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/btn_drawer_menu"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!--Help Button-->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_help"
+                style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:background="@color/float_transparent"
+                android:onClick="onClick"
+                app:icon="@drawable/ic_help"
+                app:iconGravity="textStart"
+                app:iconSize="30dp"
+                app:iconTint="@color/light_grey"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/btn_MyFavorite"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!--Favorite Button-->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_MyFavorite"
+                style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:background="@color/float_transparent"
+                android:onClick="onClick"
+                app:icon="@drawable/ic_outline_favorite"
+                app:iconGravity="textStart"
+                app:iconSize="30dp"
+                app:iconTint="@color/light_grey"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/btn_notification"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!--Notification Button-->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_notification"
+                style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:background="@color/float_transparent"
+                android:onClick="onClick"
+                android:padding="8dp"
+                app:icon="@drawable/ic_notification"
+                app:iconGravity="textStart"
+                app:iconSize="30dp"
+                app:iconTint="@color/light_grey"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!--Scroll View-->
+        <ScrollView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scrollbars="none"
+            app:layout_constraintBottom_toTopOf="@+id/bottom_bar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <!--text Suggested Topic-->
+                <TextView
+                    android:id="@+id/txt_suggestedTopics"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_25dp"
+                    android:layout_marginTop="@dimen/_15dp"
+                    android:background="@color/float_transparent"
+                    android:fontFamily="@font/dm_sans_bold700"
+                    android:text="@string/suggest_topics"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <!--Choice Chip group-->
+                <HorizontalScrollView
+                    android:id="@+id/horizontalScrollView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_15dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_suggestedTopics">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent">
+
+                        <com.google.android.material.chip.ChipGroup
+                            android:id="@+id/choiceChipGroup"
+                            android:layout_width="wrap_content"
+                            android:layout_height="55dp"
+                            android:layout_marginHorizontal="@dimen/_25dp"
+                            app:singleLine="true" />
+                    </LinearLayout>
+                </HorizontalScrollView>
+
+                <!--text Ask questions-->
+                <TextView
+                    android:id="@+id/txt_askQuestion"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_25dp"
+                    android:layout_marginTop="@dimen/_25dp"
+                    android:background="@color/float_transparent"
+                    android:fontFamily="@font/dm_sans_bold700"
+                    android:text="Ask the Question us"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView" />
+
+                <!--Edit text-->
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_askQuestion"
+                    android:layout_width="match_parent"
+                    android:layout_height="217dp"
+                    android:layout_marginHorizontal="25dp"
+                    android:layout_marginTop="@dimen/_15dp"
+                    android:background="@drawable/round_25_black_stroke_shape"
+                    android:gravity="top|left"
+                    android:hint="Ask the Question us"
+                    android:inputType="textCapSentences"
+                    android:padding="15dp"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/light_grey"
+                    android:textSize="@dimen/_15sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_askQuestion" />
+
+                <!--Button Send-->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_send"
+                    style="@style/MyTextButtonStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_20dp"
+                    android:layout_marginTop="@dimen/_30dp"
+                    android:layout_marginEnd="@dimen/_20dp"
+                    android:layout_marginBottom="60dp"
+                    android:fontFamily="@font/dm_sans_medium_500"
+                    android:gravity="center"
+                    android:onClick="onClick"
+                    android:paddingVertical="@dimen/_16dp"
+                    android:text="Send"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/et_askQuestion" />
+
+                <!--FAQ list view-->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/faqsRecycler"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="@dimen/_25dp"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/btn_send"
+                    tools:listitem="@layout/faqs_list_item" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+
+        <!--BOTTOM NAVIGATION BAR-->
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottom_bar"
+            style="@style/Widget.MaterialComponents.BottomNavigationView"
+            android:layout_width="0dp"
+            android:layout_height="82dp"
+            android:background="@drawable/bottom_nav_black_shape"
+            android:elevation="@dimen/_5dp"
+            android:paddingVertical="@dimen/_8dp"
+            app:itemIconTint="@color/bottom_nav_item_colors"
+            app:itemRippleColor="@android:color/transparent"
+            app:itemTextColor="@color/bottom_nav_item_colors"
+            app:labelVisibilityMode="labeled"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:menu="@menu/unsubscribe_bottom_bar_items" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!--DrawerNavigation-->
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navigationDrawerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:layout_marginEnd="-65dp"
+        android:background="@color/screen_bg"
+        android:fitsSystemWindows="true"
+        android:scrollbars="none"
+        app:headerLayout="@layout/nav_header"
+        app:itemHorizontalPadding="@dimen/_25dp"
+        app:itemIconPadding="@dimen/_15dp"
+        app:itemIconSize="@dimen/_40dp"
+        app:itemTextColor="@color/white"
+        app:itemVerticalPadding="@dimen/_10dp"
+        app:menu="@menu/nav_drawer_menu" />
+</androidx.drawerlayout.widget.DrawerLayout>

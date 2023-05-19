@@ -3,10 +3,12 @@ package com.example.ddaatapp.adapter
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
+import com.example.ddaatapp.fragment.UnsubscribeHomeLiveStreamingFragment
+import com.example.ddaatapp.fragment.HomeStreamsFragment
 import com.example.ddaatapp.fragment.HomeUpcomingSessionsFragment
-import com.example.ddaatapp.fragment.PastSessionFragment
+import com.example.ddaatapp.`object`.Constants
 
-class MyTabPagerAdapter(fragmentManager: FragmentManager) : FragmentStatePagerAdapter(fragmentManager) {
+class UnsubscribeStreamsTabPagerAdapter(fragmentManager: FragmentManager) : FragmentStatePagerAdapter(fragmentManager) {
 
     override fun getCount(): Int {
         return 2
@@ -14,17 +16,17 @@ class MyTabPagerAdapter(fragmentManager: FragmentManager) : FragmentStatePagerAd
 
     override fun getItem(position: Int): Fragment {
         return when (position) {
-            0 -> HomeUpcomingSessionsFragment()
-            1 -> PastSessionFragment()
+            0 -> HomeStreamsFragment(Constants.TAB)
+            1 -> UnsubscribeHomeLiveStreamingFragment(Constants.TAB)
             else -> HomeUpcomingSessionsFragment()
         }
     }
 
     override fun getPageTitle(position: Int): CharSequence? {
         return when (position) {
-            0 -> "Upcoming Session"
-            1 -> "Past Session"
-            else -> "Upcoming Session"
+            0 -> "DDAAT Station"
+            1 -> "Live Streaming"
+            else -> "DDAAT Station"
         }
     }
 }

@@ -150,9 +150,11 @@
 
         <!--BOTTOM NAVIGATION BAR-->
         <com.google.android.material.bottomnavigation.BottomNavigationView
+            style="@style/Widget.MaterialComponents.BottomNavigationView"
             android:id="@+id/bottom_bar"
             android:layout_width="match_parent"
             android:layout_height="82dp"
+            android:paddingVertical="@dimen/_8dp"
             android:elevation="@dimen/_5dp"
             android:background="@drawable/bottom_nav_black_shape"
             app:itemIconTint="@color/bottom_nav_item_colors"

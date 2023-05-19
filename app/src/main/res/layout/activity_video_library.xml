@@ -239,21 +239,21 @@
         </ScrollView>
         <!--BOTTOM NAVIGATION BAR-->
         <com.google.android.material.bottomnavigation.BottomNavigationView
+            style="@style/Widget.MaterialComponents.BottomNavigationView"
             android:id="@+id/bottom_bar"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="82dp"
             android:elevation="@dimen/_5dp"
+            android:paddingVertical="@dimen/_8dp"
             android:background="@drawable/bottom_nav_black_shape"
             app:itemIconTint="@color/bottom_nav_item_colors"
             app:itemTextColor="@color/bottom_nav_item_colors"
             app:labelVisibilityMode="labeled"
+            app:itemRippleColor="@android:color/transparent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.0"
-            app:menu="@menu/bottom_bar_items" />
+            app:menu="@menu/bottom_bar_items"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

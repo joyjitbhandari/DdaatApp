@@ -436,23 +436,25 @@
                     tools:listitem="@layout/article_and_blog_item" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
-        </ScrollView>
+        </ScrollView>        <com.google.android.material.bottomnavigation.BottomNavigationView
+        style="@style/Widget.MaterialComponents.BottomNavigationView"
+        android:id="@+id/bottom_bar"
+        android:layout_width="0dp"
+        android:layout_height="82dp"
+        android:elevation="@dimen/_5dp"
+        android:paddingVertical="@dimen/_8dp"
+        android:background="@drawable/bottom_nav_black_shape"
+        app:itemIconTint="@color/bottom_nav_item_colors"
+        app:itemTextColor="@color/bottom_nav_item_colors"
+        app:labelVisibilityMode="labeled"
+        app:itemRippleColor="@android:color/transparent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_bar_items"/>
+
 
         <!--BOTTOM NAVIGATION BAR-->
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/bottom_bar"
-            android:layout_width="0dp"
-            android:layout_height="82dp"
-            android:elevation="@dimen/_5dp"
-            android:background="@drawable/bottom_nav_black_shape"
-            app:itemIconTint="@color/bottom_nav_item_colors"
-            app:itemTextColor="@color/bottom_nav_item_colors"
-            app:labelVisibilityMode="labeled"
-            app:itemRippleColor="@android:color/transparent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:menu="@menu/bottom_bar_items"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 

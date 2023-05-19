@@ -209,7 +209,7 @@
 
             <!--Submit button-->
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/btn_next"
+                android:id="@+id/btn_submit"
                 style="@style/MyTextButtonStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

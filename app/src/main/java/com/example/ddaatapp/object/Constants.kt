@@ -1,16 +1,21 @@
 package com.example.ddaatapp.`object`
 
 object Constants {
-    //Unsubscribe
-    const val UNSUBSCRIBE = "UNSUBSCRIBE"
-
     //Tech Support Chat
     const val SEND_ID = "SEND_ID"
     const val RECEIVE_ID = "RECEIVE_ID"
 
+    //Subscribe Flow
+    const val  SUBSCRIPTION = "SUBSCRIPTION"
+    //Unsubscribe Flow
+    const val UNSUBSCRIBE = "UNSUBSCRIBE"
+
+    //Stream Tab Layout
+    const val TAB = "TAB"
+    const val HOME = "HOME"
+
     // Operation Flow
     const val SIGN_UP = "SIGN_UP"
-    const val  SUBSCRIPTION = "SUBSCRIPTION"
     const val FORGOT = "FORGOT"
     const val EDIT = "EDIT"
     const val ADD = "ADD"
