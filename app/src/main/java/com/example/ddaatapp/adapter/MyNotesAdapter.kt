@@ -2,17 +2,14 @@ package com.example.ddaatapp.adapter
 
 import android.content.Context
 import android.content.Intent
-import android.provider.ContactsContract.CommonDataKinds.Note
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
-import com.example.ddaatapp.activity.myNotes.MyNotesActivity
 import com.example.ddaatapp.activity.myNotes.ShowNotesActivity
 import com.example.ddaatapp.databinding.MyNotesItemBinding
-import com.example.ddaatapp.datamodel.MyNotesModel
-import com.google.gson.Gson
+import com.example.ddaatapp.responseDatamodel.MyNotesModel
 
 class MyNotesAdapter(val noteList: ArrayList<MyNotesModel>, var fromActivity:Boolean, var context: Context) :
     RecyclerView.Adapter<MyNotesAdapter.ViewHolder>() {

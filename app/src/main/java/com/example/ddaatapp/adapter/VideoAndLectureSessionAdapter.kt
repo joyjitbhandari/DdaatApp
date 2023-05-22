@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ddaatapp.databinding.VideoPlaySessionListItemBinding
-import com.example.ddaatapp.datamodel.VideoLibraryDataModel
+import com.example.ddaatapp.responseDatamodel.VideoLibraryDataModel
 
 class VideoAndLectureSessionAdapter(val sessionList: ArrayList<VideoLibraryDataModel>, var context: Context , var isVideo:Boolean) :
     RecyclerView.Adapter<VideoAndLectureSessionAdapter.ViewHolder>() {

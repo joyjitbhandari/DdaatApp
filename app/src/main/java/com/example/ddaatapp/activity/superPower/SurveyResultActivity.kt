@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.view.View
 import com.example.ddaatapp.adapter.SurveyResultAdapter
 import com.example.ddaatapp.databinding.ActivityMySuperPowerBinding
-import com.example.ddaatapp.datamodel.SurveyResultDataModel
+import com.example.ddaatapp.responseDatamodel.SurveyResultDataModel
 
 class SurveyResultActivity : AppCompatActivity() , View.OnClickListener {
     private lateinit var binding:ActivityMySuperPowerBinding

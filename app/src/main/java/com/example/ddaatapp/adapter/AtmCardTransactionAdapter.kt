@@ -1,14 +1,10 @@
 package com.example.ddaatapp.adapter
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
-import com.example.ddaatapp.databinding.AtmCardItemBinding
 import com.example.ddaatapp.databinding.AtmCardTransactionHistoryItemBinding
-import com.example.ddaatapp.datamodel.AtmCardDataModel
-import com.example.ddaatapp.datamodel.AtmCardTransactionDataModel
+import com.example.ddaatapp.responseDatamodel.AtmCardTransactionDataModel
 
 class AtmCardTransactionAdapter(val transList: ArrayList<AtmCardTransactionDataModel>) :
     RecyclerView.Adapter<AtmCardTransactionAdapter.ViewHolder>() {

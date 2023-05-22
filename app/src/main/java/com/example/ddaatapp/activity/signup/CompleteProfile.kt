@@ -9,14 +9,12 @@ import android.os.Bundle
 import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.example.ddaatapp.R
 import com.example.ddaatapp.databinding.ActivityCompleteProfileBinding
 import com.example.ddaatapp.databinding.DialogGenderPickerBinding
 import com.example.ddaatapp.databinding.DialogTypeGenderBinding
 import com.example.ddaatapp.`object`.Constants
-import com.facebook.appevents.codeless.internal.ViewHierarchy.setOnClickListener
 import java.util.*
 
 
@@ -58,7 +56,7 @@ class CompleteProfile : AppCompatActivity(), View.OnClickListener {
             }
 
             binding.etBirthYear -> {
-                showMonthPickerDialog()
+                showDatePickerDialog()
             }
             binding.btnNext -> {
                 val intent = Intent(this, InterestActivity::class.java)
@@ -77,19 +75,19 @@ class CompleteProfile : AppCompatActivity(), View.OnClickListener {
     }
 
 
-    private fun showMonthPickerDialog() {
+
+    private fun showDatePickerDialog() {
         val calendar = Calendar.getInstance()
         val year = calendar[Calendar.YEAR]
         val month = calendar[Calendar.MONTH]
+        val day = calendar[Calendar.DAY_OF_MONTH]
 
         val datePickerDialog = DatePickerDialog(
-            this@CompleteProfile,
-            { _, selectedYear, selectedMonth, _ ->
-                binding.etBirthYear.setText(selectedYear.toString() + "-" + (selectedMonth + 1))
+            this,
+            { _, year, monthOfYear, dayOfMonth ->
+                binding.etBirthYear.setText( year.toString() + "-" + (monthOfYear + 1) + "-" + dayOfMonth)
             },
-            year,
-            month,
-            0
+            year, month, day
         )
         datePickerDialog.show()
     }

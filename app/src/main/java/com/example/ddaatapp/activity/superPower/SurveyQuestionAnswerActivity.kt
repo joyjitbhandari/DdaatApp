@@ -1,6 +1,5 @@
 package com.example.ddaatapp.activity.superPower
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -8,9 +7,8 @@ import android.util.Log
 import android.view.View
 import com.example.ddaatapp.adapter.SurveyQuestionAnswerAdapter
 import com.example.ddaatapp.databinding.ActivitySurveyQuestionAnswerBinding
-import com.example.ddaatapp.datamodel.SurveyAnswerDataModel
-import com.example.ddaatapp.datamodel.SurveyQuestionDataModel
-import kotlin.math.log
+import com.example.ddaatapp.responseDatamodel.SurveyAnswerDataModel
+import com.example.ddaatapp.responseDatamodel.SurveyQuestionDataModel
 
 class SurveyQuestionAnswerActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var binding: ActivitySurveyQuestionAnswerBinding

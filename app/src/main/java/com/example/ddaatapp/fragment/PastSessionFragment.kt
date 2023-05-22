@@ -7,13 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.ddaatapp.R
 import com.example.ddaatapp.adapter.PastSessionAdapter
-import com.example.ddaatapp.adapter.UpcomingSessionAdapter
 import com.example.ddaatapp.commonClass.GridListSpacingItemDecoration
-import com.example.ddaatapp.commonClass.LinearListSpacingItemDecoration
-import com.example.ddaatapp.databinding.FragmentHomeUpcomingSessionsBinding
 import com.example.ddaatapp.databinding.FragmentPastSessionBinding
-import com.example.ddaatapp.datamodel.PastSessionDataModel
-import com.example.ddaatapp.datamodel.UpcomingSessionDataModel
+import com.example.ddaatapp.responseDatamodel.PastSessionDataModel
 
 class PastSessionFragment : Fragment() {
     private lateinit var binding:FragmentPastSessionBinding

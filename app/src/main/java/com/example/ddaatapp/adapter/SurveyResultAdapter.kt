@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ddaatapp.databinding.SurveyResultItemBinding
-import com.example.ddaatapp.datamodel.SurveyResultDataModel
+import com.example.ddaatapp.responseDatamodel.SurveyResultDataModel
 
 class SurveyResultAdapter(val resultList: ArrayList<SurveyResultDataModel>) :
     RecyclerView.Adapter<SurveyResultAdapter.ViewHolder>() {

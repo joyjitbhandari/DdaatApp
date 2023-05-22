@@ -3,14 +3,12 @@ package com.example.ddaatapp.adapter
 import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
-import com.example.ddaatapp.R
 import com.example.ddaatapp.activity.showVideoContent.ShowVideoContentActivity
 import com.example.ddaatapp.databinding.VideoLibraryListItemBinding
-import com.example.ddaatapp.datamodel.MyPurchasedDataModel
+import com.example.ddaatapp.responseDatamodel.MyPurchasedDataModel
 import com.example.ddaatapp.`object`.Constants
 
 class MyPurchasedAdapter(val videoList: ArrayList<MyPurchasedDataModel>, private val itemCount:Int, val context: Context ) :

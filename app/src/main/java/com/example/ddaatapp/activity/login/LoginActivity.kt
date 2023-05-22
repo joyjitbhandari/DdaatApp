@@ -12,6 +12,9 @@ import com.example.ddaatapp.subscriptionScreen.HomeActivity
 
 class LoginActivity : AppCompatActivity(), View.OnClickListener {
 
+
+//       https://dev-ddaat-admin.flynautstaging.com/api/
+
     private lateinit var binding: ActivityLoginBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

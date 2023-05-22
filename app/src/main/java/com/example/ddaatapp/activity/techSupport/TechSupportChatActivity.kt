@@ -3,10 +3,9 @@ package com.example.ddaatapp.activity.techSupport
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import com.example.ddaatapp.R
 import com.example.ddaatapp.adapter.TechSupportChatAdapter
 import com.example.ddaatapp.databinding.ActivityTechSupportChatBinding
-import com.example.ddaatapp.datamodel.TechSupportChatDataModel
+import com.example.ddaatapp.responseDatamodel.TechSupportChatDataModel
 import com.example.ddaatapp.`object`.Constants
 
 class TechSupportChatActivity : AppCompatActivity(), View.OnClickListener {

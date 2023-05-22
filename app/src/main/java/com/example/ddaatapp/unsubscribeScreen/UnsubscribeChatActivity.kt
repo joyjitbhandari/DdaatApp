@@ -10,14 +10,12 @@ import androidx.drawerlayout.widget.DrawerLayout
 import com.example.ddaatapp.R
 import com.example.ddaatapp.activity.notification.NotificationActivity
 import com.example.ddaatapp.activity.showVideoContent.MyFavoriteActivity
-import com.example.ddaatapp.adapter.StreamsAdapter
 import com.example.ddaatapp.adapter.UnsubscribeChatListAdapter
 import com.example.ddaatapp.commonClass.LinearListSpacingItemDecoration
 import com.example.ddaatapp.commonClass.MyDrawerNavigationItemSelectedListener
 import com.example.ddaatapp.commonClass.ShowDialog
 import com.example.ddaatapp.databinding.ActivityUnsubscribeChatBinding
-import com.example.ddaatapp.datamodel.StreamsDataModel
-import com.example.ddaatapp.datamodel.UnsubscribeChatListDataModel
+import com.example.ddaatapp.responseDatamodel.UnsubscribeChatListDataModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.button.MaterialButton
 

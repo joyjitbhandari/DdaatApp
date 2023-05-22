@@ -17,7 +17,7 @@ import com.example.ddaatapp.commonClass.HorizontalListSpacingItemDecoration
 import com.example.ddaatapp.commonClass.MyDrawerNavigationItemSelectedListener
 import com.example.ddaatapp.commonClass.ShowDialog
 import com.example.ddaatapp.databinding.ActivityUnsubscribeHomeBinding
-import com.example.ddaatapp.datamodel.ArticleDataModel
+import com.example.ddaatapp.responseDatamodel.ArticleDataModel
 import com.example.ddaatapp.fragment.*
 import com.example.ddaatapp.`object`.Constants
 import com.google.android.material.bottomnavigation.BottomNavigationView

@@ -1,16 +1,12 @@
 package com.example.ddaatapp.adapter
 
 import android.content.Context
-import android.provider.ContactsContract.CommonDataKinds.Note
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.ddaatapp.R
 import com.example.ddaatapp.databinding.RelatedVideoCourseListItemBinding
-import com.example.ddaatapp.databinding.VideoLibraryListItemBinding
-import com.example.ddaatapp.datamodel.StreamsDataModel
-import com.example.ddaatapp.datamodel.VideoLibraryDataModel
+import com.example.ddaatapp.responseDatamodel.VideoLibraryDataModel
 
 class MyFavoriteAdapter(val videoList: ArrayList<VideoLibraryDataModel>,val context: Context) :
     RecyclerView.Adapter<MyFavoriteAdapter.ViewHolder>() {

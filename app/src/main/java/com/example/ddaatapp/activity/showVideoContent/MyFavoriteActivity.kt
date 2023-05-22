@@ -8,7 +8,7 @@ import com.example.ddaatapp.adapter.MyFavoriteAdapter
 import com.example.ddaatapp.commonClass.LinearListSpacingItemDecoration
 import com.example.ddaatapp.commonClass.ShowDialog
 import com.example.ddaatapp.databinding.ActivityMyFavoriteBinding
-import com.example.ddaatapp.datamodel.VideoLibraryDataModel
+import com.example.ddaatapp.responseDatamodel.VideoLibraryDataModel
 
 class MyFavoriteActivity : AppCompatActivity() , View.OnClickListener {
     private lateinit var binding: ActivityMyFavoriteBinding

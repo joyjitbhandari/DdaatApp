@@ -7,10 +7,9 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ddaatapp.activity.chat.ChatMessageActivity
-import com.example.ddaatapp.databinding.NotificationListItemBinding
 import com.example.ddaatapp.databinding.UnsubscribeChatListItemBinding
-import com.example.ddaatapp.datamodel.NotificationDataModel
-import com.example.ddaatapp.datamodel.UnsubscribeChatListDataModel
+import com.example.ddaatapp.responseDatamodel.UnsubscribeChatListDataModel
+
 
 class UnsubscribeChatListAdapter(private val chatList: ArrayList<UnsubscribeChatListDataModel>, private val context: Context) :
     RecyclerView.Adapter<UnsubscribeChatListAdapter.ViewHolder>() {
@@ -23,7 +22,9 @@ class UnsubscribeChatListAdapter(private val chatList: ArrayList<UnsubscribeChat
             binding.chatTime.text = chatListDataModel.time
 
             binding.root.setOnClickListener {
-                mContext.startActivity(Intent(context,ChatMessageActivity::class.java))
+                val intent  = Intent(context,ChatMessageActivity::class.java)
+                intent.putExtra("imageResId", chatListDataModel.drawable)
+                mContext.startActivity(intent)
             }
         }
 
@@ -43,3 +44,4 @@ class UnsubscribeChatListAdapter(private val chatList: ArrayList<UnsubscribeChat
        holder.bind(chatList[position], context as AppCompatActivity, context)
     }
 }
+

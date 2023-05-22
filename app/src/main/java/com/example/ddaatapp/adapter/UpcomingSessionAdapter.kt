@@ -8,7 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ddaatapp.activity.session.JoinSessionActivity
 import com.example.ddaatapp.databinding.UpcomingSessionsListItemBinding
-import com.example.ddaatapp.datamodel.UpcomingSessionDataModel
+import com.example.ddaatapp.responseDatamodel.UpcomingSessionDataModel
 
 class UpcomingSessionAdapter(val sessionList: ArrayList<UpcomingSessionDataModel>, private val itemCount:Int, val context: Context) :
     RecyclerView.Adapter<UpcomingSessionAdapter.ViewHolder>() {

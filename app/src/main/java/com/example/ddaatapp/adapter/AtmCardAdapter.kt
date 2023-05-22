@@ -2,22 +2,13 @@ package com.example.ddaatapp.adapter
 
 import android.content.Context
 import android.content.Intent
-import android.provider.ContactsContract.CommonDataKinds.Note
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
-import com.example.ddaatapp.R
-import com.example.ddaatapp.activity.articleAndBlog.ArticleActivity
 import com.example.ddaatapp.activity.paymentAndBilling.AddNewCardActivity
-import com.example.ddaatapp.activity.signup.InterestActivity
-import com.example.ddaatapp.databinding.ArticleAndBlogItemBinding
 import com.example.ddaatapp.databinding.AtmCardItemBinding
-import com.example.ddaatapp.databinding.VideoLibraryListItemBinding
-import com.example.ddaatapp.datamodel.ArticleDataModel
-import com.example.ddaatapp.datamodel.AtmCardDataModel
-import com.example.ddaatapp.datamodel.VideoLibraryDataModel
+import com.example.ddaatapp.responseDatamodel.AtmCardDataModel
 
 class AtmCardAdapter(val cardList: ArrayList<AtmCardDataModel>, val context:Context) :
     RecyclerView.Adapter<AtmCardAdapter.ViewHolder>() {

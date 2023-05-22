@@ -35,5 +35,9 @@ class OtpVerifyActivity : AppCompatActivity() {
                 }
             }
         }
+
+        binding.btnBack.setOnClickListener {
+            onBackPressed()
+        }
     }
 }

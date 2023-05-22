@@ -1,7 +1,4 @@
-package com.example.ddaatapp.datamodel
-
-import android.graphics.drawable.ColorDrawable
-import android.graphics.drawable.Drawable
+package com.example.ddaatapp.responseDatamodel
 
 data class ArticleDataModel(
     val drawable: Int,

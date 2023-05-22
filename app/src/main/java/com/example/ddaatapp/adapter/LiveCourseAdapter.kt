@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ddaatapp.activity.liveCourse.JoinLiveCourseActivity
 import com.example.ddaatapp.databinding.LiveCourseListItemBinding
-import com.example.ddaatapp.datamodel.LiveCourseDataModel
+import com.example.ddaatapp.responseDatamodel.LiveCourseDataModel
 
 class LiveCourseAdapter(val liveCourseList: ArrayList<LiveCourseDataModel>, var context: Context) :
     RecyclerView.Adapter<LiveCourseAdapter.ViewHolder>() {

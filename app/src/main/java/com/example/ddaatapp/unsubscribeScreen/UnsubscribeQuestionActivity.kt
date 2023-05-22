@@ -1,7 +1,6 @@
 package com.example.ddaatapp.unsubscribeScreen
 
 import android.app.Dialog
-import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
@@ -23,7 +22,7 @@ import com.example.ddaatapp.commonClass.LinearListSpacingItemDecoration
 import com.example.ddaatapp.commonClass.MyDrawerNavigationItemSelectedListener
 import com.example.ddaatapp.commonClass.ShowDialog
 import com.example.ddaatapp.databinding.ActivityUnsubscribeQuestionBinding
-import com.example.ddaatapp.datamodel.FaqsDataModel
+import com.example.ddaatapp.responseDatamodel.FaqsDataModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.button.MaterialButton
 

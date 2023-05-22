@@ -7,9 +7,8 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ddaatapp.activity.techSupport.TechSupportChatActivity
-import com.example.ddaatapp.databinding.ArticleAndBlogItemBinding
 import com.example.ddaatapp.databinding.TicketListItemBinding
-import com.example.ddaatapp.datamodel.TicketDataModel
+import com.example.ddaatapp.responseDatamodel.TicketDataModel
 
 class TicketAdapter(val ticketList: ArrayList<TicketDataModel>, val context:Context) :
     RecyclerView.Adapter<TicketAdapter.ViewHolder>() {

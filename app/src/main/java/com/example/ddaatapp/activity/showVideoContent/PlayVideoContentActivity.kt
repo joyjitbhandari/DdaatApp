@@ -1,6 +1,5 @@
 package com.example.ddaatapp.activity.showVideoContent
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -9,7 +8,7 @@ import com.example.ddaatapp.adapter.RelatedVideoCourseAdapter
 import com.example.ddaatapp.adapter.VideoAndLectureSessionAdapter
 import com.example.ddaatapp.commonClass.LinearListSpacingItemDecoration
 import com.example.ddaatapp.databinding.ActivityPlayVideoContentBinding
-import com.example.ddaatapp.datamodel.VideoLibraryDataModel
+import com.example.ddaatapp.responseDatamodel.VideoLibraryDataModel
 import com.example.ddaatapp.`object`.Constants
 
 class PlayVideoContentActivity : AppCompatActivity(), View.OnClickListener {

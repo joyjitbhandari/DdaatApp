@@ -6,8 +6,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.ddaatapp.R
 import com.example.ddaatapp.activity.superPower.SurveyQuestionAnswerActivity
 import com.example.ddaatapp.databinding.SurveyQuestionItemsBinding
-import com.example.ddaatapp.datamodel.SurveyAnswerDataModel
-import com.example.ddaatapp.datamodel.SurveyQuestionDataModel
+import com.example.ddaatapp.responseDatamodel.SurveyAnswerDataModel
+import com.example.ddaatapp.responseDatamodel.SurveyQuestionDataModel
 
 class SurveyQuestionAnswerAdapter(val questionList: ArrayList<SurveyQuestionDataModel>) :
     RecyclerView.Adapter<SurveyQuestionAnswerAdapter.ViewHolder>() {

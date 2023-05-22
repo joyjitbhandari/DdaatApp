@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.ddaatapp.R
 import com.example.ddaatapp.activity.showVideoContent.ShowVideoContentActivity
 import com.example.ddaatapp.databinding.VideoLibraryListItemBinding
-import com.example.ddaatapp.datamodel.CourseDataModel
+import com.example.ddaatapp.responseDatamodel.CourseDataModel
 
 class CourseAdapter(val videoList: ArrayList<CourseDataModel>, private val itemCount:Int, val context: Context ) :
     RecyclerView.Adapter<CourseAdapter.ViewHolder>() {

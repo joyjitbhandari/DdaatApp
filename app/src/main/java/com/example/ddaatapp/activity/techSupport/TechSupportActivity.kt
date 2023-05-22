@@ -8,7 +8,7 @@ import com.example.ddaatapp.R
 import com.example.ddaatapp.adapter.FaqsAdapter
 import com.example.ddaatapp.commonClass.LinearListSpacingItemDecoration
 import com.example.ddaatapp.databinding.ActivityTechSupportBinding
-import com.example.ddaatapp.datamodel.FaqsDataModel
+import com.example.ddaatapp.responseDatamodel.FaqsDataModel
 
 class TechSupportActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var binding: ActivityTechSupportBinding

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "660369455581",
+    "project_id": "ddaat-app-e63c0",
+    "storage_bucket": "ddaat-app-e63c0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:660369455581:android:3475912c79f734a9269e34",
+        "android_client_info": {
+          "package_name": "com.example.ddaatapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "660369455581-7t5jkhv59j30h4j5trajv6itof43vq6c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA8oVPZiQUIRrxXDqB5IvrlcEr1gwN0lrk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "660369455581-7t5jkhv59j30h4j5trajv6itof43vq6c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

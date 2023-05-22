@@ -2,17 +2,13 @@ package com.example.ddaatapp.adapter
 
 import android.content.Context
 import android.content.Intent
-import android.provider.ContactsContract.CommonDataKinds.Note
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
-import com.example.ddaatapp.R
 import com.example.ddaatapp.activity.playStreamAudio.StreamAudioPlayActivity
 import com.example.ddaatapp.databinding.VideoLibraryListItemBinding
-import com.example.ddaatapp.datamodel.StreamsDataModel
-import com.example.ddaatapp.datamodel.VideoLibraryDataModel
+import com.example.ddaatapp.responseDatamodel.StreamsDataModel
 import com.example.ddaatapp.`object`.Constants
 
 class StreamsAdapter(val videoList: ArrayList<StreamsDataModel>, private val itemCount:Int, var isPodcast:Boolean, var context: Context) :

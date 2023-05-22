@@ -8,7 +8,7 @@ import com.example.ddaatapp.R
 import com.example.ddaatapp.adapter.TicketAdapter
 import com.example.ddaatapp.commonClass.LinearListSpacingItemDecoration
 import com.example.ddaatapp.databinding.ActivityTechSupportTicketBinding
-import com.example.ddaatapp.datamodel.TicketDataModel
+import com.example.ddaatapp.responseDatamodel.TicketDataModel
 
 class TechSupportTicketActivity : AppCompatActivity(), View.OnClickListener{
     private lateinit var binding: ActivityTechSupportTicketBinding

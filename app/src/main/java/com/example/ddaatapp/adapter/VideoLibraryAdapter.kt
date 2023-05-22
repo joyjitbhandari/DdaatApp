@@ -8,7 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ddaatapp.activity.showVideoContent.ShowVideoContentActivity
 import com.example.ddaatapp.databinding.VideoLibraryListItemBinding
-import com.example.ddaatapp.datamodel.VideoLibraryDataModel
+import com.example.ddaatapp.responseDatamodel.VideoLibraryDataModel
 import com.example.ddaatapp.`object`.Constants
 
 class VideoLibraryAdapter(val videoList: ArrayList<VideoLibraryDataModel>, private val itemCount:Int, private val context: Context , private val operationFlow : String ) :

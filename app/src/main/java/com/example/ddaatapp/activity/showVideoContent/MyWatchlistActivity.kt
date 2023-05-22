@@ -7,7 +7,7 @@ import com.example.ddaatapp.R
 import com.example.ddaatapp.adapter.MyWatchListAdapter
 import com.example.ddaatapp.commonClass.LinearListSpacingItemDecoration
 import com.example.ddaatapp.databinding.ActivityMyWatchListBinding
-import com.example.ddaatapp.datamodel.VideoLibraryDataModel
+import com.example.ddaatapp.responseDatamodel.VideoLibraryDataModel
 
 class MyWatchlistActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var binding:ActivityMyWatchListBinding

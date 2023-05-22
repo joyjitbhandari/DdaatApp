@@ -1,14 +1,10 @@
 package com.example.ddaatapp.adapter
 
-import android.provider.ContactsContract.CommonDataKinds.Note
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.ddaatapp.R
 import com.example.ddaatapp.databinding.NotificationListItemBinding
-import com.example.ddaatapp.datamodel.ArticleDataModel
-import com.example.ddaatapp.datamodel.NotificationDataModel
-import com.example.ddaatapp.datamodel.VideoLibraryDataModel
+import com.example.ddaatapp.responseDatamodel.NotificationDataModel
 
 class NotificationAdapter(val notificationList: ArrayList<NotificationDataModel>) :
     RecyclerView.Adapter<NotificationAdapter.ViewHolder>() {

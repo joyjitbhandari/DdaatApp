@@ -6,10 +6,9 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
-import com.example.ddaatapp.activity.session.JoinSessionActivity
 import com.example.ddaatapp.activity.session.PastSessionHistoryActivity
 import com.example.ddaatapp.databinding.PastSessionsListItemBinding
-import com.example.ddaatapp.datamodel.PastSessionDataModel
+import com.example.ddaatapp.responseDatamodel.PastSessionDataModel
 
 class PastSessionAdapter(val sessionList: ArrayList<PastSessionDataModel>, val context: Context) :
     RecyclerView.Adapter<PastSessionAdapter.ViewHolder>() {

@@ -2,18 +2,14 @@ package com.example.ddaatapp.adapter
 
 import android.content.Context
 import android.content.Intent
-import android.provider.ContactsContract.CommonDataKinds.Note
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
-import com.example.ddaatapp.R
 import com.example.ddaatapp.activity.articleAndBlog.ArticleActivity
 import com.example.ddaatapp.databinding.ArticleAndBlogItemBinding
-import com.example.ddaatapp.databinding.VideoLibraryListItemBinding
-import com.example.ddaatapp.datamodel.ArticleDataModel
-import com.example.ddaatapp.datamodel.VideoLibraryDataModel
+import com.example.ddaatapp.responseDatamodel.ArticleDataModel
 
 class ArticleBlogAdapter(val articleList: ArrayList<ArticleDataModel>, val context:Context, private val isBlog:Boolean) :
     RecyclerView.Adapter<ArticleBlogAdapter.ViewHolder>() {

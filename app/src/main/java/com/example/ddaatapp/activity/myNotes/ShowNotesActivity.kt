@@ -3,9 +3,7 @@ package com.example.ddaatapp.activity.myNotes
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.ddaatapp.databinding.ActivityShowNotesBinding
-import com.example.ddaatapp.datamodel.MyNotesModel
-import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
+import com.example.ddaatapp.responseDatamodel.MyNotesModel
 
 class ShowNotesActivity : AppCompatActivity() {
     private lateinit var binding : ActivityShowNotesBinding

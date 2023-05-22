@@ -20,9 +20,9 @@ import com.example.ddaatapp.commonClass.LinearListSpacingItemDecoration
 import com.example.ddaatapp.commonClass.MyDrawerNavigationItemSelectedListener
 import com.example.ddaatapp.commonClass.ShowDialog
 import com.example.ddaatapp.databinding.ActivityCoursesBinding
-import com.example.ddaatapp.datamodel.CourseDataModel
-import com.example.ddaatapp.datamodel.LiveCourseDataModel
-import com.example.ddaatapp.datamodel.MyPurchasedDataModel
+import com.example.ddaatapp.responseDatamodel.CourseDataModel
+import com.example.ddaatapp.responseDatamodel.LiveCourseDataModel
+import com.example.ddaatapp.responseDatamodel.MyPurchasedDataModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.button.MaterialButton
 

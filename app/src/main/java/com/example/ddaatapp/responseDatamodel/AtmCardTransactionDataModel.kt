@@ -1,4 +1,4 @@
-package com.example.ddaatapp.datamodel
+package com.example.ddaatapp.responseDatamodel
 
 data class AtmCardTransactionDataModel(
     val transSymbol : Int,

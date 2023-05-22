@@ -1,4 +1,4 @@
-package com.example.ddaatapp.datamodel
+package com.example.ddaatapp.responseDatamodel
 
 data class PastSessionDataModel(
     val drawable: Int,

@@ -4,17 +4,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.ddaatapp.databinding.TechSupportChatItemBinding
+import com.example.ddaatapp.databinding.ChatMessageItemBinding
 import com.example.ddaatapp.responseDatamodel.TechSupportChatDataModel
 import com.example.ddaatapp.`object`.Constants
 
-class TechSupportChatAdapter(val chatList: ArrayList<TechSupportChatDataModel>) :
-    RecyclerView.Adapter<TechSupportChatAdapter.ViewHolder>() {
-    class ViewHolder(var binding:TechSupportChatItemBinding ): RecyclerView.ViewHolder(binding.root) {
-        fun bind(techSupportChatDataModel: TechSupportChatDataModel){
+class ChatMessageAdapter(private val chatList: ArrayList<TechSupportChatDataModel>,private val receiverImg : Int ) :
+    RecyclerView.Adapter<ChatMessageAdapter.ViewHolder>() {
+    class ViewHolder(var binding:ChatMessageItemBinding): RecyclerView.ViewHolder(binding.root) {
+        fun bind(techSupportChatDataModel: TechSupportChatDataModel, receiverImg: Int){
             when(techSupportChatDataModel.id){
                 Constants.SEND_ID->{
                     //visibility gone for receive view
+
                     binding.receiveViewCard.visibility = View.GONE
                     binding.receiveTime.visibility = View.GONE
 
@@ -29,6 +30,7 @@ class TechSupportChatAdapter(val chatList: ArrayList<TechSupportChatDataModel>) 
                     binding.sendTime.visibility = View.GONE
 
                     //setting data to view
+                    binding.receiverImage.setImageResource(receiverImg)
                     binding.receiveMessage.text = techSupportChatDataModel.currentMessage
                     binding.receiveTime.text = techSupportChatDataModel.time
 
@@ -39,7 +41,7 @@ class TechSupportChatAdapter(val chatList: ArrayList<TechSupportChatDataModel>) 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
-            TechSupportChatItemBinding.inflate(
+            ChatMessageItemBinding.inflate(
             LayoutInflater.from(parent.context), parent, false))
     }
 
@@ -48,6 +50,6 @@ class TechSupportChatAdapter(val chatList: ArrayList<TechSupportChatDataModel>) 
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-       holder.bind(chatList[position])
+       holder.bind(chatList[position], receiverImg)
     }
 }

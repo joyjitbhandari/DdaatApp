@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.ddaatapp.adapter.MyNotesAdapter
 import com.example.ddaatapp.databinding.ActivityMyNotesBinding
-import com.example.ddaatapp.datamodel.MyNotesModel
+import com.example.ddaatapp.responseDatamodel.MyNotesModel
 
 class MyNotesActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMyNotesBinding

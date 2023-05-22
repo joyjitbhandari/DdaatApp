@@ -11,7 +11,7 @@ import com.example.ddaatapp.commonClass.DynamicInterestChipCreator
 import com.example.ddaatapp.commonClass.LinearListSpacingItemDecoration
 import com.example.ddaatapp.commonClass.ShowDialog
 import com.example.ddaatapp.databinding.FragmentUnsubscribeHomeLiveStreamBinding
-import com.example.ddaatapp.datamodel.StreamsDataModel
+import com.example.ddaatapp.responseDatamodel.StreamsDataModel
 import com.example.ddaatapp.`object`.Constants
 
 class UnsubscribeHomeLiveStreamingFragment(private val operationFlow: String) : Fragment() {
