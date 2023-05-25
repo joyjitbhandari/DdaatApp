@@ -86,10 +86,19 @@ class CoursesActivity : AppCompatActivity(), View.OnClickListener  {
         })
 
         //Setup Live course list
-        val liveCourseList = arrayListOf<LiveCourseDataModel>(
-            LiveCourseDataModel(R.drawable.live_course_sample_img,"Course Name"),
-            LiveCourseDataModel(R.drawable.live_course_sample_img,"Course Name"),
-            LiveCourseDataModel(R.drawable.live_course_sample_img,"Course Name"),
+        val liveCourseList = arrayListOf<com.example.ddaatapp.responseDatamodel.LiveCourseDataModel>(
+            com.example.ddaatapp.responseDatamodel.LiveCourseDataModel(
+                R.drawable.live_course_sample_img,
+                "Course Name"
+            ),
+            com.example.ddaatapp.responseDatamodel.LiveCourseDataModel(
+                R.drawable.live_course_sample_img,
+                "Course Name"
+            ),
+            com.example.ddaatapp.responseDatamodel.LiveCourseDataModel(
+                R.drawable.live_course_sample_img,
+                "Course Name"
+            ),
             )
         //Setup adapter
         val liveCourseRecycler = binding.liveCourseRecycler
@@ -102,12 +111,37 @@ class CoursesActivity : AppCompatActivity(), View.OnClickListener  {
 
 
         //setup course list
-        val courseList = arrayListOf<CourseDataModel>(
-            CourseDataModel(R.drawable.video_sample_image,"Course Name","Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been",true),
-            CourseDataModel(R.drawable.video_sample_image2,"Course Name","Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been",false),
-            CourseDataModel(R.drawable.video_sample_image3,"Course Name","Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been",true),
-            CourseDataModel(R.drawable.video_sample_image3,"Course Name","Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been",true),
-            CourseDataModel(R.drawable.video_sample_image3,"Podcast Title","Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been",false)
+        val courseList = arrayListOf<com.example.ddaatapp.responseDatamodel.CourseDataModel>(
+            com.example.ddaatapp.responseDatamodel.CourseDataModel(
+                R.drawable.video_sample_image,
+                "Course Name",
+                "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been",
+                true
+            ),
+            com.example.ddaatapp.responseDatamodel.CourseDataModel(
+                R.drawable.video_sample_image2,
+                "Course Name",
+                "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been",
+                false
+            ),
+            com.example.ddaatapp.responseDatamodel.CourseDataModel(
+                R.drawable.video_sample_image3,
+                "Course Name",
+                "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been",
+                true
+            ),
+            com.example.ddaatapp.responseDatamodel.CourseDataModel(
+                R.drawable.video_sample_image3,
+                "Course Name",
+                "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been",
+                true
+            ),
+            com.example.ddaatapp.responseDatamodel.CourseDataModel(
+                R.drawable.video_sample_image3,
+                "Podcast Title",
+                "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been",
+                false
+            )
         )
         //setting up the list view adapter
         val courseRecycler = binding.courseRecycler
@@ -119,9 +153,17 @@ class CoursesActivity : AppCompatActivity(), View.OnClickListener  {
 
 
         // set up My Purchased list
-        val purchasedList = arrayListOf<MyPurchasedDataModel>(
-            MyPurchasedDataModel(R.drawable.video_sample_image,"Course Name","Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"),
-            MyPurchasedDataModel(R.drawable.video_sample_image2,"Course Name","Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been")
+        val purchasedList = arrayListOf<com.example.ddaatapp.responseDatamodel.MyPurchasedDataModel>(
+            com.example.ddaatapp.responseDatamodel.MyPurchasedDataModel(
+                R.drawable.video_sample_image,
+                "Course Name",
+                "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"
+            ),
+            com.example.ddaatapp.responseDatamodel.MyPurchasedDataModel(
+                R.drawable.video_sample_image2,
+                "Course Name",
+                "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"
+            )
         )
 
         //setting up the list view adapter

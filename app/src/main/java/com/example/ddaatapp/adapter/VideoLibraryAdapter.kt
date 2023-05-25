@@ -11,10 +11,10 @@ import com.example.ddaatapp.databinding.VideoLibraryListItemBinding
 import com.example.ddaatapp.responseDatamodel.VideoLibraryDataModel
 import com.example.ddaatapp.`object`.Constants
 
-class VideoLibraryAdapter(val videoList: ArrayList<VideoLibraryDataModel>, private val itemCount:Int, private val context: Context , private val operationFlow : String ) :
+class VideoLibraryAdapter(val videoList: ArrayList<com.example.ddaatapp.responseDatamodel.VideoLibraryDataModel>, private val itemCount:Int, private val context: Context, private val operationFlow : String ) :
     RecyclerView.Adapter<VideoLibraryAdapter.ViewHolder>() {
     class ViewHolder(var binding:VideoLibraryListItemBinding ): RecyclerView.ViewHolder(binding.root) {
-        fun bind(videoLibraryDataModel: VideoLibraryDataModel, mContext:AppCompatActivity, context: Context,operationFlow: String){
+        fun bind(videoLibraryDataModel: com.example.ddaatapp.responseDatamodel.VideoLibraryDataModel, mContext:AppCompatActivity, context: Context, operationFlow: String){
             binding.videoImage.setImageResource(videoLibraryDataModel.drawable)
             binding.txtVideoName.text = videoLibraryDataModel.name
             binding.txtVideoDesc.text = videoLibraryDataModel.desc

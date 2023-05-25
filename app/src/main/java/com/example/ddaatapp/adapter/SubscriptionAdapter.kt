@@ -12,10 +12,10 @@ import com.example.ddaatapp.databinding.SubscriptionCardItemBinding
 import com.example.ddaatapp.responseDatamodel.SubscriptionDataModel
 import com.example.ddaatapp.`object`.Constants
 
-class SubscriptionAdapter(private val cardList: ArrayList<SubscriptionDataModel>, var context: Context, var isAfterSignIn: Boolean) :
+class SubscriptionAdapter(private val cardList: ArrayList<com.example.ddaatapp.responseDatamodel.SubscriptionDataModel>, var context: Context, var isAfterSignIn: Boolean) :
     RecyclerView.Adapter<SubscriptionAdapter.ViewHolder>() {
     class ViewHolder(var binding:SubscriptionCardItemBinding ): RecyclerView.ViewHolder(binding.root) {
-        fun bind(subscriptionDataModel: SubscriptionDataModel, mContext:AppCompatActivity, context: Context, isAfterSignIn: Boolean){
+        fun bind(subscriptionDataModel: com.example.ddaatapp.responseDatamodel.SubscriptionDataModel, mContext:AppCompatActivity, context: Context, isAfterSignIn: Boolean){
 
             binding.subsCardBG.setImageResource(subscriptionDataModel.bg)
             binding.cardImage.setImageResource(subscriptionDataModel.symbol)

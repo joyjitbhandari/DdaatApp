@@ -18,14 +18,42 @@ class MyWatchlistActivity : AppCompatActivity(), View.OnClickListener {
 
         // Setting top videos in recycler
         //watchlist list
-        val watchList = arrayListOf<VideoLibraryDataModel>(
-            VideoLibraryDataModel(R.drawable.video_sample_image,"Video Name","Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"),
-            VideoLibraryDataModel(R.drawable.video_sample_image2,"Video Name","Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"),
-            VideoLibraryDataModel(R.drawable.video_sample_image3,"Video Name","Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"),
-            VideoLibraryDataModel(R.drawable.video_sample_image,"Video Name","Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"),
-            VideoLibraryDataModel(R.drawable.video_sample_image3,"Video Name","Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"),
-            VideoLibraryDataModel(R.drawable.video_sample_image,"Video Name","Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"),
-            VideoLibraryDataModel(R.drawable.video_sample_image,"Video Name","Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"),
+        val watchList = arrayListOf<com.example.ddaatapp.responseDatamodel.VideoLibraryDataModel>(
+            com.example.ddaatapp.responseDatamodel.VideoLibraryDataModel(
+                R.drawable.video_sample_image,
+                "Video Name",
+                "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"
+            ),
+            com.example.ddaatapp.responseDatamodel.VideoLibraryDataModel(
+                R.drawable.video_sample_image2,
+                "Video Name",
+                "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"
+            ),
+            com.example.ddaatapp.responseDatamodel.VideoLibraryDataModel(
+                R.drawable.video_sample_image3,
+                "Video Name",
+                "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"
+            ),
+            com.example.ddaatapp.responseDatamodel.VideoLibraryDataModel(
+                R.drawable.video_sample_image,
+                "Video Name",
+                "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"
+            ),
+            com.example.ddaatapp.responseDatamodel.VideoLibraryDataModel(
+                R.drawable.video_sample_image3,
+                "Video Name",
+                "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"
+            ),
+            com.example.ddaatapp.responseDatamodel.VideoLibraryDataModel(
+                R.drawable.video_sample_image,
+                "Video Name",
+                "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"
+            ),
+            com.example.ddaatapp.responseDatamodel.VideoLibraryDataModel(
+                R.drawable.video_sample_image,
+                "Video Name",
+                "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"
+            ),
         )
 
         val watchlistRecyclerView= binding.watchlistRecycler

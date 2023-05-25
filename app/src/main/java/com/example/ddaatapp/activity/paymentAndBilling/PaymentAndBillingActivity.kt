@@ -22,10 +22,28 @@ class PaymentAndBillingActivity : AppCompatActivity(), View.OnClickListener {
         setContentView(binding.root)
 
         //card list
-        val cardList = arrayListOf<AtmCardDataModel>(
-            AtmCardDataModel(R.color.blue_bg,R.drawable.card_type,"**** **** **** 1293", "Anna Larsen","06/25"),
-            AtmCardDataModel(R.color.blue_bg,R.drawable.card_type,"**** **** **** 1293", "Anna Larsen","06/25"),
-            AtmCardDataModel(R.color.blue_bg,R.drawable.card_type,"**** **** **** 1293", "Anna Larsen","06/25")
+        val cardList = arrayListOf<com.example.ddaatapp.responseDatamodel.AtmCardDataModel>(
+            com.example.ddaatapp.responseDatamodel.AtmCardDataModel(
+                R.color.blue_bg,
+                R.drawable.card_type,
+                "**** **** **** 1293",
+                "Anna Larsen",
+                "06/25"
+            ),
+            com.example.ddaatapp.responseDatamodel.AtmCardDataModel(
+                R.color.blue_bg,
+                R.drawable.card_type,
+                "**** **** **** 1293",
+                "Anna Larsen",
+                "06/25"
+            ),
+            com.example.ddaatapp.responseDatamodel.AtmCardDataModel(
+                R.color.blue_bg,
+                R.drawable.card_type,
+                "**** **** **** 1293",
+                "Anna Larsen",
+                "06/25"
+            )
         )
         //Setting adapter for card list
         val atmCardRecyclerView = binding.atmCardRecycler
@@ -37,17 +55,77 @@ class PaymentAndBillingActivity : AppCompatActivity(), View.OnClickListener {
 
 
         //Transaction List
-        val transList = arrayListOf<AtmCardTransactionDataModel>(
-            AtmCardTransactionDataModel(R.drawable.review,"Subscription","Subscription Renewal","-$53.95","July 14, 2022"),
-            AtmCardTransactionDataModel(R.drawable.review,"Subscription","Subscription Renewal","-$53.95","July 14, 2022"),
-            AtmCardTransactionDataModel(R.drawable.review,"Subscription","Subscription Renewal","-$53.95","July 14, 2022"),
-            AtmCardTransactionDataModel(R.drawable.review,"Subscription","Subscription Renewal","-$53.95","July 14, 2022"),
-            AtmCardTransactionDataModel(R.drawable.review,"Subscription","Subscription Renewal","-$53.95","July 14, 2022"),
-            AtmCardTransactionDataModel(R.drawable.review,"Subscription","Subscription Renewal","-$53.95","July 14, 2022"),
-            AtmCardTransactionDataModel(R.drawable.review,"Subscription","Subscription Renewal","-$53.95","July 14, 2022"),
-            AtmCardTransactionDataModel(R.drawable.review,"Subscription","Subscription Renewal","-$53.95","July 14, 2022"),
-            AtmCardTransactionDataModel(R.drawable.review,"Subscription","Subscription Renewal","-$53.95","July 14, 2022"),
-            AtmCardTransactionDataModel(R.drawable.review,"Subscription","Subscription Renewal","-$53.95","July 14, 2022"),
+        val transList = arrayListOf<com.example.ddaatapp.responseDatamodel.AtmCardTransactionDataModel>(
+            com.example.ddaatapp.responseDatamodel.AtmCardTransactionDataModel(
+                R.drawable.review,
+                "Subscription",
+                "Subscription Renewal",
+                "-$53.95",
+                "July 14, 2022"
+            ),
+            com.example.ddaatapp.responseDatamodel.AtmCardTransactionDataModel(
+                R.drawable.review,
+                "Subscription",
+                "Subscription Renewal",
+                "-$53.95",
+                "July 14, 2022"
+            ),
+            com.example.ddaatapp.responseDatamodel.AtmCardTransactionDataModel(
+                R.drawable.review,
+                "Subscription",
+                "Subscription Renewal",
+                "-$53.95",
+                "July 14, 2022"
+            ),
+            com.example.ddaatapp.responseDatamodel.AtmCardTransactionDataModel(
+                R.drawable.review,
+                "Subscription",
+                "Subscription Renewal",
+                "-$53.95",
+                "July 14, 2022"
+            ),
+            com.example.ddaatapp.responseDatamodel.AtmCardTransactionDataModel(
+                R.drawable.review,
+                "Subscription",
+                "Subscription Renewal",
+                "-$53.95",
+                "July 14, 2022"
+            ),
+            com.example.ddaatapp.responseDatamodel.AtmCardTransactionDataModel(
+                R.drawable.review,
+                "Subscription",
+                "Subscription Renewal",
+                "-$53.95",
+                "July 14, 2022"
+            ),
+            com.example.ddaatapp.responseDatamodel.AtmCardTransactionDataModel(
+                R.drawable.review,
+                "Subscription",
+                "Subscription Renewal",
+                "-$53.95",
+                "July 14, 2022"
+            ),
+            com.example.ddaatapp.responseDatamodel.AtmCardTransactionDataModel(
+                R.drawable.review,
+                "Subscription",
+                "Subscription Renewal",
+                "-$53.95",
+                "July 14, 2022"
+            ),
+            com.example.ddaatapp.responseDatamodel.AtmCardTransactionDataModel(
+                R.drawable.review,
+                "Subscription",
+                "Subscription Renewal",
+                "-$53.95",
+                "July 14, 2022"
+            ),
+            com.example.ddaatapp.responseDatamodel.AtmCardTransactionDataModel(
+                R.drawable.review,
+                "Subscription",
+                "Subscription Renewal",
+                "-$53.95",
+                "July 14, 2022"
+            ),
         )
         //Adapter set
         val transactionView = binding.transHistoryRecycler

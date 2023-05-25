@@ -8,10 +8,10 @@ import com.example.ddaatapp.databinding.TechSupportChatItemBinding
 import com.example.ddaatapp.responseDatamodel.TechSupportChatDataModel
 import com.example.ddaatapp.`object`.Constants
 
-class TechSupportChatAdapter(val chatList: ArrayList<TechSupportChatDataModel>) :
+class TechSupportChatAdapter(val chatList: ArrayList<com.example.ddaatapp.responseDatamodel.TechSupportChatDataModel>) :
     RecyclerView.Adapter<TechSupportChatAdapter.ViewHolder>() {
     class ViewHolder(var binding:TechSupportChatItemBinding ): RecyclerView.ViewHolder(binding.root) {
-        fun bind(techSupportChatDataModel: TechSupportChatDataModel){
+        fun bind(techSupportChatDataModel: com.example.ddaatapp.responseDatamodel.TechSupportChatDataModel){
             when(techSupportChatDataModel.id){
                 Constants.SEND_ID->{
                     //visibility gone for receive view

@@ -12,10 +12,10 @@ import com.example.ddaatapp.databinding.RelatedVideoCourseListItemBinding
 import com.example.ddaatapp.responseDatamodel.VideoLibraryDataModel
 import com.example.ddaatapp.`object`.Constants
 
-class RelatedVideoCourseAdapter(val videoList: ArrayList<VideoLibraryDataModel>, private val itemCount:Int, val context: Context, val isVideo:Boolean) :
+class RelatedVideoCourseAdapter(val videoList: ArrayList<com.example.ddaatapp.responseDatamodel.VideoLibraryDataModel>, private val itemCount:Int, val context: Context, val isVideo:Boolean) :
     RecyclerView.Adapter<RelatedVideoCourseAdapter.ViewHolder>() {
     class ViewHolder(var binding:RelatedVideoCourseListItemBinding ): RecyclerView.ViewHolder(binding.root) {
-        fun bind(videoLibraryDataModel: VideoLibraryDataModel, mContext:AppCompatActivity, context: Context ,isVideo: Boolean){
+        fun bind(videoLibraryDataModel: com.example.ddaatapp.responseDatamodel.VideoLibraryDataModel, mContext:AppCompatActivity, context: Context, isVideo: Boolean){
             binding.videoImage.setImageResource(videoLibraryDataModel.drawable)
             binding.txtVideoName.text = videoLibraryDataModel.name
             binding.txtVideoDesc.text = videoLibraryDataModel.desc

@@ -9,10 +9,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.ddaatapp.databinding.VideoPlaySessionListItemBinding
 import com.example.ddaatapp.responseDatamodel.VideoLibraryDataModel
 
-class VideoAndLectureSessionAdapter(val sessionList: ArrayList<VideoLibraryDataModel>, var context: Context , var isVideo:Boolean) :
+class VideoAndLectureSessionAdapter(val sessionList: ArrayList<com.example.ddaatapp.responseDatamodel.VideoLibraryDataModel>, var context: Context, var isVideo:Boolean) :
     RecyclerView.Adapter<VideoAndLectureSessionAdapter.ViewHolder>() {
     class ViewHolder(var binding: VideoPlaySessionListItemBinding ): RecyclerView.ViewHolder(binding.root) {
-        fun bind(videoLibraryDataModel: VideoLibraryDataModel, mContext:AppCompatActivity, context: Context, isVideo: Boolean){
+        fun bind(videoLibraryDataModel: com.example.ddaatapp.responseDatamodel.VideoLibraryDataModel, mContext:AppCompatActivity, context: Context, isVideo: Boolean){
             binding.videoImage.setImageResource(videoLibraryDataModel.drawable)
             binding.txtVideoName.text = videoLibraryDataModel.name
             binding.txtVideoDesc.text = videoLibraryDataModel.desc

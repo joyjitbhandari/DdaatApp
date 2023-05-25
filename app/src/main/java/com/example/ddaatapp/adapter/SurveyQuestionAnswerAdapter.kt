@@ -9,10 +9,10 @@ import com.example.ddaatapp.databinding.SurveyQuestionItemsBinding
 import com.example.ddaatapp.responseDatamodel.SurveyAnswerDataModel
 import com.example.ddaatapp.responseDatamodel.SurveyQuestionDataModel
 
-class SurveyQuestionAnswerAdapter(val questionList: ArrayList<SurveyQuestionDataModel>) :
+class SurveyQuestionAnswerAdapter(val questionList: ArrayList<com.example.ddaatapp.responseDatamodel.SurveyQuestionDataModel>) :
     RecyclerView.Adapter<SurveyQuestionAnswerAdapter.ViewHolder>() {
     class ViewHolder(var binding:SurveyQuestionItemsBinding ): RecyclerView.ViewHolder(binding.root) {
-        fun bind(surveyQuestionDataModel: SurveyQuestionDataModel,position: Int){
+        fun bind(surveyQuestionDataModel: com.example.ddaatapp.responseDatamodel.SurveyQuestionDataModel, position: Int){
             binding.questionKeyWord.text = surveyQuestionDataModel.keyword
             binding.questionSummery.text = surveyQuestionDataModel.desc
 
@@ -28,7 +28,12 @@ class SurveyQuestionAnswerAdapter(val questionList: ArrayList<SurveyQuestionData
                         answer = "Least"
                     }
                 }
-                SurveyQuestionAnswerActivity().answerList.add(SurveyAnswerDataModel(surveyQuestionDataModel.keyword,answer))
+                SurveyQuestionAnswerActivity().answerList.add(
+                    com.example.ddaatapp.responseDatamodel.SurveyAnswerDataModel(
+                        surveyQuestionDataModel.keyword,
+                        answer
+                    )
+                )
             }
 
         }

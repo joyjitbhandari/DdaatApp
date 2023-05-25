@@ -18,11 +18,31 @@ class TechSupportTicketActivity : AppCompatActivity(), View.OnClickListener{
         setContentView(binding.root)
 
         // ticket list
-        val ticketList = arrayListOf<TicketDataModel>(
-            TicketDataModel("Title of the Ticket","(Open)","Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard …","Created - 28th Feb 2023 at 12.00 PM"),
-            TicketDataModel("Title of the Ticket","(Open)","Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard …","Created - 28th Feb 2023 at 12.00 PM"),
-            TicketDataModel("Title of the Ticket","(Open)","Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard …","Created - 28th Feb 2023 at 12.00 PM"),
-            TicketDataModel("Title of the Ticket","(Open)","Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard …","Created - 28th Feb 2023 at 12.00 PM"),
+        val ticketList = arrayListOf<com.example.ddaatapp.responseDatamodel.TicketDataModel>(
+            com.example.ddaatapp.responseDatamodel.TicketDataModel(
+                "Title of the Ticket",
+                "(Open)",
+                "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard …",
+                "Created - 28th Feb 2023 at 12.00 PM"
+            ),
+            com.example.ddaatapp.responseDatamodel.TicketDataModel(
+                "Title of the Ticket",
+                "(Open)",
+                "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard …",
+                "Created - 28th Feb 2023 at 12.00 PM"
+            ),
+            com.example.ddaatapp.responseDatamodel.TicketDataModel(
+                "Title of the Ticket",
+                "(Open)",
+                "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard …",
+                "Created - 28th Feb 2023 at 12.00 PM"
+            ),
+            com.example.ddaatapp.responseDatamodel.TicketDataModel(
+                "Title of the Ticket",
+                "(Open)",
+                "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard …",
+                "Created - 28th Feb 2023 at 12.00 PM"
+            ),
             )
         val ticketRecyclerView = binding.ticketRecycler
         val adapter = TicketAdapter(ticketList,this)

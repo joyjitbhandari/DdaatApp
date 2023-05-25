@@ -30,13 +30,43 @@ class HomeUpcomingSessionsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val upcomingSessionList  = arrayListOf<UpcomingSessionDataModel>(
-            UpcomingSessionDataModel(R.drawable.session_sample1,"John Smith","Video session","15 Dec 2023"),
-            UpcomingSessionDataModel(R.drawable.session_sample2,"John Smith","Video session","15 Dec 2023"),
-            UpcomingSessionDataModel(R.drawable.session_sample3,"John Smith","Video session","15 Dec 2023"),
-            UpcomingSessionDataModel(R.drawable.session_sample4,"John Smith","Video session","15 Dec 2023"),
-            UpcomingSessionDataModel(R.drawable.session_sample3,"John Smith","Video session","15 Dec 2023"),
-            UpcomingSessionDataModel(R.drawable.session_sample2,"John Smith","Video session","15 Dec 2023"),
+        val upcomingSessionList  = arrayListOf<com.example.ddaatapp.responseDatamodel.UpcomingSessionDataModel>(
+            com.example.ddaatapp.responseDatamodel.UpcomingSessionDataModel(
+                R.drawable.session_sample1,
+                "John Smith",
+                "Video session",
+                "15 Dec 2023"
+            ),
+            com.example.ddaatapp.responseDatamodel.UpcomingSessionDataModel(
+                R.drawable.session_sample2,
+                "John Smith",
+                "Video session",
+                "15 Dec 2023"
+            ),
+            com.example.ddaatapp.responseDatamodel.UpcomingSessionDataModel(
+                R.drawable.session_sample3,
+                "John Smith",
+                "Video session",
+                "15 Dec 2023"
+            ),
+            com.example.ddaatapp.responseDatamodel.UpcomingSessionDataModel(
+                R.drawable.session_sample4,
+                "John Smith",
+                "Video session",
+                "15 Dec 2023"
+            ),
+            com.example.ddaatapp.responseDatamodel.UpcomingSessionDataModel(
+                R.drawable.session_sample3,
+                "John Smith",
+                "Video session",
+                "15 Dec 2023"
+            ),
+            com.example.ddaatapp.responseDatamodel.UpcomingSessionDataModel(
+                R.drawable.session_sample2,
+                "John Smith",
+                "Video session",
+                "15 Dec 2023"
+            ),
         )
 
 //        adapter setting to recycler view

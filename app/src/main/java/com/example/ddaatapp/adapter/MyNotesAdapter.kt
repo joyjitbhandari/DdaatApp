@@ -11,11 +11,11 @@ import com.example.ddaatapp.activity.myNotes.ShowNotesActivity
 import com.example.ddaatapp.databinding.MyNotesItemBinding
 import com.example.ddaatapp.responseDatamodel.MyNotesModel
 
-class MyNotesAdapter(val noteList: ArrayList<MyNotesModel>, var fromActivity:Boolean, var context: Context) :
+class MyNotesAdapter(val noteList: ArrayList<com.example.ddaatapp.responseDatamodel.MyNotesModel>, var fromActivity:Boolean, var context: Context) :
     RecyclerView.Adapter<MyNotesAdapter.ViewHolder>() {
 
     class ViewHolder(var binding:MyNotesItemBinding): RecyclerView.ViewHolder(binding.root) {
-        fun bind(notesModel: MyNotesModel, fromActivity: Boolean, mContext:AppCompatActivity, context: Context){
+        fun bind(notesModel: com.example.ddaatapp.responseDatamodel.MyNotesModel, fromActivity: Boolean, mContext:AppCompatActivity, context: Context){
 
             if(fromActivity){
                 binding.myNotesCardItem.visibility = View.GONE

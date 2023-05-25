@@ -10,10 +10,10 @@ import com.example.ddaatapp.activity.techSupport.TechSupportChatActivity
 import com.example.ddaatapp.databinding.TicketListItemBinding
 import com.example.ddaatapp.responseDatamodel.TicketDataModel
 
-class TicketAdapter(val ticketList: ArrayList<TicketDataModel>, val context:Context) :
+class TicketAdapter(val ticketList: ArrayList<com.example.ddaatapp.responseDatamodel.TicketDataModel>, val context:Context) :
     RecyclerView.Adapter<TicketAdapter.ViewHolder>() {
     class ViewHolder(var binding:TicketListItemBinding ): RecyclerView.ViewHolder(binding.root) {
-        fun bind(ticketDataModel: TicketDataModel, mContext:AppCompatActivity, context: Context){
+        fun bind(ticketDataModel: com.example.ddaatapp.responseDatamodel.TicketDataModel, mContext:AppCompatActivity, context: Context){
 
             binding.txtTicketTitle.text = ticketDataModel.ticketTitle
             binding.txtTicketStatus.text = ticketDataModel.ticketStatus

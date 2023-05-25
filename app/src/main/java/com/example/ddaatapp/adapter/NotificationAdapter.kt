@@ -6,10 +6,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.ddaatapp.databinding.NotificationListItemBinding
 import com.example.ddaatapp.responseDatamodel.NotificationDataModel
 
-class NotificationAdapter(val notificationList: ArrayList<NotificationDataModel>) :
+class NotificationAdapter(val notificationList: ArrayList<com.example.ddaatapp.responseDatamodel.NotificationDataModel>) :
     RecyclerView.Adapter<NotificationAdapter.ViewHolder>() {
     class ViewHolder(var binding:NotificationListItemBinding ): RecyclerView.ViewHolder(binding.root) {
-        fun bind(notificationDataModel: NotificationDataModel){
+        fun bind(notificationDataModel: com.example.ddaatapp.responseDatamodel.NotificationDataModel){
 
             binding.notifyImage.setImageResource(notificationDataModel.drawable)
             binding.notifyContent.text = notificationDataModel.content

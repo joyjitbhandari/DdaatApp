@@ -34,12 +34,37 @@ class HomeCoursesFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         //setup course list
-        val  courseList = arrayListOf<CourseDataModel>(
-            CourseDataModel(R.drawable.video_sample_image,"Course Name","Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been",true),
-            CourseDataModel(R.drawable.video_sample_image2,"Course Name","Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been",false),
-            CourseDataModel(R.drawable.video_sample_image3,"Course Name","Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been",true),
-            CourseDataModel(R.drawable.video_sample_image3,"Course Name","Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been",true),
-            CourseDataModel(R.drawable.video_sample_image3,"Podcast Title","Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been",false)
+        val  courseList = arrayListOf<com.example.ddaatapp.responseDatamodel.CourseDataModel>(
+            com.example.ddaatapp.responseDatamodel.CourseDataModel(
+                R.drawable.video_sample_image,
+                "Course Name",
+                "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been",
+                true
+            ),
+            com.example.ddaatapp.responseDatamodel.CourseDataModel(
+                R.drawable.video_sample_image2,
+                "Course Name",
+                "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been",
+                false
+            ),
+            com.example.ddaatapp.responseDatamodel.CourseDataModel(
+                R.drawable.video_sample_image3,
+                "Course Name",
+                "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been",
+                true
+            ),
+            com.example.ddaatapp.responseDatamodel.CourseDataModel(
+                R.drawable.video_sample_image3,
+                "Course Name",
+                "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been",
+                true
+            ),
+            com.example.ddaatapp.responseDatamodel.CourseDataModel(
+                R.drawable.video_sample_image3,
+                "Podcast Title",
+                "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been",
+                false
+            )
         )
 
         val courseRecycler = binding.courseRecycler

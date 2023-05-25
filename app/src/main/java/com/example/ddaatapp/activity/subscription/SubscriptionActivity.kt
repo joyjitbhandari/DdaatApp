@@ -25,10 +25,34 @@ class SubscriptionActivity : AppCompatActivity(),View.OnClickListener {
 
 
         //Card list setting
-        val cardList = arrayListOf<SubscriptionDataModel>(
-            SubscriptionDataModel(false,R.drawable.subs_card_shape_blue,R.drawable.img_subs_card,"Plan Name","On-demand videos subscription from","19.23","(interactive page with information)"),
-            SubscriptionDataModel(false,R.drawable.subs_card_shape_grey,R.drawable.img_subs_card,"Plan Name","On-demand videos subscription from","19.23","(interactive page with information)"),
-            SubscriptionDataModel(false,R.drawable.subs_card_shape_purple,R.drawable.img_subs_card,"Plan Name","On-demand videos subscription from","19.23","(interactive page with information)"),
+        val cardList = arrayListOf<com.example.ddaatapp.responseDatamodel.SubscriptionDataModel>(
+            com.example.ddaatapp.responseDatamodel.SubscriptionDataModel(
+                false,
+                R.drawable.subs_card_shape_blue,
+                R.drawable.img_subs_card,
+                "Plan Name",
+                "On-demand videos subscription from",
+                "19.23",
+                "(interactive page with information)"
+            ),
+            com.example.ddaatapp.responseDatamodel.SubscriptionDataModel(
+                false,
+                R.drawable.subs_card_shape_grey,
+                R.drawable.img_subs_card,
+                "Plan Name",
+                "On-demand videos subscription from",
+                "19.23",
+                "(interactive page with information)"
+            ),
+            com.example.ddaatapp.responseDatamodel.SubscriptionDataModel(
+                false,
+                R.drawable.subs_card_shape_purple,
+                R.drawable.img_subs_card,
+                "Plan Name",
+                "On-demand videos subscription from",
+                "19.23",
+                "(interactive page with information)"
+            ),
             )
 
         val subscriptionRecyclerView = binding.subscriptionRecycler

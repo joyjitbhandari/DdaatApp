@@ -8,10 +8,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.ddaatapp.databinding.ReviewAndRatingItemBinding
 import com.example.ddaatapp.responseDatamodel.ReviewAndRatingDataModel
 
-class ReviewAndRatingAdapter(val ratingList: ArrayList<ReviewAndRatingDataModel>, var context: Context) :
+class ReviewAndRatingAdapter(val ratingList: ArrayList<com.example.ddaatapp.responseDatamodel.ReviewAndRatingDataModel>, var context: Context) :
     RecyclerView.Adapter<ReviewAndRatingAdapter.ViewHolder>() {
     class ViewHolder(var binding:ReviewAndRatingItemBinding ): RecyclerView.ViewHolder(binding.root) {
-        fun bind(reviewAndRatingDataModel: ReviewAndRatingDataModel, mContext:AppCompatActivity, context: Context){
+        fun bind(reviewAndRatingDataModel: com.example.ddaatapp.responseDatamodel.ReviewAndRatingDataModel, mContext:AppCompatActivity, context: Context){
 
             binding.mentorImage.setImageResource(reviewAndRatingDataModel.drawable)
             binding.txtMentorName.text = reviewAndRatingDataModel.mentorName

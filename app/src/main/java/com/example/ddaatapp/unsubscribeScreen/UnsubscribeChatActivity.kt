@@ -85,14 +85,49 @@ class UnsubscribeChatActivity : AppCompatActivity(), View.OnClickListener {
 
 
         //Chat list Setup
-        val chatList = arrayListOf<UnsubscribeChatListDataModel>(
-            UnsubscribeChatListDataModel(R.drawable.notify_img4,"Ellie Olsen","Hey there! What's up? is everything fine..?","10:56 AM"),
-            UnsubscribeChatListDataModel(R.drawable.notify_img5,"Ellie Olsen","Hey there! What's up? is everything fine..?","10:56 AM"),
-            UnsubscribeChatListDataModel(R.drawable.notify_img4,"Ellie Olsen","Hey there! What's up? is everything fine..?","10:56 AM"),
-            UnsubscribeChatListDataModel(R.drawable.notify_img4,"Ellie Olsen","Hey there! What's up? is everything fine..?","10:56 AM"),
-            UnsubscribeChatListDataModel(R.drawable.notify_img4,"Ellie Olsen","Hey there! What's up? is everything fine..?","10:56 AM"),
-            UnsubscribeChatListDataModel(R.drawable.notify_img5,"Ellie Olsen","Hey there! What's up? is everything fine..?","10:56 AM"),
-            UnsubscribeChatListDataModel(R.drawable.notify_img4,"Ellie Olsen","Hey there! What's up? is everything fine..?","10:56 AM"),
+        val chatList = arrayListOf<com.example.ddaatapp.responseDatamodel.UnsubscribeChatListDataModel>(
+            com.example.ddaatapp.responseDatamodel.UnsubscribeChatListDataModel(
+                R.drawable.notify_img4,
+                "Ellie Olsen",
+                "Hey there! What's up? is everything fine..?",
+                "10:56 AM"
+            ),
+            com.example.ddaatapp.responseDatamodel.UnsubscribeChatListDataModel(
+                R.drawable.notify_img5,
+                "Ellie Olsen",
+                "Hey there! What's up? is everything fine..?",
+                "10:56 AM"
+            ),
+            com.example.ddaatapp.responseDatamodel.UnsubscribeChatListDataModel(
+                R.drawable.notify_img4,
+                "Ellie Olsen",
+                "Hey there! What's up? is everything fine..?",
+                "10:56 AM"
+            ),
+            com.example.ddaatapp.responseDatamodel.UnsubscribeChatListDataModel(
+                R.drawable.notify_img4,
+                "Ellie Olsen",
+                "Hey there! What's up? is everything fine..?",
+                "10:56 AM"
+            ),
+            com.example.ddaatapp.responseDatamodel.UnsubscribeChatListDataModel(
+                R.drawable.notify_img4,
+                "Ellie Olsen",
+                "Hey there! What's up? is everything fine..?",
+                "10:56 AM"
+            ),
+            com.example.ddaatapp.responseDatamodel.UnsubscribeChatListDataModel(
+                R.drawable.notify_img5,
+                "Ellie Olsen",
+                "Hey there! What's up? is everything fine..?",
+                "10:56 AM"
+            ),
+            com.example.ddaatapp.responseDatamodel.UnsubscribeChatListDataModel(
+                R.drawable.notify_img4,
+                "Ellie Olsen",
+                "Hey there! What's up? is everything fine..?",
+                "10:56 AM"
+            ),
         )
         val chatListRecyclerView = binding.chatListRecycler
         chatListRecyclerView.adapter = UnsubscribeChatListAdapter(chatList,this)

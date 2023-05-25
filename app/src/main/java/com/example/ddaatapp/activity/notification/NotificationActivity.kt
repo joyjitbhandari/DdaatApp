@@ -16,21 +16,77 @@ class NotificationActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         //Recycler list view adapter set
-        val notficationList = arrayListOf<NotificationDataModel>(
-            NotificationDataModel(R.drawable.notify_img2,"Arnold Berry and 1 other posted on your talk page.","10 min ago"),
-            NotificationDataModel(R.drawable.notify_img1,"Arnold Berry and 1 other posted on your talk page.","10 min ago"),
-            NotificationDataModel(R.drawable.notify_img3,"Arnold Berry and 1 other posted on your talk page.","10 min ago"),
-            NotificationDataModel(R.drawable.notify_img4,"Arnold Berry and 1 other posted on your talk page.","10 min ago"),
-            NotificationDataModel(R.drawable.notify_img5,"Arnold Berry and 1 other posted on your talk page.","10 min ago"),
-            NotificationDataModel(R.drawable.notify_img1,"Arnold Berry and 1 other posted on your talk page.","10 min ago"),
-            NotificationDataModel(R.drawable.notify_img2,"Arnold Berry and 1 other posted on your talk page.","10 min ago"),
-            NotificationDataModel(R.drawable.notify_img2,"Arnold Berry and 1 other posted on your talk page.","10 min ago"),
-            NotificationDataModel(R.drawable.notify_img1,"Arnold Berry and 1 other posted on your talk page.","10 min ago"),
-            NotificationDataModel(R.drawable.notify_img3,"Arnold Berry and 1 other posted on your talk page.","10 min ago"),
-            NotificationDataModel(R.drawable.notify_img4,"Arnold Berry and 1 other posted on your talk page.","10 min ago"),
-            NotificationDataModel(R.drawable.notify_img5,"Arnold Berry and 1 other posted on your talk page.","10 min ago"),
-            NotificationDataModel(R.drawable.notify_img1,"Arnold Berry and 1 other posted on your talk page.","10 min ago"),
-            NotificationDataModel(R.drawable.notify_img2,"Arnold Berry and 1 other posted on your talk page.","10 min ago")
+        val notficationList = arrayListOf<com.example.ddaatapp.responseDatamodel.NotificationDataModel>(
+            com.example.ddaatapp.responseDatamodel.NotificationDataModel(
+                R.drawable.notify_img2,
+                "Arnold Berry and 1 other posted on your talk page.",
+                "10 min ago"
+            ),
+            com.example.ddaatapp.responseDatamodel.NotificationDataModel(
+                R.drawable.notify_img1,
+                "Arnold Berry and 1 other posted on your talk page.",
+                "10 min ago"
+            ),
+            com.example.ddaatapp.responseDatamodel.NotificationDataModel(
+                R.drawable.notify_img3,
+                "Arnold Berry and 1 other posted on your talk page.",
+                "10 min ago"
+            ),
+            com.example.ddaatapp.responseDatamodel.NotificationDataModel(
+                R.drawable.notify_img4,
+                "Arnold Berry and 1 other posted on your talk page.",
+                "10 min ago"
+            ),
+            com.example.ddaatapp.responseDatamodel.NotificationDataModel(
+                R.drawable.notify_img5,
+                "Arnold Berry and 1 other posted on your talk page.",
+                "10 min ago"
+            ),
+            com.example.ddaatapp.responseDatamodel.NotificationDataModel(
+                R.drawable.notify_img1,
+                "Arnold Berry and 1 other posted on your talk page.",
+                "10 min ago"
+            ),
+            com.example.ddaatapp.responseDatamodel.NotificationDataModel(
+                R.drawable.notify_img2,
+                "Arnold Berry and 1 other posted on your talk page.",
+                "10 min ago"
+            ),
+            com.example.ddaatapp.responseDatamodel.NotificationDataModel(
+                R.drawable.notify_img2,
+                "Arnold Berry and 1 other posted on your talk page.",
+                "10 min ago"
+            ),
+            com.example.ddaatapp.responseDatamodel.NotificationDataModel(
+                R.drawable.notify_img1,
+                "Arnold Berry and 1 other posted on your talk page.",
+                "10 min ago"
+            ),
+            com.example.ddaatapp.responseDatamodel.NotificationDataModel(
+                R.drawable.notify_img3,
+                "Arnold Berry and 1 other posted on your talk page.",
+                "10 min ago"
+            ),
+            com.example.ddaatapp.responseDatamodel.NotificationDataModel(
+                R.drawable.notify_img4,
+                "Arnold Berry and 1 other posted on your talk page.",
+                "10 min ago"
+            ),
+            com.example.ddaatapp.responseDatamodel.NotificationDataModel(
+                R.drawable.notify_img5,
+                "Arnold Berry and 1 other posted on your talk page.",
+                "10 min ago"
+            ),
+            com.example.ddaatapp.responseDatamodel.NotificationDataModel(
+                R.drawable.notify_img1,
+                "Arnold Berry and 1 other posted on your talk page.",
+                "10 min ago"
+            ),
+            com.example.ddaatapp.responseDatamodel.NotificationDataModel(
+                R.drawable.notify_img2,
+                "Arnold Berry and 1 other posted on your talk page.",
+                "10 min ago"
+            )
         )
 
         val notificationRecycler = binding.notificationRecycler

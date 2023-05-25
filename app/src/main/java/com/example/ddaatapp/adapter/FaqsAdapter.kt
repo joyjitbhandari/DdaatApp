@@ -8,11 +8,11 @@ import com.example.ddaatapp.R
 import com.example.ddaatapp.databinding.FaqsListItemBinding
 import com.example.ddaatapp.responseDatamodel.FaqsDataModel
 
-class FaqsAdapter(val faqsList: ArrayList<FaqsDataModel>) :
+class FaqsAdapter(val faqsList: ArrayList<com.example.ddaatapp.responseDatamodel.FaqsDataModel>) :
     RecyclerView.Adapter<FaqsAdapter.ViewHolder>() {
     class ViewHolder(var binding:FaqsListItemBinding ): RecyclerView.ViewHolder(binding.root) {
         private var isExpand = true
-        fun bind(faqsDataModel: FaqsDataModel){
+        fun bind(faqsDataModel: com.example.ddaatapp.responseDatamodel.FaqsDataModel){
             binding.textFaqQuestion.text = faqsDataModel.faqsQuestion
             binding.textFaqAnswer.text = faqsDataModel.faqsAnswer
 

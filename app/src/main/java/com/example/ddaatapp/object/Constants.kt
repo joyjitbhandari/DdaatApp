@@ -27,4 +27,9 @@ object Constants {
     const val COURSE = "COURSE"
     const val STREAM = "STREAM"
 
+    const val MOBILE_PATTERN = "^\\d{10}$" // Assumes a 10-digit mobile number
+    const val EMAIL_PATTERN = "^[A-Za-z\\d+_.-]+@[A-Za-z\\d.-]+$"
+    const val PASSWORD_PATTERN = ""
+    const val BASE_URL = "https://dev-ddaat-admin.flynautstaging.com/api/"
+
 }

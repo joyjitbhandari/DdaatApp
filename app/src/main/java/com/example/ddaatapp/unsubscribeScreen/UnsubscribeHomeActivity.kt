@@ -118,11 +118,35 @@ class UnsubscribeHomeActivity : AppCompatActivity(), View.OnClickListener {
         }
 
 // for article view
-        val articleList = arrayListOf<ArticleDataModel>(
-            ArticleDataModel(R.drawable.article_bg_img,"Lorem Ipsum is simply dummy text","Lorem Ipsum is simply dummy text of the printing and.....","June 04, 2022","Smith"),
-            ArticleDataModel(R.drawable.article_bg_img,"Lorem Ipsum is simply dummy text","Lorem Ipsum is simply dummy text of the printing and.....","June 04, 2022","Smith"),
-            ArticleDataModel(R.drawable.article_bg_img,"Lorem Ipsum is simply dummy text","Lorem Ipsum is simply dummy text of the printing and.....","June 04, 2022","Smith"),
-            ArticleDataModel(R.drawable.article_bg_img,"Lorem Ipsum is simply dummy text","Lorem Ipsum is simply dummy text of the printing and.....","June 04, 2022","Smith")
+        val articleList = arrayListOf<com.example.ddaatapp.responseDatamodel.ArticleDataModel>(
+            com.example.ddaatapp.responseDatamodel.ArticleDataModel(
+                R.drawable.article_bg_img,
+                "Lorem Ipsum is simply dummy text",
+                "Lorem Ipsum is simply dummy text of the printing and.....",
+                "June 04, 2022",
+                "Smith"
+            ),
+            com.example.ddaatapp.responseDatamodel.ArticleDataModel(
+                R.drawable.article_bg_img,
+                "Lorem Ipsum is simply dummy text",
+                "Lorem Ipsum is simply dummy text of the printing and.....",
+                "June 04, 2022",
+                "Smith"
+            ),
+            com.example.ddaatapp.responseDatamodel.ArticleDataModel(
+                R.drawable.article_bg_img,
+                "Lorem Ipsum is simply dummy text",
+                "Lorem Ipsum is simply dummy text of the printing and.....",
+                "June 04, 2022",
+                "Smith"
+            ),
+            com.example.ddaatapp.responseDatamodel.ArticleDataModel(
+                R.drawable.article_bg_img,
+                "Lorem Ipsum is simply dummy text",
+                "Lorem Ipsum is simply dummy text of the printing and.....",
+                "June 04, 2022",
+                "Smith"
+            )
         )
         val articleRecyclerView = binding.articleRecyclerView
         val articleAdapter = ArticleBlogAdapter(articleList,this,false)

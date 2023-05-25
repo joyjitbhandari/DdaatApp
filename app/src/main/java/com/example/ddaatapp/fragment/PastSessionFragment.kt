@@ -29,11 +29,27 @@ class PastSessionFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val pastSessionList  = arrayListOf<PastSessionDataModel>(
-            PastSessionDataModel(R.drawable.session_sample1,"John Smith","Video session"),
-            PastSessionDataModel(R.drawable.session_sample2,"John Smith","Video session"),
-            PastSessionDataModel(R.drawable.session_sample3,"John Smith","Video session"),
-            PastSessionDataModel(R.drawable.session_sample4,"John Smith","Video session")
+        val pastSessionList  = arrayListOf<com.example.ddaatapp.responseDatamodel.PastSessionDataModel>(
+            com.example.ddaatapp.responseDatamodel.PastSessionDataModel(
+                R.drawable.session_sample1,
+                "John Smith",
+                "Video session"
+            ),
+            com.example.ddaatapp.responseDatamodel.PastSessionDataModel(
+                R.drawable.session_sample2,
+                "John Smith",
+                "Video session"
+            ),
+            com.example.ddaatapp.responseDatamodel.PastSessionDataModel(
+                R.drawable.session_sample3,
+                "John Smith",
+                "Video session"
+            ),
+            com.example.ddaatapp.responseDatamodel.PastSessionDataModel(
+                R.drawable.session_sample4,
+                "John Smith",
+                "Video session"
+            )
         )
 
 //        adapter setting to recycler view

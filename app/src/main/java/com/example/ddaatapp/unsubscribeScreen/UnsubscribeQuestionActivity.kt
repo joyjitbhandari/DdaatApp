@@ -95,14 +95,35 @@ class UnsubscribeQuestionActivity : AppCompatActivity(), View.OnClickListener {
         DynamicInterestChipCreator(this).setupChip(binding.choiceChipGroup)
 
         // FAQS List
-        val faqsList = arrayListOf<FaqsDataModel>(
-            FaqsDataModel("Lorem Ipsum is simply ?" , "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard …."),
-            FaqsDataModel("Lorem Ipsum is simply ?" , "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard …."),
-            FaqsDataModel("Lorem Ipsum is simply ?" , "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard …."),
-            FaqsDataModel("Lorem Ipsum is simply ?" , "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard …."),
-            FaqsDataModel("Lorem Ipsum is simply ?" , "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard …."),
-            FaqsDataModel("Lorem Ipsum is simply ?" , "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard …."),
-            FaqsDataModel("Lorem Ipsum is simply ?" , "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard …."),
+        val faqsList = arrayListOf<com.example.ddaatapp.responseDatamodel.FaqsDataModel>(
+            com.example.ddaatapp.responseDatamodel.FaqsDataModel(
+                "Lorem Ipsum is simply ?",
+                "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard …."
+            ),
+            com.example.ddaatapp.responseDatamodel.FaqsDataModel(
+                "Lorem Ipsum is simply ?",
+                "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard …."
+            ),
+            com.example.ddaatapp.responseDatamodel.FaqsDataModel(
+                "Lorem Ipsum is simply ?",
+                "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard …."
+            ),
+            com.example.ddaatapp.responseDatamodel.FaqsDataModel(
+                "Lorem Ipsum is simply ?",
+                "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard …."
+            ),
+            com.example.ddaatapp.responseDatamodel.FaqsDataModel(
+                "Lorem Ipsum is simply ?",
+                "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard …."
+            ),
+            com.example.ddaatapp.responseDatamodel.FaqsDataModel(
+                "Lorem Ipsum is simply ?",
+                "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard …."
+            ),
+            com.example.ddaatapp.responseDatamodel.FaqsDataModel(
+                "Lorem Ipsum is simply ?",
+                "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard …."
+            ),
         )
         //adapter
         val faqsRecyclerView = binding.faqsRecycler

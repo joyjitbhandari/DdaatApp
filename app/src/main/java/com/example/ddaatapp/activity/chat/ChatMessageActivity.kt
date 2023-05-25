@@ -17,10 +17,22 @@ class ChatMessageActivity : AppCompatActivity(), View.OnClickListener {
         setContentView(binding.root)
 
         // Chat view list setting
-        val chatList = arrayListOf<TechSupportChatDataModel>(
-            TechSupportChatDataModel(Constants.RECEIVE_ID,"Cool, let's talk about it later, shall we? This is going to be a huge!! We already sent you the details bro.","15:30"),
-            TechSupportChatDataModel(Constants.SEND_ID,"Cool, let's talk about it later, shall we? This is going to be a huge!! We already sent you the details bro.","15:30"),
-            TechSupportChatDataModel(Constants.RECEIVE_ID,"Cool, let's talk about it later, shall we? This is going to be a huge!! We already sent you the details bro.","15:30"),
+        val chatList = arrayListOf<com.example.ddaatapp.responseDatamodel.TechSupportChatDataModel>(
+            com.example.ddaatapp.responseDatamodel.TechSupportChatDataModel(
+                Constants.RECEIVE_ID,
+                "Cool, let's talk about it later, shall we? This is going to be a huge!! We already sent you the details bro.",
+                "15:30"
+            ),
+            com.example.ddaatapp.responseDatamodel.TechSupportChatDataModel(
+                Constants.SEND_ID,
+                "Cool, let's talk about it later, shall we? This is going to be a huge!! We already sent you the details bro.",
+                "15:30"
+            ),
+            com.example.ddaatapp.responseDatamodel.TechSupportChatDataModel(
+                Constants.RECEIVE_ID,
+                "Cool, let's talk about it later, shall we? This is going to be a huge!! We already sent you the details bro.",
+                "15:30"
+            ),
         )
         //getting chat receiver image it will come from json api
         val receiverImg = intent.getIntExtra("imageResId", R.drawable.user_profile_image)

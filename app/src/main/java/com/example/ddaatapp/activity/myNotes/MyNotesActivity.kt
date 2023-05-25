@@ -13,23 +13,23 @@ class MyNotesActivity : AppCompatActivity() {
         binding = ActivityMyNotesBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val noteList = arrayListOf<MyNotesModel>(
-            MyNotesModel(
+        val noteList = arrayListOf<com.example.ddaatapp.responseDatamodel.MyNotesModel>(
+            com.example.ddaatapp.responseDatamodel.MyNotesModel(
                 "Notes Title",
                 "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been",
                 "15 Dec 2023"
             ),
-            MyNotesModel(
+            com.example.ddaatapp.responseDatamodel.MyNotesModel(
                 "Notes Title",
                 "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been",
                 "15 Dec 2023"
             ),
-            MyNotesModel(
+            com.example.ddaatapp.responseDatamodel.MyNotesModel(
                 "Notes Title",
                 "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been",
                 "15 Dec 2023"
             ),
-            MyNotesModel(
+            com.example.ddaatapp.responseDatamodel.MyNotesModel(
                 "Notes Title",
                 "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been",
                 "15 Dec 2023"

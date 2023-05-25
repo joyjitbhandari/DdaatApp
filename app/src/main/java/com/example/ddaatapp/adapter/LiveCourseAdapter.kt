@@ -9,11 +9,11 @@ import com.example.ddaatapp.activity.liveCourse.JoinLiveCourseActivity
 import com.example.ddaatapp.databinding.LiveCourseListItemBinding
 import com.example.ddaatapp.responseDatamodel.LiveCourseDataModel
 
-class LiveCourseAdapter(val liveCourseList: ArrayList<LiveCourseDataModel>, var context: Context) :
+class LiveCourseAdapter(val liveCourseList: ArrayList<com.example.ddaatapp.responseDatamodel.LiveCourseDataModel>, var context: Context) :
     RecyclerView.Adapter<LiveCourseAdapter.ViewHolder>() {
 
     class ViewHolder(var binding:LiveCourseListItemBinding): RecyclerView.ViewHolder(binding.root) {
-        fun bind(liveCourseDataModel: LiveCourseDataModel, mContext:AppCompatActivity, context: Context){
+        fun bind(liveCourseDataModel: com.example.ddaatapp.responseDatamodel.LiveCourseDataModel, mContext:AppCompatActivity, context: Context){
             binding.liveCourseImage.setImageResource(liveCourseDataModel.drawable)
             binding.txtLiveCourseHeading.text = liveCourseDataModel.courseName
 

@@ -93,9 +93,17 @@ class UnsubscribeSearchActivity : AppCompatActivity() , View.OnClickListener{
         DynamicInterestChipCreator(this).setupChip(binding.choiceChipGroup)
 
         //Popular Video  setup
-        val videoList = arrayListOf<VideoLibraryDataModel>(
-            VideoLibraryDataModel(R.drawable.video_sample_image,"Video Name","Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"),
-            VideoLibraryDataModel(R.drawable.video_sample_image2,"Video Name","Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"),
+        val videoList = arrayListOf<com.example.ddaatapp.responseDatamodel.VideoLibraryDataModel>(
+            com.example.ddaatapp.responseDatamodel.VideoLibraryDataModel(
+                R.drawable.video_sample_image,
+                "Video Name",
+                "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"
+            ),
+            com.example.ddaatapp.responseDatamodel.VideoLibraryDataModel(
+                R.drawable.video_sample_image2,
+                "Video Name",
+                "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"
+            ),
             )
 
         val popularVideo = binding.popularVideoRecycler
@@ -106,9 +114,17 @@ class UnsubscribeSearchActivity : AppCompatActivity() , View.OnClickListener{
         popularVideo.addItemDecoration(LinearListSpacingItemDecoration(videoSpacing))
 
         //Music Setup
-        val musicList = arrayListOf<StreamsDataModel>(
-            StreamsDataModel(R.drawable.video_sample_image,"Music Title","Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"),
-            StreamsDataModel(R.drawable.video_sample_image2,"Music Title","Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"),
+        val musicList = arrayListOf<com.example.ddaatapp.responseDatamodel.StreamsDataModel>(
+            com.example.ddaatapp.responseDatamodel.StreamsDataModel(
+                R.drawable.video_sample_image,
+                "Music Title",
+                "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"
+            ),
+            com.example.ddaatapp.responseDatamodel.StreamsDataModel(
+                R.drawable.video_sample_image2,
+                "Music Title",
+                "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"
+            ),
         )
         val musicRecycler = binding.musicRecycler
         val musicAdapter = StreamsAdapter(musicList,2,false,this)
@@ -119,9 +135,17 @@ class UnsubscribeSearchActivity : AppCompatActivity() , View.OnClickListener{
 
 
         //Podcast Station Setup
-        val podcastList = arrayListOf<StreamsDataModel>(
-            StreamsDataModel(R.drawable.video_sample_image,"Podcast Title","Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"),
-            StreamsDataModel(R.drawable.video_sample_image2,"Podcast Title","Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"),
+        val podcastList = arrayListOf<com.example.ddaatapp.responseDatamodel.StreamsDataModel>(
+            com.example.ddaatapp.responseDatamodel.StreamsDataModel(
+                R.drawable.video_sample_image,
+                "Podcast Title",
+                "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"
+            ),
+            com.example.ddaatapp.responseDatamodel.StreamsDataModel(
+                R.drawable.video_sample_image2,
+                "Podcast Title",
+                "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"
+            ),
         )
         val podcastRecycler = binding.podcastStationRecycler
         val podcastAdapter = StreamsAdapter(podcastList,2,true,this)

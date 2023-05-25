@@ -6,10 +6,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.ddaatapp.databinding.SurveyResultItemBinding
 import com.example.ddaatapp.responseDatamodel.SurveyResultDataModel
 
-class SurveyResultAdapter(val resultList: ArrayList<SurveyResultDataModel>) :
+class SurveyResultAdapter(val resultList: ArrayList<com.example.ddaatapp.responseDatamodel.SurveyResultDataModel>) :
     RecyclerView.Adapter<SurveyResultAdapter.ViewHolder>() {
     class ViewHolder(var binding:SurveyResultItemBinding ): RecyclerView.ViewHolder(binding.root) {
-        fun bind(surveyResultDataModel: SurveyResultDataModel){
+        fun bind(surveyResultDataModel: com.example.ddaatapp.responseDatamodel.SurveyResultDataModel){
 
             binding.progress.progress = surveyResultDataModel.score
             binding.score.text = surveyResultDataModel.score.toString()

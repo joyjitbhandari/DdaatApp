@@ -11,10 +11,10 @@ import com.example.ddaatapp.activity.articleAndBlog.ArticleActivity
 import com.example.ddaatapp.databinding.ArticleAndBlogItemBinding
 import com.example.ddaatapp.responseDatamodel.ArticleDataModel
 
-class ArticleBlogAdapter(val articleList: ArrayList<ArticleDataModel>, val context:Context, private val isBlog:Boolean) :
+class ArticleBlogAdapter(val articleList: ArrayList<com.example.ddaatapp.responseDatamodel.ArticleDataModel>, val context:Context, private val isBlog:Boolean) :
     RecyclerView.Adapter<ArticleBlogAdapter.ViewHolder>() {
     class ViewHolder(var binding:ArticleAndBlogItemBinding ): RecyclerView.ViewHolder(binding.root) {
-        fun bind(articleDataModel: ArticleDataModel, mContext:AppCompatActivity, context: Context, isBlog: Boolean){
+        fun bind(articleDataModel: com.example.ddaatapp.responseDatamodel.ArticleDataModel, mContext:AppCompatActivity, context: Context, isBlog: Boolean){
             if(isBlog){
                 binding.blogArticleCard.visibility = View.VISIBLE
                 binding.homeArticleView.visibility = View.GONE

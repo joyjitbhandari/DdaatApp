@@ -86,9 +86,17 @@ class StreamsActivity : AppCompatActivity() , View.OnClickListener {
         DynamicInterestChipCreator(this).setupChip(binding.choiceChipGroup)
 
         //DdaatStation setup
-        val streamList = arrayListOf<StreamsDataModel>(
-            StreamsDataModel(R.drawable.video_sample_image,"Stream Title","Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"),
-            StreamsDataModel(R.drawable.video_sample_image2,"Stream Title","Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"),
+        val streamList = arrayListOf<com.example.ddaatapp.responseDatamodel.StreamsDataModel>(
+            com.example.ddaatapp.responseDatamodel.StreamsDataModel(
+                R.drawable.video_sample_image,
+                "Stream Title",
+                "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"
+            ),
+            com.example.ddaatapp.responseDatamodel.StreamsDataModel(
+                R.drawable.video_sample_image2,
+                "Stream Title",
+                "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"
+            ),
         )
 
         val ddaatStationRecycler = binding.ddaatStationRecycler
@@ -100,10 +108,22 @@ class StreamsActivity : AppCompatActivity() , View.OnClickListener {
 
 
         //Podcast Station Setup
-        val podcastList = arrayListOf<StreamsDataModel>(
-            StreamsDataModel(R.drawable.video_sample_image,"Podcast Title","Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"),
-            StreamsDataModel(R.drawable.video_sample_image2,"Podcast Title","Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"),
-            StreamsDataModel(R.drawable.video_sample_image3,"Podcast Title","Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"),
+        val podcastList = arrayListOf<com.example.ddaatapp.responseDatamodel.StreamsDataModel>(
+            com.example.ddaatapp.responseDatamodel.StreamsDataModel(
+                R.drawable.video_sample_image,
+                "Podcast Title",
+                "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"
+            ),
+            com.example.ddaatapp.responseDatamodel.StreamsDataModel(
+                R.drawable.video_sample_image2,
+                "Podcast Title",
+                "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"
+            ),
+            com.example.ddaatapp.responseDatamodel.StreamsDataModel(
+                R.drawable.video_sample_image3,
+                "Podcast Title",
+                "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"
+            ),
         )
         val podcastRecycler = binding.podcastStationRecycler
         val podcastAdapter = StreamsAdapter(podcastList,podcastList.size,true,this)

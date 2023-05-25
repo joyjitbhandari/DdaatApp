@@ -11,10 +11,10 @@ import com.example.ddaatapp.databinding.UnsubscribeChatListItemBinding
 import com.example.ddaatapp.responseDatamodel.UnsubscribeChatListDataModel
 
 
-class UnsubscribeChatListAdapter(private val chatList: ArrayList<UnsubscribeChatListDataModel>, private val context: Context) :
+class UnsubscribeChatListAdapter(private val chatList: ArrayList<com.example.ddaatapp.responseDatamodel.UnsubscribeChatListDataModel>, private val context: Context) :
     RecyclerView.Adapter<UnsubscribeChatListAdapter.ViewHolder>() {
     class ViewHolder(var binding:UnsubscribeChatListItemBinding ): RecyclerView.ViewHolder(binding.root) {
-        fun bind(chatListDataModel: UnsubscribeChatListDataModel, mContext:AppCompatActivity, context: Context){
+        fun bind(chatListDataModel: com.example.ddaatapp.responseDatamodel.UnsubscribeChatListDataModel, mContext:AppCompatActivity, context: Context){
 
             binding.chatImage.setImageResource(chatListDataModel.drawable)
             binding.chatName.text = chatListDataModel.name

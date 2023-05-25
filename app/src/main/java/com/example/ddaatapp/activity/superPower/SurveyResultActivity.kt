@@ -14,11 +14,27 @@ class SurveyResultActivity : AppCompatActivity() , View.OnClickListener {
         binding = ActivityMySuperPowerBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val resultList = arrayListOf<SurveyResultDataModel>(
-            SurveyResultDataModel(50,"Results vs. Relationships","Results focused and rationally takes quick action"),
-            SurveyResultDataModel(96,"Daring vs. Careful","Confidently takes risks and tolerant of losses "),
-            SurveyResultDataModel(73,"Abstract vs. Concrete","Works with known pathways forward"),
-            SurveyResultDataModel(66,"Systematic vs. Flexible","Able to balance completing tasks and responding on the spot"),
+        val resultList = arrayListOf<com.example.ddaatapp.responseDatamodel.SurveyResultDataModel>(
+            com.example.ddaatapp.responseDatamodel.SurveyResultDataModel(
+                50,
+                "Results vs. Relationships",
+                "Results focused and rationally takes quick action"
+            ),
+            com.example.ddaatapp.responseDatamodel.SurveyResultDataModel(
+                96,
+                "Daring vs. Careful",
+                "Confidently takes risks and tolerant of losses "
+            ),
+            com.example.ddaatapp.responseDatamodel.SurveyResultDataModel(
+                73,
+                "Abstract vs. Concrete",
+                "Works with known pathways forward"
+            ),
+            com.example.ddaatapp.responseDatamodel.SurveyResultDataModel(
+                66,
+                "Systematic vs. Flexible",
+                "Able to balance completing tasks and responding on the spot"
+            ),
         )
 
         val resultRecyclerView = binding.resultRecycler
