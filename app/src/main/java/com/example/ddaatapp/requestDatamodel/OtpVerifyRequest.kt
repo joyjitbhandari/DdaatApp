@@ -1,8 +1,6 @@
-package com.example.ddaatapp.postDatamodel
+package com.example.ddaatapp.requestDatamodel
 
-import android.text.Editable
-
-data class PostOtpVerify(
+data class OtpVerifyRequest(
     val name:String,
     val user_id: String,
     val password: String,

@@ -1,8 +1,8 @@
 package com.example.ddaatapp.responseDatamodel
 
-data class ResponseOtpVerify(
+data class OtpVerifyResponse(
     val message: String,
     val success: Boolean,
-    val `data`: Data
+    val OTPData: OTPData
 
 )

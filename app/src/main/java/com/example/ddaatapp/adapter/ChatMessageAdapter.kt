@@ -19,7 +19,7 @@ class ChatMessageAdapter(private val chatList: ArrayList<com.example.ddaatapp.re
                     binding.receiveViewCard.visibility = View.GONE
                     binding.receiveTime.visibility = View.GONE
 
-                    //setting data to view
+                    //setting OTPData to view
                     binding.sendMessage.text = techSupportChatDataModel.currentMessage
                     binding.sendTime.text = techSupportChatDataModel.time
 
@@ -29,7 +29,7 @@ class ChatMessageAdapter(private val chatList: ArrayList<com.example.ddaatapp.re
                     binding.sendViewCard.visibility = View.GONE
                     binding.sendTime.visibility = View.GONE
 
-                    //setting data to view
+                    //setting OTPData to view
                     binding.receiverImage.setImageResource(receiverImg)
                     binding.receiveMessage.text = techSupportChatDataModel.currentMessage
                     binding.receiveTime.text = techSupportChatDataModel.time

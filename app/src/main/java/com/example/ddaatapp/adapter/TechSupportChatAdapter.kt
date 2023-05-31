@@ -18,7 +18,7 @@ class TechSupportChatAdapter(val chatList: ArrayList<com.example.ddaatapp.respon
                     binding.receiveViewCard.visibility = View.GONE
                     binding.receiveTime.visibility = View.GONE
 
-                    //setting data to view
+                    //setting OTPData to view
                     binding.sendMessage.text = techSupportChatDataModel.currentMessage
                     binding.sendTime.text = techSupportChatDataModel.time
 
@@ -28,7 +28,7 @@ class TechSupportChatAdapter(val chatList: ArrayList<com.example.ddaatapp.respon
                     binding.sendViewCard.visibility = View.GONE
                     binding.sendTime.visibility = View.GONE
 
-                    //setting data to view
+                    //setting OTPData to view
                     binding.receiveMessage.text = techSupportChatDataModel.currentMessage
                     binding.receiveTime.text = techSupportChatDataModel.time
 

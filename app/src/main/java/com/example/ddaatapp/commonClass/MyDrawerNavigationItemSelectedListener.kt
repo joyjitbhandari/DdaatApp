@@ -3,9 +3,12 @@ package com.example.ddaatapp.commonClass
 import android.app.Dialog
 import android.app.Notification
 import android.content.Context
+import android.content.Context.MODE_PRIVATE
 import android.content.Intent
+import android.content.SharedPreferences
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
+import android.provider.Settings.Global.getString
 import android.view.Gravity
 import com.example.ddaatapp.R
 import android.view.MenuItem
@@ -16,6 +19,7 @@ import com.example.ddaatapp.activity.myNotes.MyNotesActivity
 import com.example.ddaatapp.activity.aboutDdaat.AboutActivity
 import com.example.ddaatapp.activity.feedback.FeedBackActivity
 import com.example.ddaatapp.activity.forgot.ChangePwdActivity
+import com.example.ddaatapp.activity.login.LoginActivity
 import com.example.ddaatapp.activity.myPurchase.MyPurchasedActivity
 import com.example.ddaatapp.activity.notification.NotificationActivity
 import com.example.ddaatapp.activity.notification.NotificationSettingActivity
@@ -25,12 +29,13 @@ import com.example.ddaatapp.activity.reviewAndRating.ReviewAndRatingActivity
 import com.example.ddaatapp.activity.subscription.SubscriptionActivity
 import com.example.ddaatapp.activity.superPower.SurveyResultActivity
 import com.example.ddaatapp.activity.techSupport.TechSupportActivity
+import com.example.ddaatapp.subscriptionScreen.HomeActivity
 import com.google.android.material.navigation.NavigationView
 
 
 class MyDrawerNavigationItemSelectedListener(var context: Context) : NavigationView.OnNavigationItemSelectedListener {
-
     private var mContext = (context as AppCompatActivity)
+
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         // Handle navigation view item clicks here
         val id: Int = item.getItemId()
@@ -109,7 +114,8 @@ class MyDrawerNavigationItemSelectedListener(var context: Context) : NavigationV
             val logOutCancel = dialog.findViewById<Button>(R.id.btnLogOutCancel)
 
             logOut.setOnClickListener {
-                mContext.finish()
+                logout()
+
             }
 
             logOutCancel.setOnClickListener {
@@ -117,4 +123,25 @@ class MyDrawerNavigationItemSelectedListener(var context: Context) : NavigationV
             }
         }
     }
+    private fun logout() {
+        // Clear data and perform logout tasks
+        clearUserData()
+        navigateToLoginScreen()
+    }
+
+    private fun clearUserData() {
+        val sharedPref = context.getSharedPreferences("ddaat_preference", MODE_PRIVATE)
+        val editor = sharedPref.edit()
+        editor.clear()
+        editor.apply()
+        // Clear any other data or perform necessary cleanup
+    }
+
+    private fun navigateToLoginScreen() {
+        val intent = Intent(context, LoginActivity::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
+        context.startActivity(intent)
+        mContext.finish()
+    }
+
 }

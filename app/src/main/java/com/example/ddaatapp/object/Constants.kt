@@ -1,6 +1,9 @@
 package com.example.ddaatapp.`object`
 
 object Constants {
+    //Base Url
+    const val BASE_URL = "https://dev-ddaat-admin.flynautstaging.com/api/"
+
     //Tech Support Chat
     const val SEND_ID = "SEND_ID"
     const val RECEIVE_ID = "RECEIVE_ID"
@@ -27,9 +30,11 @@ object Constants {
     const val COURSE = "COURSE"
     const val STREAM = "STREAM"
 
+    //Patterns for input fields
     const val MOBILE_PATTERN = "^\\d{10}$" // Assumes a 10-digit mobile number
     const val EMAIL_PATTERN = "^[A-Za-z\\d+_.-]+@[A-Za-z\\d.-]+$"
-    const val PASSWORD_PATTERN = ""
-    const val BASE_URL = "https://dev-ddaat-admin.flynautstaging.com/api/"
+    const val PASSWORD_PATTERN = "^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%^&*])[A-Za-z0-9!@#\$%^&*]{8,16}\$"
+
+
 
 }

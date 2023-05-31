@@ -12,6 +12,8 @@ class SurveyActivity : AppCompatActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         binding = ActivitySurveyBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+
     }
 
     override fun onClick(view: View?) {

@@ -14,7 +14,7 @@ class ShowNotesActivity : AppCompatActivity() {
         binding = ActivityShowNotesBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        //getting data from My notes
+        //getting OTPData from My notes
         val noteTitle = intent.getStringExtra("Title")
         val noteContent = intent.getStringExtra("Content")
         val noteDate = intent.getStringExtra("Date")

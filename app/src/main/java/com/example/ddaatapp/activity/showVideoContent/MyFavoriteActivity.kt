@@ -17,7 +17,7 @@ class MyFavoriteActivity : AppCompatActivity() , View.OnClickListener {
         binding = ActivityMyFavoriteBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        //binding data to recycler list view
+        //binding OTPData to recycler list view
         val watchList = arrayListOf<com.example.ddaatapp.responseDatamodel.VideoLibraryDataModel>(
             com.example.ddaatapp.responseDatamodel.VideoLibraryDataModel(
                 R.drawable.video_sample_image,

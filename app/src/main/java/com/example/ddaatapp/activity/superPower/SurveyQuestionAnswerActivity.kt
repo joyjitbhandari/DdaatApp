@@ -111,7 +111,7 @@ class SurveyQuestionAnswerActivity : AppCompatActivity(), View.OnClickListener {
         totalQuestionsSize = questionList.size
         // first count
         newQuestionsSize = 3
-        // set data to view
+        // set OTPData to view
         setQuestionProgress()
 
         // setting questions to view

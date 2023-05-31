@@ -1,6 +1,6 @@
 package com.example.ddaatapp.responseDatamodel
 
-data class ResponseUserSignUp(
+data class SignUpResponse(
     val success: Boolean,
     val message: String
 )
