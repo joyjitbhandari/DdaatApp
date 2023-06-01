@@ -125,8 +125,9 @@ class MyDrawerNavigationItemSelectedListener(var context: Context) : NavigationV
     }
     private fun logout() {
         // Clear data and perform logout tasks
-        clearUserData()
         navigateToLoginScreen()
+        clearUserData()
+      
     }
 
     private fun clearUserData() {

@@ -1,10 +1,8 @@
 package com.example.ddaatapp.activity.otpvrify
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -14,9 +12,9 @@ import com.example.ddaatapp.activity.forgot.ChangePwdActivity
 import com.example.ddaatapp.activity.signup.CompleteProfile
 import com.example.ddaatapp.commonClass.OtpTextWatcher
 import com.example.ddaatapp.databinding.ActivityOtpVerifyBinding
-import com.example.ddaatapp.`object`.Constants
 import com.example.ddaatapp.`object`.Constants.FORGOT
 import com.example.ddaatapp.`object`.Constants.SIGN_UP
+import com.example.ddaatapp.requestDatamodel.ForgotPwdOtpRequest
 import com.example.ddaatapp.requestDatamodel.OtpVerifyRequest
 import com.example.ddaatapp.requestDatamodel.ResendOtpRequest
 import com.example.ddaatapp.viewModel.UserViewModel
@@ -37,6 +35,10 @@ class OtpVerifyActivity : AppCompatActivity() {
         val email = intent.getStringExtra("email").toString()
         val type = intent.getStringExtra("type").toString()
         val mobile = intent.getStringExtra("mobile").toString()
+
+        //forgot  mail
+
+        val  forgotPwdEmail = intent.getStringExtra("forgotEmail").toString()
 
 
         // Retrieve references to the OTP input fields
@@ -60,33 +62,26 @@ class OtpVerifyActivity : AppCompatActivity() {
                     .isNotEmpty() && otpInput3.text.toString()
                     .isNotEmpty() && otpInput4.text.toString().isNotEmpty()
             ) {
+                val otpCode =
+                    binding.otpInputOne.text.toString() + binding.otpInputTwo.text.toString() + binding.otpInputThree.text.toString() + binding.otpInputFour.text.toString()
                 when (operationFlow) {
                     SIGN_UP -> {
-                        val otpCode =
-                            binding.otpInputOne.text.toString() + binding.otpInputTwo.text.toString() + binding.otpInputThree.text.toString() + binding.otpInputFour.text.toString()
                         Log.d("otpCode", "$otpCode")
 
-                        viewModel.otpVerify(
-                            OtpVerifyRequest(
-                                name, id, pwd, cnfPwd, otpCode, email, type, mobile
-                            )
-                        )
+                        viewModel.otpVerify(OtpVerifyRequest(name, id, pwd, cnfPwd, otpCode, email, type, mobile))
 
                         otpResponse()
-
                     }
                     FORGOT -> {
-                        val operationFlow = Constants.FORGOT
-                        val intent = Intent(this, ChangePwdActivity::class.java)
-                        intent.putExtra("operation", operationFlow)
-                        startActivity(intent)
-                        finish()
+                        Log.d("otpCode", "$otpCode")
+
+                        viewModel.forgotPwdOtp(ForgotPwdOtpRequest(forgotPwdEmail,otpCode))
+
+                        forgotOtpResponse()
                     }
                 }
             }
         }
-
-
 
 
         //resend button
@@ -110,12 +105,30 @@ class OtpVerifyActivity : AppCompatActivity() {
             val token = otpData?.OTPData?.token
             Toast.makeText(this, "$message", Toast.LENGTH_SHORT).show()
 
-            if(success == true){
-                val operationFlow = SIGN_UP
+            if (success == true) {
                 val intent = Intent(this, CompleteProfile::class.java)
-                intent.putExtra("operation", operationFlow)
+                intent.putExtra("operation", SIGN_UP)
                 startActivity(intent)
                 finish()
+            }
+        })
+    }
+
+    private fun forgotOtpResponse() {
+        viewModel.forgotPwdOtpData.observe(this, Observer { pwdOtpData ->
+            // Process the response data here
+
+            val success = pwdOtpData?.success
+            val message = pwdOtpData?.message
+            Toast.makeText(this, "$message", Toast.LENGTH_SHORT).show()
+
+            if (success == true) {
+                val intent = Intent(this, ChangePwdActivity::class.java)
+                intent.putExtra("operation", FORGOT)
+                startActivity(intent)
+                finish()
+            }else{
+                Toast.makeText(this, "$message", Toast.LENGTH_SHORT).show()
             }
         })
     }

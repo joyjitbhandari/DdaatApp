@@ -25,10 +25,8 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
 
     private lateinit var viewModel: UserViewModel
     private var isEmailMobile = false
-
-    lateinit var sharedPref: SharedPreferences
     private lateinit var binding: ActivityLoginBinding
-
+    private lateinit var sharedPref: SharedPreferences
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -48,19 +46,16 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         //if log in go to Home
         if (isLoggedIn) {
             if (isSubscribed) {
-                val intent = Intent(this, HomeActivity::class.java)
-                startActivity(intent)
+                startActivity(Intent(this, HomeActivity::class.java))
                 finish()
             } else {
-                val intent = Intent(this, UnsubscribeHomeActivity::class.java)
-                startActivity(intent)
+                startActivity(Intent(this, UnsubscribeHomeActivity::class.java))
                 finish()
             }
 
         }
 
         binding.emailMobCheckbox.setOnCheckedChangeListener { button, isChecked ->
-
             if (isChecked) {
                 isEmailMobile = true
                 binding.txtUserId.setText(R.string.email_address_mobile)
@@ -77,60 +72,48 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onClick(view: View?) {
         when (view) {
-            binding.txtForgotPassword -> {
-                val forgotPwd = Intent(this, ForgotActivity::class.java)
-                startActivity(forgotPwd)
-            }
-            binding.txtDontHaveAcc -> {
-                val signUp = Intent(this, SignUpActivity::class.java)
-                startActivity(signUp)
-            }
-
+            binding.txtForgotPassword -> startActivity(Intent(this, ForgotActivity::class.java))
+            binding.txtDontHaveAcc -> startActivity(Intent(this, SignUpActivity::class.java))
             binding.loginBtn -> {
-                //if userId
-                if(doValidations(isEmailMobile) == true){
-                    viewModel.login(LoginRequest(
-                        binding.etUserId.text.toString(),
-                        binding.etPwd.text.toString(),
-                        "userid",
-                        "",
-                        ""
-                    ))
-                    loginOperation()
-                }else if(doValidations(isEmailMobile) == false){
-                    if (validateEmail(binding.etEmailMob.text.toString())){
-                        viewModel.login(LoginRequest(
-                            "",
-                            binding.etPwd.text.toString(),
-                            "email",
-                            "",
-                            binding.etEmailMob.text.toString()
-                        )
-                        )
-                        loginOperation()
-                    }else if(validateMobile(binding.etEmailMob.text.toString())){
-                        viewModel.login(LoginRequest(
-                            "",
-                            binding.etPwd.text.toString(),
-                            "mobile",
-                            binding.etEmailMob.text.toString(),
-                            ""
-                        )
-                        )
-                        loginOperation()
-                    }else{
+                val emailMobText = binding.etEmailMob.text.toString()
+                val userIdText = binding.etUserId.text.toString()
+                val passwordText = binding.etPwd.text.toString()
 
-                    }
-
-                }else{
-
+                if (doValidations(isEmailMobile)) {
+                    //user id
+                    viewModel.login(LoginRequest(userIdText, passwordText, "userid", "", ""))
+                    loginResponse()
+                } else if (validateEmail(emailMobText)) {
+                    //email
+                    viewModel.login(LoginRequest("", passwordText, "email", "", emailMobText))
+                    loginResponse()
+                } else if (validateMobile(emailMobText)) {
+                    //mobile
+                    viewModel.login(LoginRequest("", passwordText, "mobile", emailMobText, ""))
+                    loginResponse()
+                } else {
+                    Toast.makeText(this@LoginActivity, "Invalid Credentials", Toast.LENGTH_SHORT).show()
                 }
-
             }
         }
     }
+    private fun doValidations(isEmailMobile: Boolean): Boolean {
+        val emailMobField = binding.etEmailMob
+        val userIdField = binding.etUserId
+        val pwdField = binding.etPwd
 
-    private fun loginOperation(){
+        val isEmailMobEmpty = emailMobField.text.toString().isEmpty()
+        val isUserIdEmpty = userIdField.text.toString().isEmpty()
+        val isPwdEmpty = pwdField.text.toString().isEmpty()
+
+        emailMobField.error = if (isEmailMobile && isEmailMobEmpty) "This Field Is Required" else null
+        userIdField.error = if (!isEmailMobile && isUserIdEmpty) "This Field Is Required" else null
+        pwdField.error = if ((isEmailMobile && isPwdEmpty) || (!isEmailMobile && isPwdEmpty)) "This Field Is Required" else null
+
+        return !isEmailMobile
+    }
+
+    private fun loginResponse() {
         viewModel.loginData.observe(this, Observer { loginData ->
             // Process the response data here
 
@@ -141,54 +124,22 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
             openActivity(subsId.toString())
             Log.d("get", "$success, $message, $subsId")
         })
-
-    }
-    private fun doValidations(isEmailMobile : Boolean ): Boolean {
-        var isUserID = false
-
-        if (isEmailMobile) {
-            if (binding.etEmailMob.text.toString().isNotEmpty() && binding.etPwd.text.toString()
-                    .isNotEmpty()
-            ) {
-                isUserID = false
-            }else{
-                binding.etEmailMob.error = "This Filed Is Required"
-                binding.etPwd.error = "This Filed Is Required"
-            }
-        } else {
-            if (binding.etUserId.text.toString().isNotEmpty() && binding.etPwd.text.toString()
-                    .isNotEmpty()
-            ) {
-                isUserID = true
-            }else{
-                binding.etUserId.error = "This Filed Is Required"
-                binding.etPwd.error = "This Filed Is Required"
-            }
-        }
-
-        return isUserID
     }
 
 
-
-    private fun openActivity(subsId:String) {
+    private fun openActivity(subsId: String) {
         val editor = sharedPref.edit()
-        if (subsId == "null") {
-            editor.putBoolean("isLoggedIn", true)
-            editor.putBoolean("isSubscribed", false)
-            editor.apply()
-            val intent = Intent(this, UnsubscribeHomeActivity::class.java)
-            startActivity(intent)
-            finish()
+
+        val intent = if (subsId == "null") {
+            Intent(this, UnsubscribeHomeActivity::class.java)
         } else {
-            editor.putBoolean("isLoggedIn", true)
-            editor.putBoolean("isSubscribed", true)
-            editor.apply()
-            val intent = Intent(this, HomeActivity::class.java)
-            startActivity(intent)
-            finish()
+            Intent(this, HomeActivity::class.java)
         }
+
+        startActivity(intent)
+        editor.putBoolean("isLoggedIn", true)
+        editor.putBoolean("isSubscribed", subsId != "null")
+        editor.apply()
+        finish()
     }
-
-
 }
