@@ -9,9 +9,8 @@ import android.view.ViewGroup
 import com.example.ddaatapp.R
 import com.example.ddaatapp.activity.superPower.SurveyActivity
 import com.example.ddaatapp.adapter.CourseAdapter
-import com.example.ddaatapp.commonClass.LinearListSpacingItemDecoration
+import com.example.ddaatapp.utils.LinearListSpacingItemDecoration
 import com.example.ddaatapp.databinding.FragmentHomeCoursesBinding
-import com.example.ddaatapp.responseDatamodel.CourseDataModel
 
 class HomeCoursesFragment : Fragment() {
 

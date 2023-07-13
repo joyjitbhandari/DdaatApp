@@ -51,13 +51,13 @@ dependencies {
     implementation 'androidx.core:core-ktx:'
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.6.1'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1'
-    implementation 'androidx.navigation:navigation-fragment-ktx:2.5.3'
-    implementation 'androidx.navigation:navigation-ui-ktx:2.5.3'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.6.0'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.6.0'
 
     implementation 'de.hdodenhof:circleimageview:3.1.0'
     implementation 'com.squareup.picasso:picasso:2.71828'
 
-    /*retrofit2*/
+    /*Gson*/
     implementation 'com.google.code.gson:gson:2.10.1'
     implementation 'com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.2'
 
@@ -79,7 +79,7 @@ dependencies {
     implementation 'com.github.f0ris.sweetalert:library:1.6.2'
 
 
-    implementation 'com.google.android.gms:play-services-auth:20.5.0'
+    implementation 'com.google.android.gms:play-services-auth:20.6.0'
 
     implementation 'com.facebook.android:facebook-login:16.0.1'
 
@@ -93,8 +93,8 @@ dependencies {
     implementation 'com.github.bumptech.glide:glide:4.15.1'
 
     //Socket.io
-    /*implementation('io.socket:socket.io-client:1.0.0') {
+    implementation('io.socket:socket.io-client:1.0.0') {
         exclude group: 'org.json', module: 'json'
-    }*/
+    }
 
 }

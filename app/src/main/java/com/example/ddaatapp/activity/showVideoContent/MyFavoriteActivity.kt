@@ -5,10 +5,9 @@ import android.os.Bundle
 import android.view.View
 import com.example.ddaatapp.R
 import com.example.ddaatapp.adapter.MyFavoriteAdapter
-import com.example.ddaatapp.commonClass.LinearListSpacingItemDecoration
-import com.example.ddaatapp.commonClass.ShowDialog
+import com.example.ddaatapp.utils.LinearListSpacingItemDecoration
+import com.example.ddaatapp.utils.ShowDialog
 import com.example.ddaatapp.databinding.ActivityMyFavoriteBinding
-import com.example.ddaatapp.responseDatamodel.VideoLibraryDataModel
 
 class MyFavoriteActivity : AppCompatActivity() , View.OnClickListener {
     private lateinit var binding: ActivityMyFavoriteBinding
@@ -17,7 +16,7 @@ class MyFavoriteActivity : AppCompatActivity() , View.OnClickListener {
         binding = ActivityMyFavoriteBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        //binding OTPData to recycler list view
+        //binding LogInData to recycler list view
         val watchList = arrayListOf<com.example.ddaatapp.responseDatamodel.VideoLibraryDataModel>(
             com.example.ddaatapp.responseDatamodel.VideoLibraryDataModel(
                 R.drawable.video_sample_image,

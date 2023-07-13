@@ -1,29 +1,26 @@
 package com.example.ddaatapp.activity.splash
 
-import android.content.Context
+import android.app.ProgressDialog
 import android.content.Intent
-import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import com.example.ddaatapp.activity.login.LoginActivity
 import com.example.ddaatapp.R
 import com.example.ddaatapp.databinding.ActivityOnBoardingBinding
-import okhttp3.internal.addHeaderLenient
+import com.flynaut.healthtag.util.PrefsManager
+import com.flynaut.healthtag.util.PrefsManager.Companion.IS_ONBOARDING_COMPLETED
 
 class OnBoardingActivity : AppCompatActivity(), View.OnClickListener {
     private var count = 0
     private lateinit var binding:ActivityOnBoardingBinding
-    lateinit var sharedPref: SharedPreferences
     override fun onCreate(savedInstanceState: Bundle?)  {
         super.onCreate(savedInstanceState)
+        PrefsManager.initialize(this)
         binding = ActivityOnBoardingBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        sharedPref = getSharedPreferences(getString(R.string.Preference_file), MODE_PRIVATE)
-
-        val onBoardingFinished = sharedPref.getBoolean("onboarding_completed",false)
+        val onBoardingFinished = PrefsManager.get().getBoolean(IS_ONBOARDING_COMPLETED, false)
         if(onBoardingFinished){
             // Proceed to the Login screen
             val intent = Intent(this, LoginActivity::class.java)
@@ -37,7 +34,7 @@ class OnBoardingActivity : AppCompatActivity(), View.OnClickListener {
         //skip
         when(view){
             binding.btnSkip->{
-                finishOnboarding()
+                finishBoarding()
             }
 
             binding.btnNext->{
@@ -48,20 +45,19 @@ class OnBoardingActivity : AppCompatActivity(), View.OnClickListener {
                         binding.progress.setProgress(66,true)
                     }
                     2->{
+                        binding.btnSkip.visibility = View.GONE
                         binding.onboardingImage.setImageResource(R.drawable.onboarding_img_3)
                         binding.progress.setProgress(100,true)
                     }
                     3->{
-                        finishOnboarding()
+                        finishBoarding()
                     }
                 }
             }
         }
     }
-    private fun finishOnboarding() {
-        val editor = sharedPref.edit()
-        editor.putBoolean("onboarding_completed", true)
-        editor.apply()
+    private fun finishBoarding() {
+        PrefsManager(this).save(IS_ONBOARDING_COMPLETED,true)
 
         // Proceed to the Login screen
         val intent = Intent(this, LoginActivity::class.java)

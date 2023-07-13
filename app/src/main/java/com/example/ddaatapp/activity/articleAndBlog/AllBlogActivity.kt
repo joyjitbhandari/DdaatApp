@@ -6,9 +6,8 @@ import android.os.Bundle
 import android.view.View
 import com.example.ddaatapp.R
 import com.example.ddaatapp.adapter.ArticleBlogAdapter
-import com.example.ddaatapp.commonClass.GridListSpacingItemDecoration
+import com.example.ddaatapp.utils.GridListSpacingItemDecoration
 import com.example.ddaatapp.databinding.ActivityAllBlogBinding
-import com.example.ddaatapp.responseDatamodel.ArticleDataModel
 
 class AllBlogActivity : AppCompatActivity() , View.OnClickListener {
     private lateinit var binding : ActivityAllBlogBinding

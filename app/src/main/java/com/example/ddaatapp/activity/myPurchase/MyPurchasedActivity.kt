@@ -4,9 +4,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.ddaatapp.R
 import com.example.ddaatapp.adapter.MyPurchasedAdapter
-import com.example.ddaatapp.commonClass.LinearListSpacingItemDecoration
+import com.example.ddaatapp.utils.LinearListSpacingItemDecoration
 import com.example.ddaatapp.databinding.ActivityMyPurchaseBinding
-import com.example.ddaatapp.responseDatamodel.MyPurchasedDataModel
 
 class MyPurchasedActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMyPurchaseBinding

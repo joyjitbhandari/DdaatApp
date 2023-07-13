@@ -10,22 +10,32 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.ddaatapp.activity.forgot.ChangePwdActivity
 import com.example.ddaatapp.activity.signup.CompleteProfile
-import com.example.ddaatapp.commonClass.OtpTextWatcher
 import com.example.ddaatapp.databinding.ActivityOtpVerifyBinding
+import com.example.ddaatapp.network.RetrofitClient
 import com.example.ddaatapp.`object`.Constants.FORGOT
 import com.example.ddaatapp.`object`.Constants.SIGN_UP
 import com.example.ddaatapp.requestDatamodel.ForgotPwdOtpRequest
 import com.example.ddaatapp.requestDatamodel.OtpVerifyRequest
-import com.example.ddaatapp.requestDatamodel.ResendOtpRequest
-import com.example.ddaatapp.viewModel.UserViewModel
+import com.example.ddaatapp.utils.*
+import com.example.ddaatapp.viewModel.OTPViewModel
+import com.example.ddaatapp.viewModel.ViewModelFactory
+import com.flynaut.healthtag.util.EventObserver
+import com.flynaut.healthtag.util.PrefsManager
+import com.flynaut.healthtag.util.PrefsManager.Companion.PREF_API_TOKEN
 
 class OtpVerifyActivity : AppCompatActivity() {
     private lateinit var binding: ActivityOtpVerifyBinding
-    private lateinit var viewModel: UserViewModel
+    private lateinit var viewModel: OTPViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityOtpVerifyBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        //viewModel initialization
+        viewModel = ViewModelProvider(this, ViewModelFactory(RetrofitClient().apiService))[OTPViewModel::class.java]
+        initObserver()
+
         val operationFlow = intent.getStringExtra("operation")
 
         val name = intent.getStringExtra("name").toString()
@@ -37,7 +47,6 @@ class OtpVerifyActivity : AppCompatActivity() {
         val mobile = intent.getStringExtra("mobile").toString()
 
         //forgot  mail
-
         val  forgotPwdEmail = intent.getStringExtra("forgotEmail").toString()
 
 
@@ -54,10 +63,9 @@ class OtpVerifyActivity : AppCompatActivity() {
         otpInput3.addTextChangedListener(OtpTextWatcher(otpInput3, otpInput4))
         otpInput4.addTextChangedListener(OtpTextWatcher(otpInput4, null))
 
-        //viewModel initialization
-        viewModel = ViewModelProvider(this)[UserViewModel::class.java]
 
         binding.btnVerify.setOnClickListener {
+
             if (otpInput1.text.toString().isNotEmpty() && otpInput2.text.toString()
                     .isNotEmpty() && otpInput3.text.toString()
                     .isNotEmpty() && otpInput4.text.toString().isNotEmpty()
@@ -67,17 +75,15 @@ class OtpVerifyActivity : AppCompatActivity() {
                 when (operationFlow) {
                     SIGN_UP -> {
                         Log.d("otpCode", "$otpCode")
-
+                        showProgressDialog(this)
                         viewModel.otpVerify(OtpVerifyRequest(name, id, pwd, cnfPwd, otpCode, email, type, mobile))
 
-                        otpResponse()
                     }
                     FORGOT -> {
                         Log.d("otpCode", "$otpCode")
-
+                        showProgressDialog(this)
                         viewModel.forgotPwdOtp(ForgotPwdOtpRequest(forgotPwdEmail,otpCode))
 
-                        forgotOtpResponse()
                     }
                 }
             }
@@ -86,8 +92,10 @@ class OtpVerifyActivity : AppCompatActivity() {
 
         //resend button
         binding.btnResend.setOnClickListener {
-            viewModel.resendOtp(ResendOtpRequest(id))
-            resendResponse()
+            if(operationFlow == SIGN_UP)
+                viewModel.resendOtp(id)
+            else
+                viewModel.resendOtp(forgotPwdEmail)
         }
 
         //back button
@@ -96,51 +104,41 @@ class OtpVerifyActivity : AppCompatActivity() {
         }
     }
 
-    private fun otpResponse() {
-        viewModel.otpData.observe(this, Observer { otpData ->
-            // Process the response data here
-
-            val success = otpData?.success
-            val message = otpData?.message
-            val token = otpData?.OTPData?.token
-            Toast.makeText(this, "$message", Toast.LENGTH_SHORT).show()
-
-            if (success == true) {
+    private fun initObserver() {
+        viewModel.otpData.observe(this, Observer {
+            hideProgressDialog()
+            if(it?.success == true){
+                PrefsManager.get().save(PREF_API_TOKEN, it.data.token)
                 val intent = Intent(this, CompleteProfile::class.java)
                 intent.putExtra("operation", SIGN_UP)
                 startActivity(intent)
                 finish()
-            }
+            }else
+                showToast(it?.message.toString(), Toast.LENGTH_SHORT)
         })
-    }
 
-    private fun forgotOtpResponse() {
-        viewModel.forgotPwdOtpData.observe(this, Observer { pwdOtpData ->
-            // Process the response data here
-
-            val success = pwdOtpData?.success
-            val message = pwdOtpData?.message
-            Toast.makeText(this, "$message", Toast.LENGTH_SHORT).show()
-
-            if (success == true) {
+        viewModel.forgotPwdOtpData.observe(this, Observer {
+            hideProgressDialog()
+            if(it?.success == true) {
                 val intent = Intent(this, ChangePwdActivity::class.java)
                 intent.putExtra("operation", FORGOT)
                 startActivity(intent)
                 finish()
-            }else{
-                Toast.makeText(this, "$message", Toast.LENGTH_SHORT).show()
-            }
+            }else
+                showToast(it?.message.toString(),Toast.LENGTH_SHORT)
+
+        })
+
+        viewModel.resendOtpData.observe(this, Observer {
+            hideProgressDialog()
+            this.showToast(it?.message.toString(),Toast.LENGTH_SHORT)
+        })
+
+        viewModel.toastMsg.observe(this, EventObserver {
+            hideProgressDialog()
+            this.showToast( it, Toast.LENGTH_SHORT)
         })
     }
 
-    private fun resendResponse() {
-        viewModel.resendOtpData.observe(this, Observer { resendOtpData ->
-            // Process the response data here
-
-            val success = resendOtpData?.success
-            val message = resendOtpData?.message
-            Toast.makeText(this, "$message", Toast.LENGTH_SHORT).show()
-        })
-    }
 
 }

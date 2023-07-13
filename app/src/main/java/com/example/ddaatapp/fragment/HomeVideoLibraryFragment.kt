@@ -6,10 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.ddaatapp.R
 import com.example.ddaatapp.adapter.VideoLibraryAdapter
-import com.example.ddaatapp.commonClass.DynamicInterestChipCreator
-import com.example.ddaatapp.commonClass.LinearListSpacingItemDecoration
+import com.example.ddaatapp.utils.DynamicInterestChipCreator
+import com.example.ddaatapp.utils.LinearListSpacingItemDecoration
 import com.example.ddaatapp.databinding.FragmentHomeVideoLibraryBinding
-import com.example.ddaatapp.responseDatamodel.VideoLibraryDataModel
 
 class HomeVideoLibraryFragment(private val operationFlow:String) : Fragment() {
     private lateinit var binding: FragmentHomeVideoLibraryBinding

@@ -6,9 +6,8 @@ import android.os.Bundle
 import android.view.View
 import com.example.ddaatapp.R
 import com.example.ddaatapp.adapter.TicketAdapter
-import com.example.ddaatapp.commonClass.LinearListSpacingItemDecoration
+import com.example.ddaatapp.utils.LinearListSpacingItemDecoration
 import com.example.ddaatapp.databinding.ActivityTechSupportTicketBinding
-import com.example.ddaatapp.responseDatamodel.TicketDataModel
 
 class TechSupportTicketActivity : AppCompatActivity(), View.OnClickListener{
     private lateinit var binding: ActivityTechSupportTicketBinding

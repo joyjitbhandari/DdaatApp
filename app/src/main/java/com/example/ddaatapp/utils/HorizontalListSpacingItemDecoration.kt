@@ -1,4 +1,4 @@
-package com.example.ddaatapp.commonClass
+package com.example.ddaatapp.utils
 
 import android.graphics.Rect
 import android.view.View

@@ -6,9 +6,8 @@ import android.view.View
 import com.example.ddaatapp.R
 import com.example.ddaatapp.adapter.RelatedVideoCourseAdapter
 import com.example.ddaatapp.adapter.VideoAndLectureSessionAdapter
-import com.example.ddaatapp.commonClass.LinearListSpacingItemDecoration
+import com.example.ddaatapp.utils.LinearListSpacingItemDecoration
 import com.example.ddaatapp.databinding.ActivityPlayVideoContentBinding
-import com.example.ddaatapp.responseDatamodel.VideoLibraryDataModel
 import com.example.ddaatapp.`object`.Constants
 
 class PlayVideoContentActivity : AppCompatActivity(), View.OnClickListener {

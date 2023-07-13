@@ -1,10 +1,10 @@
-package com.example.ddaatapp.commonClass
+package com.example.ddaatapp.utils
 
 import android.graphics.Rect
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 
-class GridListSpacingItemDecoration(
+class LinearListSpacingItemDecoration(
     private val spacing: Int,
 ) : RecyclerView.ItemDecoration() {
 
@@ -19,17 +19,18 @@ class GridListSpacingItemDecoration(
         val position = parent.getChildAdapterPosition(view)
         val itemCount = state.itemCount
 
-        // for other item
+        // Add equal spacing to top, bottom, left and right of each item
         outRect.top = spacing
 
         // If it's the first item, don't add top spacing
-        if (position == 0 || position == 1) {
-            outRect.top = 70
-        }
-        // If it's the last item, don't add bottom spacing
-        if (position == itemCount - 1 || position == itemCount - 2) {
+        if (position == 0) {
             outRect.top = spacing
-            outRect.bottom = 70
+        }
+
+        // If it's the last item, don't add bottom spacing
+        if (position == itemCount - 1) {
+            outRect.top = spacing
+            outRect.bottom = spacing
         }
     }
 

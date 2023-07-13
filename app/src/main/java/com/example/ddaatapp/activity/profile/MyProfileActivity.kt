@@ -8,6 +8,7 @@ import com.example.ddaatapp.activity.signup.CompleteProfile
 import com.example.ddaatapp.activity.signup.InterestActivity
 import com.example.ddaatapp.databinding.ActivityMyProfileBinding
 import com.example.ddaatapp.`object`.Constants
+import com.example.ddaatapp.utils.SavedData.profileData
 
 class MyProfileActivity : AppCompatActivity() , View.OnClickListener {
     lateinit var binding : ActivityMyProfileBinding
@@ -16,6 +17,11 @@ class MyProfileActivity : AppCompatActivity() , View.OnClickListener {
         super.onCreate(savedInstanceState)
         binding = ActivityMyProfileBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        //setting predefined data
+        binding.profileName.text = profileData.name
+        binding.txtBirthYear.text = profileData.birth_year
+        binding.txtGender.text = profileData.gender
     }
 
     override fun onClick(view: View?) {
@@ -27,7 +33,6 @@ class MyProfileActivity : AppCompatActivity() , View.OnClickListener {
                val intent = Intent(this, CompleteProfile::class.java)
                intent.putExtra("operation",operationFlow)
                startActivity(intent)
-
            }
            binding.btnEditCategory->{
                val intent = Intent(this, InterestActivity::class.java)

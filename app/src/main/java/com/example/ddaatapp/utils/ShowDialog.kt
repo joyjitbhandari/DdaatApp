@@ -1,6 +1,7 @@
-package com.example.ddaatapp.commonClass
+package com.example.ddaatapp.utils
 
 import android.app.Dialog
+import android.app.ProgressDialog
 import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
@@ -9,13 +10,11 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.example.ddaatapp.R
-import com.example.ddaatapp.databinding.DialogApplyFilterBinding
-import com.example.ddaatapp.databinding.DialogSelectGenresBinding
+import com.flynaut.healthtag.util.PrefsManager
+import java.util.concurrent.atomic.AtomicBoolean
 
 class ShowDialog(var context: Context) {
 
-    private val mContext = context as AppCompatActivity
-    //Filter dialog
     fun showFilterDialog() {
         val dialog = Dialog(context)
         dialog.setContentView(R.layout.dialog_apply_filter)
@@ -33,6 +32,7 @@ class ShowDialog(var context: Context) {
             }
         }
     }
+
 
 
     //Select Genres

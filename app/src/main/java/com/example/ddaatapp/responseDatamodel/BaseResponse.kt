@@ -1,6 +1,5 @@
 package com.example.ddaatapp.responseDatamodel
 
-data class ForgotPwdOtpResponse(
+data class BaseResponse(
     val success: Boolean,
-    val message: String
-)
+    val message: String)

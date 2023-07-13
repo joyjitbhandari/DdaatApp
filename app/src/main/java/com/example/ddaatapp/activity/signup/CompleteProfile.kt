@@ -9,12 +9,24 @@ import android.os.Bundle
 import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import com.example.ddaatapp.R
 import com.example.ddaatapp.databinding.ActivityCompleteProfileBinding
 import com.example.ddaatapp.databinding.DialogGenderPickerBinding
 import com.example.ddaatapp.databinding.DialogTypeGenderBinding
+import com.example.ddaatapp.network.RetrofitClient
 import com.example.ddaatapp.`object`.Constants
+import com.example.ddaatapp.requestDatamodel.UpdateProfileRequest
+import com.example.ddaatapp.utils.hideProgressDialog
+import com.example.ddaatapp.utils.showProgressDialog
+import com.example.ddaatapp.utils.showToast
+import com.example.ddaatapp.viewModel.ProfileViewModel
+import com.example.ddaatapp.viewModel.ViewModelFactory
+import com.flynaut.healthtag.util.EventObserver
+import com.flynaut.healthtag.util.PrefsManager
+import com.google.gson.Gson
 import java.util.*
 
 
@@ -22,33 +34,40 @@ class CompleteProfile : AppCompatActivity(), View.OnClickListener {
     private lateinit var binding: ActivityCompleteProfileBinding
 
     private lateinit var operationFlow: String
+    private lateinit var viewModel: ProfileViewModel
+
+    private  var gender : String = ""
+
     override fun onCreate(savedInstanceState: Bundle?) {
+        viewModel = ViewModelProvider(
+            this,
+            ViewModelFactory(RetrofitClient().apiService)
+        )[ProfileViewModel::class.java]
         super.onCreate(savedInstanceState)
         binding = ActivityCompleteProfileBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
 
 //   Checking the operation flow
         operationFlow = intent.getStringExtra("operation").toString()
         if (operationFlow == Constants.EDIT) {
             binding.btnNext.text = "Save"
         }
+
+        initObserver()
+
     }
 
     override fun onClick(view: View?) {
         when (view) {
             binding.btnNext -> {
-                when (operationFlow) {
-                    Constants.EDIT -> {
-                        onBackPressed()
-                    }
-                    Constants.SIGN_UP -> {
-                        val operationFlow = Constants.SIGN_UP
-                        val intent = Intent(this, InterestActivity::class.java)
-                        intent.putExtra("operation", operationFlow)
-                        startActivity(intent)
-                    }
-                }
+                showProgressDialog(this)
+                viewModel.updateProfile(
+                    UpdateProfileRequest(
+                        binding.etUserName.text.toString(),
+                        gender,
+                        binding.etBirthYear.text.toString()
+                    )
+                )
             }
 
             binding.btnBack -> {
@@ -75,7 +94,6 @@ class CompleteProfile : AppCompatActivity(), View.OnClickListener {
     }
 
 
-
     private fun showDatePickerDialog() {
         val calendar = Calendar.getInstance()
         val year = calendar[Calendar.YEAR]
@@ -85,7 +103,7 @@ class CompleteProfile : AppCompatActivity(), View.OnClickListener {
         val datePickerDialog = DatePickerDialog(
             this,
             { _, year, monthOfYear, dayOfMonth ->
-                binding.etBirthYear.setText( year.toString() + "-" + (monthOfYear + 1) + "-" + dayOfMonth)
+                binding.etBirthYear.setText(year.toString() + "-" + (monthOfYear + 1) + "-" + dayOfMonth)
             },
             year, month, day
         )
@@ -106,18 +124,20 @@ class CompleteProfile : AppCompatActivity(), View.OnClickListener {
 
         genderBinding.checkMale.setOnCheckedChangeListener { button, isChecked ->
             if (isChecked) {
+                gender = "Male"
                 binding.selectGender.text = genderBinding.checkMale.text
                 genderBinding.checkFemale.isChecked = false
                 genderBinding.checkOther.isChecked = false
-            } else {
-                binding.selectGender.text = R.string.select.toString()
+                dialog.dismiss()
             }
         }
         genderBinding.checkFemale.setOnCheckedChangeListener { button, isChecked ->
             if (isChecked) {
+                gender = "Female"
                 binding.selectGender.text = genderBinding.checkFemale.text
                 genderBinding.checkMale.isChecked = false
                 genderBinding.checkOther.isChecked = false
+                dialog.dismiss()
             }
         }
 
@@ -126,6 +146,7 @@ class CompleteProfile : AppCompatActivity(), View.OnClickListener {
                 showTypeGenderDialog()
                 genderBinding.checkMale.isChecked = false
                 genderBinding.checkFemale.isChecked = false
+                dialog.dismiss()
             }
         }
     }
@@ -142,11 +163,50 @@ class CompleteProfile : AppCompatActivity(), View.OnClickListener {
             setGravity(Gravity.CENTER)
             dialog.show()
 
+            typeGenderBinding.btnAdd.setOnClickListener {
+                if(typeGenderBinding.etTypeGender.toString().isEmpty()){
+                    typeGenderBinding.etTypeGender.error = "Enter Gender"
+                }else {
+                    gender = typeGenderBinding.etTypeGender.text.toString()
+                    binding.selectGender.text = gender
+                    dialog.dismiss()
+                }
 
+            }
             typeGenderBinding.btnCut.setOnClickListener {
                 dialog.dismiss()
 
             }
         }
     }
+
+    private fun initObserver() {
+        viewModel.updateProfileResponse.observe(this) {
+            hideProgressDialog()
+            if(it?.success == true){
+                when (operationFlow) {
+                    Constants.EDIT -> {
+                        showToast(it.message)
+                        PrefsManager.get().save(PrefsManager.PREF_PROFILE, Gson().toJson(it.data))
+                        onBackPressed()
+                    }
+                    Constants.SIGN_UP -> {
+                        showToast(it.message)
+                        PrefsManager.get().save(PrefsManager.PREF_PROFILE,Gson().toJson(it.data))
+                        val intent = Intent(this, InterestActivity::class.java)
+                        intent.putExtra("operation", operationFlow)
+                        startActivity(intent)
+                    }
+                }
+            }else{
+                showToast(it?.message.toString())
+            }
+
+        }
+        viewModel.toastMsg.observe(this, EventObserver {
+            hideProgressDialog()
+            this.showToast(it, Toast.LENGTH_SHORT)
+        })
+    }
+
 }

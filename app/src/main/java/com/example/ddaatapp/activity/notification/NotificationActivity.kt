@@ -4,9 +4,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.ddaatapp.R
 import com.example.ddaatapp.adapter.NotificationAdapter
-import com.example.ddaatapp.commonClass.LinearListSpacingItemDecoration
+import com.example.ddaatapp.utils.LinearListSpacingItemDecoration
 import com.example.ddaatapp.databinding.ActivityNotificationBinding
-import com.example.ddaatapp.responseDatamodel.NotificationDataModel
 
 class NotificationActivity : AppCompatActivity() {
     lateinit var binding: ActivityNotificationBinding

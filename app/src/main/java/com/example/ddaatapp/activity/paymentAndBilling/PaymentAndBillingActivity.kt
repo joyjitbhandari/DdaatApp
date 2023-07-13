@@ -7,11 +7,9 @@ import android.view.View
 import com.example.ddaatapp.R
 import com.example.ddaatapp.adapter.AtmCardAdapter
 import com.example.ddaatapp.adapter.AtmCardTransactionAdapter
-import com.example.ddaatapp.commonClass.HorizontalListSpacingItemDecoration
-import com.example.ddaatapp.commonClass.LinearListSpacingItemDecoration
+import com.example.ddaatapp.utils.HorizontalListSpacingItemDecoration
+import com.example.ddaatapp.utils.LinearListSpacingItemDecoration
 import com.example.ddaatapp.databinding.ActivityPaymentAndBillingBinding
-import com.example.ddaatapp.responseDatamodel.AtmCardDataModel
-import com.example.ddaatapp.responseDatamodel.AtmCardTransactionDataModel
 import com.example.ddaatapp.`object`.Constants
 
 class PaymentAndBillingActivity : AppCompatActivity(), View.OnClickListener {

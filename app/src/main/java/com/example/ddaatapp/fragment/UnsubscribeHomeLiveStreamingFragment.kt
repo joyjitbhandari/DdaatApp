@@ -7,11 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.ddaatapp.R
 import com.example.ddaatapp.adapter.StreamsAdapter
-import com.example.ddaatapp.commonClass.DynamicInterestChipCreator
-import com.example.ddaatapp.commonClass.LinearListSpacingItemDecoration
-import com.example.ddaatapp.commonClass.ShowDialog
+import com.example.ddaatapp.utils.DynamicInterestChipCreator
+import com.example.ddaatapp.utils.LinearListSpacingItemDecoration
+import com.example.ddaatapp.utils.ShowDialog
 import com.example.ddaatapp.databinding.FragmentUnsubscribeHomeLiveStreamBinding
-import com.example.ddaatapp.responseDatamodel.StreamsDataModel
 import com.example.ddaatapp.`object`.Constants
 
 class UnsubscribeHomeLiveStreamingFragment(private val operationFlow: String) : Fragment() {

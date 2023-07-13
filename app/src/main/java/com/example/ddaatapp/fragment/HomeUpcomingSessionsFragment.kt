@@ -7,9 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.ddaatapp.R
 import com.example.ddaatapp.adapter.UpcomingSessionAdapter
-import com.example.ddaatapp.commonClass.GridListSpacingItemDecoration
+import com.example.ddaatapp.utils.GridListSpacingItemDecoration
 import com.example.ddaatapp.databinding.FragmentHomeUpcomingSessionsBinding
-import com.example.ddaatapp.responseDatamodel.UpcomingSessionDataModel
 
 class HomeUpcomingSessionsFragment : Fragment() {
     private lateinit var binding: FragmentHomeUpcomingSessionsBinding

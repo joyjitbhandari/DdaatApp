@@ -3,6 +3,7 @@ package com.example.ddaatapp.subscriptionScreen
 import android.content.Intent
 import android.os.Bundle
 import android.view.*
+import android.widget.TextView
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
@@ -14,14 +15,13 @@ import com.example.ddaatapp.activity.notification.NotificationActivity
 import com.example.ddaatapp.activity.showVideoContent.MyFavoriteActivity
 import com.example.ddaatapp.adapter.ArticleBlogAdapter
 import com.example.ddaatapp.adapter.MyNotesAdapter
-import com.example.ddaatapp.commonClass.HorizontalListSpacingItemDecoration
-import com.example.ddaatapp.commonClass.MyDrawerNavigationItemSelectedListener
-import com.example.ddaatapp.commonClass.ShowDialog
+import com.example.ddaatapp.utils.HorizontalListSpacingItemDecoration
+import com.example.ddaatapp.utils.MyDrawerNavigationItemSelectedListener
+import com.example.ddaatapp.utils.ShowDialog
 import com.example.ddaatapp.databinding.ActivityHomeBinding
-import com.example.ddaatapp.responseDatamodel.ArticleDataModel
-import com.example.ddaatapp.responseDatamodel.MyNotesModel
 import com.example.ddaatapp.fragment.*
 import com.example.ddaatapp.`object`.Constants
+import com.example.ddaatapp.utils.SavedData
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.button.MaterialButton
 
@@ -55,6 +55,9 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
         binding.navigationDrawerView.getHeaderView(0).findViewById<MaterialButton>(R.id.btn_drawer_cancel).setOnClickListener {
             drawerLayout.close()
         }
+        //navigation data set
+        binding.navigationDrawerView.getHeaderView(0).findViewById<TextView>(R.id.nav_header_name).text = SavedData.profileData.name
+        binding.navigationDrawerView.getHeaderView(0).findViewById<TextView>(R.id.nav_header_email).text = SavedData.profileData.email
 
 
         //bottom navigation view

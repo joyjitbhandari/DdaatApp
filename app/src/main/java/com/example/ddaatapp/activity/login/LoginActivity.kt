@@ -1,10 +1,9 @@
 package com.example.ddaatapp.activity.login
 
 import android.content.Intent
-import android.content.SharedPreferences
 import android.os.Bundle
-import android.util.Log
 import android.view.View
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
@@ -12,44 +11,48 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.ddaatapp.R
 import com.example.ddaatapp.activity.forgot.ForgotActivity
 import com.example.ddaatapp.activity.signup.SignUpActivity
-import com.example.ddaatapp.commonClass.validateEmail
-import com.example.ddaatapp.commonClass.validateMobile
 import com.example.ddaatapp.databinding.ActivityLoginBinding
+import com.example.ddaatapp.network.RetrofitClient
 import com.example.ddaatapp.requestDatamodel.LoginRequest
 import com.example.ddaatapp.subscriptionScreen.HomeActivity
 import com.example.ddaatapp.unsubscribeScreen.UnsubscribeHomeActivity
-import com.example.ddaatapp.viewModel.UserViewModel
+import com.example.ddaatapp.utils.*
+import com.example.ddaatapp.utils.SavedData.profileData
+import com.example.ddaatapp.viewModel.LogInViewModel
+import com.example.ddaatapp.viewModel.ViewModelFactory
+import com.flynaut.healthtag.util.EventObserver
+import com.flynaut.healthtag.util.PrefsManager
+import com.flynaut.healthtag.util.PrefsManager.Companion.IS_LOG_IN
+import com.google.gson.Gson
 
 class LoginActivity : AppCompatActivity(), View.OnClickListener {
 
 
-    private lateinit var viewModel: UserViewModel
+    private lateinit var viewModel: LogInViewModel
     private var isEmailMobile = false
     private lateinit var binding: ActivityLoginBinding
-    private lateinit var sharedPref: SharedPreferences
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         //viewModel initialization
-        viewModel = ViewModelProvider(this)[UserViewModel::class.java]
+        viewModel = ViewModelProvider(
+            this,
+            ViewModelFactory(RetrofitClient().apiService)
+        )[LogInViewModel::class.java]
 
-        //Checking is logged in or not
-        sharedPref = getSharedPreferences(getString(R.string.Preference_file), MODE_PRIVATE)
-
-        val isLoggedIn = sharedPref.getBoolean("isLoggedIn", false)
-        val isSubscribed = sharedPref.getBoolean("isSubscribed", false)
+        initObserver()
+        val isLogIn = PrefsManager.get().getBoolean(IS_LOG_IN, false)
 
         //if log in go to Home
-        if (isLoggedIn) {
-            if (isSubscribed) {
-                startActivity(Intent(this, HomeActivity::class.java))
+        if (isLogIn) {
+            if (profileData?.subscription_id.isNullOrEmpty()) {
+                startActivity(Intent(this, UnsubscribeHomeActivity::class.java))
                 finish()
             } else {
-                startActivity(Intent(this, UnsubscribeHomeActivity::class.java))
+                startActivity(Intent(this, HomeActivity::class.java))
                 finish()
             }
 
@@ -75,71 +78,103 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
             binding.txtForgotPassword -> startActivity(Intent(this, ForgotActivity::class.java))
             binding.txtDontHaveAcc -> startActivity(Intent(this, SignUpActivity::class.java))
             binding.loginBtn -> {
-                val emailMobText = binding.etEmailMob.text.toString()
-                val userIdText = binding.etUserId.text.toString()
-                val passwordText = binding.etPwd.text.toString()
 
-                if (doValidations(isEmailMobile)) {
-                    //user id
-                    viewModel.login(LoginRequest(userIdText, passwordText, "userid", "", ""))
-                    loginResponse()
-                } else if (validateEmail(emailMobText)) {
-                    //email
-                    viewModel.login(LoginRequest("", passwordText, "email", "", emailMobText))
-                    loginResponse()
-                } else if (validateMobile(emailMobText)) {
-                    //mobile
-                    viewModel.login(LoginRequest("", passwordText, "mobile", emailMobText, ""))
-                    loginResponse()
+                val email = binding.etEmailMob
+                val userId = binding.etUserId
+                val password = binding.etPwd
+
+                if (!isEmailMobile) {
+                    if (doValidations(userId, password)) {
+                        //user id
+                        showProgressDialog(this)
+                        viewModel.login(
+                            LoginRequest(
+                                userId.text.toString(),
+                                password.text.toString(),
+                                "userid",
+                                null,
+                                null
+                            )
+                        )
+                    }
+
                 } else {
-                    Toast.makeText(this@LoginActivity, "Invalid Credentials", Toast.LENGTH_SHORT).show()
+                    if (doValidations(email, password)) {
+                        if (validateEmail(email.text.toString())) {
+                            //email
+                            showProgressDialog(this)
+                            viewModel.login(
+                                LoginRequest(
+                                    null,
+                                    password.text.toString(),
+                                    "email",
+                                    null,
+                                    email.text.toString()
+                                )
+                            )
+                        } else if (validateMobile(email.text.toString())) {
+                            //mobile
+                            showProgressDialog(this)
+                            viewModel.login(
+                                LoginRequest(
+                                    null,
+                                    password.text.toString(),
+                                    "mobile",
+                                    email.text.toString(),
+                                    null
+                                )
+                            )
+                        }else{
+                            showToast("Above credentials are not correct ")
+                        }
+                    }
                 }
             }
         }
     }
-    private fun doValidations(isEmailMobile: Boolean): Boolean {
-        val emailMobField = binding.etEmailMob
-        val userIdField = binding.etUserId
-        val pwdField = binding.etPwd
 
-        val isEmailMobEmpty = emailMobField.text.toString().isEmpty()
-        val isUserIdEmpty = userIdField.text.toString().isEmpty()
-        val isPwdEmpty = pwdField.text.toString().isEmpty()
+    private fun doValidations(userName: TextView, password: TextView): Boolean {
 
-        emailMobField.error = if (isEmailMobile && isEmailMobEmpty) "This Field Is Required" else null
-        userIdField.error = if (!isEmailMobile && isUserIdEmpty) "This Field Is Required" else null
-        pwdField.error = if ((isEmailMobile && isPwdEmpty) || (!isEmailMobile && isPwdEmpty)) "This Field Is Required" else null
-
-        return !isEmailMobile
+        return if (userName.text.toString().isEmpty()) {
+            userName.error = "This Field is required"
+            false
+        } else if (password.text.toString().isEmpty()) {
+            password.error = "This Field is required"
+            false
+        } else true
     }
 
-    private fun loginResponse() {
-        viewModel.loginData.observe(this, Observer { loginData ->
-            // Process the response data here
+    private fun initObserver() {
+        viewModel.apiResponse.observe(this, Observer {
+            hideProgressDialog()
+            if(it?.success==true){
+                val prefsManager = PrefsManager.get()
+                prefsManager.save(PrefsManager.PREF_API_TOKEN, it?.data?.token.toString())
+                PrefsManager.get().save(
+                    PrefsManager.PREF_PROFILE,
+                    Gson().toJson(it?.data)
+                )
+                prefsManager.save(IS_LOG_IN, true)
+                openActivity(it?.data?.subscription_id.toString())
+                showToast(it.message, Toast.LENGTH_SHORT)
+            }else{
+                showToast(it.message, Toast.LENGTH_SHORT)
+            }
+        })
 
-            val success = loginData?.success
-            val message = loginData?.message
-            val subsId = loginData?.data?.subscription_id
-
-            openActivity(subsId.toString())
-            Log.d("get", "$success, $message, $subsId")
+        viewModel.toastMsg.observe(this, EventObserver {
+            hideProgressDialog()
+            showToast(it, Toast.LENGTH_SHORT)
         })
     }
 
-
     private fun openActivity(subsId: String) {
-        val editor = sharedPref.edit()
-
-        val intent = if (subsId == "null") {
+        val intent = if (subsId.isNullOrEmpty())
             Intent(this, UnsubscribeHomeActivity::class.java)
-        } else {
+        else
             Intent(this, HomeActivity::class.java)
-        }
 
         startActivity(intent)
-        editor.putBoolean("isLoggedIn", true)
-        editor.putBoolean("isSubscribed", subsId != "null")
-        editor.apply()
         finish()
     }
 }

@@ -7,9 +7,8 @@ import android.view.View
 import com.example.ddaatapp.R
 import com.example.ddaatapp.activity.signup.ProfileCreatedActivity
 import com.example.ddaatapp.adapter.SubscriptionAdapter
-import com.example.ddaatapp.commonClass.HorizontalListSpacingItemDecoration
+import com.example.ddaatapp.utils.HorizontalListSpacingItemDecoration
 import com.example.ddaatapp.databinding.ActivitySubscriptionBinding
-import com.example.ddaatapp.responseDatamodel.SubscriptionDataModel
 import com.example.ddaatapp.`object`.Constants
 
 class SubscriptionActivity : AppCompatActivity(),View.OnClickListener {

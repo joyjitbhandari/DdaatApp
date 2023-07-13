@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.TextView
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
@@ -12,14 +13,9 @@ import com.example.ddaatapp.activity.notification.NotificationActivity
 import com.example.ddaatapp.activity.showVideoContent.MyFavoriteActivity
 import com.example.ddaatapp.adapter.StreamsAdapter
 import com.example.ddaatapp.adapter.VideoLibraryAdapter
-import com.example.ddaatapp.commonClass.DynamicInterestChipCreator
-import com.example.ddaatapp.commonClass.LinearListSpacingItemDecoration
-import com.example.ddaatapp.commonClass.MyDrawerNavigationItemSelectedListener
-import com.example.ddaatapp.commonClass.ShowDialog
 import com.example.ddaatapp.databinding.ActivityUnsubscribeSearchBinding
-import com.example.ddaatapp.responseDatamodel.StreamsDataModel
-import com.example.ddaatapp.responseDatamodel.VideoLibraryDataModel
 import com.example.ddaatapp.`object`.Constants
+import com.example.ddaatapp.utils.*
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.button.MaterialButton
 
@@ -53,6 +49,9 @@ class UnsubscribeSearchActivity : AppCompatActivity() , View.OnClickListener{
         binding.navigationDrawerView.getHeaderView(0).findViewById<MaterialButton>(R.id.btn_drawer_cancel).setOnClickListener {
             drawerLayout.close()
         }
+        //navigation data set
+        binding.navigationDrawerView.getHeaderView(0).findViewById<TextView>(R.id.nav_header_name).text = SavedData.profileData.name
+        binding.navigationDrawerView.getHeaderView(0).findViewById<TextView>(R.id.nav_header_email).text = SavedData.profileData.email
 
         // Bottom nav bar
         binding.bottomBar.selectedItemId  = R.id.nav_search

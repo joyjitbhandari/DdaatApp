@@ -5,9 +5,8 @@ import android.os.Bundle
 import android.view.View
 import com.example.ddaatapp.R
 import com.example.ddaatapp.adapter.MyWatchListAdapter
-import com.example.ddaatapp.commonClass.LinearListSpacingItemDecoration
+import com.example.ddaatapp.utils.LinearListSpacingItemDecoration
 import com.example.ddaatapp.databinding.ActivityMyWatchListBinding
-import com.example.ddaatapp.responseDatamodel.VideoLibraryDataModel
 
 class MyWatchlistActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var binding:ActivityMyWatchListBinding

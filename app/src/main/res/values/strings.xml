@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">DdaatApp</string>
-    <string name="Preference_file">ddaat_preference</string>
     <string name="signin">Sign in</string>
     <string name="user_id">User ID</string>
     <string name="enter_your_user_id">Enter your User ID</string>

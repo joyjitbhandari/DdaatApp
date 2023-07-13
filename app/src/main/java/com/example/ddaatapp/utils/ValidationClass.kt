@@ -1,4 +1,4 @@
-package com.example.ddaatapp.commonClass
+package com.example.ddaatapp.utils
 
 import android.content.Context
 import com.example.ddaatapp.`object`.Constants.EMAIL_PATTERN
@@ -23,6 +23,7 @@ fun Context.validatePassword(input:String):Boolean{
 fun Context.validateConfPass(inputPwd:String,cnfPwd:String):Boolean{
     return inputPwd==cnfPwd
 }
+
 
 
 

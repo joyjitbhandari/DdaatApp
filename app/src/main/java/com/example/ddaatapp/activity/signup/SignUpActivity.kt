@@ -1,7 +1,6 @@
 package com.example.ddaatapp.activity.signup
 
 import android.content.Intent
-import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -9,28 +8,31 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.example.ddaatapp.R
 import com.example.ddaatapp.activity.otpvrify.OtpVerifyActivity
-import com.example.ddaatapp.commonClass.validateConfPass
-import com.example.ddaatapp.commonClass.validateEmail
-import com.example.ddaatapp.commonClass.validateMobile
 import com.example.ddaatapp.databinding.ActivitySignUpBinding
+import com.example.ddaatapp.network.RetrofitClient
 import com.example.ddaatapp.`object`.Constants
-import com.example.ddaatapp.viewModel.UserViewModel
+import com.example.ddaatapp.requestDatamodel.SignUpRequest
+import com.example.ddaatapp.utils.*
+import com.example.ddaatapp.viewModel.SignUPViewModel
+import com.example.ddaatapp.viewModel.ViewModelFactory
 
 class SignUpActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var binding: ActivitySignUpBinding
-    private lateinit var viewModel: UserViewModel
+    private lateinit var viewModel: SignUPViewModel
 
-    private lateinit var sharedPref: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySignUpBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        sharedPref = getSharedPreferences(getString(R.string.Preference_file), MODE_PRIVATE)
-        viewModel = ViewModelProvider(this)[UserViewModel::class.java]
+        viewModel = ViewModelProvider(
+            this,
+            ViewModelFactory(RetrofitClient().apiService)
+        )[SignUPViewModel::class.java]
+
+//        initObserver()
 
     }
 
@@ -40,16 +42,24 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener {
 
             binding.signupBtn -> {
                 val operationFlow = Constants.SIGN_UP
+//
+//                val intent = Intent(this, OtpVerifyActivity::class.java)
+//                intent.putExtra("operation", operationFlow)
+//                intent.putExtra("name", binding.etName.text.toString())
+//                intent.putExtra("id", binding.etUserId.text.toString())
+//                intent.putExtra("pwd", binding.etPwd.text.toString())
+//                intent.putExtra("cnfPwd", binding.etCnfPwd.text.toString())
+//                intent.putExtra("email", "")
+//                intent.putExtra("type", "mobile")
+//                intent.putExtra("mobile", binding.etEmailMobile.text.toString())
+//                startActivity(intent)
+
 
                 if (doValidations()) {
-
-//                    val editor = sharedPref.edit()
-//                    editor.putString("old_pwd",binding.etPwd.text.toString())
-//                    editor.apply()
-
+                    showProgressDialog(this)
                     if (validateEmail(binding.etEmailMobile.text.toString())) {
                         viewModel.signUp(
-                            com.example.ddaatapp.requestDatamodel.SignUpRequest(
+                            SignUpRequest(
                                 binding.etName.text.toString(),
                                 binding.etUserId.text.toString(),
                                 binding.etPwd.text.toString(),
@@ -61,12 +71,9 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener {
                         )
                         //data from api
                         viewModel.signUpData.observe(this, Observer { signUpData ->
-                            // Process the response data here
-                            val success = signUpData?.success
+                            hideProgressDialog()
                             val message = signUpData?.message.toString()
-                            Log.d("get", "$success, $message")
-
-                            if (success == true) {
+                            Log.d("get", "$message")
                                 val intent = Intent(this, OtpVerifyActivity::class.java)
                                 intent.putExtra("operation", operationFlow)
                                 intent.putExtra("name", binding.etName.text.toString())
@@ -78,30 +85,25 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener {
                                 intent.putExtra("mobile", "")
                                 startActivity(intent)
                                 Toast.makeText(this, "$message", Toast.LENGTH_SHORT).show()
-                            } else {
-                                Toast.makeText(this, "$message", Toast.LENGTH_SHORT).show()
-                            }
                         })
                     } else if (validateMobile(binding.etEmailMobile.text.toString())) {
                         viewModel.signUp(
-                            com.example.ddaatapp.requestDatamodel.SignUpRequest(
+                            SignUpRequest(
                                 binding.etName.text.toString(),
                                 binding.etUserId.text.toString(),
                                 binding.etPwd.text.toString(),
                                 binding.etCnfPwd.text.toString(),
                                 "",
                                 "mobile",
-                                binding.etEmailMobile.text.toString(),
+                                binding.etEmailMobile.text.toString()
                             )
                         )
 
                         //data from api
                         viewModel.signUpData.observe(this, Observer { signUpData ->
-                            // Process the response data here
-                            val success = signUpData?.success
+                            hideProgressDialog()
                             val message = signUpData?.message.toString()
-                            Log.d("get", "$success, $message")
-                            if (success == true) {
+                            Log.d("get", "$message")
                                 val intent = Intent(this, OtpVerifyActivity::class.java)
                                 intent.putExtra("operation", operationFlow)
                                 intent.putExtra("name", binding.etName.text.toString())
@@ -113,9 +115,6 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener {
                                 intent.putExtra("mobile", binding.etEmailMobile.text.toString())
                                 startActivity(intent)
                                 Toast.makeText(this, "$message", Toast.LENGTH_SHORT).show()
-                            } else {
-                                Toast.makeText(this, "$message", Toast.LENGTH_SHORT).show()
-                            }
                         })
                     } else {
                         Toast.makeText(this, "Error Occurred", Toast.LENGTH_SHORT).show()
@@ -126,6 +125,21 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener {
 
     }
 
+
+//    private fun initObserver() {
+//        viewModel.signUpData.observe(this, Observer {
+//            val intent = Intent(this, OtpVerifyActivity::class.java)
+//            intent.putExtra("operation", Constants.SIGN_UP)
+//            intent.putExtra("name", binding.etName.text.toString())
+//            intent.putExtra("id", binding.etUserId.text.toString())
+//            intent.putExtra("pwd", binding.etPwd.text.toString())
+//            intent.putExtra("cnfPwd", binding.etCnfPwd.text.toString())
+//            intent.putExtra("email", binding.etEmailMobile.text.toString())
+//            intent.putExtra("type", "email")
+//            intent.putExtra("mobile", "")
+//            startActivity(intent)
+//        })
+//    }
 
     private fun doValidations(): Boolean {
         val nameText = binding.etName.text.toString()

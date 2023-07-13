@@ -1,4 +1,4 @@
-package com.example.ddaatapp.commonClass
+package com.example.ddaatapp.utils
 import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater

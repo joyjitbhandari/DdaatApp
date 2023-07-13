@@ -10,6 +10,7 @@ import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.TextView
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
@@ -17,12 +18,8 @@ import com.example.ddaatapp.R
 import com.example.ddaatapp.activity.notification.NotificationActivity
 import com.example.ddaatapp.activity.showVideoContent.MyFavoriteActivity
 import com.example.ddaatapp.adapter.FaqsAdapter
-import com.example.ddaatapp.commonClass.DynamicInterestChipCreator
-import com.example.ddaatapp.commonClass.LinearListSpacingItemDecoration
-import com.example.ddaatapp.commonClass.MyDrawerNavigationItemSelectedListener
-import com.example.ddaatapp.commonClass.ShowDialog
 import com.example.ddaatapp.databinding.ActivityUnsubscribeQuestionBinding
-import com.example.ddaatapp.responseDatamodel.FaqsDataModel
+import com.example.ddaatapp.utils.*
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.button.MaterialButton
 
@@ -56,6 +53,9 @@ class UnsubscribeQuestionActivity : AppCompatActivity(), View.OnClickListener {
         binding.navigationDrawerView.getHeaderView(0).findViewById<MaterialButton>(R.id.btn_drawer_cancel).setOnClickListener {
             drawerLayout.close()
         }
+        //navigation data set
+        binding.navigationDrawerView.getHeaderView(0).findViewById<TextView>(R.id.nav_header_name).text = SavedData.profileData.name
+        binding.navigationDrawerView.getHeaderView(0).findViewById<TextView>(R.id.nav_header_email).text = SavedData.profileData.email
 
         // Bottom nav bar
         binding.bottomBar.selectedItemId  = R.id.nav_question
