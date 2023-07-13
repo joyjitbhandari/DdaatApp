@@ -6,14 +6,12 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.ddaatapp.network.ApiService
-import com.example.ddaatapp.requestDatamodel.ForgotPwdOtpRequest
-import com.example.ddaatapp.requestDatamodel.OtpVerifyRequest
-import com.example.ddaatapp.responseDatamodel.BaseResponse
-import com.example.ddaatapp.responseDatamodel.OtpVerifyResponse
+import com.example.ddaatapp.model.requestDatamodel.ForgotPwdOtpRequest
+import com.example.ddaatapp.model.requestDatamodel.OtpVerifyRequest
+import com.example.ddaatapp.model.responseDatamodel.BaseResponse
+import com.example.ddaatapp.model.responseDatamodel.OtpVerifyResponse
 import com.flynaut.healthtag.util.Event
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
 class OTPViewModel(val apiService: ApiService) : ViewModel() {
 
@@ -21,26 +19,24 @@ class OTPViewModel(val apiService: ApiService) : ViewModel() {
     val toastMsg: LiveData<Event<String>> get() = _toastMsg
 
     //Otp data
-    private val otp_data = MutableLiveData<OtpVerifyResponse?>()
-    val otpData: MutableLiveData<OtpVerifyResponse?> = otp_data
+    private val otp_data = MutableLiveData<com.example.ddaatapp.model.responseDatamodel.OtpVerifyResponse?>()
+    val otpData: MutableLiveData<com.example.ddaatapp.model.responseDatamodel.OtpVerifyResponse?> = otp_data
 
     //Resend OTP
-    private val resedn_otp_data = MutableLiveData<BaseResponse?>()
-    val resendOtpData: MutableLiveData<BaseResponse?> = resedn_otp_data
+    private val resedn_otp_data = MutableLiveData<com.example.ddaatapp.model.responseDatamodel.BaseResponse?>()
+    val resendOtpData: MutableLiveData<com.example.ddaatapp.model.responseDatamodel.BaseResponse?> = resedn_otp_data
 
 
     //Forgot Password Otp data
-    private val forgot_pwd_otp_data = MutableLiveData<BaseResponse?>()
-    val forgotPwdOtpData: MutableLiveData<BaseResponse?> = forgot_pwd_otp_data
+    private val forgot_pwd_otp_data = MutableLiveData<com.example.ddaatapp.model.responseDatamodel.BaseResponse?>()
+    val forgotPwdOtpData: MutableLiveData<com.example.ddaatapp.model.responseDatamodel.BaseResponse?> = forgot_pwd_otp_data
 
 
     //Otp Verify
-    fun otpVerify(otpVerifyRequest: OtpVerifyRequest) {
+    fun otpVerify(otpVerifyRequest: com.example.ddaatapp.model.requestDatamodel.OtpVerifyRequest) {
         viewModelScope.launch {
             try {
-                val response = withContext(Dispatchers.IO) {
-                    apiService.otpVerify(otpVerifyRequest)
-                }
+                val response = apiService.otpVerify(otpVerifyRequest)
 
                 if (response.isSuccessful) {
                     otp_data.value = response.body()
@@ -55,13 +51,10 @@ class OTPViewModel(val apiService: ApiService) : ViewModel() {
     }
 
     //Resend OTP
-    fun resendOtp(userId:String) {
+    fun resendOtp(fields: Map<String, String>) {
         viewModelScope.launch {
             try {
-                val response = withContext(Dispatchers.IO) {
-                    apiService.resendOtp(userId)
-                }
-
+                val response = apiService.resendOtp(fields)
                 if (response.isSuccessful) {
                     resedn_otp_data.value = response.body()
                     Log.d("get", "${response.body()} ")
@@ -75,12 +68,11 @@ class OTPViewModel(val apiService: ApiService) : ViewModel() {
     }
 
     //Forgot Pwd
-    fun forgotPwdOtp(forgotPwdOtpRequest: ForgotPwdOtpRequest) {
+    fun forgotPwdVerify(forgotPwdOtpRequest: com.example.ddaatapp.model.requestDatamodel.ForgotPwdOtpRequest) {
         viewModelScope.launch {
             try {
-                val response = withContext(Dispatchers.IO) {
-                    apiService.forgotPwdVerify(forgotPwdOtpRequest)
-                }
+                val response = apiService.forgotPwdVerify(forgotPwdOtpRequest)
+
                 if (response.isSuccessful)
                     forgot_pwd_otp_data.value = response.body()
                 else

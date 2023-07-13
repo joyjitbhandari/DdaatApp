@@ -84,16 +84,16 @@ class CoursesActivity : AppCompatActivity(), View.OnClickListener  {
         })
 
         //Setup Live course list
-        val liveCourseList = arrayListOf<com.example.ddaatapp.responseDatamodel.LiveCourseDataModel>(
-            com.example.ddaatapp.responseDatamodel.LiveCourseDataModel(
+        val liveCourseList = arrayListOf<com.example.ddaatapp.model.responseDatamodel.LiveCourseDataModel>(
+            com.example.ddaatapp.model.responseDatamodel.LiveCourseDataModel(
                 R.drawable.live_course_sample_img,
                 "Course Name"
             ),
-            com.example.ddaatapp.responseDatamodel.LiveCourseDataModel(
+            com.example.ddaatapp.model.responseDatamodel.LiveCourseDataModel(
                 R.drawable.live_course_sample_img,
                 "Course Name"
             ),
-            com.example.ddaatapp.responseDatamodel.LiveCourseDataModel(
+            com.example.ddaatapp.model.responseDatamodel.LiveCourseDataModel(
                 R.drawable.live_course_sample_img,
                 "Course Name"
             ),
@@ -109,32 +109,32 @@ class CoursesActivity : AppCompatActivity(), View.OnClickListener  {
 
 
         //setup course list
-        val courseList = arrayListOf<com.example.ddaatapp.responseDatamodel.CourseDataModel>(
-            com.example.ddaatapp.responseDatamodel.CourseDataModel(
+        val courseList = arrayListOf<com.example.ddaatapp.model.responseDatamodel.CourseDataModel>(
+            com.example.ddaatapp.model.responseDatamodel.CourseDataModel(
                 R.drawable.video_sample_image,
                 "Course Name",
                 "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been",
                 true
             ),
-            com.example.ddaatapp.responseDatamodel.CourseDataModel(
+            com.example.ddaatapp.model.responseDatamodel.CourseDataModel(
                 R.drawable.video_sample_image2,
                 "Course Name",
                 "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been",
                 false
             ),
-            com.example.ddaatapp.responseDatamodel.CourseDataModel(
+            com.example.ddaatapp.model.responseDatamodel.CourseDataModel(
                 R.drawable.video_sample_image3,
                 "Course Name",
                 "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been",
                 true
             ),
-            com.example.ddaatapp.responseDatamodel.CourseDataModel(
+            com.example.ddaatapp.model.responseDatamodel.CourseDataModel(
                 R.drawable.video_sample_image3,
                 "Course Name",
                 "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been",
                 true
             ),
-            com.example.ddaatapp.responseDatamodel.CourseDataModel(
+            com.example.ddaatapp.model.responseDatamodel.CourseDataModel(
                 R.drawable.video_sample_image3,
                 "Podcast Title",
                 "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been",
@@ -151,13 +151,13 @@ class CoursesActivity : AppCompatActivity(), View.OnClickListener  {
 
 
         // set up My Purchased list
-        val purchasedList = arrayListOf<com.example.ddaatapp.responseDatamodel.MyPurchasedDataModel>(
-            com.example.ddaatapp.responseDatamodel.MyPurchasedDataModel(
+        val purchasedList = arrayListOf<com.example.ddaatapp.model.responseDatamodel.MyPurchasedDataModel>(
+            com.example.ddaatapp.model.responseDatamodel.MyPurchasedDataModel(
                 R.drawable.video_sample_image,
                 "Course Name",
                 "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"
             ),
-            com.example.ddaatapp.responseDatamodel.MyPurchasedDataModel(
+            com.example.ddaatapp.model.responseDatamodel.MyPurchasedDataModel(
                 R.drawable.video_sample_image2,
                 "Course Name",
                 "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"

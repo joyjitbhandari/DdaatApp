@@ -5,8 +5,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.ddaatapp.network.ApiService
-import com.example.ddaatapp.requestDatamodel.LoginRequest
-import com.example.ddaatapp.responseDatamodel.LoginResponse
+import com.example.ddaatapp.model.requestDatamodel.LoginRequest
+import com.example.ddaatapp.model.responseDatamodel.LoginResponse
 import com.flynaut.healthtag.util.Event
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -18,22 +18,20 @@ class LogInViewModel(val apiService: ApiService) : ViewModel() {
     val toastMsg: LiveData<Event<String>> get() = _toastMsg
 
     //Otp data
-    private val _apiResponse = MutableLiveData<LoginResponse>()
-    val apiResponse: MutableLiveData<LoginResponse> = _apiResponse
+    private val _apiResponse = MutableLiveData<com.example.ddaatapp.model.responseDatamodel.LoginResponse>()
+    val apiResponse: MutableLiveData<com.example.ddaatapp.model.responseDatamodel.LoginResponse> = _apiResponse
 
 
-    fun login(loginRequest: LoginRequest) {
+    fun login(loginRequest: com.example.ddaatapp.model.requestDatamodel.LoginRequest) {
         viewModelScope.launch {
             try {
-                val response = withContext(Dispatchers.IO) {
-                    apiService.login(loginRequest)
-                }
+                val response = apiService.login(loginRequest)
                 if (response.isSuccessful)
                     _apiResponse.value = response.body()
                 else
                     _toastMsg.postValue(Event("Something Went Wrong"))
             } catch (e: Exception) {
-                _toastMsg.postValue(Event("${e.printStackTrace()}" ?: "Something Went Wrong"))
+                _toastMsg.postValue(Event("Invalid UserName" ))
             }
         }
     }

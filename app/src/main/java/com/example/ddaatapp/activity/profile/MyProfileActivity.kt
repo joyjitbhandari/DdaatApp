@@ -4,13 +4,14 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import com.example.ddaatapp.activity.BaseActivity
 import com.example.ddaatapp.activity.signup.CompleteProfile
 import com.example.ddaatapp.activity.signup.InterestActivity
 import com.example.ddaatapp.databinding.ActivityMyProfileBinding
-import com.example.ddaatapp.`object`.Constants
+import com.example.ddaatapp.utils.Constants
 import com.example.ddaatapp.utils.SavedData.profileData
 
-class MyProfileActivity : AppCompatActivity() , View.OnClickListener {
+class MyProfileActivity : BaseActivity() , View.OnClickListener {
     lateinit var binding : ActivityMyProfileBinding
     private val operationFlow = Constants.EDIT
     override fun onCreate(savedInstanceState: Bundle?) {

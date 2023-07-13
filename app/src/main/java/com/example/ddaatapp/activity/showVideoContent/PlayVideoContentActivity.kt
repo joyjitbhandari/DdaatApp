@@ -8,7 +8,7 @@ import com.example.ddaatapp.adapter.RelatedVideoCourseAdapter
 import com.example.ddaatapp.adapter.VideoAndLectureSessionAdapter
 import com.example.ddaatapp.utils.LinearListSpacingItemDecoration
 import com.example.ddaatapp.databinding.ActivityPlayVideoContentBinding
-import com.example.ddaatapp.`object`.Constants
+import com.example.ddaatapp.utils.Constants
 
 class PlayVideoContentActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var binding:ActivityPlayVideoContentBinding
@@ -28,23 +28,23 @@ class PlayVideoContentActivity : AppCompatActivity(), View.OnClickListener {
                 binding.videoSessionCard.visibility = View.VISIBLE
 
 
-                val videoList = arrayListOf<com.example.ddaatapp.responseDatamodel.VideoLibraryDataModel>(
-                    com.example.ddaatapp.responseDatamodel.VideoLibraryDataModel(
+                val videoList = arrayListOf<com.example.ddaatapp.model.responseDatamodel.VideoLibraryDataModel>(
+                    com.example.ddaatapp.model.responseDatamodel.VideoLibraryDataModel(
                         R.drawable.video_session_img4,
                         "Video Name",
                         "30:12 in Session"
                     ),
-                    com.example.ddaatapp.responseDatamodel.VideoLibraryDataModel(
+                    com.example.ddaatapp.model.responseDatamodel.VideoLibraryDataModel(
                         R.drawable.video_session_img1,
                         "Video Name",
                         "30:12 in Session"
                     ),
-                    com.example.ddaatapp.responseDatamodel.VideoLibraryDataModel(
+                    com.example.ddaatapp.model.responseDatamodel.VideoLibraryDataModel(
                         R.drawable.video_session_img2,
                         "Video Name",
                         "30:12 in Session"
                     ),
-                    com.example.ddaatapp.responseDatamodel.VideoLibraryDataModel(
+                    com.example.ddaatapp.model.responseDatamodel.VideoLibraryDataModel(
                         R.drawable.video_session_img3,
                         "Video Name",
                         "30:12 in Session"
@@ -64,23 +64,23 @@ class PlayVideoContentActivity : AppCompatActivity(), View.OnClickListener {
                 binding.videoSessionCard.visibility = View.GONE
 
                 //lecture session list
-                val sessionList = arrayListOf<com.example.ddaatapp.responseDatamodel.VideoLibraryDataModel>(
-                    com.example.ddaatapp.responseDatamodel.VideoLibraryDataModel(
+                val sessionList = arrayListOf<com.example.ddaatapp.model.responseDatamodel.VideoLibraryDataModel>(
+                    com.example.ddaatapp.model.responseDatamodel.VideoLibraryDataModel(
                         R.drawable.video_session_img4,
                         "Audio Name",
                         "30:12 in Session"
                     ),
-                    com.example.ddaatapp.responseDatamodel.VideoLibraryDataModel(
+                    com.example.ddaatapp.model.responseDatamodel.VideoLibraryDataModel(
                         R.drawable.video_session_img1,
                         "Audio Name",
                         "30:12 in Session"
                     ),
-                    com.example.ddaatapp.responseDatamodel.VideoLibraryDataModel(
+                    com.example.ddaatapp.model.responseDatamodel.VideoLibraryDataModel(
                         R.drawable.video_session_img2,
                         "Audio Name",
                         "30:12 in Session"
                     ),
-                    com.example.ddaatapp.responseDatamodel.VideoLibraryDataModel(
+                    com.example.ddaatapp.model.responseDatamodel.VideoLibraryDataModel(
                         R.drawable.video_session_img3,
                         "Audio Name",
                         "30:12 in Session"
@@ -91,23 +91,23 @@ class PlayVideoContentActivity : AppCompatActivity(), View.OnClickListener {
                 sessionlectureRecyclerView.adapter = sessionAdapter
 
                 //related lecture list
-                val lectureList = arrayListOf<com.example.ddaatapp.responseDatamodel.VideoLibraryDataModel>(
-                    com.example.ddaatapp.responseDatamodel.VideoLibraryDataModel(
+                val lectureList = arrayListOf<com.example.ddaatapp.model.responseDatamodel.VideoLibraryDataModel>(
+                    com.example.ddaatapp.model.responseDatamodel.VideoLibraryDataModel(
                         R.drawable.video_sample_image,
                         "Video Name",
                         "30:12 in Session"
                     ),
-                    com.example.ddaatapp.responseDatamodel.VideoLibraryDataModel(
+                    com.example.ddaatapp.model.responseDatamodel.VideoLibraryDataModel(
                         R.drawable.video_sample_image2,
                         "Video Name",
                         "30:12 in Session"
                     ),
-                    com.example.ddaatapp.responseDatamodel.VideoLibraryDataModel(
+                    com.example.ddaatapp.model.responseDatamodel.VideoLibraryDataModel(
                         R.drawable.video_sample_image3,
                         "Video Name",
                         "30:12 in Session"
                     ),
-                    com.example.ddaatapp.responseDatamodel.VideoLibraryDataModel(
+                    com.example.ddaatapp.model.responseDatamodel.VideoLibraryDataModel(
                         R.drawable.video_sample_image,
                         "Video Name",
                         "30:12 in Session"
@@ -132,23 +132,23 @@ class PlayVideoContentActivity : AppCompatActivity(), View.OnClickListener {
                 binding.videoSessionCard.visibility = View.GONE
 
                     //Related video list
-                    val relatedVideoList = arrayListOf<com.example.ddaatapp.responseDatamodel.VideoLibraryDataModel>(
-                        com.example.ddaatapp.responseDatamodel.VideoLibraryDataModel(
+                    val relatedVideoList = arrayListOf<com.example.ddaatapp.model.responseDatamodel.VideoLibraryDataModel>(
+                        com.example.ddaatapp.model.responseDatamodel.VideoLibraryDataModel(
                             R.drawable.video_sample_image,
                             "Video Name",
                             "30:12 in Session"
                         ),
-                        com.example.ddaatapp.responseDatamodel.VideoLibraryDataModel(
+                        com.example.ddaatapp.model.responseDatamodel.VideoLibraryDataModel(
                             R.drawable.video_sample_image2,
                             "Video Name",
                             "30:12 in Session"
                         ),
-                        com.example.ddaatapp.responseDatamodel.VideoLibraryDataModel(
+                        com.example.ddaatapp.model.responseDatamodel.VideoLibraryDataModel(
                             R.drawable.video_sample_image3,
                             "Video Name",
                             "30:12 in Session"
                         ),
-                        com.example.ddaatapp.responseDatamodel.VideoLibraryDataModel(
+                        com.example.ddaatapp.model.responseDatamodel.VideoLibraryDataModel(
                             R.drawable.video_sample_image,
                             "Video Name",
                             "30:12 in Session"

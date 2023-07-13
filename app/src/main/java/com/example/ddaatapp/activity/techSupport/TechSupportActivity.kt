@@ -17,32 +17,32 @@ class TechSupportActivity : AppCompatActivity(), View.OnClickListener {
         setContentView(binding.root)
 
 //        FAQS List
-        val faqsList = arrayListOf<com.example.ddaatapp.responseDatamodel.FaqsDataModel>(
-            com.example.ddaatapp.responseDatamodel.FaqsDataModel(
+        val faqsList = arrayListOf<com.example.ddaatapp.model.responseDatamodel.FaqsDataModel>(
+            com.example.ddaatapp.model.responseDatamodel.FaqsDataModel(
                 "Lorem Ipsum is simply ?",
                 "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard …."
             ),
-            com.example.ddaatapp.responseDatamodel.FaqsDataModel(
+            com.example.ddaatapp.model.responseDatamodel.FaqsDataModel(
                 "Lorem Ipsum is simply ?",
                 "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard …."
             ),
-            com.example.ddaatapp.responseDatamodel.FaqsDataModel(
+            com.example.ddaatapp.model.responseDatamodel.FaqsDataModel(
                 "Lorem Ipsum is simply ?",
                 "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard …."
             ),
-            com.example.ddaatapp.responseDatamodel.FaqsDataModel(
+            com.example.ddaatapp.model.responseDatamodel.FaqsDataModel(
                 "Lorem Ipsum is simply ?",
                 "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard …."
             ),
-            com.example.ddaatapp.responseDatamodel.FaqsDataModel(
+            com.example.ddaatapp.model.responseDatamodel.FaqsDataModel(
                 "Lorem Ipsum is simply ?",
                 "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard …."
             ),
-            com.example.ddaatapp.responseDatamodel.FaqsDataModel(
+            com.example.ddaatapp.model.responseDatamodel.FaqsDataModel(
                 "Lorem Ipsum is simply ?",
                 "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard …."
             ),
-            com.example.ddaatapp.responseDatamodel.FaqsDataModel(
+            com.example.ddaatapp.model.responseDatamodel.FaqsDataModel(
                 "Lorem Ipsum is simply ?",
                 "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard …."
             ),

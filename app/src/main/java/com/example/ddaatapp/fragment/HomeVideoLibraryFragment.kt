@@ -35,38 +35,38 @@ class HomeVideoLibraryFragment(private val operationFlow:String) : Fragment() {
 
 
         //video list
-        val videoList = arrayListOf<com.example.ddaatapp.responseDatamodel.VideoLibraryDataModel>(
-            com.example.ddaatapp.responseDatamodel.VideoLibraryDataModel(
+        val videoList = arrayListOf<com.example.ddaatapp.model.responseDatamodel.VideoLibraryDataModel>(
+            com.example.ddaatapp.model.responseDatamodel.VideoLibraryDataModel(
                 R.drawable.video_sample_image,
                 "Video Name",
                 "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"
             ),
-            com.example.ddaatapp.responseDatamodel.VideoLibraryDataModel(
+            com.example.ddaatapp.model.responseDatamodel.VideoLibraryDataModel(
                 R.drawable.video_sample_image2,
                 "Video Name",
                 "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"
             ),
-            com.example.ddaatapp.responseDatamodel.VideoLibraryDataModel(
+            com.example.ddaatapp.model.responseDatamodel.VideoLibraryDataModel(
                 R.drawable.video_sample_image3,
                 "Video Name",
                 "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"
             ),
-            com.example.ddaatapp.responseDatamodel.VideoLibraryDataModel(
+            com.example.ddaatapp.model.responseDatamodel.VideoLibraryDataModel(
                 R.drawable.video_sample_image,
                 "Video Name",
                 "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"
             ),
-            com.example.ddaatapp.responseDatamodel.VideoLibraryDataModel(
+            com.example.ddaatapp.model.responseDatamodel.VideoLibraryDataModel(
                 R.drawable.video_sample_image3,
                 "Video Name",
                 "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"
             ),
-            com.example.ddaatapp.responseDatamodel.VideoLibraryDataModel(
+            com.example.ddaatapp.model.responseDatamodel.VideoLibraryDataModel(
                 R.drawable.video_sample_image,
                 "Video Name",
                 "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"
             ),
-            com.example.ddaatapp.responseDatamodel.VideoLibraryDataModel(
+            com.example.ddaatapp.model.responseDatamodel.VideoLibraryDataModel(
                 R.drawable.video_sample_image,
                 "Video Name",
                 "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"

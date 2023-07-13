@@ -8,12 +8,12 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ddaatapp.activity.session.JoinSessionActivity
 import com.example.ddaatapp.databinding.UpcomingSessionsListItemBinding
-import com.example.ddaatapp.responseDatamodel.UpcomingSessionDataModel
+import com.example.ddaatapp.model.responseDatamodel.UpcomingSessionDataModel
 
-class UpcomingSessionAdapter(val sessionList: ArrayList<com.example.ddaatapp.responseDatamodel.UpcomingSessionDataModel>, private val itemCount:Int, val context: Context) :
+class UpcomingSessionAdapter(val sessionList: ArrayList<com.example.ddaatapp.model.responseDatamodel.UpcomingSessionDataModel>, private val itemCount:Int, val context: Context) :
     RecyclerView.Adapter<UpcomingSessionAdapter.ViewHolder>() {
     class ViewHolder(var binding:UpcomingSessionsListItemBinding ): RecyclerView.ViewHolder(binding.root) {
-        fun bind(upcommingSessionDataModel: com.example.ddaatapp.responseDatamodel.UpcomingSessionDataModel, mcontext:AppCompatActivity, context: Context){
+        fun bind(upcommingSessionDataModel: com.example.ddaatapp.model.responseDatamodel.UpcomingSessionDataModel, mcontext:AppCompatActivity, context: Context){
             binding.sessionImage.setImageResource(upcommingSessionDataModel.drawable)
             binding.sessionHeading.text = upcommingSessionDataModel.name
             binding.sessionType.text = upcommingSessionDataModel.type

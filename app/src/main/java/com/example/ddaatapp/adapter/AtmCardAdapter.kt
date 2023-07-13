@@ -8,12 +8,12 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ddaatapp.activity.paymentAndBilling.AddNewCardActivity
 import com.example.ddaatapp.databinding.AtmCardItemBinding
-import com.example.ddaatapp.responseDatamodel.AtmCardDataModel
+import com.example.ddaatapp.model.responseDatamodel.AtmCardDataModel
 
-class AtmCardAdapter(val cardList: ArrayList<com.example.ddaatapp.responseDatamodel.AtmCardDataModel>, val context:Context) :
+class AtmCardAdapter(val cardList: ArrayList<com.example.ddaatapp.model.responseDatamodel.AtmCardDataModel>, val context:Context) :
     RecyclerView.Adapter<AtmCardAdapter.ViewHolder>() {
     class ViewHolder(var binding:AtmCardItemBinding ): RecyclerView.ViewHolder(binding.root) {
-        fun bind(atmCardDataModel: com.example.ddaatapp.responseDatamodel.AtmCardDataModel, mContext:AppCompatActivity, context: Context){
+        fun bind(atmCardDataModel: com.example.ddaatapp.model.responseDatamodel.AtmCardDataModel, mContext:AppCompatActivity, context: Context){
             binding.cardBg.setImageResource(atmCardDataModel.backgroundImage)
             binding.cardType.setImageResource(atmCardDataModel.cardLogo)
             binding.txtCardNumber.text = atmCardDataModel.cardNumber

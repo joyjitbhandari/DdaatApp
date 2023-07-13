@@ -10,12 +10,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.ddaatapp.R
 import com.example.ddaatapp.activity.showVideoContent.ShowVideoContentActivity
 import com.example.ddaatapp.databinding.VideoLibraryListItemBinding
-import com.example.ddaatapp.responseDatamodel.CourseDataModel
+import com.example.ddaatapp.model.responseDatamodel.CourseDataModel
 
-class CourseAdapter(val videoList: ArrayList<com.example.ddaatapp.responseDatamodel.CourseDataModel>, private val itemCount:Int, val context: Context ) :
+class CourseAdapter(val videoList: ArrayList<com.example.ddaatapp.model.responseDatamodel.CourseDataModel>, private val itemCount:Int, val context: Context ) :
     RecyclerView.Adapter<CourseAdapter.ViewHolder>() {
     class ViewHolder(var binding:VideoLibraryListItemBinding ): RecyclerView.ViewHolder(binding.root ) {
-        fun bind(courseDataModel: com.example.ddaatapp.responseDatamodel.CourseDataModel, mContext:AppCompatActivity, context: Context){
+        fun bind(courseDataModel: com.example.ddaatapp.model.responseDatamodel.CourseDataModel, mContext:AppCompatActivity, context: Context){
             binding.videoImage.setImageResource(courseDataModel.drawable)
             binding.txtVideoName.text = courseDataModel.name
             binding.txtVideoDesc.text = courseDataModel.desc

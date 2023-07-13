@@ -1,8 +1,10 @@
 package com.example.ddaatapp.network
 
+import com.example.ddaatapp.utils.Constants.BASE_URL
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
+import okhttp3.RequestBody
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -15,7 +17,7 @@ class RetrofitClient() {
         level = HttpLoggingInterceptor.Level.BODY
     }
 
-    private val gson = GsonBuilder().setLenient().create()
+//    private val gson = GsonBuilder().setLenient().create()
 
     private val httpClient = OkHttpClient.Builder()
         .addInterceptor(loggingInterceptor)
@@ -23,11 +25,12 @@ class RetrofitClient() {
         .addInterceptor(AuthInterceptor())
         .build()
 
+
     private val retrofit: Retrofit by lazy {
         Retrofit.Builder()
-            .baseUrl("https://dev-ddaat-admin.flynautstaging.com/api/")
+            .baseUrl(BASE_URL)
             .client(httpClient)
-            .addConverterFactory(GsonConverterFactory.create(gson))
+            .addConverterFactory(GsonConverterFactory.create())
             .build()
     }
 
@@ -38,4 +41,5 @@ class RetrofitClient() {
     fun createService(serviceClass: Class<ApiService>): ApiService {
         return retrofit.create(serviceClass)
     }
+
 }

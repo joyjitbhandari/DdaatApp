@@ -6,13 +6,13 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.ddaatapp.R
 import com.example.ddaatapp.activity.superPower.SurveyQuestionAnswerActivity
 import com.example.ddaatapp.databinding.SurveyQuestionItemsBinding
-import com.example.ddaatapp.responseDatamodel.SurveyAnswerDataModel
-import com.example.ddaatapp.responseDatamodel.SurveyQuestionDataModel
+import com.example.ddaatapp.model.responseDatamodel.SurveyAnswerDataModel
+import com.example.ddaatapp.model.responseDatamodel.SurveyQuestionDataModel
 
-class SurveyQuestionAnswerAdapter(val questionList: ArrayList<com.example.ddaatapp.responseDatamodel.SurveyQuestionDataModel>) :
+class SurveyQuestionAnswerAdapter(val questionList: ArrayList<com.example.ddaatapp.model.responseDatamodel.SurveyQuestionDataModel>) :
     RecyclerView.Adapter<SurveyQuestionAnswerAdapter.ViewHolder>() {
     class ViewHolder(var binding:SurveyQuestionItemsBinding ): RecyclerView.ViewHolder(binding.root) {
-        fun bind(surveyQuestionDataModel: com.example.ddaatapp.responseDatamodel.SurveyQuestionDataModel, position: Int){
+        fun bind(surveyQuestionDataModel: com.example.ddaatapp.model.responseDatamodel.SurveyQuestionDataModel, position: Int){
             binding.questionKeyWord.text = surveyQuestionDataModel.keyword
             binding.questionSummery.text = surveyQuestionDataModel.desc
 
@@ -29,7 +29,7 @@ class SurveyQuestionAnswerAdapter(val questionList: ArrayList<com.example.ddaata
                     }
                 }
                 SurveyQuestionAnswerActivity().answerList.add(
-                    com.example.ddaatapp.responseDatamodel.SurveyAnswerDataModel(
+                    com.example.ddaatapp.model.responseDatamodel.SurveyAnswerDataModel(
                         surveyQuestionDataModel.keyword,
                         answer
                     )

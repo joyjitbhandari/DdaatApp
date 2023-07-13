@@ -8,13 +8,12 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ddaatapp.activity.showVideoContent.ShowVideoContentActivity
 import com.example.ddaatapp.databinding.VideoLibraryListItemBinding
-import com.example.ddaatapp.responseDatamodel.MyPurchasedDataModel
-import com.example.ddaatapp.`object`.Constants
+import com.example.ddaatapp.utils.Constants
 
-class MyPurchasedAdapter(val videoList: ArrayList<com.example.ddaatapp.responseDatamodel.MyPurchasedDataModel>, private val itemCount:Int, val context: Context ) :
+class MyPurchasedAdapter(val videoList: ArrayList<com.example.ddaatapp.model.responseDatamodel.MyPurchasedDataModel>, private val itemCount:Int, val context: Context ) :
     RecyclerView.Adapter<MyPurchasedAdapter.ViewHolder>() {
     class ViewHolder(var binding:VideoLibraryListItemBinding ): RecyclerView.ViewHolder(binding.root ) {
-        fun bind(myPurchaseDataModel: com.example.ddaatapp.responseDatamodel.MyPurchasedDataModel, mContext:AppCompatActivity, context: Context){
+        fun bind(myPurchaseDataModel: com.example.ddaatapp.model.responseDatamodel.MyPurchasedDataModel, mContext:AppCompatActivity, context: Context){
             binding.videoImage.setImageResource(myPurchaseDataModel.drawable)
             binding.txtVideoName.text = myPurchaseDataModel.name
             binding.txtVideoDesc.text = myPurchaseDataModel.desc

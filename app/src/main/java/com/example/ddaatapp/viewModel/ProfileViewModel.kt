@@ -5,8 +5,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.ddaatapp.network.ApiService
-import com.example.ddaatapp.requestDatamodel.UpdateProfileRequest
-import com.example.ddaatapp.responseDatamodel.UpdateProfileResponse
+import com.example.ddaatapp.model.requestDatamodel.UpdateProfileRequest
+import com.example.ddaatapp.model.responseDatamodel.UpdateProfileResponse
 import com.flynaut.healthtag.util.Event
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -19,18 +19,17 @@ class ProfileViewModel(val apiService: ApiService) : ViewModel() {
 
 
     //Update profile
-    private val update_profile_data = MutableLiveData<UpdateProfileResponse?>()
-    val updateProfileResponse: MutableLiveData<UpdateProfileResponse?> = update_profile_data
+    private val update_profile_data = MutableLiveData<com.example.ddaatapp.model.responseDatamodel.UpdateProfileResponse?>()
+    val updateProfileResponse: MutableLiveData<com.example.ddaatapp.model.responseDatamodel.UpdateProfileResponse?> = update_profile_data
 
 
 
     //Update Profile
-    fun updateProfile(updateProfileRequest: UpdateProfileRequest) {
+    fun updateProfile(updateProfileRequest: com.example.ddaatapp.model.requestDatamodel.UpdateProfileRequest) {
         viewModelScope.launch {
             val response = withContext(Dispatchers.IO) {
                 apiService.updateProfile(updateProfileRequest)
             }
-
             if (response.isSuccessful) {
                 update_profile_data.value = response.body()
             } else

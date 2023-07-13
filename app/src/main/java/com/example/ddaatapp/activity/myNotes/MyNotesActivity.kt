@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.ddaatapp.adapter.MyNotesAdapter
 import com.example.ddaatapp.databinding.ActivityMyNotesBinding
-import com.example.ddaatapp.responseDatamodel.MyNotesModel
+import com.example.ddaatapp.model.responseDatamodel.MyNotesModel
 
 class MyNotesActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMyNotesBinding
@@ -13,23 +13,23 @@ class MyNotesActivity : AppCompatActivity() {
         binding = ActivityMyNotesBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val noteList = arrayListOf<com.example.ddaatapp.responseDatamodel.MyNotesModel>(
-            com.example.ddaatapp.responseDatamodel.MyNotesModel(
+        val noteList = arrayListOf<com.example.ddaatapp.model.responseDatamodel.MyNotesModel>(
+            com.example.ddaatapp.model.responseDatamodel.MyNotesModel(
                 "Notes Title",
                 "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been",
                 "15 Dec 2023"
             ),
-            com.example.ddaatapp.responseDatamodel.MyNotesModel(
+            com.example.ddaatapp.model.responseDatamodel.MyNotesModel(
                 "Notes Title",
                 "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been",
                 "15 Dec 2023"
             ),
-            com.example.ddaatapp.responseDatamodel.MyNotesModel(
+            com.example.ddaatapp.model.responseDatamodel.MyNotesModel(
                 "Notes Title",
                 "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been",
                 "15 Dec 2023"
             ),
-            com.example.ddaatapp.responseDatamodel.MyNotesModel(
+            com.example.ddaatapp.model.responseDatamodel.MyNotesModel(
                 "Notes Title",
                 "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been",
                 "15 Dec 2023"

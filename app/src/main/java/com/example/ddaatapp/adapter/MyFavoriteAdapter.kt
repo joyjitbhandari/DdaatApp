@@ -6,12 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ddaatapp.databinding.RelatedVideoCourseListItemBinding
-import com.example.ddaatapp.responseDatamodel.VideoLibraryDataModel
+import com.example.ddaatapp.model.responseDatamodel.VideoLibraryDataModel
 
-class MyFavoriteAdapter(val videoList: ArrayList<com.example.ddaatapp.responseDatamodel.VideoLibraryDataModel>, val context: Context) :
+class MyFavoriteAdapter(val videoList: ArrayList<com.example.ddaatapp.model.responseDatamodel.VideoLibraryDataModel>, val context: Context) :
     RecyclerView.Adapter<MyFavoriteAdapter.ViewHolder>() {
     class ViewHolder(var binding:RelatedVideoCourseListItemBinding ): RecyclerView.ViewHolder(binding.root) {
-        fun bind(videoLibraryDataModel: com.example.ddaatapp.responseDatamodel.VideoLibraryDataModel){
+        fun bind(videoLibraryDataModel: com.example.ddaatapp.model.responseDatamodel.VideoLibraryDataModel){
             binding.btnAddFav.visibility = View.VISIBLE
             binding.videoImage.setImageResource(videoLibraryDataModel.drawable)
             binding.txtVideoName.text = videoLibraryDataModel.name

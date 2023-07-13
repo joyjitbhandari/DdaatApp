@@ -5,13 +5,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ddaatapp.databinding.ChatMessageItemBinding
-import com.example.ddaatapp.responseDatamodel.TechSupportChatDataModel
-import com.example.ddaatapp.`object`.Constants
+import com.example.ddaatapp.model.responseDatamodel.TechSupportChatDataModel
+import com.example.ddaatapp.utils.Constants
 
-class ChatMessageAdapter(private val chatList: ArrayList<com.example.ddaatapp.responseDatamodel.TechSupportChatDataModel>, private val receiverImg : Int ) :
+class ChatMessageAdapter(private val chatList: ArrayList<com.example.ddaatapp.model.responseDatamodel.TechSupportChatDataModel>, private val receiverImg : Int ) :
     RecyclerView.Adapter<ChatMessageAdapter.ViewHolder>() {
     class ViewHolder(var binding:ChatMessageItemBinding): RecyclerView.ViewHolder(binding.root) {
-        fun bind(techSupportChatDataModel: com.example.ddaatapp.responseDatamodel.TechSupportChatDataModel, receiverImg: Int){
+        fun bind(techSupportChatDataModel: com.example.ddaatapp.model.responseDatamodel.TechSupportChatDataModel, receiverImg: Int){
             when(techSupportChatDataModel.id){
                 Constants.SEND_ID->{
                     //visibility gone for receive view

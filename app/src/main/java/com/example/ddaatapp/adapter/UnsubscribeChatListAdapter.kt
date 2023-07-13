@@ -8,13 +8,13 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ddaatapp.activity.chat.ChatMessageActivity
 import com.example.ddaatapp.databinding.UnsubscribeChatListItemBinding
-import com.example.ddaatapp.responseDatamodel.UnsubscribeChatListDataModel
+import com.example.ddaatapp.model.responseDatamodel.UnsubscribeChatListDataModel
 
 
-class UnsubscribeChatListAdapter(private val chatList: ArrayList<com.example.ddaatapp.responseDatamodel.UnsubscribeChatListDataModel>, private val context: Context) :
+class UnsubscribeChatListAdapter(private val chatList: ArrayList<com.example.ddaatapp.model.responseDatamodel.UnsubscribeChatListDataModel>, private val context: Context) :
     RecyclerView.Adapter<UnsubscribeChatListAdapter.ViewHolder>() {
     class ViewHolder(var binding:UnsubscribeChatListItemBinding ): RecyclerView.ViewHolder(binding.root) {
-        fun bind(chatListDataModel: com.example.ddaatapp.responseDatamodel.UnsubscribeChatListDataModel, mContext:AppCompatActivity, context: Context){
+        fun bind(chatListDataModel: com.example.ddaatapp.model.responseDatamodel.UnsubscribeChatListDataModel, mContext:AppCompatActivity, context: Context){
 
             binding.chatImage.setImageResource(chatListDataModel.drawable)
             binding.chatName.text = chatListDataModel.name

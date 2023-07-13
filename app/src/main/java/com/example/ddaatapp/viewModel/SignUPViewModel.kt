@@ -19,25 +19,19 @@ class SignUPViewModel(private val apiService: ApiService) : ViewModel() {
     val toastMsg: LiveData<Event<String>> get() = _toastMsg
 
     //sign up data
-    private val signUp_data = MutableLiveData<BaseResponse>()
-    val signUpData: MutableLiveData<BaseResponse> = signUp_data
+    private val signUp_data = MutableLiveData<com.example.ddaatapp.model.responseDatamodel.BaseResponse>()
+    val signUpData: MutableLiveData<com.example.ddaatapp.model.responseDatamodel.BaseResponse> = signUp_data
 
 
     //SignUp
-    fun signUp(signUpRequest: SignUpRequest) {
+    fun signUp(signUpRequest: com.example.ddaatapp.model.requestDatamodel.SignUpRequest) {
         viewModelScope.launch {
 //            try {
-            val response = withContext(Dispatchers.IO) {
-                apiService.signup(signUpRequest)
-            }
+            val response = apiService.signup(signUpRequest)
+
             if (response.isSuccessful) {
-                if(response.body()?.success == true){
                     signUp_data.value = response.body()
                     Log.d("get", "${response.body()} ")
-                }else{
-
-                }
-
             } else
                 _toastMsg.postValue(Event(response.message().toString() ?: "Something Went Wrong"))
 

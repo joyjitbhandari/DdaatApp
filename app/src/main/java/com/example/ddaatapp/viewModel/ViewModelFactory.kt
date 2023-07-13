@@ -20,6 +20,10 @@ class ViewModelFactory(private val apiService: ApiService) : ViewModelProvider.N
 
             modelClass.isAssignableFrom(PasswordViewModel::class.java) -> PasswordViewModel(apiService) as T
 
+            modelClass.isAssignableFrom(SubscriptionViewModel::class.java) -> SubscriptionViewModel(apiService) as T
+
+            modelClass.isAssignableFrom(BlogViewModel::class.java) -> BlogViewModel(apiService) as T
+
             else -> throw IllegalArgumentException("ViewModel Not Found")
         }
 

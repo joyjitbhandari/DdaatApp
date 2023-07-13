@@ -8,7 +8,7 @@ import com.example.ddaatapp.R
 import com.example.ddaatapp.activity.session.VideoCallActivity
 import com.example.ddaatapp.activity.showVideoContent.ShowVideoContentActivity
 import com.example.ddaatapp.databinding.ActivityJoinLiveCourseBinding
-import com.example.ddaatapp.`object`.Constants
+import com.example.ddaatapp.utils.Constants
 
 class JoinLiveCourseActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var binding:ActivityJoinLiveCourseBinding

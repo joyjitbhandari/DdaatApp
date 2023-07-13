@@ -15,43 +15,43 @@ class MyPurchasedActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         // set up My Purchased list
-        val purchaseList = arrayListOf<com.example.ddaatapp.responseDatamodel.MyPurchasedDataModel>(
-            com.example.ddaatapp.responseDatamodel.MyPurchasedDataModel(
+        val purchaseList = arrayListOf<com.example.ddaatapp.model.responseDatamodel.MyPurchasedDataModel>(
+            com.example.ddaatapp.model.responseDatamodel.MyPurchasedDataModel(
                 R.drawable.video_sample_image,
                 "Course Name",
                 "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"
             ),
-            com.example.ddaatapp.responseDatamodel.MyPurchasedDataModel(
+            com.example.ddaatapp.model.responseDatamodel.MyPurchasedDataModel(
                 R.drawable.video_sample_image2,
                 "Course Name",
                 "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"
             ),
-            com.example.ddaatapp.responseDatamodel.MyPurchasedDataModel(
+            com.example.ddaatapp.model.responseDatamodel.MyPurchasedDataModel(
                 R.drawable.video_sample_image3,
                 "Course Name",
                 "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"
             ),
-            com.example.ddaatapp.responseDatamodel.MyPurchasedDataModel(
+            com.example.ddaatapp.model.responseDatamodel.MyPurchasedDataModel(
                 R.drawable.video_sample_image3,
                 "Course Name",
                 "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"
             ),
-            com.example.ddaatapp.responseDatamodel.MyPurchasedDataModel(
+            com.example.ddaatapp.model.responseDatamodel.MyPurchasedDataModel(
                 R.drawable.video_sample_image3,
                 "Podcast Title",
                 "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"
             ),
-            com.example.ddaatapp.responseDatamodel.MyPurchasedDataModel(
+            com.example.ddaatapp.model.responseDatamodel.MyPurchasedDataModel(
                 R.drawable.video_sample_image,
                 "Course Name",
                 "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"
             ),
-            com.example.ddaatapp.responseDatamodel.MyPurchasedDataModel(
+            com.example.ddaatapp.model.responseDatamodel.MyPurchasedDataModel(
                 R.drawable.video_sample_image2,
                 "Course Name",
                 "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"
             ),
-            com.example.ddaatapp.responseDatamodel.MyPurchasedDataModel(
+            com.example.ddaatapp.model.responseDatamodel.MyPurchasedDataModel(
                 R.drawable.video_sample_image3,
                 "Course Name",
                 "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"

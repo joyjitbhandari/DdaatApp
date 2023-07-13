@@ -8,13 +8,12 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ddaatapp.activity.playStreamAudio.StreamAudioPlayActivity
 import com.example.ddaatapp.databinding.VideoLibraryListItemBinding
-import com.example.ddaatapp.responseDatamodel.StreamsDataModel
-import com.example.ddaatapp.`object`.Constants
+import com.example.ddaatapp.utils.Constants
 
-class StreamsAdapter(val videoList: ArrayList<com.example.ddaatapp.responseDatamodel.StreamsDataModel>, private val itemCount:Int, var isPodcast:Boolean, var context: Context) :
+class StreamsAdapter(val videoList: ArrayList<com.example.ddaatapp.model.responseDatamodel.StreamsDataModel>, private val itemCount:Int, var isPodcast:Boolean, var context: Context) :
     RecyclerView.Adapter<StreamsAdapter.ViewHolder>() {
     class ViewHolder(var binding:VideoLibraryListItemBinding ): RecyclerView.ViewHolder(binding.root) {
-        fun bind(streamsDataModel: com.example.ddaatapp.responseDatamodel.StreamsDataModel, mContext: AppCompatActivity, context: Context, isPodcast: Boolean){
+        fun bind(streamsDataModel: com.example.ddaatapp.model.responseDatamodel.StreamsDataModel, mContext: AppCompatActivity, context: Context, isPodcast: Boolean){
             binding.videoImage.setImageResource(streamsDataModel.drawable)
             binding.txtVideoName.text = streamsDataModel.name
             binding.txtVideoDesc.text = streamsDataModel.desc

@@ -86,13 +86,13 @@ class StreamsActivity : AppCompatActivity() , View.OnClickListener {
         DynamicInterestChipCreator(this).setupChip(binding.choiceChipGroup)
 
         //DdaatStation setup
-        val streamList = arrayListOf<com.example.ddaatapp.responseDatamodel.StreamsDataModel>(
-            com.example.ddaatapp.responseDatamodel.StreamsDataModel(
+        val streamList = arrayListOf<com.example.ddaatapp.model.responseDatamodel.StreamsDataModel>(
+            com.example.ddaatapp.model.responseDatamodel.StreamsDataModel(
                 R.drawable.video_sample_image,
                 "Stream Title",
                 "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"
             ),
-            com.example.ddaatapp.responseDatamodel.StreamsDataModel(
+            com.example.ddaatapp.model.responseDatamodel.StreamsDataModel(
                 R.drawable.video_sample_image2,
                 "Stream Title",
                 "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"
@@ -108,18 +108,18 @@ class StreamsActivity : AppCompatActivity() , View.OnClickListener {
 
 
         //Podcast Station Setup
-        val podcastList = arrayListOf<com.example.ddaatapp.responseDatamodel.StreamsDataModel>(
-            com.example.ddaatapp.responseDatamodel.StreamsDataModel(
+        val podcastList = arrayListOf<com.example.ddaatapp.model.responseDatamodel.StreamsDataModel>(
+            com.example.ddaatapp.model.responseDatamodel.StreamsDataModel(
                 R.drawable.video_sample_image,
                 "Podcast Title",
                 "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"
             ),
-            com.example.ddaatapp.responseDatamodel.StreamsDataModel(
+            com.example.ddaatapp.model.responseDatamodel.StreamsDataModel(
                 R.drawable.video_sample_image2,
                 "Podcast Title",
                 "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"
             ),
-            com.example.ddaatapp.responseDatamodel.StreamsDataModel(
+            com.example.ddaatapp.model.responseDatamodel.StreamsDataModel(
                 R.drawable.video_sample_image3,
                 "Podcast Title",
                 "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"

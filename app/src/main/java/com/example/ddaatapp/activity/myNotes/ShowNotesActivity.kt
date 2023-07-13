@@ -3,12 +3,12 @@ package com.example.ddaatapp.activity.myNotes
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.ddaatapp.databinding.ActivityShowNotesBinding
-import com.example.ddaatapp.responseDatamodel.MyNotesModel
+import com.example.ddaatapp.model.responseDatamodel.MyNotesModel
 
 class ShowNotesActivity : AppCompatActivity() {
     private lateinit var binding : ActivityShowNotesBinding
 
-    var note = ArrayList<com.example.ddaatapp.responseDatamodel.MyNotesModel>()
+    var note = ArrayList<com.example.ddaatapp.model.responseDatamodel.MyNotesModel>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityShowNotesBinding.inflate(layoutInflater)

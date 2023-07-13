@@ -4,12 +4,12 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ddaatapp.databinding.NotificationListItemBinding
-import com.example.ddaatapp.responseDatamodel.NotificationDataModel
+import com.example.ddaatapp.model.responseDatamodel.NotificationDataModel
 
-class NotificationAdapter(val notificationList: ArrayList<com.example.ddaatapp.responseDatamodel.NotificationDataModel>) :
+class NotificationAdapter(val notificationList: ArrayList<com.example.ddaatapp.model.responseDatamodel.NotificationDataModel>) :
     RecyclerView.Adapter<NotificationAdapter.ViewHolder>() {
     class ViewHolder(var binding:NotificationListItemBinding ): RecyclerView.ViewHolder(binding.root) {
-        fun bind(notificationDataModel: com.example.ddaatapp.responseDatamodel.NotificationDataModel){
+        fun bind(notificationDataModel: com.example.ddaatapp.model.responseDatamodel.NotificationDataModel){
 
             binding.notifyImage.setImageResource(notificationDataModel.drawable)
             binding.notifyContent.text = notificationDataModel.content

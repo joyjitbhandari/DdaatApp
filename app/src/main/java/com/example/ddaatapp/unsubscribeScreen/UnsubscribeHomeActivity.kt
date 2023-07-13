@@ -10,7 +10,7 @@ import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import com.example.ddaatapp.R
-import com.example.ddaatapp.activity.articleAndBlog.AllBlogActivity
+import com.example.ddaatapp.activity.blogs.AllBlogActivity
 import com.example.ddaatapp.activity.notification.NotificationActivity
 import com.example.ddaatapp.activity.showVideoContent.MyFavoriteActivity
 import com.example.ddaatapp.adapter.ArticleBlogAdapter
@@ -19,7 +19,7 @@ import com.example.ddaatapp.utils.MyDrawerNavigationItemSelectedListener
 import com.example.ddaatapp.utils.ShowDialog
 import com.example.ddaatapp.databinding.ActivityUnsubscribeHomeBinding
 import com.example.ddaatapp.fragment.*
-import com.example.ddaatapp.`object`.Constants
+import com.example.ddaatapp.utils.Constants
 import com.example.ddaatapp.utils.SavedData.profileData
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.button.MaterialButton
@@ -29,7 +29,6 @@ class UnsubscribeHomeActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var binding: ActivityUnsubscribeHomeBinding
     private lateinit var drawerLayout: DrawerLayout
     private lateinit var toggle: ActionBarDrawerToggle
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -124,29 +123,29 @@ class UnsubscribeHomeActivity : AppCompatActivity(), View.OnClickListener {
         }
 
 // for article view
-        val articleList = arrayListOf<com.example.ddaatapp.responseDatamodel.ArticleDataModel>(
-            com.example.ddaatapp.responseDatamodel.ArticleDataModel(
+        val articleList = arrayListOf<com.example.ddaatapp.model.responseDatamodel.ArticleDataModel>(
+            com.example.ddaatapp.model.responseDatamodel.ArticleDataModel(
                 R.drawable.article_bg_img,
                 "Lorem Ipsum is simply dummy text",
                 "Lorem Ipsum is simply dummy text of the printing and.....",
                 "June 04, 2022",
                 "Smith"
             ),
-            com.example.ddaatapp.responseDatamodel.ArticleDataModel(
+            com.example.ddaatapp.model.responseDatamodel.ArticleDataModel(
                 R.drawable.article_bg_img,
                 "Lorem Ipsum is simply dummy text",
                 "Lorem Ipsum is simply dummy text of the printing and.....",
                 "June 04, 2022",
                 "Smith"
             ),
-            com.example.ddaatapp.responseDatamodel.ArticleDataModel(
+            com.example.ddaatapp.model.responseDatamodel.ArticleDataModel(
                 R.drawable.article_bg_img,
                 "Lorem Ipsum is simply dummy text",
                 "Lorem Ipsum is simply dummy text of the printing and.....",
                 "June 04, 2022",
                 "Smith"
             ),
-            com.example.ddaatapp.responseDatamodel.ArticleDataModel(
+            com.example.ddaatapp.model.responseDatamodel.ArticleDataModel(
                 R.drawable.article_bg_img,
                 "Lorem Ipsum is simply dummy text",
                 "Lorem Ipsum is simply dummy text of the printing and.....",
@@ -155,8 +154,8 @@ class UnsubscribeHomeActivity : AppCompatActivity(), View.OnClickListener {
             )
         )
         val articleRecyclerView = binding.articleRecyclerView
-        val articleAdapter = ArticleBlogAdapter(articleList,this,false)
-        articleRecyclerView.adapter = articleAdapter
+//        val articleAdapter = ArticleBlogAdapter(articleList,this,false)
+//        articleRecyclerView.adapter = articleAdapter
 
         //Article item Decoration
         val articleSpacing = resources.getDimensionPixelSize(R.dimen._15dp)

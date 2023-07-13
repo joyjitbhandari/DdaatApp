@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import com.example.ddaatapp.databinding.ActivityStreamAudioPlayBinding
-import com.example.ddaatapp.`object`.Constants
+import com.example.ddaatapp.utils.Constants
 
 class StreamAudioPlayActivity : AppCompatActivity(), View.OnClickListener  {
     private lateinit var binding:ActivityStreamAudioPlayBinding

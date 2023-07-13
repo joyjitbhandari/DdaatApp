@@ -4,12 +4,14 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import com.example.ddaatapp.activity.BaseActivity
 import com.example.ddaatapp.activity.paymentAndBilling.PaymentAndBillingActivity
 import com.example.ddaatapp.activity.signup.ProfileCreatedActivity
 import com.example.ddaatapp.databinding.ActivityBuySubscriptionBinding
-import com.example.ddaatapp.`object`.Constants
+import com.example.ddaatapp.utils.Constants
+import com.example.ddaatapp.utils.setVisible
 
-class BuySubscriptionActivity : AppCompatActivity() , View.OnClickListener {
+class BuySubscriptionActivity : BaseActivity() , View.OnClickListener {
     private lateinit var binding: ActivityBuySubscriptionBinding
     private lateinit var operationFlow : String
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -18,6 +20,7 @@ class BuySubscriptionActivity : AppCompatActivity() , View.OnClickListener {
         setContentView( binding.root)
 
         operationFlow = intent.getStringExtra("operation").toString()
+
 
     }
 

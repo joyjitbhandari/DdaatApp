@@ -2,6 +2,7 @@ package com.example.ddaatapp.activity.login
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
@@ -9,11 +10,13 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.ddaatapp.R
+import com.example.ddaatapp.activity.BaseActivity
 import com.example.ddaatapp.activity.forgot.ForgotActivity
 import com.example.ddaatapp.activity.signup.SignUpActivity
 import com.example.ddaatapp.databinding.ActivityLoginBinding
 import com.example.ddaatapp.network.RetrofitClient
-import com.example.ddaatapp.requestDatamodel.LoginRequest
+import com.example.ddaatapp.network.TokenManager
+import com.example.ddaatapp.model.requestDatamodel.LoginRequest
 import com.example.ddaatapp.subscriptionScreen.HomeActivity
 import com.example.ddaatapp.unsubscribeScreen.UnsubscribeHomeActivity
 import com.example.ddaatapp.utils.*
@@ -25,7 +28,7 @@ import com.flynaut.healthtag.util.PrefsManager
 import com.flynaut.healthtag.util.PrefsManager.Companion.IS_LOG_IN
 import com.google.gson.Gson
 
-class LoginActivity : AppCompatActivity(), View.OnClickListener {
+class LoginActivity : BaseActivity(), View.OnClickListener {
 
 
     private lateinit var viewModel: LogInViewModel
@@ -86,9 +89,9 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
                 if (!isEmailMobile) {
                     if (doValidations(userId, password)) {
                         //user id
-                        showProgressDialog(this)
+                        showProgressDialog()
                         viewModel.login(
-                            LoginRequest(
+                            com.example.ddaatapp.model.requestDatamodel.LoginRequest(
                                 userId.text.toString(),
                                 password.text.toString(),
                                 "userid",
@@ -102,9 +105,9 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
                     if (doValidations(email, password)) {
                         if (validateEmail(email.text.toString())) {
                             //email
-                            showProgressDialog(this)
+                            showProgressDialog()
                             viewModel.login(
-                                LoginRequest(
+                                com.example.ddaatapp.model.requestDatamodel.LoginRequest(
                                     null,
                                     password.text.toString(),
                                     "email",
@@ -114,9 +117,9 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
                             )
                         } else if (validateMobile(email.text.toString())) {
                             //mobile
-                            showProgressDialog(this)
+                            showProgressDialog()
                             viewModel.login(
-                                LoginRequest(
+                                com.example.ddaatapp.model.requestDatamodel.LoginRequest(
                                     null,
                                     password.text.toString(),
                                     "mobile",
@@ -149,13 +152,14 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
             hideProgressDialog()
             if(it?.success==true){
                 val prefsManager = PrefsManager.get()
-                prefsManager.save(PrefsManager.PREF_API_TOKEN, it?.data?.token.toString())
+                prefsManager.save(PrefsManager.PREF_API_TOKEN, it.data?.token.toString())
+                Log.d("token", "initObserver: ${it.data?.token.toString()}")
                 PrefsManager.get().save(
                     PrefsManager.PREF_PROFILE,
-                    Gson().toJson(it?.data)
+                    Gson().toJson(it.data)
                 )
                 prefsManager.save(IS_LOG_IN, true)
-                openActivity(it?.data?.subscription_id.toString())
+                openActivity(it.data?.subscription_id.toString())
                 showToast(it.message, Toast.LENGTH_SHORT)
             }else{
                 showToast(it.message, Toast.LENGTH_SHORT)
@@ -177,4 +181,6 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         startActivity(intent)
         finish()
     }
+
+
 }

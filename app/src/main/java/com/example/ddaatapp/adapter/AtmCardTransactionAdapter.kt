@@ -4,12 +4,12 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ddaatapp.databinding.AtmCardTransactionHistoryItemBinding
-import com.example.ddaatapp.responseDatamodel.AtmCardTransactionDataModel
+import com.example.ddaatapp.model.responseDatamodel.AtmCardTransactionDataModel
 
-class AtmCardTransactionAdapter(val transList: ArrayList<com.example.ddaatapp.responseDatamodel.AtmCardTransactionDataModel>) :
+class AtmCardTransactionAdapter(val transList: ArrayList<com.example.ddaatapp.model.responseDatamodel.AtmCardTransactionDataModel>) :
     RecyclerView.Adapter<AtmCardTransactionAdapter.ViewHolder>() {
     class ViewHolder(var binding:AtmCardTransactionHistoryItemBinding): RecyclerView.ViewHolder(binding.root) {
-        fun bind(atmCardTransactionDataModel: com.example.ddaatapp.responseDatamodel.AtmCardTransactionDataModel){
+        fun bind(atmCardTransactionDataModel: com.example.ddaatapp.model.responseDatamodel.AtmCardTransactionDataModel){
             binding.transSymbol.setImageResource(atmCardTransactionDataModel.transSymbol)
             binding.txtTransName.text = atmCardTransactionDataModel.transName
             binding.txtTransReason.text =atmCardTransactionDataModel.transReason

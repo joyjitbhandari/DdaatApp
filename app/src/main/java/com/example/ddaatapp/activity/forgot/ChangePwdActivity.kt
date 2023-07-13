@@ -6,19 +6,19 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
+import com.example.ddaatapp.activity.BaseActivity
 import com.example.ddaatapp.activity.login.LoginActivity
 import com.example.ddaatapp.databinding.ActivityChangePwdBinding
 import com.example.ddaatapp.network.RetrofitClient
-import com.example.ddaatapp.`object`.Constants
-import com.example.ddaatapp.`object`.Constants.FORGOT
-import com.example.ddaatapp.`object`.Constants.UPDATE
-import com.example.ddaatapp.requestDatamodel.ChangePwdRequest
+import com.example.ddaatapp.utils.Constants
+import com.example.ddaatapp.utils.Constants.FORGOT
+import com.example.ddaatapp.utils.Constants.UPDATE
 import com.example.ddaatapp.utils.*
 import com.example.ddaatapp.viewModel.PasswordViewModel
 import com.example.ddaatapp.viewModel.ViewModelFactory
 import com.flynaut.healthtag.util.EventObserver
 
-class ChangePwdActivity : AppCompatActivity(), View.OnClickListener {
+class ChangePwdActivity : BaseActivity(), View.OnClickListener {
     private lateinit var binding: ActivityChangePwdBinding
     private lateinit var operationFlow: String
     private lateinit var viewModel : PasswordViewModel
@@ -32,7 +32,7 @@ class ChangePwdActivity : AppCompatActivity(), View.OnClickListener {
 
 
         operationFlow = intent.getStringExtra("operation").toString()
-        if(operationFlow==Constants.UPDATE){
+        if(operationFlow== Constants.UPDATE){
             binding.toolTitle.visibility = View.VISIBLE
             binding.changePwdTextCard.visibility = View.GONE
             binding.oldPasswordCard.visibility = View.VISIBLE
@@ -55,16 +55,28 @@ class ChangePwdActivity : AppCompatActivity(), View.OnClickListener {
                             val oldPwd = binding.etOldPwd.text.toString().trim()
                             val newPwd = binding.etNewPwd.text.toString().trim()
                             val cnfPwd = binding.etCnfPwd.text.toString().trim()
-                            showProgressDialog(this)
-                            viewModel.changePwd(ChangePwdRequest(oldPwd ,newPwd,cnfPwd))
+                            showProgressDialog()
+                            viewModel.changePwd(
+                                com.example.ddaatapp.model.requestDatamodel.ChangePwdRequest(
+                                    oldPwd,
+                                    newPwd,
+                                    cnfPwd
+                                )
+                            )
                         }
                     }
                     FORGOT->{
                         if(doValidations(true)){
                             val newPwd = binding.etNewPwd.text.toString().trim()
                             val cPwd = binding.etCnfPwd.text.toString().trim()
-                            showProgressDialog(this)
-                            viewModel.changePwd(ChangePwdRequest("",newPwd,cPwd))
+                            showProgressDialog()
+                            viewModel.changePwd(
+                                com.example.ddaatapp.model.requestDatamodel.ChangePwdRequest(
+                                    "",
+                                    newPwd,
+                                    cPwd
+                                )
+                            )
                         }else{
                             Toast.makeText(this, "Invalid Credentials", Toast.LENGTH_SHORT).show()
                         }
@@ -96,6 +108,7 @@ class ChangePwdActivity : AppCompatActivity(), View.OnClickListener {
             this.showToast( it, Toast.LENGTH_SHORT)
         })
     }
+
 
     private fun doValidations(isForgotPwd:Boolean): Boolean {
         val oldPwd = binding.etOldPwd

@@ -8,7 +8,7 @@ import com.example.ddaatapp.R
 import com.example.ddaatapp.activity.chat.ChatMessageActivity
 import com.example.ddaatapp.utils.ShowDialog
 import com.example.ddaatapp.databinding.ActivityVideoCallBinding
-import com.example.ddaatapp.`object`.Constants
+import com.example.ddaatapp.utils.Constants
 import com.example.ddaatapp.subscriptionScreen.CoursesActivity
 
 class VideoCallActivity : AppCompatActivity() , View.OnClickListener {

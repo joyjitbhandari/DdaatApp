@@ -8,14 +8,14 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.example.ddaatapp.activity.BaseActivity
 import com.example.ddaatapp.activity.forgot.ChangePwdActivity
 import com.example.ddaatapp.activity.signup.CompleteProfile
 import com.example.ddaatapp.databinding.ActivityOtpVerifyBinding
 import com.example.ddaatapp.network.RetrofitClient
-import com.example.ddaatapp.`object`.Constants.FORGOT
-import com.example.ddaatapp.`object`.Constants.SIGN_UP
-import com.example.ddaatapp.requestDatamodel.ForgotPwdOtpRequest
-import com.example.ddaatapp.requestDatamodel.OtpVerifyRequest
+import com.example.ddaatapp.network.TokenManager
+import com.example.ddaatapp.utils.Constants.FORGOT
+import com.example.ddaatapp.utils.Constants.SIGN_UP
 import com.example.ddaatapp.utils.*
 import com.example.ddaatapp.viewModel.OTPViewModel
 import com.example.ddaatapp.viewModel.ViewModelFactory
@@ -23,7 +23,7 @@ import com.flynaut.healthtag.util.EventObserver
 import com.flynaut.healthtag.util.PrefsManager
 import com.flynaut.healthtag.util.PrefsManager.Companion.PREF_API_TOKEN
 
-class OtpVerifyActivity : AppCompatActivity() {
+class OtpVerifyActivity : BaseActivity() {
     private lateinit var binding: ActivityOtpVerifyBinding
     private lateinit var viewModel: OTPViewModel
 
@@ -75,14 +75,30 @@ class OtpVerifyActivity : AppCompatActivity() {
                 when (operationFlow) {
                     SIGN_UP -> {
                         Log.d("otpCode", "$otpCode")
-                        showProgressDialog(this)
-                        viewModel.otpVerify(OtpVerifyRequest(name, id, pwd, cnfPwd, otpCode, email, type, mobile))
+                        showProgressDialog()
+                        viewModel.otpVerify(
+                            com.example.ddaatapp.model.requestDatamodel.OtpVerifyRequest(
+                                name,
+                                id,
+                                pwd,
+                                cnfPwd,
+                                otpCode,
+                                email,
+                                type,
+                                mobile
+                            )
+                        )
 
                     }
                     FORGOT -> {
                         Log.d("otpCode", "$otpCode")
-                        showProgressDialog(this)
-                        viewModel.forgotPwdOtp(ForgotPwdOtpRequest(forgotPwdEmail,otpCode))
+                        showProgressDialog()
+                        viewModel.forgotPwdVerify(
+                            com.example.ddaatapp.model.requestDatamodel.ForgotPwdOtpRequest(
+                                forgotPwdEmail,
+                                otpCode
+                            )
+                        )
 
                     }
                 }
@@ -92,10 +108,14 @@ class OtpVerifyActivity : AppCompatActivity() {
 
         //resend button
         binding.btnResend.setOnClickListener {
+            showProgressDialog()
+            val fields = HashMap<String, String>()
             if(operationFlow == SIGN_UP)
-                viewModel.resendOtp(id)
+                fields["user_id"] = id
             else
-                viewModel.resendOtp(forgotPwdEmail)
+                fields["user_id"] = forgotPwdEmail
+
+            viewModel.resendOtp(fields)
         }
 
         //back button
@@ -108,7 +128,7 @@ class OtpVerifyActivity : AppCompatActivity() {
         viewModel.otpData.observe(this, Observer {
             hideProgressDialog()
             if(it?.success == true){
-                PrefsManager.get().save(PREF_API_TOKEN, it.data.token)
+                PrefsManager.get().save(PREF_API_TOKEN, it.data.token.toString())
                 val intent = Intent(this, CompleteProfile::class.java)
                 intent.putExtra("operation", SIGN_UP)
                 startActivity(intent)
@@ -131,14 +151,13 @@ class OtpVerifyActivity : AppCompatActivity() {
 
         viewModel.resendOtpData.observe(this, Observer {
             hideProgressDialog()
-            this.showToast(it?.message.toString(),Toast.LENGTH_SHORT)
+            showToast(it?.message.toString(),Toast.LENGTH_SHORT)
         })
 
         viewModel.toastMsg.observe(this, EventObserver {
             hideProgressDialog()
-            this.showToast( it, Toast.LENGTH_SHORT)
+            showToast( it, Toast.LENGTH_SHORT)
         })
     }
-
 
 }

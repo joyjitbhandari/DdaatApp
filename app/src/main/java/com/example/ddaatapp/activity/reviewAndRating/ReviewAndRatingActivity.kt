@@ -15,50 +15,50 @@ class ReviewAndRatingActivity : AppCompatActivity(), View.OnClickListener {
         binding = ActivityReviewAndRatingBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val ratingList = arrayListOf<com.example.ddaatapp.responseDatamodel.ReviewAndRatingDataModel>(
-            com.example.ddaatapp.responseDatamodel.ReviewAndRatingDataModel(
+        val ratingList = arrayListOf<com.example.ddaatapp.model.responseDatamodel.ReviewAndRatingDataModel>(
+            com.example.ddaatapp.model.responseDatamodel.ReviewAndRatingDataModel(
                 R.drawable.live_course_sample_img,
                 "Ellie Olsen",
                 "15 Dec 2023 12:30 pm",
                 4,
                 "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the."
             ),
-            com.example.ddaatapp.responseDatamodel.ReviewAndRatingDataModel(
+            com.example.ddaatapp.model.responseDatamodel.ReviewAndRatingDataModel(
                 R.drawable.live_course_sample_img,
                 "Ellie Olsen",
                 "15 Dec 2023 12:30 pm",
                 4,
                 "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the."
             ),
-            com.example.ddaatapp.responseDatamodel.ReviewAndRatingDataModel(
+            com.example.ddaatapp.model.responseDatamodel.ReviewAndRatingDataModel(
                 R.drawable.live_course_sample_img,
                 "Ellie Olsen",
                 "15 Dec 2023 12:30 pm",
                 4,
                 "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the."
             ),
-            com.example.ddaatapp.responseDatamodel.ReviewAndRatingDataModel(
+            com.example.ddaatapp.model.responseDatamodel.ReviewAndRatingDataModel(
                 R.drawable.live_course_sample_img,
                 "Ellie Olsen",
                 "15 Dec 2023 12:30 pm",
                 4,
                 "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the."
             ),
-            com.example.ddaatapp.responseDatamodel.ReviewAndRatingDataModel(
+            com.example.ddaatapp.model.responseDatamodel.ReviewAndRatingDataModel(
                 R.drawable.live_course_sample_img,
                 "Ellie Olsen",
                 "15 Dec 2023 12:30 pm",
                 4,
                 "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the."
             ),
-            com.example.ddaatapp.responseDatamodel.ReviewAndRatingDataModel(
+            com.example.ddaatapp.model.responseDatamodel.ReviewAndRatingDataModel(
                 R.drawable.live_course_sample_img,
                 "Ellie Olsen",
                 "15 Dec 2023 12:30 pm",
                 4,
                 "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the."
             ),
-            com.example.ddaatapp.responseDatamodel.ReviewAndRatingDataModel(
+            com.example.ddaatapp.model.responseDatamodel.ReviewAndRatingDataModel(
                 R.drawable.live_course_sample_img,
                 "Ellie Olsen",
                 "15 Dec 2023 12:30 pm",

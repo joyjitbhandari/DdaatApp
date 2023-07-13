@@ -7,15 +7,15 @@ import android.util.Log
 import android.view.View
 import com.example.ddaatapp.adapter.SurveyQuestionAnswerAdapter
 import com.example.ddaatapp.databinding.ActivitySurveyQuestionAnswerBinding
-import com.example.ddaatapp.responseDatamodel.SurveyAnswerDataModel
-import com.example.ddaatapp.responseDatamodel.SurveyQuestionDataModel
+import com.example.ddaatapp.model.responseDatamodel.SurveyAnswerDataModel
+import com.example.ddaatapp.model.responseDatamodel.SurveyQuestionDataModel
 
 class SurveyQuestionAnswerActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var binding: ActivitySurveyQuestionAnswerBinding
 
-    val answerList =  ArrayList<com.example.ddaatapp.responseDatamodel.SurveyAnswerDataModel>()
+    val answerList =  ArrayList<com.example.ddaatapp.model.responseDatamodel.SurveyAnswerDataModel>()
 
-    lateinit var questionList : ArrayList<com.example.ddaatapp.responseDatamodel.SurveyQuestionDataModel>
+    lateinit var questionList : ArrayList<com.example.ddaatapp.model.responseDatamodel.SurveyQuestionDataModel>
 
     private var totalQuestionsSize = 0
     private var newQuestionsSize  = 0
@@ -25,84 +25,84 @@ class SurveyQuestionAnswerActivity : AppCompatActivity(), View.OnClickListener {
         binding = ActivitySurveyQuestionAnswerBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-            questionList = arrayListOf<com.example.ddaatapp.responseDatamodel.SurveyQuestionDataModel>(
-                com.example.ddaatapp.responseDatamodel.SurveyQuestionDataModel(
+            questionList = arrayListOf<com.example.ddaatapp.model.responseDatamodel.SurveyQuestionDataModel>(
+                com.example.ddaatapp.model.responseDatamodel.SurveyQuestionDataModel(
                     "Provides Support",
                     "Assists others, provides others with hope, courage, or confidence"
                 ),
-                com.example.ddaatapp.responseDatamodel.SurveyQuestionDataModel(
+                com.example.ddaatapp.model.responseDatamodel.SurveyQuestionDataModel(
                     "Consistent Approach",
                     "Assists others, provides others with hope, courage, or confidence"
                 ),
-                com.example.ddaatapp.responseDatamodel.SurveyQuestionDataModel(
+                com.example.ddaatapp.model.responseDatamodel.SurveyQuestionDataModel(
                     "Aspiring",
                     "Assists others, provides others with hope, courage, or confidence"
                 ),
-                com.example.ddaatapp.responseDatamodel.SurveyQuestionDataModel(
+                com.example.ddaatapp.model.responseDatamodel.SurveyQuestionDataModel(
                     "Expresses Optimism",
                     "Assists others, provides others with hope, courage, or confidence"
                 ),
-                com.example.ddaatapp.responseDatamodel.SurveyQuestionDataModel(
+                com.example.ddaatapp.model.responseDatamodel.SurveyQuestionDataModel(
                     "Self-reliant",
                     "Assists others, provides others with hope, courage, or confidence"
                 ),
-                com.example.ddaatapp.responseDatamodel.SurveyQuestionDataModel(
+                com.example.ddaatapp.model.responseDatamodel.SurveyQuestionDataModel(
                     "Lively imagination",
                     "Assists others, provides others with hope, courage, or confidence"
                 ),
-                com.example.ddaatapp.responseDatamodel.SurveyQuestionDataModel(
+                com.example.ddaatapp.model.responseDatamodel.SurveyQuestionDataModel(
                     "Confidently Faces Danger",
                     "Assists others, provides others with hope, courage, or confidence"
                 ),
-                com.example.ddaatapp.responseDatamodel.SurveyQuestionDataModel(
+                com.example.ddaatapp.model.responseDatamodel.SurveyQuestionDataModel(
                     "Interactive",
                     "Assists others, provides others with hope, courage, or confidence"
                 ),
-                com.example.ddaatapp.responseDatamodel.SurveyQuestionDataModel(
+                com.example.ddaatapp.model.responseDatamodel.SurveyQuestionDataModel(
                     "Self-assured",
                     "Assists others, provides others with hope, courage, or confidence"
                 ),
-                com.example.ddaatapp.responseDatamodel.SurveyQuestionDataModel(
+                com.example.ddaatapp.model.responseDatamodel.SurveyQuestionDataModel(
                     "Attentive",
                     "Assists others, provides others with hope, courage, or confidence"
                 ),
-                com.example.ddaatapp.responseDatamodel.SurveyQuestionDataModel(
+                com.example.ddaatapp.model.responseDatamodel.SurveyQuestionDataModel(
                     "Thinks Quickly",
                     "Assists others, provides others with hope, courage, or confidence"
                 ),
-                com.example.ddaatapp.responseDatamodel.SurveyQuestionDataModel(
+                com.example.ddaatapp.model.responseDatamodel.SurveyQuestionDataModel(
                     "Follows routines",
                     "Assists others, provides others with hope, courage, or confidence"
                 ),
-                com.example.ddaatapp.responseDatamodel.SurveyQuestionDataModel(
+                com.example.ddaatapp.model.responseDatamodel.SurveyQuestionDataModel(
                     "Solution driven",
                     "Assists others, provides others with hope, courage, or confidence"
                 ),
-                com.example.ddaatapp.responseDatamodel.SurveyQuestionDataModel(
+                com.example.ddaatapp.model.responseDatamodel.SurveyQuestionDataModel(
                     "Accurate",
                     "Assists others, provides others with hope, courage, or confidence"
                 ),
-                com.example.ddaatapp.responseDatamodel.SurveyQuestionDataModel(
+                com.example.ddaatapp.model.responseDatamodel.SurveyQuestionDataModel(
                     "Excitable",
                     "Assists others, provides others with hope, courage, or confidence"
                 ),
-                com.example.ddaatapp.responseDatamodel.SurveyQuestionDataModel(
+                com.example.ddaatapp.model.responseDatamodel.SurveyQuestionDataModel(
                     "Attentive",
                     "Assists others, provides others with hope, courage, or confidence"
                 ),
-                com.example.ddaatapp.responseDatamodel.SurveyQuestionDataModel(
+                com.example.ddaatapp.model.responseDatamodel.SurveyQuestionDataModel(
                     "Thinks Quickly",
                     "Assists others, provides others with hope, courage, or confidence"
                 ),
-                com.example.ddaatapp.responseDatamodel.SurveyQuestionDataModel(
+                com.example.ddaatapp.model.responseDatamodel.SurveyQuestionDataModel(
                     "Follows routines",
                     "Assists others, provides others with hope, courage, or confidence"
                 ),
-                com.example.ddaatapp.responseDatamodel.SurveyQuestionDataModel(
+                com.example.ddaatapp.model.responseDatamodel.SurveyQuestionDataModel(
                     "Solution driven",
                     "Assists others, provides others with hope, courage, or confidence"
                 ),
-                com.example.ddaatapp.responseDatamodel.SurveyQuestionDataModel(
+                com.example.ddaatapp.model.responseDatamodel.SurveyQuestionDataModel(
                     "Accurate",
                     "Assists others, provides others with hope, courage, or confidence"
                 ),

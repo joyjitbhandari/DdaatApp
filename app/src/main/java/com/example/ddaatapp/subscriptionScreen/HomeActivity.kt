@@ -10,7 +10,7 @@ import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import com.example.ddaatapp.R
-import com.example.ddaatapp.activity.articleAndBlog.AllBlogActivity
+import com.example.ddaatapp.activity.blogs.AllBlogActivity
 import com.example.ddaatapp.activity.notification.NotificationActivity
 import com.example.ddaatapp.activity.showVideoContent.MyFavoriteActivity
 import com.example.ddaatapp.adapter.ArticleBlogAdapter
@@ -20,7 +20,7 @@ import com.example.ddaatapp.utils.MyDrawerNavigationItemSelectedListener
 import com.example.ddaatapp.utils.ShowDialog
 import com.example.ddaatapp.databinding.ActivityHomeBinding
 import com.example.ddaatapp.fragment.*
-import com.example.ddaatapp.`object`.Constants
+import com.example.ddaatapp.utils.Constants
 import com.example.ddaatapp.utils.SavedData
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.button.MaterialButton
@@ -99,23 +99,23 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
 
 
 // for notes view
-        val noteList = arrayListOf<com.example.ddaatapp.responseDatamodel.MyNotesModel>(
-            com.example.ddaatapp.responseDatamodel.MyNotesModel(
+        val noteList = arrayListOf<com.example.ddaatapp.model.responseDatamodel.MyNotesModel>(
+            com.example.ddaatapp.model.responseDatamodel.MyNotesModel(
                 "Notes Title",
                 "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been",
                 "15 Dec 2023"
             ),
-            com.example.ddaatapp.responseDatamodel.MyNotesModel(
+            com.example.ddaatapp.model.responseDatamodel.MyNotesModel(
                 "Notes Title",
                 "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been",
                 "15 Dec 2023"
             ),
-            com.example.ddaatapp.responseDatamodel.MyNotesModel(
+            com.example.ddaatapp.model.responseDatamodel.MyNotesModel(
                 "Notes Title",
                 "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been",
                 "15 Dec 2023"
             ),
-            com.example.ddaatapp.responseDatamodel.MyNotesModel(
+            com.example.ddaatapp.model.responseDatamodel.MyNotesModel(
                 "Notes Title",
                 "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been",
                 "15 Dec 2023"
@@ -159,29 +159,29 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
         }
 
 // for article view
-        val articleList = arrayListOf<com.example.ddaatapp.responseDatamodel.ArticleDataModel>(
-            com.example.ddaatapp.responseDatamodel.ArticleDataModel(
+        val articleList = arrayListOf<com.example.ddaatapp.model.responseDatamodel.ArticleDataModel>(
+            com.example.ddaatapp.model.responseDatamodel.ArticleDataModel(
                 R.drawable.article_bg_img,
                 "Lorem Ipsum is simply dummy text",
                 "Lorem Ipsum is simply dummy text of the printing and.....",
                 "June 04, 2022",
                 "Smith"
             ),
-            com.example.ddaatapp.responseDatamodel.ArticleDataModel(
+            com.example.ddaatapp.model.responseDatamodel.ArticleDataModel(
                 R.drawable.article_bg_img,
                 "Lorem Ipsum is simply dummy text",
                 "Lorem Ipsum is simply dummy text of the printing and.....",
                 "June 04, 2022",
                 "Smith"
             ),
-            com.example.ddaatapp.responseDatamodel.ArticleDataModel(
+            com.example.ddaatapp.model.responseDatamodel.ArticleDataModel(
                 R.drawable.article_bg_img,
                 "Lorem Ipsum is simply dummy text",
                 "Lorem Ipsum is simply dummy text of the printing and.....",
                 "June 04, 2022",
                 "Smith"
             ),
-            com.example.ddaatapp.responseDatamodel.ArticleDataModel(
+            com.example.ddaatapp.model.responseDatamodel.ArticleDataModel(
                 R.drawable.article_bg_img,
                 "Lorem Ipsum is simply dummy text",
                 "Lorem Ipsum is simply dummy text of the printing and.....",
@@ -190,8 +190,8 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
             )
         )
         val articleRecyclerView = binding.articleRecyclerView
-        val articleAdapter = ArticleBlogAdapter(articleList,this,false)
-        articleRecyclerView.adapter = articleAdapter
+//        val articleAdapter = ArticleBlogAdapter(articleList,this,false)
+//        articleRecyclerView.adapter = articleAdapter
 
         //Article item Decoration
         val articleSpacing = resources.getDimensionPixelSize(R.dimen._15dp)

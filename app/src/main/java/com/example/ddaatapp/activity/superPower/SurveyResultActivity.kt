@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.view.View
 import com.example.ddaatapp.adapter.SurveyResultAdapter
 import com.example.ddaatapp.databinding.ActivityMySuperPowerBinding
-import com.example.ddaatapp.responseDatamodel.SurveyResultDataModel
+import com.example.ddaatapp.model.responseDatamodel.SurveyResultDataModel
 
 class SurveyResultActivity : AppCompatActivity() , View.OnClickListener {
     private lateinit var binding:ActivityMySuperPowerBinding
@@ -14,23 +14,23 @@ class SurveyResultActivity : AppCompatActivity() , View.OnClickListener {
         binding = ActivityMySuperPowerBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val resultList = arrayListOf<com.example.ddaatapp.responseDatamodel.SurveyResultDataModel>(
-            com.example.ddaatapp.responseDatamodel.SurveyResultDataModel(
+        val resultList = arrayListOf<com.example.ddaatapp.model.responseDatamodel.SurveyResultDataModel>(
+            com.example.ddaatapp.model.responseDatamodel.SurveyResultDataModel(
                 50,
                 "Results vs. Relationships",
                 "Results focused and rationally takes quick action"
             ),
-            com.example.ddaatapp.responseDatamodel.SurveyResultDataModel(
+            com.example.ddaatapp.model.responseDatamodel.SurveyResultDataModel(
                 96,
                 "Daring vs. Careful",
                 "Confidently takes risks and tolerant of losses "
             ),
-            com.example.ddaatapp.responseDatamodel.SurveyResultDataModel(
+            com.example.ddaatapp.model.responseDatamodel.SurveyResultDataModel(
                 73,
                 "Abstract vs. Concrete",
                 "Works with known pathways forward"
             ),
-            com.example.ddaatapp.responseDatamodel.SurveyResultDataModel(
+            com.example.ddaatapp.model.responseDatamodel.SurveyResultDataModel(
                 66,
                 "Systematic vs. Flexible",
                 "Able to balance completing tasks and responding on the spot"

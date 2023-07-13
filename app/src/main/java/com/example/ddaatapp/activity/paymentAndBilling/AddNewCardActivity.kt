@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.enableSavedStateHandles
 import com.example.ddaatapp.databinding.ActivityAddNewCardBinding
-import com.example.ddaatapp.`object`.Constants
+import com.example.ddaatapp.utils.Constants
 
 class AddNewCardActivity : AppCompatActivity() , View.OnClickListener {
     private lateinit var binding:ActivityAddNewCardBinding

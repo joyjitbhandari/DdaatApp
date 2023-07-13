@@ -110,8 +110,8 @@ class MyDrawerNavigationItemSelectedListener(var context: Context) : NavigationV
             val logOutCancel = dialog.findViewById<Button>(R.id.btnLogOutCancel)
 
             logOut.setOnClickListener {
+                dialog.dismiss()
                 logout()
-
             }
 
             logOutCancel.setOnClickListener {

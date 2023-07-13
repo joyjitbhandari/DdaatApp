@@ -14,7 +14,7 @@ import com.example.ddaatapp.activity.showVideoContent.MyFavoriteActivity
 import com.example.ddaatapp.adapter.StreamsAdapter
 import com.example.ddaatapp.adapter.VideoLibraryAdapter
 import com.example.ddaatapp.databinding.ActivityUnsubscribeSearchBinding
-import com.example.ddaatapp.`object`.Constants
+import com.example.ddaatapp.utils.Constants
 import com.example.ddaatapp.utils.*
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.button.MaterialButton
@@ -92,13 +92,13 @@ class UnsubscribeSearchActivity : AppCompatActivity() , View.OnClickListener{
         DynamicInterestChipCreator(this).setupChip(binding.choiceChipGroup)
 
         //Popular Video  setup
-        val videoList = arrayListOf<com.example.ddaatapp.responseDatamodel.VideoLibraryDataModel>(
-            com.example.ddaatapp.responseDatamodel.VideoLibraryDataModel(
+        val videoList = arrayListOf<com.example.ddaatapp.model.responseDatamodel.VideoLibraryDataModel>(
+            com.example.ddaatapp.model.responseDatamodel.VideoLibraryDataModel(
                 R.drawable.video_sample_image,
                 "Video Name",
                 "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"
             ),
-            com.example.ddaatapp.responseDatamodel.VideoLibraryDataModel(
+            com.example.ddaatapp.model.responseDatamodel.VideoLibraryDataModel(
                 R.drawable.video_sample_image2,
                 "Video Name",
                 "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"
@@ -113,13 +113,13 @@ class UnsubscribeSearchActivity : AppCompatActivity() , View.OnClickListener{
         popularVideo.addItemDecoration(LinearListSpacingItemDecoration(videoSpacing))
 
         //Music Setup
-        val musicList = arrayListOf<com.example.ddaatapp.responseDatamodel.StreamsDataModel>(
-            com.example.ddaatapp.responseDatamodel.StreamsDataModel(
+        val musicList = arrayListOf<com.example.ddaatapp.model.responseDatamodel.StreamsDataModel>(
+            com.example.ddaatapp.model.responseDatamodel.StreamsDataModel(
                 R.drawable.video_sample_image,
                 "Music Title",
                 "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"
             ),
-            com.example.ddaatapp.responseDatamodel.StreamsDataModel(
+            com.example.ddaatapp.model.responseDatamodel.StreamsDataModel(
                 R.drawable.video_sample_image2,
                 "Music Title",
                 "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"
@@ -134,13 +134,13 @@ class UnsubscribeSearchActivity : AppCompatActivity() , View.OnClickListener{
 
 
         //Podcast Station Setup
-        val podcastList = arrayListOf<com.example.ddaatapp.responseDatamodel.StreamsDataModel>(
-            com.example.ddaatapp.responseDatamodel.StreamsDataModel(
+        val podcastList = arrayListOf<com.example.ddaatapp.model.responseDatamodel.StreamsDataModel>(
+            com.example.ddaatapp.model.responseDatamodel.StreamsDataModel(
                 R.drawable.video_sample_image,
                 "Podcast Title",
                 "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"
             ),
-            com.example.ddaatapp.responseDatamodel.StreamsDataModel(
+            com.example.ddaatapp.model.responseDatamodel.StreamsDataModel(
                 R.drawable.video_sample_image2,
                 "Podcast Title",
                 "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"

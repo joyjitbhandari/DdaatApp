@@ -14,7 +14,7 @@ import com.example.ddaatapp.activity.showVideoContent.MyFavoriteActivity
 import com.example.ddaatapp.activity.showVideoContent.MyWatchlistActivity
 import com.example.ddaatapp.adapter.VideoLibraryAdapter
 import com.example.ddaatapp.databinding.ActivityVideoLibraryBinding
-import com.example.ddaatapp.`object`.Constants
+import com.example.ddaatapp.utils.Constants
 import com.example.ddaatapp.utils.*
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.button.MaterialButton
@@ -88,38 +88,38 @@ class VideoLibraryActivity: AppCompatActivity() , View.OnClickListener  {
 
         // Setting top videos in recycler
         //video list
-        val videoList = arrayListOf<com.example.ddaatapp.responseDatamodel.VideoLibraryDataModel>(
-            com.example.ddaatapp.responseDatamodel.VideoLibraryDataModel(
+        val videoList = arrayListOf<com.example.ddaatapp.model.responseDatamodel.VideoLibraryDataModel>(
+            com.example.ddaatapp.model.responseDatamodel.VideoLibraryDataModel(
                 R.drawable.video_sample_image,
                 "Video Name",
                 "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"
             ),
-            com.example.ddaatapp.responseDatamodel.VideoLibraryDataModel(
+            com.example.ddaatapp.model.responseDatamodel.VideoLibraryDataModel(
                 R.drawable.video_sample_image2,
                 "Video Name",
                 "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"
             ),
-            com.example.ddaatapp.responseDatamodel.VideoLibraryDataModel(
+            com.example.ddaatapp.model.responseDatamodel.VideoLibraryDataModel(
                 R.drawable.video_sample_image3,
                 "Video Name",
                 "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"
             ),
-            com.example.ddaatapp.responseDatamodel.VideoLibraryDataModel(
+            com.example.ddaatapp.model.responseDatamodel.VideoLibraryDataModel(
                 R.drawable.video_sample_image,
                 "Video Name",
                 "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"
             ),
-            com.example.ddaatapp.responseDatamodel.VideoLibraryDataModel(
+            com.example.ddaatapp.model.responseDatamodel.VideoLibraryDataModel(
                 R.drawable.video_sample_image3,
                 "Video Name",
                 "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"
             ),
-            com.example.ddaatapp.responseDatamodel.VideoLibraryDataModel(
+            com.example.ddaatapp.model.responseDatamodel.VideoLibraryDataModel(
                 R.drawable.video_sample_image,
                 "Video Name",
                 "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"
             ),
-            com.example.ddaatapp.responseDatamodel.VideoLibraryDataModel(
+            com.example.ddaatapp.model.responseDatamodel.VideoLibraryDataModel(
                 R.drawable.video_sample_image,
                 "Video Name",
                 "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"
@@ -127,7 +127,7 @@ class VideoLibraryActivity: AppCompatActivity() , View.OnClickListener  {
         )
 
         val topVideoRecyclerView= binding.topVideoRecycler
-        val adapter = VideoLibraryAdapter(videoList,5,this,Constants.SUBSCRIPTION)
+        val adapter = VideoLibraryAdapter(videoList,5,this, Constants.SUBSCRIPTION)
         topVideoRecyclerView.adapter = adapter
         //List item Decoration
         val spacing = resources.getDimensionPixelSize(R.dimen._15dp)

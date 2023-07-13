@@ -6,27 +6,28 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
+import com.example.ddaatapp.R
 import com.example.ddaatapp.activity.subscription.BuySubscriptionActivity
 import com.example.ddaatapp.activity.subscription.SubscriptionDetailsActivity
 import com.example.ddaatapp.databinding.SubscriptionCardItemBinding
-import com.example.ddaatapp.responseDatamodel.SubscriptionDataModel
-import com.example.ddaatapp.`object`.Constants
+import com.example.ddaatapp.model.responseDatamodel.SubscriptionData
+import com.example.ddaatapp.utils.Constants
 
-class SubscriptionAdapter(private val cardList: ArrayList<com.example.ddaatapp.responseDatamodel.SubscriptionDataModel>, var context: Context, var isAfterSignIn: Boolean) :
+class SubscriptionAdapter(private val cardList: List<SubscriptionData>, var context: Context, var isAfterSignIn: Boolean) :
     RecyclerView.Adapter<SubscriptionAdapter.ViewHolder>() {
     class ViewHolder(var binding:SubscriptionCardItemBinding ): RecyclerView.ViewHolder(binding.root) {
-        fun bind(subscriptionDataModel: com.example.ddaatapp.responseDatamodel.SubscriptionDataModel, mContext:AppCompatActivity, context: Context, isAfterSignIn: Boolean){
+        fun bind(subscriptionData: SubscriptionData, mContext:AppCompatActivity, context: Context, isAfterSignIn: Boolean){
 
-            binding.subsCardBG.setImageResource(subscriptionDataModel.bg)
-            binding.cardImage.setImageResource(subscriptionDataModel.symbol)
-            binding.cardPlanName.text = subscriptionDataModel.planeName
-            binding.price.text = subscriptionDataModel.price
-            binding.cardDesc.text = subscriptionDataModel.desc
-            binding.cardInfo.text = subscriptionDataModel.subsInfo
+//            binding.subsCardBG.setImageResource(subscriptionData.bg)
+            binding.cardImage.setImageResource(R.drawable.img_subs_card)
+            binding.cardPlanName.text = subscriptionData.subscription_name
+            binding.price.text = subscriptionData.price
+            binding.cardDesc.text = subscriptionData.feature
+            binding.cardInfo.text = subscriptionData.created_at
 
 
             if(isAfterSignIn){
-                if(subscriptionDataModel.isSubscribed){
+                if(subscriptionData.status == "Active"){
                     binding.btnContinue.text = "Subscribed"
                     binding.root.setOnClickListener {
                         val intent = Intent(context,SubscriptionDetailsActivity::class.java)

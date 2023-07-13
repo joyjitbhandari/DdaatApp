@@ -6,7 +6,7 @@ import androidx.fragment.app.FragmentStatePagerAdapter
 import com.example.ddaatapp.fragment.UnsubscribeHomeLiveStreamingFragment
 import com.example.ddaatapp.fragment.HomeStreamsFragment
 import com.example.ddaatapp.fragment.HomeUpcomingSessionsFragment
-import com.example.ddaatapp.`object`.Constants
+import com.example.ddaatapp.utils.Constants
 
 class UnsubscribeStreamsTabPagerAdapter(fragmentManager: FragmentManager) : FragmentStatePagerAdapter(fragmentManager) {
 

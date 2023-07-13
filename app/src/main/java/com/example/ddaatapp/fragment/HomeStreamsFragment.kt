@@ -10,7 +10,7 @@ import com.example.ddaatapp.utils.DynamicInterestChipCreator
 import com.example.ddaatapp.utils.LinearListSpacingItemDecoration
 import com.example.ddaatapp.utils.ShowDialog
 import com.example.ddaatapp.databinding.FragmentHomeStreamsBinding
-import com.example.ddaatapp.`object`.Constants
+import com.example.ddaatapp.utils.Constants
 
 class HomeStreamsFragment(private val operationFlow:String): Fragment()  {
     private lateinit var binding: FragmentHomeStreamsBinding
@@ -51,13 +51,13 @@ class HomeStreamsFragment(private val operationFlow:String): Fragment()  {
         }
 
         //DdaatStation setup
-        val videoList = arrayListOf<com.example.ddaatapp.responseDatamodel.StreamsDataModel>(
-            com.example.ddaatapp.responseDatamodel.StreamsDataModel(
+        val videoList = arrayListOf<com.example.ddaatapp.model.responseDatamodel.StreamsDataModel>(
+            com.example.ddaatapp.model.responseDatamodel.StreamsDataModel(
                 R.drawable.video_sample_image,
                 "Stream Title",
                 "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"
             ),
-            com.example.ddaatapp.responseDatamodel.StreamsDataModel(
+            com.example.ddaatapp.model.responseDatamodel.StreamsDataModel(
                 R.drawable.video_sample_image2,
                 "Stream Title",
                 "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"
@@ -73,18 +73,18 @@ class HomeStreamsFragment(private val operationFlow:String): Fragment()  {
 
 
         //Podcast Station Setup
-        val podcastList = arrayListOf<com.example.ddaatapp.responseDatamodel.StreamsDataModel>(
-            com.example.ddaatapp.responseDatamodel.StreamsDataModel(
+        val podcastList = arrayListOf<com.example.ddaatapp.model.responseDatamodel.StreamsDataModel>(
+            com.example.ddaatapp.model.responseDatamodel.StreamsDataModel(
                 R.drawable.video_sample_image,
                 "Podcast Title",
                 "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"
             ),
-            com.example.ddaatapp.responseDatamodel.StreamsDataModel(
+            com.example.ddaatapp.model.responseDatamodel.StreamsDataModel(
                 R.drawable.video_sample_image2,
                 "Podcast Title",
                 "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"
             ),
-            com.example.ddaatapp.responseDatamodel.StreamsDataModel(
+            com.example.ddaatapp.model.responseDatamodel.StreamsDataModel(
                 R.drawable.video_sample_image3,
                 "Podcast Title",
                 "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"

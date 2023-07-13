@@ -19,20 +19,19 @@ class PasswordViewModel(val apiService: ApiService) : ViewModel() {
     val toastMsg: LiveData<Event<String>> get() = _toastMsg
 
     //Forgot Password data
-    private val forgot_pwd_data = MutableLiveData<BaseResponse?>()
-    val forgotPwdData: MutableLiveData<BaseResponse?> = forgot_pwd_data
+    private val forgot_pwd_data = MutableLiveData<com.example.ddaatapp.model.responseDatamodel.BaseResponse?>()
+    val forgotPwdData: MutableLiveData<com.example.ddaatapp.model.responseDatamodel.BaseResponse?> = forgot_pwd_data
 
     //Change Password
-    private val change_pwd_data: MutableLiveData<BaseResponse?> = MutableLiveData()
-    val baseResponse: MutableLiveData<BaseResponse?> get() = change_pwd_data
+    private val change_pwd_data: MutableLiveData<com.example.ddaatapp.model.responseDatamodel.BaseResponse?> = MutableLiveData()
+    val baseResponse: MutableLiveData<com.example.ddaatapp.model.responseDatamodel.BaseResponse?> get() = change_pwd_data
 
     //Forgot Pwd
-    fun forgotPwd(email:String) {
+    fun forgotPwd(fields: Map<String,String>) {
         viewModelScope.launch {
 //            try{
-                val response = withContext(Dispatchers.IO) {
-                    apiService.forgotPwd(email)
-                }
+                val response = apiService.forgotPwd(fields)
+
                 if (response.isSuccessful) {
                     forgot_pwd_data.value = response.body()
                     Log.d("get", "${response.body()} ")
@@ -45,11 +44,9 @@ class PasswordViewModel(val apiService: ApiService) : ViewModel() {
     }
 
     //Change Password
-    fun changePwd(changePwdRequest: ChangePwdRequest) {
+    fun changePwd(changePwdRequest: com.example.ddaatapp.model.requestDatamodel.ChangePwdRequest) {
         viewModelScope.launch {
-            val response = withContext(Dispatchers.IO) {
-                apiService.changePwd(changePwdRequest)
-            }
+            val response = apiService.changePwd(changePwdRequest)
             if (response.isSuccessful)
                 change_pwd_data.value = response.body()
             else

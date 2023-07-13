@@ -5,14 +5,15 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.example.ddaatapp.R
+import com.example.ddaatapp.activity.BaseActivity
 import com.example.ddaatapp.activity.subscription.SubscriptionActivity
 import com.example.ddaatapp.databinding.ActivityInterestBinding
 import com.example.ddaatapp.databinding.InterestChoiceChipItemBinding
-import com.example.ddaatapp.`object`.Constants
+import com.example.ddaatapp.utils.Constants
 import com.google.android.material.chip.Chip
 
 
-class InterestActivity : AppCompatActivity(), View.OnClickListener {
+class InterestActivity :BaseActivity(), View.OnClickListener {
     private lateinit var binding: ActivityInterestBinding
     private lateinit var operationFlow: String
     override fun onCreate(savedInstanceState: Bundle?) {

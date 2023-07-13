@@ -8,13 +8,12 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ddaatapp.activity.showVideoContent.ShowVideoContentActivity
 import com.example.ddaatapp.databinding.VideoLibraryListItemBinding
-import com.example.ddaatapp.responseDatamodel.VideoLibraryDataModel
-import com.example.ddaatapp.`object`.Constants
+import com.example.ddaatapp.utils.Constants
 
-class VideoLibraryAdapter(val videoList: ArrayList<com.example.ddaatapp.responseDatamodel.VideoLibraryDataModel>, private val itemCount:Int, private val context: Context, private val operationFlow : String ) :
+class VideoLibraryAdapter(val videoList: ArrayList<com.example.ddaatapp.model.responseDatamodel.VideoLibraryDataModel>, private val itemCount:Int, private val context: Context, private val operationFlow : String ) :
     RecyclerView.Adapter<VideoLibraryAdapter.ViewHolder>() {
     class ViewHolder(var binding:VideoLibraryListItemBinding ): RecyclerView.ViewHolder(binding.root) {
-        fun bind(videoLibraryDataModel: com.example.ddaatapp.responseDatamodel.VideoLibraryDataModel, mContext:AppCompatActivity, context: Context, operationFlow: String){
+        fun bind(videoLibraryDataModel: com.example.ddaatapp.model.responseDatamodel.VideoLibraryDataModel, mContext:AppCompatActivity, context: Context, operationFlow: String){
             binding.videoImage.setImageResource(videoLibraryDataModel.drawable)
             binding.txtVideoName.text = videoLibraryDataModel.name
             binding.txtVideoDesc.text = videoLibraryDataModel.desc

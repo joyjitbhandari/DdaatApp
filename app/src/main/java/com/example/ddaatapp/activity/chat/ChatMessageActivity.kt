@@ -6,8 +6,7 @@ import android.view.View
 import com.example.ddaatapp.R
 import com.example.ddaatapp.adapter.ChatMessageAdapter
 import com.example.ddaatapp.databinding.ActivityChatMessageBinding
-import com.example.ddaatapp.responseDatamodel.TechSupportChatDataModel
-import com.example.ddaatapp.`object`.Constants
+import com.example.ddaatapp.utils.Constants
 
 class ChatMessageActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var binding : ActivityChatMessageBinding
@@ -17,18 +16,18 @@ class ChatMessageActivity : AppCompatActivity(), View.OnClickListener {
         setContentView(binding.root)
 
         // Chat view list setting
-        val chatList = arrayListOf<com.example.ddaatapp.responseDatamodel.TechSupportChatDataModel>(
-            com.example.ddaatapp.responseDatamodel.TechSupportChatDataModel(
+        val chatList = arrayListOf<com.example.ddaatapp.model.responseDatamodel.TechSupportChatDataModel>(
+            com.example.ddaatapp.model.responseDatamodel.TechSupportChatDataModel(
                 Constants.RECEIVE_ID,
                 "Cool, let's talk about it later, shall we? This is going to be a huge!! We already sent you the details bro.",
                 "15:30"
             ),
-            com.example.ddaatapp.responseDatamodel.TechSupportChatDataModel(
+            com.example.ddaatapp.model.responseDatamodel.TechSupportChatDataModel(
                 Constants.SEND_ID,
                 "Cool, let's talk about it later, shall we? This is going to be a huge!! We already sent you the details bro.",
                 "15:30"
             ),
-            com.example.ddaatapp.responseDatamodel.TechSupportChatDataModel(
+            com.example.ddaatapp.model.responseDatamodel.TechSupportChatDataModel(
                 Constants.RECEIVE_ID,
                 "Cool, let's talk about it later, shall we? This is going to be a huge!! We already sent you the details bro.",
                 "15:30"

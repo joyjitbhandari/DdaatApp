@@ -12,15 +12,12 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import com.example.ddaatapp.R
+import com.example.ddaatapp.activity.BaseActivity
 import com.example.ddaatapp.databinding.ActivityCompleteProfileBinding
 import com.example.ddaatapp.databinding.DialogGenderPickerBinding
 import com.example.ddaatapp.databinding.DialogTypeGenderBinding
 import com.example.ddaatapp.network.RetrofitClient
-import com.example.ddaatapp.`object`.Constants
-import com.example.ddaatapp.requestDatamodel.UpdateProfileRequest
-import com.example.ddaatapp.utils.hideProgressDialog
-import com.example.ddaatapp.utils.showProgressDialog
+import com.example.ddaatapp.utils.Constants
 import com.example.ddaatapp.utils.showToast
 import com.example.ddaatapp.viewModel.ProfileViewModel
 import com.example.ddaatapp.viewModel.ViewModelFactory
@@ -30,7 +27,7 @@ import com.google.gson.Gson
 import java.util.*
 
 
-class CompleteProfile : AppCompatActivity(), View.OnClickListener {
+class CompleteProfile : BaseActivity(), View.OnClickListener {
     private lateinit var binding: ActivityCompleteProfileBinding
 
     private lateinit var operationFlow: String
@@ -60,9 +57,9 @@ class CompleteProfile : AppCompatActivity(), View.OnClickListener {
     override fun onClick(view: View?) {
         when (view) {
             binding.btnNext -> {
-                showProgressDialog(this)
+                showProgressDialog()
                 viewModel.updateProfile(
-                    UpdateProfileRequest(
+                    com.example.ddaatapp.model.requestDatamodel.UpdateProfileRequest(
                         binding.etUserName.text.toString(),
                         gender,
                         binding.etBirthYear.text.toString()
@@ -184,15 +181,17 @@ class CompleteProfile : AppCompatActivity(), View.OnClickListener {
         viewModel.updateProfileResponse.observe(this) {
             hideProgressDialog()
             if(it?.success == true){
+                PrefsManager.get().save(
+                    PrefsManager.PREF_PROFILE,
+                    Gson().toJson(it.data)
+                )
                 when (operationFlow) {
                     Constants.EDIT -> {
                         showToast(it.message)
-                        PrefsManager.get().save(PrefsManager.PREF_PROFILE, Gson().toJson(it.data))
                         onBackPressed()
                     }
                     Constants.SIGN_UP -> {
                         showToast(it.message)
-                        PrefsManager.get().save(PrefsManager.PREF_PROFILE,Gson().toJson(it.data))
                         val intent = Intent(this, InterestActivity::class.java)
                         intent.putExtra("operation", operationFlow)
                         startActivity(intent)
