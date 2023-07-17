@@ -6,8 +6,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.ddaatapp.network.ApiService
-import com.example.ddaatapp.requestDatamodel.*
-import com.example.ddaatapp.responseDatamodel.*
 import com.flynaut.healthtag.util.Event
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

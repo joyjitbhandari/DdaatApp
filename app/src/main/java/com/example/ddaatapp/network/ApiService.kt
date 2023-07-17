@@ -3,10 +3,7 @@ package com.example.ddaatapp.network
 import com.example.ddaatapp.model.requestDatamodel.*
 import com.example.ddaatapp.model.responseDatamodel.*
 import retrofit2.Response
-import retrofit2.http.Body
-import retrofit2.http.FieldMap
-import retrofit2.http.FormUrlEncoded
-import retrofit2.http.POST
+import retrofit2.http.*
 
 interface ApiService {
 
@@ -50,6 +47,6 @@ interface ApiService {
     suspend fun getBlogList(): Response<BlogListResponse>
 
     @POST("blog-detail")
-    suspend fun getBlogDetail(): Response<BlogDetails>
+    suspend fun getBlogDetail(@QueryMap fields : Map<String, Int>): Response<BlogDetails>
 
 }

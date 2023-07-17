@@ -18,6 +18,7 @@ import com.example.ddaatapp.databinding.DialogGenderPickerBinding
 import com.example.ddaatapp.databinding.DialogTypeGenderBinding
 import com.example.ddaatapp.network.RetrofitClient
 import com.example.ddaatapp.utils.Constants
+import com.example.ddaatapp.utils.SavedData.profileData
 import com.example.ddaatapp.utils.showToast
 import com.example.ddaatapp.viewModel.ProfileViewModel
 import com.example.ddaatapp.viewModel.ViewModelFactory
@@ -43,14 +44,13 @@ class CompleteProfile : BaseActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         binding = ActivityCompleteProfileBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        initObserver()
 //   Checking the operation flow
         operationFlow = intent.getStringExtra("operation").toString()
         if (operationFlow == Constants.EDIT) {
+            binding.toolTitle.text = "Edit Profile"
             binding.btnNext.text = "Save"
         }
-
-        initObserver()
 
     }
 
@@ -181,6 +181,7 @@ class CompleteProfile : BaseActivity(), View.OnClickListener {
         viewModel.updateProfileResponse.observe(this) {
             hideProgressDialog()
             if(it?.success == true){
+//                profileData = it.data
                 PrefsManager.get().save(
                     PrefsManager.PREF_PROFILE,
                     Gson().toJson(it.data)

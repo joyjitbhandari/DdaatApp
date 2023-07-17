@@ -154,6 +154,7 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
                 val prefsManager = PrefsManager.get()
                 prefsManager.save(PrefsManager.PREF_API_TOKEN, it.data?.token.toString())
                 Log.d("token", "initObserver: ${it.data?.token.toString()}")
+//                profileData = it.data!!
                 PrefsManager.get().save(
                     PrefsManager.PREF_PROFILE,
                     Gson().toJson(it.data)

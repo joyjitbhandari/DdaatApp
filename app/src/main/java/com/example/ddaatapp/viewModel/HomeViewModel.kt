@@ -12,7 +12,7 @@ import com.example.ddaatapp.model.responseDatamodel.SubscriptionListResponse
 import com.flynaut.healthtag.util.Event
 import kotlinx.coroutines.launch
 
-class BlogViewModel(val apiService: ApiService) : ViewModel() {
+class HomeViewModel(val apiService: ApiService) : ViewModel() {
 
     private val _toastMsg: MutableLiveData<Event<String>> = MutableLiveData()
     val toastMsg: LiveData<Event<String>> get() = _toastMsg
@@ -41,18 +41,18 @@ class BlogViewModel(val apiService: ApiService) : ViewModel() {
         }
     }
 
-    fun bolgDetails() {
+    fun getBolgDetails(field: Map<String, Int>) {
         viewModelScope.launch {
-            try {
-                val response = apiService.getBlogDetail()
+//            try {
+                val response = apiService.getBlogDetail(field)
                 if (response.isSuccessful)
                     _blogDetailsResponse.value = response.body()
                 else
                     _toastMsg.postValue(Event("Something Went Wrong"))
-            } catch (e: Exception) {
-                _toastMsg.postValue(Event("server failure try again" ))
-                Log.d("error", "getSubscriptionList: ${e.printStackTrace()}")
-            }
+//            } catch (e: Exception) {
+//                _toastMsg.postValue(Event("server failure try again" ))
+//                Log.d("error", "getSubscriptionList: ${e.printStackTrace()}")
+//            }
         }
     }
 

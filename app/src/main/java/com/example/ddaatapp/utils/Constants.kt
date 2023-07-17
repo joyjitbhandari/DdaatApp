@@ -1,8 +1,9 @@
 package com.example.ddaatapp.utils
 
 object Constants {
-    //Base Url
+    //Urls
     const val BASE_URL = "https://dev-ddaat-admin.flynautstaging.com/api/"
+    const val IMAGE_URL = "https://dev-ddaat-admin.flynautstaging.com/public/"
 
     //Tech Support Chat
     const val SEND_ID = "SEND_ID"

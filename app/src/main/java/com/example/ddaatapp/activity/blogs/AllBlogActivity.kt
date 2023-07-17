@@ -6,6 +6,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.bumptech.glide.Glide
 import com.example.ddaatapp.R
 import com.example.ddaatapp.activity.BaseActivity
 import com.example.ddaatapp.adapter.ArticleBlogAdapter
@@ -14,93 +15,45 @@ import com.example.ddaatapp.databinding.ActivityAllBlogBinding
 import com.example.ddaatapp.model.responseDatamodel.BlogData
 import com.example.ddaatapp.model.responseDatamodel.BlogDetails
 import com.example.ddaatapp.network.RetrofitClient
+import com.example.ddaatapp.utils.Constants.IMAGE_URL
 import com.example.ddaatapp.utils.showToast
-import com.example.ddaatapp.viewModel.BlogViewModel
+import com.example.ddaatapp.viewModel.HomeViewModel
 import com.example.ddaatapp.viewModel.ViewModelFactory
 import com.flynaut.healthtag.util.EventObserver
 
-class AllBlogActivity : BaseActivity() , View.OnClickListener {
+class AllBlogActivity : BaseActivity() {
     private lateinit var binding : ActivityAllBlogBinding
 
-    private lateinit var viewModel: BlogViewModel
+    private lateinit var viewModel: HomeViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityAllBlogBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        viewModel = ViewModelProvider(this,ViewModelFactory(RetrofitClient().apiService))[BlogViewModel::class.java]
+        viewModel = ViewModelProvider(this,ViewModelFactory(RetrofitClient().apiService))[HomeViewModel::class.java]
         showProgressDialog()
         initObserver()
         viewModel.getAllBlog()
-//        // for article view
-//        val articleList = arrayListOf<com.example.ddaatapp.model.responseDatamodel.ArticleDataModel>(
-//            com.example.ddaatapp.model.responseDatamodel.ArticleDataModel(
-//                R.drawable.article_bg_img,
-//                "Lorem Ipsum is simply dummy text",
-//                "Lorem Ipsum is simply dummy text of the printing and.....",
-//                "June 04, 2022",
-//                "Smith"
-//            ),
-//            com.example.ddaatapp.model.responseDatamodel.ArticleDataModel(
-//                R.drawable.article_bg_img,
-//                "Lorem Ipsum is simply dummy text",
-//                "Lorem Ipsum is simply dummy text of the printing and.....",
-//                "June 04, 2022",
-//                "Smith"
-//            ),
-//            com.example.ddaatapp.model.responseDatamodel.ArticleDataModel(
-//                R.drawable.article_bg_img,
-//                "Lorem Ipsum is simply dummy text",
-//                "Lorem Ipsum is simply dummy text of the printing and.....",
-//                "June 04, 2022",
-//                "Smith"
-//            ),
-//            com.example.ddaatapp.model.responseDatamodel.ArticleDataModel(
-//                R.drawable.article_bg_img,
-//                "Lorem Ipsum is simply dummy text",
-//                "Lorem Ipsum is simply dummy text of the printing and.....",
-//                "June 04, 2022",
-//                "Smith"
-//            ),
-//            com.example.ddaatapp.model.responseDatamodel.ArticleDataModel(
-//                R.drawable.article_bg_img,
-//                "Lorem Ipsum is simply dummy text",
-//                "Lorem Ipsum is simply dummy text of the printing and.....",
-//                "June 04, 2022",
-//                "Smith"
-//            ),
-//            com.example.ddaatapp.model.responseDatamodel.ArticleDataModel(
-//                R.drawable.article_bg_img,
-//                "Lorem Ipsum is simply dummy text",
-//                "Lorem Ipsum is simply dummy text of the printing and.....",
-//                "June 04, 2022",
-//                "Smith"
-//            ),
-//            com.example.ddaatapp.model.responseDatamodel.ArticleDataModel(
-//                R.drawable.article_bg_img,
-//                "Lorem Ipsum is simply dummy text",
-//                "Lorem Ipsum is simply dummy text of the printing and.....",
-//                "June 04, 2022",
-//                "Smith"
-//            ),
-//            com.example.ddaatapp.model.responseDatamodel.ArticleDataModel(
-//                R.drawable.article_bg_img,
-//                "Lorem Ipsum is simply dummy text",
-//                "Lorem Ipsum is simply dummy text of the printing and.....",
-//                "June 04, 2022",
-//                "Smith"
-//            ),
-//
-//        )
 
-
+        binding.btnBack.setOnClickListener{
+            onBackPressed()
+        }
     }
 
     private fun initObserver() {
         viewModel.allBlogResponse.observe(this, Observer {
             hideProgressDialog()
-            if(it.success)
+            if(it.success) {
                 setDataAdapter(it.data)
+                Glide.with(this).load(IMAGE_URL+it.data[0].image).into(binding.articleImage)
+                binding.txtArticleName.text = it.data[0].title
+
+                val intent = Intent(this, BlogDetailsActivity::class.java)
+                intent.putExtra("blog_id",it.data[0].id)
+                binding.articleCard.setOnClickListener{
+                    startActivity(intent)
+                }
+            }
             else
                 showToast(it.message, Toast.LENGTH_SHORT)
         })
@@ -113,22 +66,11 @@ class AllBlogActivity : BaseActivity() , View.OnClickListener {
 
     private fun setDataAdapter(articleList:List<BlogData>){
         val articleRecyclerView = binding.articleRecyclerView
-        val articleAdapter = ArticleBlogAdapter(articleList,this,true)
+        val articleAdapter = ArticleBlogAdapter(articleList,this,true, articleList.size)
         articleRecyclerView.adapter = articleAdapter
 
         //Article item Decoration
         val articleSpacing = resources.getDimensionPixelSize(R.dimen._15dp)
         articleRecyclerView.addItemDecoration(GridListSpacingItemDecoration(articleSpacing))
-    }
-
-    override fun onClick(view: View?) {
-       when(view){
-           binding.articleCard->{
-               startActivity(Intent(this,BlogDetailsActivity::class.java))
-           }
-           binding.btnBack->{
-               onBackPressed()
-           }
-       }
     }
 }

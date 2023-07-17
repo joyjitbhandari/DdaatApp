@@ -3,11 +3,11 @@ package com.flynaut.healthtag.util
 import android.content.Context
 import android.content.SharedPreferences
 import androidx.annotation.StringDef
+import com.example.ddaatapp.model.responseDatamodel.ProfileData
 import com.google.gson.Gson
 import java.util.concurrent.atomic.AtomicBoolean
 
-
-class PrefsManager (context: Context) {
+class PrefsManager(context: Context) {
 
     private val sharedPrefName = "ddaat_preference"
     private val gson = Gson()
@@ -70,10 +70,6 @@ class PrefsManager (context: Context) {
     fun getString(@PrefKey key: String, defValue: String?): String =
         preferences.getString(key, defValue).toString()
 
-    //   fun getInt(@PrefKey key: String, defValue: Int): Int = preferences.getInt(key, defValue)
-
-//    fun getFloat(@PrefKey key: String, defValue: Float): Float = preferences.getFloat(key, defValue)
-
     fun getBoolean(@PrefKey key: String, defValue: Boolean): Boolean =
         preferences.getBoolean(key, defValue)
 
@@ -97,6 +93,4 @@ class PrefsManager (context: Context) {
     fun removeKey(keyName: String) {
         preferences.edit().remove(keyName).commit()
     }
-
-
 }

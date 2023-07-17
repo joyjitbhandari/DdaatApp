@@ -4,31 +4,38 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.*
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import com.example.ddaatapp.R
+import com.example.ddaatapp.activity.BaseActivity
 import com.example.ddaatapp.activity.blogs.AllBlogActivity
 import com.example.ddaatapp.activity.notification.NotificationActivity
 import com.example.ddaatapp.activity.showVideoContent.MyFavoriteActivity
 import com.example.ddaatapp.adapter.ArticleBlogAdapter
-import com.example.ddaatapp.utils.HorizontalListSpacingItemDecoration
-import com.example.ddaatapp.utils.MyDrawerNavigationItemSelectedListener
-import com.example.ddaatapp.utils.ShowDialog
 import com.example.ddaatapp.databinding.ActivityUnsubscribeHomeBinding
 import com.example.ddaatapp.fragment.*
-import com.example.ddaatapp.utils.Constants
+import com.example.ddaatapp.model.responseDatamodel.BlogData
+import com.example.ddaatapp.network.RetrofitClient
+import com.example.ddaatapp.utils.*
 import com.example.ddaatapp.utils.SavedData.profileData
+import com.example.ddaatapp.viewModel.HomeViewModel
+import com.example.ddaatapp.viewModel.ViewModelFactory
+import com.flynaut.healthtag.util.EventObserver
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.button.MaterialButton
 
-class UnsubscribeHomeActivity : AppCompatActivity(), View.OnClickListener {
+class UnsubscribeHomeActivity : BaseActivity(), View.OnClickListener {
 
     private lateinit var binding: ActivityUnsubscribeHomeBinding
     private lateinit var drawerLayout: DrawerLayout
     private lateinit var toggle: ActionBarDrawerToggle
+    private lateinit var viewModel : HomeViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,6 +49,14 @@ class UnsubscribeHomeActivity : AppCompatActivity(), View.OnClickListener {
         drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
         supportActionBar?.setDisplayUseLogoEnabled(true)
+
+        //View model initialized
+        viewModel = ViewModelProvider(this, ViewModelFactory(RetrofitClient().apiService))[HomeViewModel::class.java]
+
+        //view-model method callin
+        showProgressDialog()
+        initObserver()
+        viewModel.getAllBlog()
 
         //Setting drawer menu item visibility
         binding.navigationDrawerView.menu.findItem(R.id.drawerMySuperpower).isVisible = false
@@ -122,45 +137,6 @@ class UnsubscribeHomeActivity : AppCompatActivity(), View.OnClickListener {
            }
         }
 
-// for article view
-        val articleList = arrayListOf<com.example.ddaatapp.model.responseDatamodel.ArticleDataModel>(
-            com.example.ddaatapp.model.responseDatamodel.ArticleDataModel(
-                R.drawable.article_bg_img,
-                "Lorem Ipsum is simply dummy text",
-                "Lorem Ipsum is simply dummy text of the printing and.....",
-                "June 04, 2022",
-                "Smith"
-            ),
-            com.example.ddaatapp.model.responseDatamodel.ArticleDataModel(
-                R.drawable.article_bg_img,
-                "Lorem Ipsum is simply dummy text",
-                "Lorem Ipsum is simply dummy text of the printing and.....",
-                "June 04, 2022",
-                "Smith"
-            ),
-            com.example.ddaatapp.model.responseDatamodel.ArticleDataModel(
-                R.drawable.article_bg_img,
-                "Lorem Ipsum is simply dummy text",
-                "Lorem Ipsum is simply dummy text of the printing and.....",
-                "June 04, 2022",
-                "Smith"
-            ),
-            com.example.ddaatapp.model.responseDatamodel.ArticleDataModel(
-                R.drawable.article_bg_img,
-                "Lorem Ipsum is simply dummy text",
-                "Lorem Ipsum is simply dummy text of the printing and.....",
-                "June 04, 2022",
-                "Smith"
-            )
-        )
-        val articleRecyclerView = binding.articleRecyclerView
-//        val articleAdapter = ArticleBlogAdapter(articleList,this,false)
-//        articleRecyclerView.adapter = articleAdapter
-
-        //Article item Decoration
-        val articleSpacing = resources.getDimensionPixelSize(R.dimen._15dp)
-        articleRecyclerView.addItemDecoration(HorizontalListSpacingItemDecoration(articleSpacing))
-
 
 }
 
@@ -208,6 +184,31 @@ class UnsubscribeHomeActivity : AppCompatActivity(), View.OnClickListener {
             }
 
         }
+    }
+
+    private fun initObserver() {
+        viewModel.allBlogResponse.observe(this, Observer {
+            hideProgressDialog()
+            if(it.success)
+                setArticleAdapter(it.data)
+            else
+                showToast(it.message, Toast.LENGTH_SHORT)
+        })
+
+        viewModel.toastMsg.observe(this, EventObserver{
+            hideProgressDialog()
+            showToast(it, Toast.LENGTH_SHORT)
+        })
+    }
+
+    private fun setArticleAdapter(articleList:List<BlogData>){
+        val articleRecyclerView = binding.articleRecyclerView
+        val articleAdapter = ArticleBlogAdapter(articleList,this,false, 6)
+        articleRecyclerView.adapter = articleAdapter
+
+//        Article item Decoration
+        val articleSpacing = resources.getDimensionPixelSize(R.dimen._15dp)
+        articleRecyclerView.addItemDecoration(HorizontalListSpacingItemDecoration(articleSpacing))
     }
 
     override fun onBackPressed() {

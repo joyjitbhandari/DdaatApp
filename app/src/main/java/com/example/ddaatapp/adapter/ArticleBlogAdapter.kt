@@ -13,8 +13,10 @@ import com.example.ddaatapp.databinding.ArticleAndBlogItemBinding
 import com.example.ddaatapp.model.responseDatamodel.BlogData
 import com.example.ddaatapp.model.responseDatamodel.BlogDetails
 import com.example.ddaatapp.utils.Constants.BASE_URL
+import com.example.ddaatapp.utils.Constants.IMAGE_URL
+import com.google.android.gms.common.data.DataHolder
 
-class ArticleBlogAdapter(val articleList: List<BlogData>, val context:Context, private val isBlog:Boolean) :
+class ArticleBlogAdapter(val articleList: List<BlogData>, val context:Context, private val isBlog:Boolean, private val itemCount:Int) :
     RecyclerView.Adapter<ArticleBlogAdapter.ViewHolder>() {
     class ViewHolder(var binding:ArticleAndBlogItemBinding ): RecyclerView.ViewHolder(binding.root) {
         fun bind(blogData: BlogData, mContext:AppCompatActivity, context: Context, isBlog: Boolean){
@@ -23,7 +25,7 @@ class ArticleBlogAdapter(val articleList: List<BlogData>, val context:Context, p
                 binding.homeArticleView.visibility = View.GONE
 
                 Glide.with(binding.root.context)
-                    .load("$BASE_URL${blogData.image}")
+                    .load("$IMAGE_URL${blogData.image}")
                     .into(binding.blogCardBgImage)
                 binding.txtBlogName.text = blogData.title
                 binding.txtBlogDesc.text = blogData.description
@@ -34,16 +36,18 @@ class ArticleBlogAdapter(val articleList: List<BlogData>, val context:Context, p
                 binding.homeArticleView.visibility = View.VISIBLE
 
                 Glide.with(binding.root.context)
-                    .load("$BASE_URL${blogData.image}")
-                    .into(binding.blogCardBgImage)
-                binding.txtBlogName.text = blogData.title
-                binding.txtBlogDesc.text = blogData.description
-                binding.txtBlogAuthor.text = blogData.status // replace with author
-                binding.txtBlogDate.text = blogData.created_at
+                    .load("$IMAGE_URL${blogData.image}")
+                    .into(binding.articleCardBgImage)
+                binding.txtArticleName.text = blogData.title
+                binding.txtArticleDesc.text = blogData.description
+                binding.txtArticleAuthor.text = blogData.status // replace with author
+                binding.txtArticleDate.text = blogData.created_at
             }
 
             binding.root.setOnClickListener {
-                mContext.startActivity(Intent(context,BlogDetailsActivity::class.java))
+                val intent = Intent(context, BlogDetailsActivity::class.java)
+                intent.putExtra("blog_id", blogData.id)
+                mContext.startActivity(intent)
             }
         }
     }
@@ -55,7 +59,7 @@ class ArticleBlogAdapter(val articleList: List<BlogData>, val context:Context, p
     }
 
     override fun getItemCount(): Int {
-      return articleList.size
+      return itemCount
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
