@@ -2,9 +2,10 @@ package com.example.ddaatapp.activity.feedback
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.ddaatapp.activity.BaseActivity
 import com.example.ddaatapp.databinding.ActivityFeedBackBinding
 
-class FeedBackActivity : AppCompatActivity() {
+class FeedBackActivity : BaseActivity() {
     private lateinit var binding : ActivityFeedBackBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -117,6 +117,7 @@
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/dm_sans_medium_500"
                 android:gravity="center"
+                android:textAlignment="center"
                 android:text="@string/interactive"
                 android:textColor="@color/white"
                 android:textSize="18sp"

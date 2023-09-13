@@ -2,11 +2,12 @@ package com.example.ddaatapp.activity.myNotes
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.ddaatapp.activity.BaseActivity
 import com.example.ddaatapp.adapter.MyNotesAdapter
 import com.example.ddaatapp.databinding.ActivityMyNotesBinding
 import com.example.ddaatapp.model.responseDatamodel.MyNotesModel
 
-class MyNotesActivity : AppCompatActivity() {
+class MyNotesActivity : BaseActivity() {
     private lateinit var binding: ActivityMyNotesBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

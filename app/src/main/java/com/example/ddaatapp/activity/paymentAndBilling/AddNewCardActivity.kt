@@ -4,10 +4,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.enableSavedStateHandles
+import com.example.ddaatapp.activity.BaseActivity
 import com.example.ddaatapp.databinding.ActivityAddNewCardBinding
 import com.example.ddaatapp.utils.Constants
 
-class AddNewCardActivity : AppCompatActivity() , View.OnClickListener {
+class AddNewCardActivity : BaseActivity() , View.OnClickListener {
     private lateinit var binding:ActivityAddNewCardBinding
     private lateinit var operationFlow: String
     override fun onCreate(savedInstanceState: Bundle?) {

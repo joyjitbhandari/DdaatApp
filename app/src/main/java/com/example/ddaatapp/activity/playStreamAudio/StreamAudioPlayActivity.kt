@@ -3,10 +3,11 @@ package com.example.ddaatapp.activity.playStreamAudio
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import com.example.ddaatapp.activity.BaseActivity
 import com.example.ddaatapp.databinding.ActivityStreamAudioPlayBinding
 import com.example.ddaatapp.utils.Constants
 
-class StreamAudioPlayActivity : AppCompatActivity(), View.OnClickListener  {
+class StreamAudioPlayActivity : BaseActivity(), View.OnClickListener  {
     private lateinit var binding:ActivityStreamAudioPlayBinding
     private lateinit var operationFlow : String
     override fun onCreate(savedInstanceState: Bundle?) {

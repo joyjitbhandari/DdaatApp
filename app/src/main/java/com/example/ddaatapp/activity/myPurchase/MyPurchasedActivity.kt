@@ -3,11 +3,12 @@ package com.example.ddaatapp.activity.myPurchase
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.ddaatapp.R
+import com.example.ddaatapp.activity.BaseActivity
 import com.example.ddaatapp.adapter.MyPurchasedAdapter
 import com.example.ddaatapp.utils.LinearListSpacingItemDecoration
 import com.example.ddaatapp.databinding.ActivityMyPurchaseBinding
 
-class MyPurchasedActivity : AppCompatActivity() {
+class MyPurchasedActivity : BaseActivity() {
     private lateinit var binding: ActivityMyPurchaseBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

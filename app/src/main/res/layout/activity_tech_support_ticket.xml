@@ -69,6 +69,7 @@
 <!--Add ticket Button-->
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnAddTicket"
+        android:backgroundTint="@color/blue_bg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Add Ticket"

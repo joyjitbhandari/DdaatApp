@@ -5,23 +5,6 @@ import android.content.Context
 import android.view.View
 import android.widget.Toast
 
-
-private var progressDialog: ProgressDialog? = null
-
-//fun Context.showProgressDialog() {
-//    if (progressDialog == null) {
-//        progressDialog = ProgressDialog(this)
-//        progressDialog?.setMessage("Loading...")
-//        progressDialog?.isIndeterminate = true
-//    }
-//    progressDialog?.show()
-//}
-//
-//fun hideProgressDialog() {
-//    progressDialog?.dismiss()
-//    progressDialog = null
-//}
-
 fun View.setVisible(isVisible: Boolean) {
     visibility = if (isVisible) View.VISIBLE else View.GONE
 }

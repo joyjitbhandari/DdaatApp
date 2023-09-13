@@ -53,10 +53,10 @@ class UnsubscribeHomeActivity : BaseActivity(), View.OnClickListener {
         //View model initialized
         viewModel = ViewModelProvider(this, ViewModelFactory(RetrofitClient().apiService))[HomeViewModel::class.java]
 
-        //view-model method callin
-        showProgressDialog()
-        initObserver()
-        viewModel.getAllBlog()
+        //view-model method calling
+            showProgressDialog()
+            initObserver()
+            viewModel.getAllBlog()
 
         //Setting drawer menu item visibility
         binding.navigationDrawerView.menu.findItem(R.id.drawerMySuperpower).isVisible = false

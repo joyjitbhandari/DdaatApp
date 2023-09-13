@@ -2,10 +2,11 @@ package com.example.ddaatapp.activity.myNotes
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.ddaatapp.activity.BaseActivity
 import com.example.ddaatapp.databinding.ActivityShowNotesBinding
 import com.example.ddaatapp.model.responseDatamodel.MyNotesModel
 
-class ShowNotesActivity : AppCompatActivity() {
+class ShowNotesActivity : BaseActivity() {
     private lateinit var binding : ActivityShowNotesBinding
 
     var note = ArrayList<com.example.ddaatapp.model.responseDatamodel.MyNotesModel>()

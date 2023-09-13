@@ -3,11 +3,12 @@ package com.example.ddaatapp.activity.notification
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.ddaatapp.R
+import com.example.ddaatapp.activity.BaseActivity
 import com.example.ddaatapp.adapter.NotificationAdapter
 import com.example.ddaatapp.utils.LinearListSpacingItemDecoration
 import com.example.ddaatapp.databinding.ActivityNotificationBinding
 
-class NotificationActivity : AppCompatActivity() {
+class NotificationActivity : BaseActivity() {
     lateinit var binding: ActivityNotificationBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

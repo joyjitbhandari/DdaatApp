@@ -6,7 +6,6 @@ import android.util.Log
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.ddaatapp.R
@@ -15,8 +14,6 @@ import com.example.ddaatapp.activity.forgot.ForgotActivity
 import com.example.ddaatapp.activity.signup.SignUpActivity
 import com.example.ddaatapp.databinding.ActivityLoginBinding
 import com.example.ddaatapp.network.RetrofitClient
-import com.example.ddaatapp.network.TokenManager
-import com.example.ddaatapp.model.requestDatamodel.LoginRequest
 import com.example.ddaatapp.subscriptionScreen.HomeActivity
 import com.example.ddaatapp.unsubscribeScreen.UnsubscribeHomeActivity
 import com.example.ddaatapp.utils.*
@@ -81,57 +78,56 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
             binding.txtForgotPassword -> startActivity(Intent(this, ForgotActivity::class.java))
             binding.txtDontHaveAcc -> startActivity(Intent(this, SignUpActivity::class.java))
             binding.loginBtn -> {
+                    val email = binding.etEmailMob
+                    val userId = binding.etUserId
+                    val password = binding.etPwd
 
-                val email = binding.etEmailMob
-                val userId = binding.etUserId
-                val password = binding.etPwd
-
-                if (!isEmailMobile) {
-                    if (doValidations(userId, password)) {
-                        //user id
-                        showProgressDialog()
-                        viewModel.login(
-                            com.example.ddaatapp.model.requestDatamodel.LoginRequest(
-                                userId.text.toString(),
-                                password.text.toString(),
-                                "userid",
-                                null,
-                                null
-                            )
-                        )
-                    }
-
-                } else {
-                    if (doValidations(email, password)) {
-                        if (validateEmail(email.text.toString())) {
-                            //email
+                    if (!isEmailMobile) {
+                        if (doValidations(userId, password)) {
+                            //user id
                             showProgressDialog()
                             viewModel.login(
                                 com.example.ddaatapp.model.requestDatamodel.LoginRequest(
-                                    null,
+                                    userId.text.toString(),
                                     password.text.toString(),
-                                    "email",
+                                    "userid",
                                     null,
-                                    email.text.toString()
-                                )
-                            )
-                        } else if (validateMobile(email.text.toString())) {
-                            //mobile
-                            showProgressDialog()
-                            viewModel.login(
-                                com.example.ddaatapp.model.requestDatamodel.LoginRequest(
-                                    null,
-                                    password.text.toString(),
-                                    "mobile",
-                                    email.text.toString(),
                                     null
                                 )
                             )
-                        }else{
-                            showToast("Above credentials are not correct ")
+                        }
+
+                    } else {
+                        if (doValidations(email, password)) {
+                            if (validateEmail(email.text.toString())) {
+                                //email
+                                showProgressDialog()
+                                viewModel.login(
+                                    com.example.ddaatapp.model.requestDatamodel.LoginRequest(
+                                        null,
+                                        password.text.toString(),
+                                        "email",
+                                        null,
+                                        email.text.toString()
+                                    )
+                                )
+                            } else if (validateMobile(email.text.toString())) {
+                                //mobile
+                                showProgressDialog()
+                                viewModel.login(
+                                    com.example.ddaatapp.model.requestDatamodel.LoginRequest(
+                                        null,
+                                        password.text.toString(),
+                                        "mobile",
+                                        email.text.toString(),
+                                        null
+                                    )
+                                )
+                            }else{
+                                showToast("Above credentials are not correct ")
+                            }
                         }
                     }
-                }
             }
         }
     }

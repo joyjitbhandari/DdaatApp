@@ -2,9 +2,10 @@ package com.example.ddaatapp.activity.aboutDdaat
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.ddaatapp.activity.BaseActivity
 import com.example.ddaatapp.databinding.ActivityPrivacyBinding
 
-class PrivacyActivity : AppCompatActivity() {
+class PrivacyActivity : BaseActivity() {
     private lateinit var binding: ActivityPrivacyBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -436,7 +436,9 @@
                     tools:listitem="@layout/article_and_blog_item" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
-        </ScrollView>        <com.google.android.material.bottomnavigation.BottomNavigationView
+        </ScrollView>
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
         style="@style/Widget.MaterialComponents.BottomNavigationView"
         android:id="@+id/bottom_bar"
         android:layout_width="0dp"

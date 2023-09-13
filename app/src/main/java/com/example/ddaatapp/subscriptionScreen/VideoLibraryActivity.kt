@@ -9,6 +9,7 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.example.ddaatapp.R
+import com.example.ddaatapp.activity.BaseActivity
 import com.example.ddaatapp.activity.notification.NotificationActivity
 import com.example.ddaatapp.activity.showVideoContent.MyFavoriteActivity
 import com.example.ddaatapp.activity.showVideoContent.MyWatchlistActivity
@@ -19,7 +20,7 @@ import com.example.ddaatapp.utils.*
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.button.MaterialButton
 
-class VideoLibraryActivity: AppCompatActivity() , View.OnClickListener  {
+class VideoLibraryActivity: BaseActivity() , View.OnClickListener  {
     lateinit var binding: ActivityVideoLibraryBinding
 
     private lateinit var drawerLayout: DrawerLayout

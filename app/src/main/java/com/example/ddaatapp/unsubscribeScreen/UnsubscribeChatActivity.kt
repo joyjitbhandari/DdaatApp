@@ -9,6 +9,7 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.example.ddaatapp.R
+import com.example.ddaatapp.activity.BaseActivity
 import com.example.ddaatapp.activity.notification.NotificationActivity
 import com.example.ddaatapp.activity.showVideoContent.MyFavoriteActivity
 import com.example.ddaatapp.adapter.UnsubscribeChatListAdapter
@@ -20,7 +21,7 @@ import com.example.ddaatapp.utils.SavedData
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.button.MaterialButton
 
-class UnsubscribeChatActivity : AppCompatActivity(), View.OnClickListener {
+class UnsubscribeChatActivity : BaseActivity(), View.OnClickListener {
     private lateinit var binding: ActivityUnsubscribeChatBinding
 
     private lateinit var drawerLayout: DrawerLayout

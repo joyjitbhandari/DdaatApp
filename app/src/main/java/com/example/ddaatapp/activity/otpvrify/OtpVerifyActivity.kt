@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.EditText
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.ddaatapp.activity.BaseActivity
@@ -13,7 +12,6 @@ import com.example.ddaatapp.activity.forgot.ChangePwdActivity
 import com.example.ddaatapp.activity.signup.CompleteProfile
 import com.example.ddaatapp.databinding.ActivityOtpVerifyBinding
 import com.example.ddaatapp.network.RetrofitClient
-import com.example.ddaatapp.network.TokenManager
 import com.example.ddaatapp.utils.Constants.FORGOT
 import com.example.ddaatapp.utils.Constants.SIGN_UP
 import com.example.ddaatapp.utils.*

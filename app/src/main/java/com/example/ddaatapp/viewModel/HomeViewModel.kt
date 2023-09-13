@@ -43,16 +43,16 @@ class HomeViewModel(val apiService: ApiService) : ViewModel() {
 
     fun getBolgDetails(field: Map<String, Int>) {
         viewModelScope.launch {
-//            try {
+            try {
                 val response = apiService.getBlogDetail(field)
                 if (response.isSuccessful)
                     _blogDetailsResponse.value = response.body()
                 else
                     _toastMsg.postValue(Event("Something Went Wrong"))
-//            } catch (e: Exception) {
-//                _toastMsg.postValue(Event("server failure try again" ))
-//                Log.d("error", "getSubscriptionList: ${e.printStackTrace()}")
-//            }
+            } catch (e: Exception) {
+                _toastMsg.postValue(Event("server failure try again" ))
+                Log.d("error", "getSubscriptionList: ${e.printStackTrace()}")
+            }
         }
     }
 

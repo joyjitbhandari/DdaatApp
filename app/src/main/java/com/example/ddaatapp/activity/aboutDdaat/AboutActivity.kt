@@ -5,9 +5,10 @@ import android.os.Binder
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import com.example.ddaatapp.activity.BaseActivity
 import com.example.ddaatapp.databinding.ActivityAboutBinding
 
-class AboutActivity : AppCompatActivity() , View.OnClickListener{
+class AboutActivity : BaseActivity() , View.OnClickListener{
     private lateinit var binding: ActivityAboutBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

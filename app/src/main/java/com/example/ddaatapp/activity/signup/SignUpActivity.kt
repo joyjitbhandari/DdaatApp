@@ -41,36 +41,38 @@ class SignUpActivity : BaseActivity(), View.OnClickListener {
         when (view) {
 
             binding.signupBtn -> {
-                if (doValidations()) {
-                    showProgressDialog()
-                    if (validateEmail(binding.etEmailMobile.text.toString())) {
-                        viewModel.signUp(
-                            com.example.ddaatapp.model.requestDatamodel.SignUpRequest(
-                                binding.etName.text.toString(),
-                                binding.etUserId.text.toString(),
-                                binding.etPwd.text.toString(),
-                                binding.etCnfPwd.text.toString(),
-                                binding.etEmailMobile.text.toString(),
-                                "email",
-                                ""
+                if(isInternetConnected(this)){
+                    if (doValidations()) {
+                        showProgressDialog()
+                        if (validateEmail(binding.etEmailMobile.text.toString())) {
+                            viewModel.signUp(
+                                com.example.ddaatapp.model.requestDatamodel.SignUpRequest(
+                                    binding.etName.text.toString(),
+                                    binding.etUserId.text.toString(),
+                                    binding.etPwd.text.toString(),
+                                    binding.etCnfPwd.text.toString(),
+                                    binding.etEmailMobile.text.toString(),
+                                    "email",
+                                    ""
+                                )
                             )
-                        )
-                    } else if (validateMobile(binding.etEmailMobile.text.toString())) {
-                        viewModel.signUp(
-                            com.example.ddaatapp.model.requestDatamodel.SignUpRequest(
-                                binding.etName.text.toString(),
-                                binding.etUserId.text.toString(),
-                                binding.etPwd.text.toString(),
-                                binding.etCnfPwd.text.toString(),
-                                "",
-                                "mobile",
-                                binding.etEmailMobile.text.toString()
+                        } else if (validateMobile(binding.etEmailMobile.text.toString())) {
+                            viewModel.signUp(
+                                com.example.ddaatapp.model.requestDatamodel.SignUpRequest(
+                                    binding.etName.text.toString(),
+                                    binding.etUserId.text.toString(),
+                                    binding.etPwd.text.toString(),
+                                    binding.etCnfPwd.text.toString(),
+                                    "",
+                                    "mobile",
+                                    binding.etEmailMobile.text.toString()
+                                )
                             )
-                        )
-                    } else {
-                        Toast.makeText(this, "Enter valid Email or mobile number", Toast.LENGTH_SHORT).show()
+                        } else {
+                            Toast.makeText(this, "Enter valid Email or mobile number", Toast.LENGTH_SHORT).show()
+                        }
                     }
-                }
+                }else showNoInternetDialog(this)
             }
         }
 

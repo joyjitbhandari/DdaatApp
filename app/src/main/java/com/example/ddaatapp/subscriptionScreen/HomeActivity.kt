@@ -48,9 +48,9 @@ class HomeActivity : BaseActivity(), View.OnClickListener {
         viewModel = ViewModelProvider(this, ViewModelFactory(RetrofitClient().apiService))[HomeViewModel::class.java]
 
         //view-model method calling
-        showProgressDialog()
-        initObserver()
-        viewModel.getAllBlog()
+            showProgressDialog()
+            initObserver()
+            viewModel.getAllBlog()
 
         //Setting up drawer Menu
         drawerLayout = binding.drawerLayout
@@ -107,9 +107,6 @@ class HomeActivity : BaseActivity(), View.OnClickListener {
             }
             false
         })
-
-
-
 
 // for notes view
         val noteList = arrayListOf<com.example.ddaatapp.model.responseDatamodel.MyNotesModel>(

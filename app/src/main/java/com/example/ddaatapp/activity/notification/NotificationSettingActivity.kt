@@ -3,10 +3,11 @@ package com.example.ddaatapp.activity.notification
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.ddaatapp.R
+import com.example.ddaatapp.activity.BaseActivity
 import com.example.ddaatapp.databinding.ActivityNotificationSettingBinding
 
 
-class NotificationSettingActivity : AppCompatActivity() {
+class NotificationSettingActivity : BaseActivity() {
     private lateinit var binding: ActivityNotificationSettingBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

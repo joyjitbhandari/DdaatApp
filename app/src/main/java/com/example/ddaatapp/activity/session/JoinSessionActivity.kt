@@ -4,9 +4,10 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import com.example.ddaatapp.activity.BaseActivity
 import com.example.ddaatapp.databinding.ActivityJoinSessionBinding
 
-class JoinSessionActivity : AppCompatActivity() , View.OnClickListener {
+class JoinSessionActivity : BaseActivity() , View.OnClickListener {
     private lateinit var binding: ActivityJoinSessionBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -186,5 +186,12 @@ You’ll see your dashboard at the end that will reveal your workplace talents.<
     <string name="search">Search</string>
     <string name="live_streaming">Live Streaming</string>
     <string name="suggest_topics">Suggest Topics</string>
+    <string name="title_activity_no_internet">NoInternetActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="previous">Previous</string>
 
 </resources>

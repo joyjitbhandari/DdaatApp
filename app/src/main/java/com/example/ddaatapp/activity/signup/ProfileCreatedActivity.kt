@@ -6,10 +6,11 @@ import android.os.Bundle
 import android.widget.Button
 import com.example.ddaatapp.subscriptionScreen.HomeActivity
 import com.example.ddaatapp.R
+import com.example.ddaatapp.activity.BaseActivity
 import com.example.ddaatapp.utils.Constants
 import com.example.ddaatapp.unsubscribeScreen.UnsubscribeHomeActivity
 
-class ProfileCreatedActivity : AppCompatActivity() {
+class ProfileCreatedActivity : BaseActivity() {
 
     private lateinit var operationFlow : String
     override fun onCreate(savedInstanceState: Bundle?) {

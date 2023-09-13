@@ -12,6 +12,8 @@ import com.example.ddaatapp.activity.subscription.SubscriptionDetailsActivity
 import com.example.ddaatapp.databinding.SubscriptionCardItemBinding
 import com.example.ddaatapp.model.responseDatamodel.SubscriptionData
 import com.example.ddaatapp.utils.Constants
+import com.example.ddaatapp.utils.DateFormat
+import com.example.ddaatapp.utils.DateUtils
 
 class SubscriptionAdapter(private val cardList: List<SubscriptionData>, var context: Context, var isAfterSignIn: Boolean) :
     RecyclerView.Adapter<SubscriptionAdapter.ViewHolder>() {
@@ -23,7 +25,7 @@ class SubscriptionAdapter(private val cardList: List<SubscriptionData>, var cont
             binding.cardPlanName.text = subscriptionData.subscription_name
             binding.price.text = subscriptionData.price
             binding.cardDesc.text = subscriptionData.feature
-            binding.cardInfo.text = subscriptionData.created_at
+            binding.cardInfo.text = DateUtils.convertUtcToCustomFormat(subscriptionData.created_at,DateFormat.DATE_FORMAT)
 
 
             if(isAfterSignIn){

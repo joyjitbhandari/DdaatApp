@@ -14,6 +14,8 @@ import com.example.ddaatapp.model.responseDatamodel.BlogData
 import com.example.ddaatapp.model.responseDatamodel.BlogDetails
 import com.example.ddaatapp.utils.Constants.BASE_URL
 import com.example.ddaatapp.utils.Constants.IMAGE_URL
+import com.example.ddaatapp.utils.DateFormat
+import com.example.ddaatapp.utils.DateUtils
 import com.google.android.gms.common.data.DataHolder
 
 class ArticleBlogAdapter(val articleList: List<BlogData>, val context:Context, private val isBlog:Boolean, private val itemCount:Int) :
@@ -30,7 +32,7 @@ class ArticleBlogAdapter(val articleList: List<BlogData>, val context:Context, p
                 binding.txtBlogName.text = blogData.title
                 binding.txtBlogDesc.text = blogData.description
                 binding.txtBlogAuthor.text = blogData.status // replace with author
-                binding.txtBlogDate.text = blogData.created_at
+                binding.txtBlogDate.text = DateUtils.convertUtcToCustomFormat(blogData.created_at,DateFormat.DATE_FORMAT)
             }else{
                 binding.blogArticleCard.visibility = View.GONE
                 binding.homeArticleView.visibility = View.VISIBLE
@@ -41,7 +43,7 @@ class ArticleBlogAdapter(val articleList: List<BlogData>, val context:Context, p
                 binding.txtArticleName.text = blogData.title
                 binding.txtArticleDesc.text = blogData.description
                 binding.txtArticleAuthor.text = blogData.status // replace with author
-                binding.txtArticleDate.text = blogData.created_at
+                binding.txtArticleDate.text = DateUtils.convertUtcToCustomFormat(blogData.created_at,DateFormat.DATE_FORMAT)
             }
 
             binding.root.setOnClickListener {

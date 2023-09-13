@@ -4,11 +4,12 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import com.example.ddaatapp.R
+import com.example.ddaatapp.activity.BaseActivity
 import com.example.ddaatapp.adapter.ChatMessageAdapter
 import com.example.ddaatapp.databinding.ActivityChatMessageBinding
 import com.example.ddaatapp.utils.Constants
 
-class ChatMessageActivity : AppCompatActivity(), View.OnClickListener {
+class ChatMessageActivity : BaseActivity(), View.OnClickListener {
     private lateinit var binding : ActivityChatMessageBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

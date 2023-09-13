@@ -2,9 +2,10 @@ package com.example.ddaatapp.activity.session
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.ddaatapp.activity.BaseActivity
 import com.example.ddaatapp.databinding.ActivityPastSessionHistoryBinding
 
-class PastSessionHistoryActivity : AppCompatActivity() {
+class PastSessionHistoryActivity : BaseActivity() {
     private lateinit var binding : ActivityPastSessionHistoryBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
