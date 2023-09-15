@@ -74,6 +74,10 @@ class SignUpActivity : BaseActivity(), View.OnClickListener {
                     }
                 }else showNoInternetDialog(this)
             }
+
+            binding.txtHaveAcc->{
+                onBackPressed()
+            }
         }
 
     }

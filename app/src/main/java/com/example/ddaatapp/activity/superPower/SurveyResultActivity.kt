@@ -1,19 +1,21 @@
 package com.example.ddaatapp.activity.superPower
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import com.example.ddaatapp.activity.BaseActivity
 import com.example.ddaatapp.adapter.SurveyResultAdapter
 import com.example.ddaatapp.databinding.ActivityMySuperPowerBinding
 import com.example.ddaatapp.model.responseDatamodel.SurveyResultDataModel
+import com.example.ddaatapp.utils.Utils.isSurveyDone
 
-class SurveyResultActivity : AppCompatActivity() , View.OnClickListener {
+class SurveyResultActivity : BaseActivity() , View.OnClickListener {
     private lateinit var binding:ActivityMySuperPowerBinding
     override fun onCreate(savedInstanceState: Bundle?){
         super.onCreate(savedInstanceState)
         binding = ActivityMySuperPowerBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        isSurveyDone = true
         val resultList = arrayListOf<com.example.ddaatapp.model.responseDatamodel.SurveyResultDataModel>(
             com.example.ddaatapp.model.responseDatamodel.SurveyResultDataModel(
                 50,

@@ -4,9 +4,10 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import com.example.ddaatapp.activity.BaseActivity
 import com.example.ddaatapp.databinding.ActivitySurveyBinding
 
-class SurveyActivity : AppCompatActivity(), View.OnClickListener {
+class SurveyActivity : BaseActivity(), View.OnClickListener {
     lateinit var binding: ActivitySurveyBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

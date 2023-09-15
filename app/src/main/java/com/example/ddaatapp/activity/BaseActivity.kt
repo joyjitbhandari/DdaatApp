@@ -10,7 +10,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.ddaatapp.R
 import com.example.ddaatapp.network.NoInternetActivity
-import com.example.ddaatapp.utils.Constants.shouldCheckConnectivity
+import com.example.ddaatapp.utils.Utils.shouldCheckConnectivity
 
 open class BaseActivity : AppCompatActivity() {
 

@@ -163,7 +163,6 @@ class HomeActivity : BaseActivity(), View.OnClickListener {
                }
                R.id.btn_courses ->{
                    inflateFragment(HomeCoursesFragment.newInstance())
-
                }
            }
         }

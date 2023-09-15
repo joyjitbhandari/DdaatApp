@@ -3,7 +3,7 @@ package com.example.ddaatapp.network
 import android.os.Bundle
 import com.example.ddaatapp.activity.BaseActivity
 import com.example.ddaatapp.databinding.ActivityNoInternetBinding
-import com.example.ddaatapp.utils.Constants
+import com.example.ddaatapp.utils.Utils.shouldCheckConnectivity
 
 class NoInternetActivity : BaseActivity() {
     private lateinit var binding : ActivityNoInternetBinding
@@ -15,7 +15,7 @@ class NoInternetActivity : BaseActivity() {
         binding.btnRetry.setOnClickListener{
             if (isInternetConnected(this)) {
                 // If there is internet connectivity, finish this activity and return to the previous one.
-                Constants.shouldCheckConnectivity = true
+                shouldCheckConnectivity = true
                 finish()
             } else {
                 // If there is still no internet connectivity, refresh the current activity.
@@ -28,6 +28,6 @@ class NoInternetActivity : BaseActivity() {
 
     override fun onBackPressed() {
         super.onBackPressed()
-        Constants.shouldCheckConnectivity = true
+        shouldCheckConnectivity = true
     }
 }

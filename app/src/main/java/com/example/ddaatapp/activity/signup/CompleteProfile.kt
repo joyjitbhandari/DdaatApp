@@ -1,5 +1,6 @@
 package com.example.ddaatapp.activity.signup
 
+import android.annotation.SuppressLint
 import android.app.DatePickerDialog
 import android.app.Dialog
 import android.content.Intent
@@ -12,13 +13,17 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import com.example.ddaatapp.R
 import com.example.ddaatapp.activity.BaseActivity
+import com.example.ddaatapp.adapter.AvtarSelectAdapter
 import com.example.ddaatapp.databinding.ActivityCompleteProfileBinding
 import com.example.ddaatapp.databinding.DialogGenderPickerBinding
 import com.example.ddaatapp.databinding.DialogTypeGenderBinding
+import com.example.ddaatapp.model.AvtarListModel
 import com.example.ddaatapp.network.RetrofitClient
 import com.example.ddaatapp.utils.Constants
 import com.example.ddaatapp.utils.SavedData.profileData
+import com.example.ddaatapp.utils.setVisible
 import com.example.ddaatapp.utils.showToast
 import com.example.ddaatapp.viewModel.ProfileViewModel
 import com.example.ddaatapp.viewModel.ViewModelFactory
@@ -26,6 +31,7 @@ import com.flynaut.healthtag.util.EventObserver
 import com.flynaut.healthtag.util.PrefsManager
 import com.google.gson.Gson
 import java.util.*
+import kotlin.collections.ArrayList
 
 
 class CompleteProfile : BaseActivity(), View.OnClickListener {
@@ -33,9 +39,12 @@ class CompleteProfile : BaseActivity(), View.OnClickListener {
 
     private lateinit var operationFlow: String
     private lateinit var viewModel: ProfileViewModel
+    private lateinit var avtarAdapter : AvtarSelectAdapter
+    private lateinit var avtarList : ArrayList<AvtarListModel>
 
     private  var gender : String = ""
 
+    @SuppressLint("NotifyDataSetChanged")
     override fun onCreate(savedInstanceState: Bundle?) {
         viewModel = ViewModelProvider(
             this,
@@ -52,6 +61,17 @@ class CompleteProfile : BaseActivity(), View.OnClickListener {
             binding.btnNext.text = "Save"
         }
 
+        avtarList = arrayListOf(
+            AvtarListModel(R.drawable.avatar4,false),
+            AvtarListModel(R.drawable.avatar2,false),
+            AvtarListModel(R.drawable.avatar3,false),
+            AvtarListModel(R.drawable.avatar4,false))
+
+        val avtarRecycler = binding.avatarRecycler
+        avtarAdapter = AvtarSelectAdapter(avtarList) {image->
+
+        }
+        avtarRecycler.adapter = avtarAdapter
     }
 
     override fun onClick(view: View?) {

@@ -5,12 +5,13 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import com.example.ddaatapp.activity.BaseActivity
 import com.example.ddaatapp.adapter.SurveyQuestionAnswerAdapter
 import com.example.ddaatapp.databinding.ActivitySurveyQuestionAnswerBinding
 import com.example.ddaatapp.model.responseDatamodel.SurveyAnswerDataModel
 import com.example.ddaatapp.model.responseDatamodel.SurveyQuestionDataModel
 
-class SurveyQuestionAnswerActivity : AppCompatActivity(), View.OnClickListener {
+class SurveyQuestionAnswerActivity : BaseActivity(), View.OnClickListener {
     private lateinit var binding: ActivitySurveyQuestionAnswerBinding
 
     val answerList =  ArrayList<com.example.ddaatapp.model.responseDatamodel.SurveyAnswerDataModel>()
