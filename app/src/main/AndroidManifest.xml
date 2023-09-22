@@ -175,7 +175,7 @@
             android:name=".activity.subscription.SubscriptionActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.signup.InterestActivity"
+            android:name=".activity.signup.CategoryActivity"
             android:exported="false" />
         <activity
             android:name=".activity.signup.CompleteProfile"

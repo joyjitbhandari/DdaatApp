@@ -1,12 +1,11 @@
 package com.example.ddaatapp.activity.profile
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import com.example.ddaatapp.activity.BaseActivity
 import com.example.ddaatapp.activity.signup.CompleteProfile
-import com.example.ddaatapp.activity.signup.InterestActivity
+import com.example.ddaatapp.activity.signup.CategoryActivity
 import com.example.ddaatapp.databinding.ActivityMyProfileBinding
 import com.example.ddaatapp.utils.Constants
 import com.example.ddaatapp.utils.SavedData.profileData
@@ -36,7 +35,7 @@ class MyProfileActivity : BaseActivity() , View.OnClickListener {
                startActivity(intent)
            }
            binding.btnEditCategory->{
-               val intent = Intent(this, InterestActivity::class.java)
+               val intent = Intent(this, CategoryActivity::class.java)
                intent.putExtra("operation",operationFlow)
                startActivity(intent)
            }

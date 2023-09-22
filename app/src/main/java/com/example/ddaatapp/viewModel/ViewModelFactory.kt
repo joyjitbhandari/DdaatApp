@@ -24,6 +24,8 @@ class ViewModelFactory(private val apiService: ApiService) : ViewModelProvider.N
 
             modelClass.isAssignableFrom(HomeViewModel::class.java) -> HomeViewModel(apiService) as T
 
+            modelClass.isAssignableFrom(CategoryViewModel::class.java)-> CategoryViewModel(apiService) as T
+
             else -> throw IllegalArgumentException("ViewModel Not Found")
         }
 

@@ -11,7 +11,6 @@ import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.example.ddaatapp.R
 import com.example.ddaatapp.activity.BaseActivity
@@ -22,8 +21,6 @@ import com.example.ddaatapp.databinding.DialogTypeGenderBinding
 import com.example.ddaatapp.model.AvtarListModel
 import com.example.ddaatapp.network.RetrofitClient
 import com.example.ddaatapp.utils.Constants
-import com.example.ddaatapp.utils.SavedData.profileData
-import com.example.ddaatapp.utils.setVisible
 import com.example.ddaatapp.utils.showToast
 import com.example.ddaatapp.viewModel.ProfileViewModel
 import com.example.ddaatapp.viewModel.ViewModelFactory
@@ -95,7 +92,7 @@ class CompleteProfile : BaseActivity(), View.OnClickListener {
                 showDatePickerDialog()
             }
             binding.btnNext -> {
-                val intent = Intent(this, InterestActivity::class.java)
+                val intent = Intent(this, CategoryActivity::class.java)
                 startActivity(intent)
             }
 
@@ -213,7 +210,7 @@ class CompleteProfile : BaseActivity(), View.OnClickListener {
                     }
                     Constants.SIGN_UP -> {
                         showToast(it.message)
-                        val intent = Intent(this, InterestActivity::class.java)
+                        val intent = Intent(this, CategoryActivity::class.java)
                         intent.putExtra("operation", operationFlow)
                         startActivity(intent)
                     }

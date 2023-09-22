@@ -49,4 +49,7 @@ interface ApiService {
     @POST("blog-detail")
     suspend fun getBlogDetail(@QueryMap fields : Map<String, Int>): Response<BlogDetails>
 
+    @POST("category-list")
+    suspend fun getCategory(): Response<CategoryList>
+
 }
