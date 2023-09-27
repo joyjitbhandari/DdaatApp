@@ -45,10 +45,10 @@ class HomeActivity : BaseActivity(), View.OnClickListener {
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        if (SavedData.profileData?.subscription_id.isNullOrEmpty()){
-            startActivity(Intent(this, UnsubscribeHomeActivity::class.java))
-            finish()
-        }
+//        if (SavedData.profileData?.subscription_id.isNullOrEmpty()){
+//            startActivity(Intent(this, UnsubscribeHomeActivity::class.java))
+//            finish()
+//        }
 
         //View model initialized
         viewModel = ViewModelProvider(this, ViewModelFactory(RetrofitClient().apiService))[HomeViewModel::class.java]

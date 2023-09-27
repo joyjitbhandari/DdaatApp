@@ -47,16 +47,23 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
 
         val isLogIn = PrefsManager.get().getBoolean(IS_LOG_IN, false)
 
-//        //if log in go to Home
-//        if (isLogIn) {
-//            if (profileData?.subscription_id.isNullOrEmpty()) {
+
+
+        //if log in go to Home Its for testing, i start app from login when i start app from splash,
+        if (isLogIn) {
+            if (profileData?.subscription_id.isNullOrEmpty()) {
+                startActivity(Intent(this, HomeActivity::class.java)) // it will be remove after testing
 //                startActivity(Intent(this, UnsubscribeHomeActivity::class.java))
-//                finish()
-//            } else {
+                finish()
+            } else {
+                startActivity(Intent(this, UnsubscribeHomeActivity::class.java)) // it will be remove after testing
 //                startActivity(Intent(this, HomeActivity::class.java))
-//                finish()
-//            }
-//        }
+                finish()
+            }
+        }
+        // till this will remove
+
+
 
         binding.emailMobCheckbox.setOnCheckedChangeListener { button, isChecked ->
             if (isChecked) {

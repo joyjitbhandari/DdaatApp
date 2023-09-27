@@ -44,10 +44,10 @@ class UnsubscribeHomeActivity : BaseActivity(), View.OnClickListener {
         binding = ActivityUnsubscribeHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        if (!profileData?.subscription_id.isNullOrEmpty()){
-            startActivity(Intent(this, HomeActivity::class.java))
-              finish()
-        }
+//        if (!profileData?.subscription_id.isNullOrEmpty()){
+//            startActivity(Intent(this, HomeActivity::class.java))
+//            finish()
+//        }
 
         //Setting up drawer Menu
         drawerLayout = binding.drawerLayout
