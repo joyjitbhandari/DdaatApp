@@ -22,6 +22,7 @@ import com.example.ddaatapp.databinding.ActivityUnsubscribeHomeBinding
 import com.example.ddaatapp.fragment.*
 import com.example.ddaatapp.model.responseDatamodel.BlogData
 import com.example.ddaatapp.network.RetrofitClient
+import com.example.ddaatapp.subscriptionScreen.HomeActivity
 import com.example.ddaatapp.utils.*
 import com.example.ddaatapp.utils.SavedData.profileData
 import com.example.ddaatapp.viewModel.HomeViewModel
@@ -42,6 +43,11 @@ class UnsubscribeHomeActivity : BaseActivity(), View.OnClickListener {
 
         binding = ActivityUnsubscribeHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        if (!profileData?.subscription_id.isNullOrEmpty()){
+            startActivity(Intent(this, HomeActivity::class.java))
+              finish()
+        }
 
         //Setting up drawer Menu
         drawerLayout = binding.drawerLayout

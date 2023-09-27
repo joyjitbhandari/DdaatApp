@@ -44,19 +44,19 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
         )[LogInViewModel::class.java]
 
         initObserver()
+
         val isLogIn = PrefsManager.get().getBoolean(IS_LOG_IN, false)
 
-        //if log in go to Home
-        if (isLogIn) {
-            if (profileData?.subscription_id.isNullOrEmpty()) {
-                startActivity(Intent(this, UnsubscribeHomeActivity::class.java))
-                finish()
-            } else {
-                startActivity(Intent(this, HomeActivity::class.java))
-                finish()
-            }
-
-        }
+//        //if log in go to Home
+//        if (isLogIn) {
+//            if (profileData?.subscription_id.isNullOrEmpty()) {
+//                startActivity(Intent(this, UnsubscribeHomeActivity::class.java))
+//                finish()
+//            } else {
+//                startActivity(Intent(this, HomeActivity::class.java))
+//                finish()
+//            }
+//        }
 
         binding.emailMobCheckbox.setOnCheckedChangeListener { button, isChecked ->
             if (isChecked) {

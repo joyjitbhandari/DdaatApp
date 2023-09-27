@@ -22,6 +22,7 @@ import com.example.ddaatapp.databinding.ActivityHomeBinding
 import com.example.ddaatapp.fragment.*
 import com.example.ddaatapp.model.responseDatamodel.BlogData
 import com.example.ddaatapp.network.RetrofitClient
+import com.example.ddaatapp.unsubscribeScreen.UnsubscribeHomeActivity
 import com.example.ddaatapp.utils.*
 import com.example.ddaatapp.viewModel.HomeViewModel
 import com.example.ddaatapp.viewModel.ViewModelFactory
@@ -43,6 +44,11 @@ class HomeActivity : BaseActivity(), View.OnClickListener {
 
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        if (SavedData.profileData?.subscription_id.isNullOrEmpty()){
+            startActivity(Intent(this, UnsubscribeHomeActivity::class.java))
+            finish()
+        }
 
         //View model initialized
         viewModel = ViewModelProvider(this, ViewModelFactory(RetrofitClient().apiService))[HomeViewModel::class.java]

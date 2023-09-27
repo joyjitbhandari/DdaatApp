@@ -9,6 +9,7 @@ import com.example.ddaatapp.R
 import com.example.ddaatapp.activity.BaseActivity
 import com.example.ddaatapp.utils.Constants
 import com.example.ddaatapp.unsubscribeScreen.UnsubscribeHomeActivity
+import com.flynaut.healthtag.util.PrefsManager
 
 class ProfileCreatedActivity : BaseActivity() {
 
@@ -20,6 +21,8 @@ class ProfileCreatedActivity : BaseActivity() {
         operationFlow = intent.getStringExtra("operation").toString()
 
         val start = this.findViewById<Button>(R.id.btn_getStart)
+
+        PrefsManager.get().save(PrefsManager.IS_LOG_IN, true)
 
         start.setOnClickListener{
             if(operationFlow == Constants.UNSUBSCRIBE){

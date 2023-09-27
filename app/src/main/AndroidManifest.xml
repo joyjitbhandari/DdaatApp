@@ -166,6 +166,10 @@
             android:exported="false"
             android:windowSoftInputMode="adjustNothing" />
         <activity
+            android:name=".subscriptionScreen.HomeActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustNothing" />
+        <activity
             android:name=".activity.signup.ProfileCreatedActivity"
             android:exported="false" />
         <activity
@@ -193,7 +197,13 @@
             android:name=".activity.forgot.ForgotActivity"
             android:exported="false" />
         <activity
+            android:name=".activity.login.LoginActivity"
+            android:exported="false" />
+        <activity
             android:name=".activity.splash.OnBoardingActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activity.splash.SplashActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -201,16 +211,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".activity.splash.SplashActivity"
-            android:exported="true" />
-        <activity
-            android:name=".activity.login.LoginActivity"
-            android:exported="false" />
-        <activity
-            android:name=".subscriptionScreen.HomeActivity"
-            android:exported="false"
-            android:windowSoftInputMode="adjustNothing" />
     </application>
 
 </manifest>
