@@ -5,7 +5,13 @@ import com.flynaut.healthtag.util.PrefsManager
 import com.google.gson.Gson
 
 object SavedData {
-    val profileData: ProfileData = Gson().fromJson(
+     var profileData: ProfileData = Gson().fromJson(
         PrefsManager.get().getString(PrefsManager.PREF_PROFILE, ""),
         ProfileData::class.java)
+
+    fun loadProfileData(){
+        profileData = Gson().fromJson(
+            PrefsManager.get().getString(PrefsManager.PREF_PROFILE, ""),
+            ProfileData::class.java)
+    }
 }

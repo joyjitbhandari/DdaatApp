@@ -17,6 +17,9 @@ class ProfileViewModel(val apiService: ApiService) : ViewModel() {
     private val _toastMsg: MutableLiveData<Event<String>> = MutableLiveData()
     val toastMsg: LiveData<Event<String>> get() = _toastMsg
 
+    //Get profile
+    private val get_profile_data = MutableLiveData<UpdateProfileResponse>()
+    val getProfileResponse: MutableLiveData<UpdateProfileResponse> = get_profile_data
 
     //Update profile
     private val update_profile_data = MutableLiveData<com.example.ddaatapp.model.responseDatamodel.UpdateProfileResponse?>()
@@ -24,7 +27,21 @@ class ProfileViewModel(val apiService: ApiService) : ViewModel() {
 
 
 
+
     //Update Profile
+    fun getProfile() {
+        viewModelScope.launch {
+            val response = withContext(Dispatchers.IO) {
+                apiService.getProfile()
+            }
+            if (response.isSuccessful) {
+                get_profile_data.value = response.body()
+            } else
+                _toastMsg.postValue(Event(response.message().toString() ?: "Something Went Wrong"))
+
+        }
+    }
+
     fun updateProfile(updateProfileRequest: com.example.ddaatapp.model.requestDatamodel.UpdateProfileRequest) {
         viewModelScope.launch {
             val response = withContext(Dispatchers.IO) {
@@ -34,7 +51,6 @@ class ProfileViewModel(val apiService: ApiService) : ViewModel() {
                 update_profile_data.value = response.body()
             } else
                 _toastMsg.postValue(Event(response.message().toString() ?: "Something Went Wrong"))
-
         }
     }
 

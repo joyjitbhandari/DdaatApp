@@ -21,6 +21,8 @@ import com.example.ddaatapp.databinding.DialogTypeGenderBinding
 import com.example.ddaatapp.model.AvtarListModel
 import com.example.ddaatapp.network.RetrofitClient
 import com.example.ddaatapp.utils.Constants
+import com.example.ddaatapp.utils.SavedData
+import com.example.ddaatapp.utils.SavedData.profileData
 import com.example.ddaatapp.utils.showToast
 import com.example.ddaatapp.viewModel.ProfileViewModel
 import com.example.ddaatapp.viewModel.ViewModelFactory
@@ -43,11 +45,11 @@ class CompleteProfile : BaseActivity(), View.OnClickListener {
 
     @SuppressLint("NotifyDataSetChanged")
     override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
         viewModel = ViewModelProvider(
             this,
             ViewModelFactory(RetrofitClient().apiService)
         )[ProfileViewModel::class.java]
-        super.onCreate(savedInstanceState)
         binding = ActivityCompleteProfileBinding.inflate(layoutInflater)
         setContentView(binding.root)
         initObserver()
@@ -56,6 +58,13 @@ class CompleteProfile : BaseActivity(), View.OnClickListener {
         if (operationFlow == Constants.EDIT) {
             binding.toolTitle.text = "Edit Profile"
             binding.btnNext.text = "Save"
+        //setting predefined data
+            binding.etUserName.setText(profileData.name)
+            binding.etBirthYear.setText(profileData.birth_year)
+            binding.selectGender.text = profileData.gender
+        }else{
+            showProgressDialog()
+            viewModel.getProfile()
         }
 
         avtarList = arrayListOf(
@@ -195,6 +204,15 @@ class CompleteProfile : BaseActivity(), View.OnClickListener {
     }
 
     private fun initObserver() {
+        viewModel.getProfileResponse.observe(this){
+            hideProgressDialog()
+            if(it.success){
+                //setting predefined data
+                binding.etUserName.setText(it.data.name)
+            }else
+                showToast(it.message,Toast.LENGTH_SHORT)
+
+        }
         viewModel.updateProfileResponse.observe(this) {
             hideProgressDialog()
             if(it?.success == true){
@@ -203,6 +221,7 @@ class CompleteProfile : BaseActivity(), View.OnClickListener {
                     PrefsManager.PREF_PROFILE,
                     Gson().toJson(it.data)
                 )
+                SavedData.loadProfileData()
                 when (operationFlow) {
                     Constants.EDIT -> {
                         showToast(it.message)

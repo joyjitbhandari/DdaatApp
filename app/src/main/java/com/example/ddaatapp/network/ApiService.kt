@@ -37,6 +37,9 @@ interface ApiService {
     @POST("changePassword")
     suspend fun changePwd(@Body changePwdRequest:ChangePwdRequest): Response<BaseResponse>
 
+    @POST("get-profile")
+    suspend fun  getProfile(): Response<UpdateProfileResponse>
+
     @POST("update-profile")
     suspend fun  updateProfile(@Body updateProfileRequest: UpdateProfileRequest): Response<UpdateProfileResponse>
 
