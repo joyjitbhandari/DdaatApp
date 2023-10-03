@@ -24,7 +24,7 @@ import com.example.ddaatapp.activity.reviewAndRating.ReviewAndRatingActivity
 import com.example.ddaatapp.activity.subscription.SubscriptionActivity
 import com.example.ddaatapp.activity.superPower.SurveyActivity
 import com.example.ddaatapp.activity.superPower.SurveyResultActivity
-import com.example.ddaatapp.activity.techSupport.TechSupportActivity
+import com.example.ddaatapp.activity.techSupport.FAQActivity
 import com.example.ddaatapp.utils.Utils.isSurveyDone
 import com.flynaut.healthtag.util.PrefsManager
 import com.google.android.material.navigation.NavigationView
@@ -84,7 +84,7 @@ class MyDrawerNavigationItemSelectedListener(var context: Context) :
             }
 
             R.id.drawerTechSupport -> {
-                mContext.startActivity(Intent(context, TechSupportActivity::class.java))
+                mContext.startActivity(Intent(context, FAQActivity::class.java))
                 return true
             }
 

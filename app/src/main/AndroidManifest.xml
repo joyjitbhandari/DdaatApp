@@ -55,7 +55,7 @@
             android:name=".activity.notification.NotificationSettingActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.techSupport.TechSupportActivity"
+            android:name=".activity.techSupport.FAQActivity"
             android:exported="false" />
         <activity
             android:name=".activity.paymentAndBilling.AddNewCardActivity"

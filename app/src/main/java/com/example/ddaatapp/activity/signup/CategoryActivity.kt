@@ -71,7 +71,7 @@ class CategoryActivity :BaseActivity(), View.OnClickListener {
             val list = arrayListOf<String>()
             if (it.success){
                 // setup chips for categories list
-                for (i in it.data.indices){
+                for (i in it.data.indices.reversed()){
                     list.add(it.data[i].name)
                 }
                 setupChip(list)

@@ -55,4 +55,7 @@ interface ApiService {
     @POST("category-list")
     suspend fun getCategory(): Response<CategoryList>
 
+    @POST("faq-list")
+    suspend fun getFaqs(): Response<FaqListResponse>
+
 }

@@ -8,6 +8,7 @@ import android.content.IntentFilter
 import android.net.ConnectivityManager
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.ddaatapp.R
 import com.example.ddaatapp.network.NoInternetActivity
 import com.example.ddaatapp.utils.Utils.shouldCheckConnectivity
@@ -83,6 +84,14 @@ open class BaseActivity : AppCompatActivity() {
     protected fun hideProgressDialog() {
         progressDialog?.dismiss()
         progressDialog = null
+    }
+    protected fun customLayoutManagerWithOutScrolling(): LinearLayoutManager {
+        val customLayoutManager = object : LinearLayoutManager(this) {
+            override fun canScrollVertically(): Boolean {
+                return false
+            }
+        }
+        return customLayoutManager
     }
 
     override fun onStop() {
